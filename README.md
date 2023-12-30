@@ -4,6 +4,8 @@ An alternative view of my public GitHub repositories. Repository previews are ge
 
 The application can be accessed [here](https://main.d2wyze0voo0sc5.amplifyapp.com/)
 
+_This project was originally my portfolio website in 2020. Its source code lived in a separate repository. As my skills and interests have outgrown this rendition, I decided to redo the source code repository and migrate the original version to this repository._
+
 <img src="presentation/thumbnail.png" width="950">
 
 ## Table of contents
