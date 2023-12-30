@@ -2,6 +2,8 @@
 
 An alternative view of my public GitHub repositories. Repository previews are generated dynamically via GitHub API. Word-clouds are used as a filtering interface such that said interface doubles as a filtering mechanism and a metric of technologies and/or competencies demonstrated throughout my GitHub profile.
 
+The application can be accessed [here](https://main.d2wyze0voo0sc5.amplifyapp.com/)
+
 <img src="presentation/thumbnail.png" width="950">
 
 ## Table of contents
