@@ -1,0 +1,141 @@
+.timelineHeader {
+  position: fixed;
+  height: 10%;
+  padding: 5px;
+}
+
+.timelineTitle {
+  font: var(--header-medium);
+  text-align: center;
+  color: aliceblue;
+}
+
+.listIcon svg {
+  color: rgb(255, 255, 255);
+  vertical-align: text-top;
+  height: 2.4em !important;
+  width: 2.4em !important;
+  top: 4px;
+  right: 18px;
+  position: absolute;
+}
+
+.timelineSubtitle {
+  font: var(--body-small);
+  text-align: center;
+  color: aliceblue;
+}
+
+/* ------------------ RULES FOR MODAL ------------------ */
+
+.modal .input-group {
+  flex-direction: column;
+}
+
+.modal .input-group div,
+.modal .input-group button,
+.modal .input-group input {
+  width: 100% !important;
+}
+
+.modal h2 {
+  font: var(--body-large);
+  margin: 5px 0px;
+}
+
+.timeline {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 85%;
+  width: 100%;
+  top: 15%;
+  color: rgb(0, 0, 0);
+  background-color: rgba(240, 248, 255, 0);
+}
+
+/* ------------------- MEDIA QUERIES ------------------- */
+
+@media screen and (min-width: 320px) {
+  .timelineSubtitle {
+    font: var(--body-medium);
+  }
+}
+
+@media screen and (min-width: 481px) and (orientation: portrait) {
+  .timelineTitle {
+    font: var(--header-large);
+  }
+
+  .timelineSubtitle {
+    font: var(--body-large);
+  }
+
+  .listIcon svg {
+    height: 3em !important;
+    width: 3em !important;
+    top: 4%;
+    right: 20%;
+  }
+
+  .timeline {
+    top: 13%;
+  }
+}
+
+@media screen and (min-width: 481px) and (orientation: landscape) {
+  .timelineTitle {
+    font: var(--header-large);
+  }
+
+  .timelineSubtitle {
+    font: var(--body-large);
+  }
+
+  .listIcon svg {
+    height: 3em !important;
+    width: 3em !important;
+    top: 4%;
+    right: 20%;
+  }
+
+  .timeline {
+    top: 29%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .timelineHeader {
+    display: none;
+    position: initial;
+    height: auto;
+    padding: 5px;
+  }
+
+  .listIcon {
+    display: none;
+  }
+
+  .timeline {
+    position: relative;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    top: 0;
+    width: 100%;
+    height: auto;
+    min-height: 450px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ced4da;
+    border-radius: 0.25rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .timeline {
+    min-height: 450px;
+  }
+}

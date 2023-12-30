@@ -1,0 +1,238 @@
+/* ___________________ FONTS ____________________________ */
+
+@font-face {
+  font-family: Raleway-Bold;
+  src: url("./fonts/Raleway/Raleway-Bold.ttf");
+}
+
+@font-face {
+  font-family: Raleway-Medium;
+  src: url("./fonts/Raleway/Raleway-Medium.ttf");
+}
+
+@font-face {
+  font-family: Raleway-Thin;
+  src: url("./fonts/Raleway/Raleway-Thin.ttf");
+}
+
+/* ------------------- VARIABLES ------------------- */
+
+:root {
+  --header-xxl: 4rem Raleway-Bold;
+  --header-xl: 2.8rem Raleway-Bold;
+  --header-large: 2.25rem Raleway-Bold;
+  --header-medium: 1.85rem Raleway-Bold;
+  --header-small: 1.5rem Raleway-Bold;
+  --header-xs: 1.2rem Raleway-Bold;
+
+  --body-xxl: 1.8rem Raleway-Medium;
+  --body-xl: 1.5rem Raleway-Medium;
+  --body-large: 1.23rem Raleway-Medium;
+  --body-medium: 1rem Raleway-Medium;
+  --body-small: 0.9rem Raleway-Medium;
+
+  --accent-medium: 1rem Raleway-Thin;
+  --accent-small: 0.8rem Raleway-Thin;
+
+  --primary-color: #28313b;
+  --overlay-color: #28313b9a;
+}
+
+/* ------------------- GLOBAL ------------------- */
+html,
+body,
+div#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #000000;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* ------------------- FX ------------------- */
+
+.overlay {
+  z-index: -1;
+  top: 0;
+  background-color: var(--overlay-color);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ------------------- APP HEADER ------------------- */
+
+.titleCard {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100vh;
+  width: 100vw;
+  color: aliceblue;
+  visibility: visible;
+  background-color: var(--primary-color);
+  transition: all 2.7s linear;
+  transition-delay: 3s;
+}
+
+.titleCard.transition {
+  left: -115vw;
+  visibility: hidden;
+}
+
+.appTitle {
+  font: var(--header-xs);
+}
+
+.appSubtitle {
+  font: var(--accent-small);
+}
+
+.appSubtitle.loading {
+  animation: blink 1.5s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ------------------- CONTENT ------------------- */
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.timelineContainerHeader {
+  display: none;
+}
+
+.headerIconsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.octocatIcon,
+.linkedInIcon {
+  width: 50px;
+  margin: 0px 6px;
+  transition: transform;
+}
+
+.octocatIcon:hover,
+.linkedInIcon:hover {
+  transform: scale(1.2);
+}
+
+.timelineContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  min-width: 280px;
+}
+
+/* ------------------- MEDIA QUERIES ------------------- */
+
+@media screen and (min-width: 320px) {
+  .appTitle {
+    font: var(--header-small);
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .appTitle {
+    font: var(--header-medium);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .appTitle {
+    font: var(--header-xxl);
+    transition: all 1.2s linear;
+  }
+
+  .appSubtitle {
+    font: var(--accent-medium);
+  }
+
+  main {
+    flex-direction: row;
+  }
+
+  .timelineContainerHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: azure;
+    padding: 0px 20px;
+  }
+
+  .timelineContainerTitle {
+    font: var(--header-xl);
+  }
+
+  .timelineContainerSubtitle {
+    font: var(--body-medium);
+    word-wrap: break-word;
+    width: 170px;
+    margin: 15px 0px;
+  }
+
+  .timelineContainer {
+    justify-content: center;
+    padding: 0px 20px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .timelineContainerHeader {
+    padding-right: 0px;
+  }
+
+  .timelineContainer {
+    height: 80%;
+    width: 83%;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .timelineContainer {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  .timelineContainer {
+    width: 85%;
+  }
+}

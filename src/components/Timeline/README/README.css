@@ -1,0 +1,42 @@
+.readme {
+  z-index: 4;
+  position: fixed;
+  height: 75vh;
+  max-height: 1080px;
+  width: 90vw;
+  max-width: 1080px;
+  overflow-y: auto;
+  border-radius: 4px;
+  font: var(--body-small);
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+.readmeClickAwayArea {
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0000006c;
+  backdrop-filter: (10px);
+}
+
+/* ------------------- MEDIA QUERIES ------------------- */
+
+@media screen and (min-width: 769px) {
+  .readme {
+    height: 70vh;
+    width: 60vw;
+    font: var(--body-medium);
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .readme {
+    height: 70vh;
+    width: 60vw;
+    font: var(--body-large);
+  }
+}
