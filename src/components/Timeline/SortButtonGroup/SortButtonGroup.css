@@ -1,0 +1,13 @@
+.sortButtonGroupContainer {
+  display: none;
+}
+
+/* ------------------- MEDIA QUERIES ------------------- */
+
+@media screen and (min-width: 769px) {
+  .sortButtonGroupContainer {
+    display: initial;
+    font: var(--body-small);
+    margin-top: 10px;
+  }
+}
