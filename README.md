@@ -26,4 +26,20 @@ An alternative view of my public GitHub repositories. Repository previews are ge
 
 ## Desktop
 
+### Home Screen after load
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/1.png" width="500">
+
+### Home Screen when selecting a filter via word-cloud
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/2.png" width="500">
+
 ## Mobile
+
+### Home Screen after load
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/3.png" width="500">
+
+### Home Screen when selecting a filter via dropdown
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/4.png" width="500">
