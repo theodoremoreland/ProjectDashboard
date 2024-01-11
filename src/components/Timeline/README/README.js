@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown/with-html";
 import { useQuery } from "@tanstack/react-query";
 import Alert from "react-bootstrap/Alert";
+import { marked } from "marked";
 
 // Controller
 import { fetchReadme } from "./README.controller";
@@ -51,7 +52,13 @@ export default function README({
             onClose={() => setReadmeIsActive(false)}
             dismissible
           >
-            <ReactMarkdown allowDangerousHtml children={readmeString} />
+            {readmeString ? (
+              <div
+                dangerouslySetInnerHTML={{ __html: marked.parse(readmeString) }}
+              ></div>
+            ) : (
+              "Loading..."
+            )}
           </Alert>
         </>
       ) : (
