@@ -8,7 +8,7 @@
   overflow-y: auto;
   border-radius: 4px;
   font: var(--body-small);
-  color: black;
+  color: var(--primary-color);
   background-color: rgb(255, 255, 255);
 }
 
@@ -21,6 +21,64 @@
   height: 100vh;
   background-color: #0000006c;
   backdrop-filter: (10px);
+}
+
+.readme h1,
+.readme h2,
+.readme h3,
+.readme h4,
+.readme h5,
+.readme h6 {
+  padding: 10px 0;
+  font: var(--heading-medium);
+  color: var(--color-primary);
+}
+
+.readme h1 {
+  font: var(--heading-large);
+}
+
+.readme h2 {
+  font: var(--heading-medium);
+}
+
+.readme h3 {
+  font: var(--heading-small);
+}
+
+.readme p {
+  padding: 7px 0px;
+  font: var(--body-medium);
+  color: var(--color-primary);
+}
+
+.readme a {
+  margin: 0;
+  padding: 0;
+  font: var(--body-small);
+  color: blue;
+}
+
+.readme ul,
+.readme ol {
+  list-style: initial;
+  margin-left: 20px;
+  padding: 5px;
+  font: var(--body-small);
+  color: var(--color-primary);
+}
+
+.readme li {
+  padding: initial;
+  font: var(--body-small);
+  color: var(--color-primary);
+}
+
+.readme pre {
+  padding: 10px;
+  font: var(--body-small);
+  color: rgb(80, 80, 80);
+  background-color: rgb(239, 239, 241);
 }
 
 /* ------------------- MEDIA QUERIES ------------------- */
