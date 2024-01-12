@@ -8,6 +8,9 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import ReactWordcloud from "react-wordcloud";
 
+// Images
+import { ReactComponent as ResetIcon } from "../../../images/reset.svg";
+
 // Custom styles
 import "./Filter.css";
 
@@ -31,14 +34,14 @@ const options = {
   fontFamily: "Raleway-Bold",
 };
 
-export default function Filter({ filterComponentData }) {
-  const {
-    label,
-    wordCloudData,
-    setFiltersCurrentlyInUse,
-    wordCloudsAreOpenObject,
-    setWordCloudsAreOpenObject,
-  } = filterComponentData;
+export default function Filter({
+  label,
+  wordCloudData,
+  filtersCurrentlyInUse,
+  setFiltersCurrentlyInUse,
+  wordCloudsAreOpenObject,
+  setWordCloudsAreOpenObject,
+}) {
   const topicsForLabel = wordCloudData.map((data) => data.text.toLowerCase());
   const userSelectedTopicsForLabelString = [...filtersToAdd]
     .filter((topic) => topicsForLabel.includes(topic.toLowerCase()))
@@ -132,6 +135,19 @@ export default function Filter({ filterComponentData }) {
               options={options}
               callbacks={callbacks}
             />
+            <button
+              className="reset"
+              onClick={() => {
+                wordCloudData.forEach((topic) => {
+                  filtersToAdd.delete(topic.text);
+                });
+
+                setFiltersCurrentlyInUse(new Set([...filtersToAdd]));
+              }}
+            >
+              {" "}
+              <ResetIcon id="reset-icon" /> Reset
+            </button>
           </div>
         </>
       ) : (
