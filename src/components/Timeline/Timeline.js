@@ -141,19 +141,16 @@ export default function Timeline(props) {
           <h2>Filter</h2>
           <div className="modalFiltersContainer">
             {filterLabels.map((label) => {
-              const filterComponentData = {
-                label,
-                wordCloudData: wordCloudData[label.toLowerCase()],
-                filtersCurrentlyInUse,
-                setFiltersCurrentlyInUse,
-                wordCloudsAreOpenObject,
-                setWordCloudsAreOpenObject,
-              };
               return (
                 <div key={`${label.toLowerCase()}FilterColumn`}>
                   <Filter
                     key={`${label.toLowerCase()}Filter`}
-                    filterComponentData={filterComponentData}
+                    label={label}
+                    wordCloudData={wordCloudData[label.toLowerCase()]}
+                    filtersCurrentlyInUse={filtersCurrentlyInUse}
+                    setFiltersCurrentlyInUse={setFiltersCurrentlyInUse}
+                    wordCloudsAreOpenObject={wordCloudsAreOpenObject}
+                    setWordCloudsAreOpenObject={setWordCloudsAreOpenObject}
                   />
                 </div>
               );
