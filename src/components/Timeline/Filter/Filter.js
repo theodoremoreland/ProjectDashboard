@@ -107,6 +107,7 @@ export default function Filter({
         </DropdownButton>
 
         <FormControl
+          title={userSelectedTopicsForLabelString || `Filter not applied`}
           aria-describedby={`${label.toLowerCase()}FormGroup`}
           as="input"
           value={userSelectedTopicsForLabelString || `Filter not applied`}
