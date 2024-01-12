@@ -93,14 +93,6 @@ export default function Timeline(props) {
       </header>
       <div className="filtersContainer">
         {filterLabels.map((label) => {
-          const filterComponentData = {
-            label,
-            wordCloudData: wordCloudData[label.toLowerCase()],
-            filtersCurrentlyInUse,
-            setFiltersCurrentlyInUse,
-            wordCloudsAreOpenObject,
-            setWordCloudsAreOpenObject,
-          };
           return (
             <div
               key={`${label.toLowerCase()}FilterArea`}
@@ -108,7 +100,12 @@ export default function Timeline(props) {
             >
               <Filter
                 key={`${label.toLowerCase()}Filter`}
-                filterComponentData={filterComponentData}
+                label={label}
+                wordCloudData={wordCloudData[label.toLowerCase()]}
+                filtersCurrentlyInUse={filtersCurrentlyInUse}
+                setFiltersCurrentlyInUse={setFiltersCurrentlyInUse}
+                wordCloudsAreOpenObject={wordCloudsAreOpenObject}
+                setWordCloudsAreOpenObject={setWordCloudsAreOpenObject}
               />
             </div>
           );
