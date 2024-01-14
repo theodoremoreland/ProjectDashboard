@@ -23,16 +23,16 @@
   --header-large: 2.25rem Raleway-Bold;
   --header-medium: 1.4rem Raleway-Bold;
   --header-small: 1.2rem Raleway-Bold;
-  --header-xs: 1.1rem Raleway-Bold;
+  --header-xs: 0.85rem Raleway-Bold;
 
   --body-xxl: 1.8rem Raleway-Medium;
   --body-xl: 1.3rem Raleway-Medium;
   --body-large: 1.15rem Raleway-Medium;
   --body-medium: 1rem Raleway-Medium;
-  --body-small: 0.85rem Raleway-Medium;
+  --body-small: 0.8rem Raleway-Medium;
 
-  --accent-medium: 1rem Raleway-Thin;
-  --accent-small: 0.8rem Raleway-Thin;
+  --accent-medium: 0.75rem Raleway-Thin;
+  --accent-small: 0.69rem Raleway-Thin;
 
   --primary-color: #28313b;
   --overlay-color: #28313b9a;
@@ -52,6 +52,27 @@ body {
   background-repeat: repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+body::-webkit-scrollbar,
+ul::-webkit-scrollbar,
+.timeline::-webkit-scrollbar,
+.projectCardBody::-webkit-scrollbar {
+  width: 2px;
+}
+
+body::-webkit-scrollbar-track,
+ul::-webkit-scrollbar-track,
+.timeline::-webkit-scrollbar-track,
+.projectCardBody::-webkit-scrollbar-track {
+  background: var(--primary-color); /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb,
+ul::-webkit-scrollbar-thumb,
+.timeline::-webkit-scrollbar-thumb,
+.projectCardBody::-webkit-scrollbar-thumb {
+  background-color: rgb(190, 190, 190); /* color of the scroll thumb */
 }
 
 /* ------------------- FX ------------------- */
