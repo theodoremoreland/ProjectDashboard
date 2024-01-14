@@ -29,7 +29,7 @@
 
 .projectCardBody {
   z-index: 1;
-  padding: 0.5rem;
+  padding: 0.65rem;
 }
 
 .projectImage,
@@ -58,6 +58,7 @@
 
 .projectDesc {
   overflow-y: auto;
+  margin: 0.35rem 0;
 }
 
 .projectFooter {
