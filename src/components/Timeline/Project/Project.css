@@ -29,6 +29,7 @@
 
 .projectCardBody {
   z-index: 1;
+  padding: 0.5rem;
 }
 
 .projectImage,
@@ -55,10 +56,14 @@
   font: var(--body-small);
 }
 
+.projectDesc {
+  overflow-y: auto;
+}
+
 .projectFooter {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .projectDates,
@@ -102,9 +107,17 @@
     font: var(--header-xs);
   }
 
+  .projectCardBody {
+    overflow-y: auto;
+  }
+
   .projectDesc,
   .demoLinks {
     font: var(--body-small);
+  }
+
+  .projectDesc {
+    font-size: 0.7rem;
   }
 
   .projectDates,
