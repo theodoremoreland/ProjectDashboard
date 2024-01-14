@@ -1,4 +1,5 @@
 .projectCard {
+  position: relative;
   display: flex;
   width: 100%;
   max-width: 768px;
@@ -32,8 +33,8 @@
 
 .projectImage,
 .projectCardOverlay {
-  height: 35vh;
-  min-height: 200px;
+  aspect-ratio: 4/3;
+  width: 100%;
 }
 
 .infoIcon svg {
@@ -71,7 +72,7 @@
 @media screen and (min-width: 481px) {
   .projectImage,
   .projectCardOverlay {
-    height: 320px;
+    /* height: 320px; */
   }
 
   .projectDesc,
@@ -90,12 +91,11 @@
   .projectCard {
     height: 100%;
     min-width: 300px;
-    padding-bottom: 70px;
   }
 
   .projectImage,
   .projectCardOverlay {
-    height: 190px;
+    /* height: 190px; */
   }
 
   .projectCardTitle {
@@ -122,8 +122,6 @@
 
   .projectImage,
   .projectCardOverlay {
-    height: 22vh;
-    max-height: 250px;
   }
 }
 
@@ -134,7 +132,6 @@
 
   .projectImage,
   .projectCardOverlay {
-    height: 20vh;
   }
 }
 

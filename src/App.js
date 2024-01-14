@@ -89,7 +89,7 @@ function App() {
         )}
       </header>
       <main className="content">
-        <header className="timelineContainerHeader">
+        {/* <header className="timelineContainerHeader">
           <h2 className="timelineContainerTitle">Projects</h2>
           <ul>
             <li className="timelineContainerSubtitle">
@@ -124,14 +124,12 @@ function App() {
               <Image className="linkedInIcon" src={linkedInIcon} fluid />
             </a>
           </div>
-        </header>
-        <section className="timelineContainer">
-          {repos !== undefined ? (
-            <Timeline projects={repos} />
-          ) : (
-            <TimelineLoadingScreen />
-          )}
-        </section>
+        </header> */}
+        {repos !== undefined ? (
+          <Timeline projects={repos} />
+        ) : (
+          <TimelineLoadingScreen />
+        )}
       </main>
     </>
   );

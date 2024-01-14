@@ -21,15 +21,15 @@
   --header-xxl: 4rem Raleway-Bold;
   --header-xl: 2.8rem Raleway-Bold;
   --header-large: 2.25rem Raleway-Bold;
-  --header-medium: 1.85rem Raleway-Bold;
-  --header-small: 1.5rem Raleway-Bold;
-  --header-xs: 1.2rem Raleway-Bold;
+  --header-medium: 1.4rem Raleway-Bold;
+  --header-small: 1.2rem Raleway-Bold;
+  --header-xs: 1.1rem Raleway-Bold;
 
   --body-xxl: 1.8rem Raleway-Medium;
-  --body-xl: 1.5rem Raleway-Medium;
-  --body-large: 1.23rem Raleway-Medium;
+  --body-xl: 1.3rem Raleway-Medium;
+  --body-large: 1.15rem Raleway-Medium;
   --body-medium: 1rem Raleway-Medium;
-  --body-small: 0.9rem Raleway-Medium;
+  --body-small: 0.85rem Raleway-Medium;
 
   --accent-medium: 1rem Raleway-Thin;
   --accent-small: 0.8rem Raleway-Thin;
@@ -184,8 +184,10 @@ main {
     font: var(--accent-medium);
   }
 
-  main {
-    flex-direction: row;
+  .content {
+    position: relative;
+    justify-content: center;
+    padding: 20px;
   }
 
   .timelineContainerHeader {
@@ -194,7 +196,6 @@ main {
     justify-content: center;
     align-items: center;
     color: azure;
-    padding: 0px 20px;
   }
 
   .timelineContainerTitle {
