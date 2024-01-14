@@ -72,7 +72,7 @@ body::-webkit-scrollbar-thumb,
 ul::-webkit-scrollbar-thumb,
 .timeline::-webkit-scrollbar-thumb,
 .projectCardBody::-webkit-scrollbar-thumb {
-  background-color: rgb(190, 190, 190); /* color of the scroll thumb */
+  background-color: aliceblue; /* color of the scroll thumb */
 }
 
 /* ------------------- FX ------------------- */
@@ -138,7 +138,66 @@ ul::-webkit-scrollbar-thumb,
 
 /* ------------------- CONTENT ------------------- */
 
-main {
+nav {
+  position: absolute;
+  font: var(--body-small);
+  color: aliceblue;
+  background-color: transparent;
+  width: 100%;
+  padding: 5px 0;
+  overflow: hidden;
+  z-index: 5;
+}
+
+#scroll-text {
+  list-style: none;
+  white-space: nowrap;
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+  }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from {
+    -webkit-transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+/* ------------------- CONTENT ------------------- */
+
+.content {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -162,8 +221,8 @@ main {
 
 .octocatIcon,
 .linkedInIcon {
-  width: 50px;
-  margin: 0px 6px;
+  width: 40px;
+  margin: 0px 3px;
   transition: transform;
 }
 
@@ -208,7 +267,7 @@ main {
   .content {
     position: relative;
     justify-content: center;
-    padding: 20px;
+    padding: 0px 20px;
   }
 
   .timelineContainerHeader {
