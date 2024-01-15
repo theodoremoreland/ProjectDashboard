@@ -83,7 +83,7 @@ export default function Timeline(props) {
   return (
     <>
       <header className="timelineHeader">
-        <h2 className="timelineTitle">Projects</h2>
+        <h2 className="timelineTitle">Project List</h2>
         <span className="listIcon" onClick={() => setModalIsVisible(true)}>
           <BsList size="1.9em" />
         </span>

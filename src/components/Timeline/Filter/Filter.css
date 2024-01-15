@@ -2,6 +2,34 @@
   display: none;
 }
 
+.modal-title {
+  width: 100%;
+  padding-left: 10%;
+}
+
+.modal-content {
+  border-color: rgba(240, 248, 255, 0.325);
+  background-color: #0b0e11;
+}
+
+.modal-content * {
+  color: aliceblue;
+  text-align: center;
+  border-color: rgba(240, 248, 255, 0.134);
+}
+
+.modal-content .dropdown-menu {
+  background-color: #0b0e11;
+}
+
+.modalFiltersContainer .input-group {
+  margin-bottom: 20px;
+}
+
+.modal input.form-control {
+  background-color: #191f26;
+}
+
 .wordCloudCanvas {
   display: none;
 }
