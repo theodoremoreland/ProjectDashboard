@@ -213,26 +213,6 @@ nav {
   display: none;
 }
 
-.headerIconsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-}
-
-.octocatIcon,
-.linkedInIcon {
-  width: 40px;
-  margin: 0px 3px;
-  transition: transform;
-}
-
-.octocatIcon:hover,
-.linkedInIcon:hover {
-  transform: scale(1.2);
-}
-
 .timelineContainer {
   display: flex;
   flex-direction: column;

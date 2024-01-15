@@ -24,12 +24,12 @@
 }
 
 .projectCardTitle {
-  font: var(--header-xs);
+  font: var(--header-small);
 }
 
 .projectCardBody {
   z-index: 1;
-  padding: 0.65rem;
+  padding: 0.8rem;
 }
 
 .projectImage,
@@ -53,7 +53,7 @@
 .projectDesc,
 .demoLinks {
   flex-grow: 1;
-  font: var(--body-small);
+  font: var(--body-medium);
 }
 
 .projectDesc {
@@ -98,6 +98,10 @@
     overflow-y: auto;
   }
 
+  .projectCardTitle {
+    font: var(--header-xs);
+  }
+
   .projectDesc,
   .demoLinks {
     font: var(--body-small);
@@ -124,6 +128,12 @@
 @media screen and (min-width: 1366px) {
   .projectCard {
     min-width: 300px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .projectCard {
+    min-width: 350px;
   }
 
   .projectCardTitle {
