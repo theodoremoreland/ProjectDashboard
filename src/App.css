@@ -31,6 +31,8 @@
   --body-medium: 1rem Raleway-Medium;
   --body-small: 0.8rem Raleway-Medium;
 
+  --accent-xl: 1.2rem Raleway-Thin;
+  --accent-large: 1rem Raleway-Thin;
   --accent-medium: 0.75rem Raleway-Thin;
   --accent-small: 0.69rem Raleway-Thin;
 
@@ -113,11 +115,11 @@ ul::-webkit-scrollbar-thumb,
 }
 
 .appTitle {
-  font: var(--header-xs);
+  font: var(--header-small);
 }
 
 .appSubtitle {
-  font: var(--accent-small);
+  font: var(--accent-medium);
 }
 
 .appSubtitle.loading {
@@ -242,26 +244,24 @@ nav {
 
 /* ------------------- MEDIA QUERIES ------------------- */
 
-@media screen and (min-width: 320px) {
-  .appTitle {
-    font: var(--header-small);
-  }
-}
-
 @media screen and (min-width: 481px) {
   .appTitle {
     font: var(--header-medium);
+  }
+
+  .appSubtitle {
+    font: var(--accent-medium);
   }
 }
 
 @media screen and (min-width: 769px) {
   .appTitle {
-    font: var(--header-xxl);
+    font: var(--header-xl);
     transition: all 1.2s linear;
   }
 
   .appSubtitle {
-    font: var(--accent-medium);
+    font: var(--accent-large);
   }
 
   .content {
