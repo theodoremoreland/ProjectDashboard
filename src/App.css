@@ -59,22 +59,28 @@ body {
 body::-webkit-scrollbar,
 ul::-webkit-scrollbar,
 .timeline::-webkit-scrollbar,
+.projectCardScrollContainer::-webkit-scrollbar,
 .projectCardBody::-webkit-scrollbar {
-  width: 2px;
+  height: 5px;
+  width: 3px;
 }
 
 body::-webkit-scrollbar-track,
 ul::-webkit-scrollbar-track,
 .timeline::-webkit-scrollbar-track,
+.projectCardScrollContainer::-webkit-scrollbar-track,
 .projectCardBody::-webkit-scrollbar-track {
-  background: var(--primary-color); /* color of the tracking area */
+  background: #000000; /* color of the tracking area */
+  border: none;
 }
 
 body::-webkit-scrollbar-thumb,
 ul::-webkit-scrollbar-thumb,
 .timeline::-webkit-scrollbar-thumb,
+.projectCardScrollContainer::-webkit-scrollbar-thumb,
 .projectCardBody::-webkit-scrollbar-thumb {
   background-color: aliceblue; /* color of the scroll thumb */
+  border-radius: 4px;
 }
 
 /* ------------------- FX ------------------- */
