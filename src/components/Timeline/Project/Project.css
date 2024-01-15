@@ -24,7 +24,7 @@
 }
 
 .projectCardTitle {
-  font: var(--header-small);
+  font: var(--header-xs);
 }
 
 .projectCardBody {
@@ -76,11 +76,6 @@
 /* ------------------- MEDIA QUERIES ------------------- */
 
 @media screen and (min-width: 481px) {
-  .projectImage,
-  .projectCardOverlay {
-    /* height: 320px; */
-  }
-
   .projectDesc,
   .demoLinks {
     font: var(--body-large);
@@ -97,15 +92,6 @@
   .projectCard {
     height: 100%;
     min-width: 300px;
-  }
-
-  .projectImage,
-  .projectCardOverlay {
-    /* height: 190px; */
-  }
-
-  .projectCardTitle {
-    font: var(--header-xs);
   }
 
   .projectCardBody {
@@ -133,10 +119,6 @@
     min-width: 250px;
     max-width: 350px;
   }
-
-  .projectImage,
-  .projectCardOverlay {
-  }
 }
 
 @media screen and (min-width: 1366px) {
@@ -144,8 +126,18 @@
     min-width: 300px;
   }
 
-  .projectImage,
-  .projectCardOverlay {
+  .projectCardTitle {
+    font: var(--header-small);
+  }
+
+  .projectDesc,
+  .demoLinks {
+    font: var(--body-medium);
+  }
+
+  .projectDates,
+  .projectSizes {
+    font: var(--accent-medium);
   }
 }
 
