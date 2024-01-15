@@ -1,4 +1,5 @@
 .projectCard {
+  position: relative;
   display: flex;
   width: 100%;
   max-width: 768px;
@@ -23,17 +24,18 @@
 }
 
 .projectCardTitle {
-  font: var(--header-small);
+  font: var(--header-xs);
 }
 
 .projectCardBody {
   z-index: 1;
+  padding: 0.65rem;
 }
 
 .projectImage,
 .projectCardOverlay {
-  height: 35vh;
-  min-height: 200px;
+  aspect-ratio: 4/3;
+  width: 100%;
 }
 
 .infoIcon svg {
@@ -54,10 +56,15 @@
   font: var(--body-small);
 }
 
+.projectDesc {
+  overflow-y: auto;
+  margin: 0.35rem 0;
+}
+
 .projectFooter {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .projectDates,
@@ -69,11 +76,6 @@
 /* ------------------- MEDIA QUERIES ------------------- */
 
 @media screen and (min-width: 481px) {
-  .projectImage,
-  .projectCardOverlay {
-    height: 320px;
-  }
-
   .projectDesc,
   .demoLinks {
     font: var(--body-large);
@@ -90,21 +92,19 @@
   .projectCard {
     height: 100%;
     min-width: 300px;
-    padding-bottom: 70px;
   }
 
-  .projectImage,
-  .projectCardOverlay {
-    height: 190px;
-  }
-
-  .projectCardTitle {
-    font: var(--header-xs);
+  .projectCardBody {
+    overflow-y: auto;
   }
 
   .projectDesc,
   .demoLinks {
     font: var(--body-small);
+  }
+
+  .projectDesc {
+    font-size: 0.7rem;
   }
 
   .projectDates,
@@ -119,12 +119,6 @@
     min-width: 250px;
     max-width: 350px;
   }
-
-  .projectImage,
-  .projectCardOverlay {
-    height: 22vh;
-    max-height: 250px;
-  }
 }
 
 @media screen and (min-width: 1366px) {
@@ -132,9 +126,18 @@
     min-width: 300px;
   }
 
-  .projectImage,
-  .projectCardOverlay {
-    height: 20vh;
+  .projectCardTitle {
+    font: var(--header-small);
+  }
+
+  .projectDesc,
+  .demoLinks {
+    font: var(--body-medium);
+  }
+
+  .projectDates,
+  .projectSizes {
+    font: var(--accent-medium);
   }
 }
 
