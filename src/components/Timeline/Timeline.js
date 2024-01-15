@@ -3,6 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 
 // Bootstrap
 import Modal from "react-bootstrap/Modal";
+import Image from "react-bootstrap/Image";
 
 // Icons
 import { BsList } from "react-icons/bs";
@@ -18,6 +19,9 @@ import {
 import Project from "./Project/Project";
 import Filter from "./Filter/Filter";
 import SortButtonGroup from "./SortButtonGroup/SortButtonGroup";
+
+import octocatIcon from "../../images/Octocat.png";
+import linkedInIcon from "../../images/LI-In-Bug.png";
 
 // Custom styles
 import "./Timeline.css";
@@ -112,9 +116,29 @@ export default function Timeline(props) {
         })}
       </div>
       <div className="timeline">
-        {sortedAndFilteredProjects.map((project) => (
-          <Project key={project.name} projectData={project} />
-        ))}
+        <div className="contact">
+          <a
+            href="https://github.com/theodoremoreland"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="My GitHub Profile"
+          >
+            <Image className="octocatIcon" src={octocatIcon} fluid />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/theodore-moreland/"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="My LinkedIn Profile"
+          >
+            <Image className="linkedInIcon" src={linkedInIcon} fluid />
+          </a>
+        </div>
+        <div className="projectCardScrollContainer">
+          {sortedAndFilteredProjects.map((project) => (
+            <Project key={project.name} projectData={project} />
+          ))}
+        </div>
       </div>
       <div className="sortButtonGroupContainer">
         <SortButtonGroup
