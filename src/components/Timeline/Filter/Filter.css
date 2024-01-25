@@ -1,5 +1,6 @@
 .filtersContainer {
   display: none;
+  z-index: 2;
 }
 
 .modal-title {
