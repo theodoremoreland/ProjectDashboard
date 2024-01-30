@@ -8,8 +8,7 @@
   /* End of attempt to center */
   height: 70vh;
   max-height: 1080px;
-  width: 83vw;
-  max-width: 83vw;
+  width: 85vw;
   overflow-y: auto;
   border-radius: 4px;
   font: var(--body-small);

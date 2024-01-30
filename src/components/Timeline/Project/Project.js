@@ -24,7 +24,7 @@ export default function Project(props) {
   const [readmeIsActive, setReadmeIsActive] = useState(false);
 
   const renderTooltip = (props) => (
-    <Tooltip id="readmeTooltip" {...props}>
+    <Tooltip className="readmeTooltip" {...props}>
       Click to view README.md file
     </Tooltip>
   );

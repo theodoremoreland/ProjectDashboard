@@ -50,6 +50,10 @@
   font-size: larger;
 }
 
+.readmeTooltip {
+  display: none;
+}
+
 .projectDesc,
 .demoLinks {
   flex-grow: 1;
@@ -100,6 +104,10 @@
 
   .projectCardTitle {
     font: var(--header-xs);
+  }
+
+  .readmeTooltip {
+    display: initial;
   }
 
   .projectDesc,
