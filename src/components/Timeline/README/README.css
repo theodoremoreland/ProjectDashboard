@@ -8,8 +8,7 @@
   /* End of attempt to center */
   height: 75vh;
   max-height: 1080px;
-  width: 90vw;
-  max-width: 1080px;
+  width: 83vw;
   overflow-y: auto;
   border-radius: 4px;
   font: var(--body-small);
@@ -101,5 +100,6 @@
     height: 70vh;
     width: 60vw;
     font: var(--body-large);
+    max-width: 1080px;
   }
 }
