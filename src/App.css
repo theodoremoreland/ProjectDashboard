@@ -48,6 +48,10 @@ div#root {
   width: 100%;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #000000;
   background-position: center;
@@ -241,6 +245,10 @@ nav {
 }
 
 @media screen and (min-width: 769px) {
+  html {
+    overflow-x: auto;
+  }
+
   .appTitle {
     font: var(--header-xl);
     transition: all 1.2s linear;
