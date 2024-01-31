@@ -97,23 +97,23 @@ export const defaultOrder = (projects) => {
   if (projects.length === 0) return [];
 
   const featuredProjectNames = [
-    "TypeRace",
-    "WeatherDashboard",
     "BellyButtonBiodiversity",
     "Blogz",
     "Episodic",
     "MovieIon",
     "TopWine",
     "MyMovieList",
+    "TypeRace",
+    "WeatherDashboard",
     "JavaScriptQuiz",
     "HawaiiClimateDataAPI",
+    "EssentialWorkers",
     "PortfolioExample",
     "html-me-something",
-    "PasswordGenerator",
-    "EssentialWorkers",
     "ScrabbleScorer",
-    "CandidateTesting",
+    "NodeJsQuiz",
     "TechJobsPersistent",
+    "PasswordGenerator",
   ];
 
   const reposSortedByFeatured = [
