@@ -50,14 +50,20 @@ div#root {
 
 html {
   overflow-x: hidden;
+  background-color: black;
 }
 
 body {
-  background-color: #000000;
+  /* background-color: #000000;
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background: radial-gradient(
+    circle farthest-corner at top left,
+    #1b2028 3%,
+    #000001 70%
+  );
 }
 
 body::-webkit-scrollbar,
@@ -92,7 +98,7 @@ ul::-webkit-scrollbar-thumb,
 .overlay {
   z-index: -1;
   top: 0;
-  background-color: var(--overlay-color);
+  background-color: #28313b6b;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -114,7 +120,11 @@ ul::-webkit-scrollbar-thumb,
   width: 100vw;
   color: aliceblue;
   visibility: visible;
-  background-color: var(--primary-color);
+  background: radial-gradient(
+    circle farthest-corner at top left,
+    #1b2028 3%,
+    #000001 70%
+  );
   transition: all 2.7s linear;
   transition-delay: 3s;
 }
