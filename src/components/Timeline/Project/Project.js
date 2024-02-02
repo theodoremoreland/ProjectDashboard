@@ -62,18 +62,28 @@ export default function Project(props) {
             </span>
           </Card.Title>
           <Card.Text className="projectDesc">{projectData.desc}</Card.Text>
-          {projectData.demo_link !== "" && projectData.demo_link !== null ? (
+          {projectData.demo_link !== "" &&
+            projectData.demo_link !== null &&
+            projectData.name !== "ProjectList" && (
+              <Card.Link
+                title="Click to view a live demo"
+                className="demoLinks"
+                href={projectData.demo_link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Demo
+              </Card.Link>
+            )}
+          {projectData.name === "ProjectList" && (
             <Card.Link
-              title="Click to view a live demo"
-              className="demoLinks"
-              href={projectData.demo_link}
-              target="_blank"
+              title="You are already viewing this project."
+              className="demoLinks you-are-here"
+              target="#"
               rel="noopener noreferrer"
             >
-              Live Demo
+              You are here
             </Card.Link>
-          ) : (
-            ""
           )}
           <footer className="projectFooter">
             <div className="projectDates">
