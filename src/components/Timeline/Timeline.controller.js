@@ -106,15 +106,15 @@ export const defaultOrder = (projects) => {
     "TypeRace",
     "WeatherDashboard",
     "JavaScriptQuiz",
+    "REDB",
+    "ShelfCheck",
   ].sort(() => Math.random() - 0.5); // Randomize order of first set of featured projects
 
   featuredProjectNames.push(
     "HawaiiClimateDataAPI",
-    "EssentialWorkers",
+    "YelpETL",
+    "STLServiceCalls",
     "PortfolioExample",
-    "html-me-something",
-    "PasswordGenerator",
-    "TechJobsPersistent"
   ); // Add remaining featured projects in exact order
 
   const reposSortedByFeatured = [
