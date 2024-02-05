@@ -12,7 +12,7 @@ _This project was originally my portfolio website in 2020. Its source code lived
 
 - [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
-  - [Desktop](#desktop)
+  - [Desktop](#desktop-ultra-wide)
   - [Mobile](#mobile)
 
 ### Technologies Used
@@ -28,8 +28,46 @@ _This project was originally my portfolio website in 2020. Its source code lived
 
 # Screenshots
 
-## Desktop
+## Desktop (Ultra-wide)
 
-### Home Screen after load
+### Title Card
 
-<img src="presentation/thumbnail.png" width="800">
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/6.png" width="800">
+
+### Default view
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/1.png" width="800">
+
+### View with word-cloud filter open
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/2.png" width="800">
+
+### View with README open
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/3.png" width="800">
+
+### View when mouse hovers over thumbnail
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/4.png" width="800">
+
+### View when after scrolling
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="800">
+
+## Mobile
+
+### View
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="300">
+
+### View after scrolling
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/9.png" width="300">
+
+### View with README open
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/8.png" width="300">
+
+### View with mobile filter open
+
+<img src="http://dj8eg5xs13hf6.cloudfront.net/project-list/10.png" width="300">
