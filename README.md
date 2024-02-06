@@ -50,7 +50,7 @@ _This project was originally my portfolio website in 2020. Its source code lived
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/4.png" width="800">
 
-### View when after scrolling
+### View after scrolling
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="800">
 
