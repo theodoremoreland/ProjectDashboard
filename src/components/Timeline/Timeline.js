@@ -1,5 +1,11 @@
 // React
-import React, { useEffect, useMemo, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+  useRef,
+  useCallback,
+} from "react";
 
 // Bootstrap
 import Modal from "react-bootstrap/Modal";
@@ -67,6 +73,29 @@ export default function Timeline(props) {
     direction: "",
   });
   const [modalIsVisible, setModalIsVisible] = useState();
+  const scrollContainerRef = useRef(); // used to sync horizontal scroll with mouse wheel
+
+  /** Wrapped in useCallback as to enable removing from event listener
+   * when component re-renders and/or unmounts.
+   */
+  const syncScrollWithWheel = useCallback((event) => {
+    const readMe = document.querySelector(".readme");
+    const isMobile = window.innerWidth < 769;
+
+    if (scrollContainerRef.current && !readMe && !isMobile) {
+      scrollContainerRef.current.scrollLeft += event.deltaY;
+    }
+  }, []);
+
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      document.addEventListener("wheel", syncScrollWithWheel);
+    }
+
+    return () => {
+      document.removeEventListener("wheel", syncScrollWithWheel);
+    };
+  }, [scrollContainerRef, syncScrollWithWheel]);
 
   useEffect(() => {
     // filterProjects should use all projects as the argument due to current implementation
@@ -134,7 +163,7 @@ export default function Timeline(props) {
             <Image className="linkedInIcon" src={linkedInIcon} fluid />
           </a>
         </div>
-        <div className="projectCardScrollContainer">
+        <div className="projectCardScrollContainer" ref={scrollContainerRef}>
           {sortedAndFilteredProjects.map((project) => (
             <Project key={project.name} projectData={project} />
           ))}

@@ -114,7 +114,7 @@ export const defaultOrder = (projects) => {
     "HawaiiClimateDataAPI",
     "YelpETL",
     "STLServiceCalls",
-    "PortfolioExample",
+    "PortfolioExample"
   ); // Add remaining featured projects in exact order
 
   const reposSortedByFeatured = [
