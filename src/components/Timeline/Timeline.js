@@ -34,7 +34,7 @@ import "./Timeline.css";
 
 const filterLabels = ["Competencies", "Languages", "Frameworks", "Tools"];
 
-const sortOptions = ["default", "date_created", "date_updated", "size"];
+const sortOptions = ["default", "date_created", "date_updated"];
 
 // Converts appearance of sort option for Front-end
 // Implementation varies by screen size
@@ -42,7 +42,6 @@ const optionTransmuter = {
   default: "Default",
   date_created: "Date Created",
   date_updated: "Date Updated",
-  size: "Cumulative File Size",
 };
 
 const createWordCloudsAreOpenObject = () => {
