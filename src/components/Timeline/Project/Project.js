@@ -1,19 +1,8 @@
 // React
-import React, { useState } from "react";
+import React from "react";
 
 // Bootstrap
 import Card from "react-bootstrap/Card";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-
-// Icons
-import { AiOutlineFileMarkdown } from "react-icons/ai";
-
-// Controller
-import { getLastUpdatedDateInDaysString } from "./Project.controller";
-
-// Custom Components
-import README from "../README/README";
 
 // Custom styles
 import alt from "../../../images/under-construction-thumbnail.jpg";
@@ -21,13 +10,6 @@ import "./Project.css";
 
 export default function Project(props) {
   const { projectData } = props;
-  const [readmeIsActive, setReadmeIsActive] = useState(false);
-
-  const renderTooltip = (props) => (
-    <Tooltip className="readmeTooltip" {...props}>
-      Click to view README.md file
-    </Tooltip>
-  );
 
   return (
     <>
@@ -48,63 +30,7 @@ export default function Project(props) {
             <h3>View on GitHub</h3>
           </Card.ImgOverlay>
         </a>
-        <Card.Body className="projectCardBody">
-          <Card.Title className="projectCardTitle">
-            {projectData.name}
-            <span className="infoIcon" onClick={() => setReadmeIsActive(true)}>
-              <OverlayTrigger
-                placement="right"
-                delay={{ show: 200, hide: 200 }}
-                overlay={renderTooltip}
-              >
-                <AiOutlineFileMarkdown />
-              </OverlayTrigger>
-            </span>
-          </Card.Title>
-          <Card.Text className="projectDesc">{projectData.desc}</Card.Text>
-          {projectData.demo_link !== "" &&
-            projectData.demo_link !== null &&
-            projectData.name !== "ProjectList" && (
-              <Card.Link
-                title="Click to view a live demo"
-                className="demoLinks"
-                href={projectData.demo_link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Live Demo
-              </Card.Link>
-            )}
-          {projectData.name === "ProjectList" && (
-            <Card.Link
-              title="You are already viewing this project."
-              className="demoLinks you-are-here"
-              target="#"
-              rel="noopener noreferrer"
-            >
-              You are here
-            </Card.Link>
-          )}
-          <footer className="projectFooter">
-            <div className="projectDates">
-              Date created:{" "}
-              {`${new Date(projectData.date_created).toLocaleDateString()}`}
-            </div>
-            <div className="projectDates">
-              {getLastUpdatedDateInDaysString(projectData.date_updated)}
-            </div>
-            <div className="projectSizes">
-              {projectData.size.toLocaleString()}kb
-            </div>
-          </footer>
-        </Card.Body>
       </Card>
-      <README
-        name={projectData.name}
-        link={projectData.readme}
-        readmeIsActive={readmeIsActive}
-        setReadmeIsActive={setReadmeIsActive}
-      />
     </>
   );
 }
