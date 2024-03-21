@@ -10,8 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 // Custom Components
-import Timeline from "./components/Timeline/ProjectGrid.js";
-import TimelineLoadingScreen from "./components/Timeline/LoadingScreen/LoadingScreen";
+import ProjectGrid from "./components/ProjectGrid/ProjectGrid.js";
 
 // Custom
 import extractErrorMessage from "./utils/extractErrorMessage.js";
@@ -84,11 +83,7 @@ function App() {
         )}
       </header>
       <main className="content">
-        {repos !== undefined ? (
-          <Timeline projects={repos} />
-        ) : (
-          <TimelineLoadingScreen />
-        )}
+        {repos !== undefined ? <ProjectGrid projects={repos} /> : null}
       </main>
     </>
   );
