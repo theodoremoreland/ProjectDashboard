@@ -10,7 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 // Custom Components
-import Timeline from "./components/Timeline/Timeline";
+import Timeline from "./components/Timeline/ProjectGrid.js";
 import TimelineLoadingScreen from "./components/Timeline/LoadingScreen/LoadingScreen";
 
 // Custom

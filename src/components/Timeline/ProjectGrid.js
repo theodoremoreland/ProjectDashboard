@@ -4,12 +4,12 @@ import React, { useMemo } from "react";
 // Custom Components
 import Project from "./Project/Project";
 
-import { defaultOrder } from "./Timeline.controller";
+import { defaultOrder } from "./ProjectGrid.controller";
 
 // Custom styles
-import "./Timeline.css";
+import "./ProjectGrid.css";
 
-export default function Timeline(props) {
+export default function ProjectGrid(props) {
   const { projects } = props;
 
   const orderedProjects = useMemo(() => defaultOrder(projects), [projects]);
