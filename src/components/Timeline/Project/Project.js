@@ -25,11 +25,9 @@ export default function Project(props) {
             }
           }}
         />
-        <a href={projectData.url} target="_blank" rel="noopener noreferrer">
-          <Card.ImgOverlay className="projectCardOverlay">
-            <h3>View on GitHub</h3>
-          </Card.ImgOverlay>
-        </a>
+        <Card.ImgOverlay className="projectCardOverlay">
+          <h3>Learn more</h3>
+        </Card.ImgOverlay>
       </Card>
     </>
   );
