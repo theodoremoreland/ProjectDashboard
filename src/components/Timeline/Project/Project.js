@@ -4,13 +4,13 @@ import React from "react";
 // Bootstrap
 import Card from "react-bootstrap/Card";
 
-// Custom styles
+// Images
 import alt from "../../../images/under-construction-thumbnail.jpg";
+
+// Custom styles
 import "./Project.css";
 
-export default function Project(props) {
-  const { projectData } = props;
-
+export default function Project({ projectData }) {
   return (
     <Card className="projectCard">
       <Card.Img
