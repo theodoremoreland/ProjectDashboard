@@ -1,4 +1,5 @@
 #header {
+  grid-area: header;
   position: relative;
   display: flex;
   flex-direction: row;
