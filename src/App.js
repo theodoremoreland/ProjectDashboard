@@ -1,53 +1,31 @@
 // React
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useContext } from "react";
 
-// Controller
-import { getRepoData } from "./App.controller.js";
-
-// Third party
-import { useQuery } from "@tanstack/react-query";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+
+// Context
+import { ProjectsContext } from "./contexts/ProjectsContext";
 
 // Custom Components
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import Header from "./components/Header/Header.jsx";
 import ProjectGrid from "./components/ProjectGrid/ProjectGrid.jsx";
 
-// Custom
-import extractErrorMessage from "./utils/extractErrorMessage.js";
-import backupData from "./data/backup-data.json";
-
 // Custom Styles
 import "./reset.css";
 import "./App.css";
 
 function App() {
-  const [repos, setRepos] = useState(undefined);
+  const { repos, isError } = useContext(ProjectsContext);
   const [showErrorModal, setShowErrorModal] = useState(false);
 
   const handleCloseErrorModal = useCallback(() => setShowErrorModal(false), []);
   const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
 
-  const { data, isError } = useQuery({
-    queryKey: ["repos"],
-    queryFn: getRepoData,
-    onError: (err) => console.error(extractErrorMessage(err)),
-    cacheTime: 300_000,
-    staleTime: 240_000,
-    retry: false,
-  });
-
-  useEffect(() => {
-    if (data) {
-      setRepos(data);
-    }
-  }, [data]);
-
   useEffect(() => {
     if (isError) {
       handleShowErrorModal();
-      setRepos(backupData);
     }
   }, [isError, handleShowErrorModal]);
 
