@@ -86,8 +86,10 @@ function App() {
       </header>
       <main className="content">
         <Sidebar />
-        <Header />
-        {repos !== undefined ? <ProjectGrid projects={repos} /> : null}
+        <div>
+          <Header />
+          {repos !== undefined ? <ProjectGrid projects={repos} /> : null}
+        </div>
       </main>
     </>
   );
