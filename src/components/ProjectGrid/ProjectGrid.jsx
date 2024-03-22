@@ -9,9 +9,7 @@ import { defaultOrder } from "./ProjectGrid.controller";
 // Custom styles
 import "./ProjectGrid.css";
 
-export default function ProjectGrid(props) {
-  const { projects } = props;
-
+const ProjectGrid = ({ projects }) => {
   const orderedProjects = useMemo(() => defaultOrder(projects), [projects]);
 
   return (
@@ -22,4 +20,6 @@ export default function ProjectGrid(props) {
         })}
     </section>
   );
-}
+};
+
+export default ProjectGrid;
