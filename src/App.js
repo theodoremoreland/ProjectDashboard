@@ -11,6 +11,7 @@ import Button from "react-bootstrap/Button";
 
 // Custom Components
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
+import Header from "./components/Header/Header.jsx";
 import ProjectGrid from "./components/ProjectGrid/ProjectGrid.jsx";
 
 // Custom
@@ -85,6 +86,7 @@ function App() {
       </header>
       <main className="content">
         <Sidebar />
+        <Header />
         {repos !== undefined ? <ProjectGrid projects={repos} /> : null}
       </main>
     </>
