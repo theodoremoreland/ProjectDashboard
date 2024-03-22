@@ -10,7 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 // Custom Components
-import TechList from "./components/TechList/TechList.jsx";
+import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import ProjectGrid from "./components/ProjectGrid/ProjectGrid.js";
 
 // Custom
@@ -84,7 +84,7 @@ function App() {
         )}
       </header>
       <main className="content">
-        <TechList />
+        <Sidebar />
         {repos !== undefined ? <ProjectGrid projects={repos} /> : null}
       </main>
     </>

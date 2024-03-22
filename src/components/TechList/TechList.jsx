@@ -1,6 +1,13 @@
 import React from 'react';
 
-const TechList = () => {};
+// Styles
+import './TechList.css';
+
+const TechList = () => {
+    return (
+        <ul id="tech-list"></ul>
+    )
+};
 
 
 export default TechList;
