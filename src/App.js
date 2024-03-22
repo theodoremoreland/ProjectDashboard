@@ -11,7 +11,7 @@ import Button from "react-bootstrap/Button";
 
 // Custom Components
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
-import ProjectGrid from "./components/ProjectGrid/ProjectGrid.js";
+import ProjectGrid from "./components/ProjectGrid/ProjectGrid.jsx";
 
 // Custom
 import extractErrorMessage from "./utils/extractErrorMessage.js";

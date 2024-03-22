@@ -1,9 +1,12 @@
 #sidebar {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
+  width: 10em;
+  height: 100%;
   margin: 0;
   padding: 0;
   color: white;

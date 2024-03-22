@@ -10,7 +10,8 @@ import alt from "../../../images/under-construction-thumbnail.jpg";
 // Custom styles
 import "./Project.css";
 
-export default function Project({ projectData }) {
+// TODO: Hover effect slides up the overlay to reveal the title, whether live demo is available, and tech icons.
+const Project = ({ projectData }) => {
   return (
     <Card className="projectCard">
       <Card.Img
@@ -29,4 +30,6 @@ export default function Project({ projectData }) {
       </Card.ImgOverlay>
     </Card>
   );
-}
+};
+
+export default Project;
