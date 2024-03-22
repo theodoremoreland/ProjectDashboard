@@ -35,3 +35,35 @@ const tools = {
   mongodb: "MongoDB",
   matplotlib: "Matplotlib",
 };
+
+/**
+ *
+ * @param {*} repos
+ * @returns {Object} topicCounts
+ */
+export const getTopicCounts = (repos) => {
+  const topicCounts = {
+    frameworks: {},
+    competencies: {},
+    languages: {},
+    tools: {},
+  };
+
+  for (const repo of repos) {
+    for (const topic of repo.topics) {
+      if (frameworks[topic]) {
+        topicCounts.frameworks[topic] =
+          (topicCounts.frameworks[topic] || 0) + 1;
+      } else if (competencies[topic]) {
+        topicCounts.competencies[topic] =
+          (topicCounts.competencies[topic] || 0) + 1;
+      } else if (languages[topic]) {
+        topicCounts.languages[topic] = (topicCounts.languages[topic] || 0) + 1;
+      } else if (tools[topic]) {
+        topicCounts.tools[topic] = (topicCounts.tools[topic] || 0) + 1;
+      }
+    }
+  }
+
+  return topicCounts;
+};
