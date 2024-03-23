@@ -9,10 +9,10 @@ const frameworks = {
   unittest: "unittest",
 };
 const competencies = {
-  "web-development": "web-development",
-  "mobile-development": "mobile-development",
-  "data-engineering": "data-engineering",
-  "data-analytics": "data-analytics",
+  "web-development": "Web development",
+  "mobile-development": "Mobile development",
+  "data-engineering": "Data engineering",
+  "data-analytics": "Data analytics",
 };
 const languages = {
   python: "Python",
@@ -52,15 +52,17 @@ export const getTopicCounts = (repos) => {
   for (const repo of repos) {
     for (const topic of repo.topics) {
       if (frameworks[topic]) {
-        topicCounts.frameworks[topic] =
-          (topicCounts.frameworks[topic] || 0) + 1;
+        topicCounts.frameworks[frameworks[topic]] =
+          (topicCounts.frameworks[frameworks[topic]] || 0) + 1;
       } else if (competencies[topic]) {
-        topicCounts.competencies[topic] =
-          (topicCounts.competencies[topic] || 0) + 1;
+        topicCounts.competencies[competencies[topic]] =
+          (topicCounts.competencies[competencies[topic]] || 0) + 1;
       } else if (languages[topic]) {
-        topicCounts.languages[topic] = (topicCounts.languages[topic] || 0) + 1;
+        topicCounts.languages[languages[topic]] =
+          (topicCounts.languages[languages[topic]] || 0) + 1;
       } else if (tools[topic]) {
-        topicCounts.tools[topic] = (topicCounts.tools[topic] || 0) + 1;
+        topicCounts.tools[tools[topic]] =
+          (topicCounts.tools[tools[topic]] || 0) + 1;
       }
     }
   }
