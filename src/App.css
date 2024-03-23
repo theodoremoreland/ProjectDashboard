@@ -1,41 +1,23 @@
 /* ___________________ FONTS ____________________________ */
 
 @font-face {
-  font-family: Raleway-Bold;
+  font-family: custom-bold;
   src: url("./fonts/Raleway/Raleway-Bold.ttf");
 }
 
 @font-face {
-  font-family: Raleway-Medium;
+  font-family: custom-regular;
   src: url("./fonts/Raleway/Raleway-Medium.ttf");
 }
 
 @font-face {
-  font-family: Raleway-Thin;
+  font-family: custom-thin;
   src: url("./fonts/Raleway/Raleway-Thin.ttf");
 }
 
 /* ------------------- VARIABLES ------------------- */
 
 :root {
-  --header-xxl: 4rem Raleway-Bold;
-  --header-xl: 2.8rem Raleway-Bold;
-  --header-large: 2.25rem Raleway-Bold;
-  --header-medium: 1.4rem Raleway-Bold;
-  --header-small: 1.13rem Raleway-Bold;
-  --header-xs: 0.85rem Raleway-Bold;
-
-  --body-xxl: 1.8rem Raleway-Medium;
-  --body-xl: 1.3rem Raleway-Medium;
-  --body-large: 1.15rem Raleway-Medium;
-  --body-medium: 0.9rem Raleway-Medium;
-  --body-small: 0.8rem Raleway-Medium;
-
-  --accent-xl: 1.2rem Raleway-Thin;
-  --accent-large: 1rem Raleway-Thin;
-  --accent-medium: 0.75rem Raleway-Thin;
-  --accent-small: 0.69rem Raleway-Thin;
-
   --primary-color: #28313b;
   --overlay-color: #28313b9a;
 }
@@ -51,7 +33,7 @@ div#root {
 
 html {
   overflow-x: hidden;
-  font-family: Raleway-Medium;
+  font-family: custom-regular;
   background-color: black;
 }
 

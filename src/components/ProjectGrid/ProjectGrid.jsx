@@ -15,8 +15,8 @@ const ProjectGrid = ({ projects }) => {
   return (
     <section id="project-grid">
       {orderedProjects &&
-        orderedProjects.map((project, index) => {
-          return <Project key={index} projectData={project} />;
+        orderedProjects.map((project) => {
+          return <Project key={project.name} projectData={project} />;
         })}
     </section>
   );

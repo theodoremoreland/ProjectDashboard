@@ -9,5 +9,14 @@
   margin: 0;
   padding: 0;
   color: white;
-  background-color: blue;
+  background: radial-gradient(
+    circle farthest-corner at top right,
+    #1b2028 3%,
+    #000001 70%
+  );
+}
+
+#header > h1 {
+  font-size: 2em;
+  font-family: custom-bold;
 }
