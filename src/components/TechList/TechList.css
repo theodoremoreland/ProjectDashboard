@@ -12,9 +12,10 @@
 }
 
 #tech-list > p {
-  margin: 20px 0;
-  color: aqua;
-  text-decoration: underline;
+  margin: 15px 0;
+  color: rgb(65, 146, 253);
+  border-bottom: 1px solid rgb(65, 146, 253);
+  padding-bottom: 5px;
 }
 
 #tech-list > li {
