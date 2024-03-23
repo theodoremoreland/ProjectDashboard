@@ -13,9 +13,9 @@ import "./Project.css";
 // TODO: Hover effect slides up the overlay to reveal the title, whether live demo is available, and tech icons.
 const Project = ({ projectData }) => {
   return (
-    <Card className="projectCard">
+    <Card className="project-card">
       <Card.Img
-        className="projectImage"
+        className="project-image"
         variant="top"
         src={projectData.image}
         alt={""}
@@ -25,9 +25,11 @@ const Project = ({ projectData }) => {
           }
         }}
       />
-      <Card.ImgOverlay className="projectCardOverlay">
-        <h3>Learn more</h3>
-      </Card.ImgOverlay>
+      <Card.Body className="project-card-body">
+        <Card.Title className="project-card-title">
+          {projectData.name}
+        </Card.Title>
+      </Card.Body>
     </Card>
   );
 };

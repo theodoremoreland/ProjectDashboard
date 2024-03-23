@@ -9,7 +9,7 @@ import { ProjectsContext } from "./contexts/ProjectsContext";
 
 // Custom Components
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
-import Header from "./components/Header/Header.jsx";
+import NavBar from "./components/NavBar/NavBar.jsx";
 import ProjectGrid from "./components/ProjectGrid/ProjectGrid.jsx";
 
 // Custom Styles
@@ -62,10 +62,10 @@ function App() {
           <p className="appSubtitle loading">Loading projects from GitHub...</p>
         )}
       </header>
-      <main className="content">
-        <Sidebar />
-        <div>
-          <Header />
+      <main>
+        <NavBar />
+        <div id="content">
+          <Sidebar />
           {repos !== undefined ? <ProjectGrid projects={repos} /> : null}
         </div>
       </main>
