@@ -51,7 +51,6 @@ function App() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <div className="overlay" />
       <header className={`titleCard ${repos ? "transition" : ""}`}>
         <h1 className={`appTitle ${repos ? "transition" : ""}`}>
           Project List
