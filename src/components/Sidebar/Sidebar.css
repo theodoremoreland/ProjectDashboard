@@ -7,11 +7,28 @@
   width: 14em;
   height: 100%;
   margin: 0;
-  padding: 0 1.5em;
+  padding: 1em 1.5em;
   color: white;
   background: radial-gradient(
     circle farthest-corner at top left,
     #1b2028 3%,
     #000001 70%
   );
+}
+
+p#live-demos {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+p#live-demos #circle {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-left: 0.5em;
+  border-radius: 50%;
+  background-color: rgb(241, 3, 3);
 }
