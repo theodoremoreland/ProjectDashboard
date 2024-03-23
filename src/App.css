@@ -125,31 +125,29 @@ ul::-webkit-scrollbar-thumb,
 }
 
 .appTitle {
-  font: var(--header-small);
+  font-size: 1.13rem;
+  font-family: custom-bold;
 }
 
 .appSubtitle {
-  font: var(--accent-medium);
+  font-size: 0.75rem;
+  font-family: custom-thin;
 }
 
 @media screen and (min-width: 481px) {
   .appTitle {
-    font: var(--header-medium);
-  }
-
-  .appSubtitle {
-    font: var(--accent-medium);
+    font-size: 1.4rem;
   }
 }
 
 @media screen and (min-width: 769px) {
   .appTitle {
-    font: var(--header-xl);
+    font-size: 2.8rem;
     transition: all 1.2s linear;
   }
 
   .appSubtitle {
-    font: var(--accent-large);
+    font-size: 1rem;
   }
 }
 
