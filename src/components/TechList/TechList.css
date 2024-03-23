@@ -12,7 +12,8 @@
 }
 
 #tech-list > p {
-  margin: 1em 0;
+  margin: 20px 0;
+  color: aqua;
   text-decoration: underline;
 }
 
