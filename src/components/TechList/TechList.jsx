@@ -22,13 +22,13 @@ const TechList = () => {
     return (
         <ul id="tech-list">
             <p>Languages</p>
-            {topicsCount && Object.entries(topicsCount.languages).map(([k, v]) => <li>{k}: {v}</li>)}
+            {topicsCount && Object.entries(topicsCount.languages).sort(([k1, v1], [k2, v2]) => v2 - v1).map(([k, v]) => <li>{k}: {v}</li>)}
             <p>Frameworks</p>
-            {topicsCount && Object.entries(topicsCount.frameworks).map(([k, v]) => <li>{k}: {v}</li>)}
+            {topicsCount && Object.entries(topicsCount.frameworks).sort(([k1, v1], [k2, v2]) => v2 - v1).map(([k, v]) => <li>{k}: {v}</li>)}
             <p>Competencies</p>
-            {topicsCount && Object.entries(topicsCount.competencies).map(([k, v]) => <li>{k}: {v}</li>)}
+            {topicsCount && Object.entries(topicsCount.competencies).sort(([k1, v1], [k2, v2]) => v2 - v1).map(([k, v]) => <li>{k}: {v}</li>)}
             <p>Tools</p>
-            {topicsCount && Object.entries(topicsCount.tools).map(([k, v]) => <li>{k}: {v}</li>)}
+            {topicsCount && Object.entries(topicsCount.tools).sort(([k1, v1], [k2, v2]) => v2 - v1).map(([k, v]) => <li>{k}: {v}</li>)}
         </ul>
     )
 };
