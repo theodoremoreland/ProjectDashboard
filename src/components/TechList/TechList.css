@@ -4,6 +4,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;

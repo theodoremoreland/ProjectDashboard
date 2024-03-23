@@ -1,14 +1,14 @@
 :root {
-  --navbar-height: 7em;
+  --navbar-height: 5em;
   --navbar-vertical-padding: 1em;
-  --navbar-horizontal-padding: 0;
+  --navbar-horizontal-padding: 1.5em;
 }
 
 #app-nav {
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   height: var(--navbar-height);
@@ -16,13 +16,26 @@
   padding: var(--navbar-vertical-padding) var(--navbar-horizontal-padding);
   color: white;
   background: radial-gradient(
-    circle farthest-corner at top right,
+    circle farthest-corner at top left,
     #1b2028 3%,
     #000001 70%
   );
 }
 
+#app-nav::after {
+  z-index: 1;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.28) 0px 4px 6px -2px;
+}
+
 #app-nav > h1 {
   font-size: 2em;
   font-family: custom-bold;
+  letter-spacing: 1px;
 }
