@@ -4,10 +4,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 10em;
+  width: 12em;
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0 1em;
   color: white;
   background-color: red;
 }
