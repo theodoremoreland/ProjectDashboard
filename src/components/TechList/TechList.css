@@ -20,24 +20,26 @@
   width: 100%;
   cursor: pointer;
   padding: 0.35em;
-  text-shadow: 0 1px 1px #951111, 0px 2px 1px #ae1b1b, 0px 2px 1px #bb1212;
 }
 
 #tech-list > p#live-demos .count {
+  color: red;
   text-shadow: none;
 }
 
 #tech-list .tech-category {
-  margin: 15px 0;
-  color: black;
   width: 100%;
+  margin: 15px 0 0 0;
+  padding: 0.5em 0.3em;
+  color: black;
+  font-family: custom-bold;
   background-color: rgb(201, 201, 201);
-  padding: 0.3em;
 }
 
 #tech-list > li {
-  margin: 0.35em 0;
-  padding: 0 0.3em;
+  width: 100%;
+  margin: 0;
+  padding: 0.5em 0.3em;
   cursor: pointer;
 }
 
@@ -49,6 +51,6 @@
 }
 
 #tech-list .count {
-  color: rgb(3, 241, 43);
+  color: white;
   margin: 0 0.5em;
 }
