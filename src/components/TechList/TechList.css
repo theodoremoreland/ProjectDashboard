@@ -18,6 +18,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  cursor: pointer;
 }
 
 #tech-list > p#live-demos #circle {
@@ -32,7 +33,8 @@
 #tech-list .tech-category {
   margin: 15px 0;
   color: rgb(65, 146, 253);
-  border-bottom: 1px solid rgb(65, 146, 253);
+  text-shadow: 0 2px 2px #145aff, -2px 5px 1px rgb(16, 86, 194);
+  font-style: oblique;
   padding-bottom: 5px;
 }
 
