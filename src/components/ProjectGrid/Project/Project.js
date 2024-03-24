@@ -25,11 +25,9 @@ const Project = ({ projectData }) => {
           }
         }}
       />
-      <Card.Body className="project-card-body">
-        <Card.Title className="project-card-title">
-          {projectData.name}
-        </Card.Title>
-      </Card.Body>
+      <div className="project-overlay">
+        <h2 className="project-name">{projectData.name}</h2>
+      </div>
     </Card>
   );
 };
