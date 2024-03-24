@@ -6,7 +6,7 @@
   flex-grow: 1;
   gap: 10px;
   padding: 10px;
-  background-color: white;
+  background-color: #333;
 }
 
 #project-grid-overlay {

@@ -13,7 +13,7 @@
 }
 
 #tech-list > p#live-demos {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -31,15 +31,16 @@
   width: 100%;
   margin: 15px 0 0 0;
   padding: 0.5em 0.3em;
-  color: black;
+  color: white;
   font-family: custom-bold;
-  background-color: rgb(201, 201, 201);
+  border-bottom: 1px solid #333;
 }
 
 #tech-list > li {
   width: 100%;
   margin: 0;
   padding: 0.5em 0.3em;
+  font-size: 0.9em;
   cursor: pointer;
 }
 
