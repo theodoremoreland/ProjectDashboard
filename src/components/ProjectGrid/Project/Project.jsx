@@ -26,7 +26,7 @@ const Project = ({ projectData }) => {
         }}
       />
       <div className="project-overlay">
-        <h2 className="project-name">{projectData.name}</h2>
+        
       </div>
     </Card>
   );
