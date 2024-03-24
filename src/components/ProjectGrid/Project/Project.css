@@ -10,7 +10,7 @@
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 1px solid var(--border-color);
   border-radius: 0 !important;
-  color: rgb(224, 224, 224);
+  color: var(--primary-font-color);
 }
 
 .project-overlay {
@@ -24,7 +24,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  color: white;
+  color: var(--primary-font-color);
   overflow-x: hidden;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }

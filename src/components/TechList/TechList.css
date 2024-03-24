@@ -31,7 +31,7 @@
   width: 100%;
   margin: 15px 0 0 0;
   padding: 0.5em 0.3em;
-  color: white;
+  color: var(--primary-font-color);
   font-family: custom-bold;
   border-bottom: 1px solid #333;
 }
@@ -52,6 +52,6 @@
 }
 
 #tech-list .count {
-  color: white;
+  color: var(--primary-font-color);
   margin: 0 0.5em;
 }
