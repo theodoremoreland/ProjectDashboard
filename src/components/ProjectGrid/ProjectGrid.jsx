@@ -18,6 +18,7 @@ const ProjectGrid = ({ projects }) => {
         orderedProjects.map((project) => {
           return <Project key={project.name} projectData={project} />;
         })}
+        <div id="project-grid-overlay"></div>
     </section>
   );
 };

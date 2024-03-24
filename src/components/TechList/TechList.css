@@ -12,7 +12,24 @@
   overflow-x: hidden;
 }
 
-#tech-list > p {
+#tech-list > p#live-demos {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+#tech-list > p#live-demos #circle {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin: 0 0.5em;
+  border-radius: 50%;
+  background-color: rgb(241, 3, 3);
+}
+
+#tech-list .tech-category {
   margin: 15px 0;
   color: rgb(65, 146, 253);
   border-bottom: 1px solid rgb(65, 146, 253);
@@ -24,7 +41,10 @@
   cursor: pointer;
 }
 
-#tech-list > li:hover {
+#tech-list > li:hover,
+#tech-list > li.active,
+#tech-list > p#live-demos:hover,
+#tech-list > p#live-demos.active {
   opacity: 0.7;
 }
 
