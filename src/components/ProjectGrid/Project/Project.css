@@ -44,18 +44,28 @@
     rgba(255, 255, 255, 0.3) 100%
   );
   transform: skew(-25deg);
-  -webkit-animation: shine 1.5s infinite;
-  animation: shine 1.5s infinite;
-  animation-delay: 3s;
-  animation-timing-function: cubic-bezier(0.14, 0.75, 0.2, 1.01);
+  -webkit-animation: shine 6s infinite;
+  animation: shine 6s infinite;
 }
 
 @-webkit-keyframes shine {
+  0%,
+  40% {
+    left: -125%;
+  }
+
+  60%,
   100% {
     left: 125%;
   }
 }
 @keyframes shine {
+  0%,
+  40% {
+    left: -125%;
+  }
+
+  60%,
   100% {
     left: 125%;
   }
