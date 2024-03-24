@@ -20,16 +20,11 @@
   width: 100%;
   cursor: pointer;
   padding: 0.35em;
-  letter-spacing: 1px;
+  text-shadow: 0 1px 1px #951111, 0px 2px 1px #ae1b1b, 0px 2px 1px #bb1212;
 }
 
-#tech-list > p#live-demos #circle {
-  display: inline-block;
-  width: 0.5em;
-  height: 0.5em;
-  margin: 0 0.5em;
-  border-radius: 50%;
-  background-color: rgb(241, 3, 3);
+#tech-list > p#live-demos .count {
+  text-shadow: none;
 }
 
 #tech-list .tech-category {
