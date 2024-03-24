@@ -19,6 +19,8 @@
   align-items: center;
   width: 100%;
   cursor: pointer;
+  padding: 0.35em;
+  letter-spacing: 1px;
 }
 
 #tech-list > p#live-demos #circle {
@@ -32,14 +34,15 @@
 
 #tech-list .tech-category {
   margin: 15px 0;
-  color: rgb(65, 146, 253);
-  text-shadow: 0 2px 2px #145aff, -2px 5px 1px rgb(16, 86, 194);
-  font-style: oblique;
-  padding-bottom: 5px;
+  color: black;
+  width: 100%;
+  background-color: rgb(201, 201, 201);
+  padding: 0.3em;
 }
 
 #tech-list > li {
   margin: 0.35em 0;
+  padding: 0 0.3em;
   cursor: pointer;
 }
 
@@ -52,4 +55,5 @@
 
 #tech-list .count {
   color: rgb(3, 241, 43);
+  margin: 0 0.5em;
 }
