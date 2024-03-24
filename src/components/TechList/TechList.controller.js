@@ -21,7 +21,6 @@ const languages = {
   java: "Java",
   typescript: "TypeScript",
   sql: "SQL",
-  plpgsql: "PL/pgSQL",
   vba: "VBA",
   bash: "Bash",
   html: "HTML",
