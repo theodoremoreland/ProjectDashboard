@@ -15,7 +15,7 @@
   margin: 0;
   padding: var(--navbar-vertical-padding) var(--navbar-horizontal-padding);
   border-bottom: 2px solid var(--border-color);
-  color: white;
+  color: var(--primary-font-color);
   background: radial-gradient(
     circle farthest-corner at top left,
     #1b2028 3%,

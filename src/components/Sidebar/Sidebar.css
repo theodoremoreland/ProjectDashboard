@@ -9,7 +9,7 @@
   margin: 0;
   padding: 1em 1.5em;
   border-right: 2px outset var(--border-color);
-  color: white;
+  color: var(--primary-font-color);
   background: radial-gradient(
     circle farthest-corner at top left,
     #1b2028 3%,

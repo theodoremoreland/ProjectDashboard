@@ -20,6 +20,8 @@
 :root {
   --primary-color: #28313b;
   --overlay-color: #28313b9a;
+  --primary-font-color: #fafafa;
+  --secondary-font-color: #333;
   --border-color: #f5f5f536;
 }
 
