@@ -17,7 +17,6 @@
   background: linear-gradient(
     180deg,
     rgba(2, 0, 36, 0) 80%,
-    rgb(0, 28, 110) 99%
+    rgba(0, 0, 0, 0.418) 99%
   );
-  mix-blend-mode: soft-light;
 }

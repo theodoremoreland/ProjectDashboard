@@ -23,6 +23,7 @@
   height: 100%;
   color: white;
   overflow-x: hidden;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .project-overlay::after {
@@ -30,7 +31,7 @@
   position: absolute;
   content: "";
   top: 0;
-  left: 0;
+  left: -125%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,6 +44,19 @@
     rgba(255, 255, 255, 0.3) 100%
   );
   transform: skew(-25deg);
+  -webkit-animation: shine 3s infinite;
+  animation: shine 3s infinite;
+}
+
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
 }
 
 .project-name {

@@ -2,7 +2,7 @@
 import React, { useMemo } from "react";
 
 // Custom Components
-import Project from "./Project/Project";
+import Project from "./Project/Project.jsx";
 
 import { defaultOrder } from "./ProjectGrid.controller";
 
