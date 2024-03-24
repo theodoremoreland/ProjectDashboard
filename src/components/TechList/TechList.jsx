@@ -21,7 +21,7 @@ const TechList = () => {
 
     return (
         <ul id="tech-list">
-            <p id="live-demos">Live Demos: <span id="circle"></span> <span className='count'>{getLiveDemosCount(repos)}</span></p>
+            <p id="live-demos">Live Demos: <span className='count'>{getLiveDemosCount(repos)}</span><span id="circle"></span></p>
             <p className='tech-category'>Competencies</p>
             {topicsCount && Object.entries(topicsCount.competencies).sort(([k1, v1], [k2, v2]) => v2 - v1).map(([k, v]) => <li key={k}>{k}: <span className='count'>{v}</span></li>)}
             <p className='tech-category'>Languages</p>
