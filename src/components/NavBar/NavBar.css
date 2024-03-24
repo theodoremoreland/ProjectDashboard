@@ -1,7 +1,7 @@
 :root {
   --navbar-height: 5em;
   --navbar-vertical-padding: 1em;
-  --navbar-horizontal-padding: 1.5em;
+  --navbar-horizontal-padding: 15px;
 }
 
 #app-nav {
