@@ -109,10 +109,13 @@ ul::-webkit-scrollbar-thumb {
 .appTitle {
   font-size: 1.13rem;
   font-family: custom-bold;
+  font-style: oblique;
+  letter-spacing: -1px;
 }
 
 .appSubtitle {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
+  font-style: oblique;
   font-family: custom-thin;
 }
 
@@ -129,7 +132,7 @@ ul::-webkit-scrollbar-thumb {
   }
 
   .appSubtitle {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
