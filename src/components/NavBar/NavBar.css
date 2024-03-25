@@ -39,7 +39,7 @@
 #app-nav > h1 {
   font-size: 2em;
   font-family: custom-bold;
-  letter-spacing: 1px;
+  letter-spacing: -1px;
 }
 
 #app-nav > ul {
