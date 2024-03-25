@@ -24,7 +24,6 @@ const languages = {
   vba: "VBA",
   bash: "Bash",
   html: "HTML",
-  css: "CSS",
 };
 const tools = {
   node: "Node",
