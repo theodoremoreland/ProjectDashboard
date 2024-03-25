@@ -14,7 +14,6 @@ const NavBar = () => {
     return (
         <nav id="app-nav">
             <h1>Project List</h1>
-
             <input type="text" id="search" placeholder="Search..." />
             <ul>
                 <li>
