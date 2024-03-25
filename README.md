@@ -1,3 +1,37 @@
+Analytics
+
+- Totals (KPI)
+
+  - Total stars received
+  - Total repo size (MB)
+  - Total commits
+  - Total deployments
+
+- Breakdown by context (donut / pie)
+
+  - Coursework / Exercise
+  - Personal
+  - Professional
+
+- Breakdown by coursework (donut / pie)
+
+  - Wash U Data
+  - LaunchCode Lc101
+  - SMU Full Stack Flex
+  - Lindenwood University
+  - Other
+
+- Date breakdowns (scatter plot)
+
+  - Creation
+  - Last modified
+
+- Technology breakdown (Word cloud)
+  - Competency
+  - Languages
+  - Frameworks
+  - Tools
+
 # Project List
 
 An alternative view of my public GitHub repositories. Repository previews are generated dynamically via GitHub API. Word-clouds are used as a filtering interface such that said interface doubles as a filtering mechanism and a metric of technologies and/or competencies demonstrated throughout my GitHub profile.
