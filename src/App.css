@@ -2,17 +2,17 @@
 
 @font-face {
   font-family: custom-bold;
-  src: url("./fonts/Raleway/Raleway-Bold.ttf");
+  src: url("./fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf");
 }
 
 @font-face {
   font-family: custom-regular;
-  src: url("./fonts/Raleway/Raleway-Medium.ttf");
+  src: url("./fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf");
 }
 
 @font-face {
   font-family: custom-thin;
-  src: url("./fonts/Raleway/Raleway-Thin.ttf");
+  src: url("./fonts/IBM_Plex_Sans/IBMPlexSans-Thin.ttf");
 }
 
 /* ------------------- VARIABLES ------------------- */
