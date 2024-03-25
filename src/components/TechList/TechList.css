@@ -33,6 +33,7 @@
   padding: 0.5em 0.3em;
   color: var(--primary-font-color);
   font-family: custom-bold;
+  font-size: 1.1em;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -40,7 +41,6 @@
   width: 100%;
   margin: 0;
   padding: 0.5em 0.3em;
-  font-size: 0.9em;
   cursor: pointer;
 }
 
