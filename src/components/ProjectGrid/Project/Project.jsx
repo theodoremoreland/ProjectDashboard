@@ -25,8 +25,27 @@ const Project = ({ projectData }) => {
           }
         }}
       />
-      <div className="project-overlay">
-        
+      <div className="project-overlay"> 
+        <div className="row">
+          <ul>
+            {projectData.demo_link && 
+              <li>
+                <a href={projectData.demo_link} target="_blank" rel="noreferrer">
+                  Live Demo
+                </a>
+              </li>
+            }
+            <li onClick={() => {}}>
+              Learn More
+            </li>
+          </ul>
+        </div>
+        <div className="row">
+          <h2 className="project-name">{projectData.name}</h2>
+        </div>
+        <div className="row">
+          <ul className="language-icons"></ul>
+        </div>
       </div>
     </Card>
   );
