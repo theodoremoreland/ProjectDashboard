@@ -76,9 +76,14 @@
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0.3) 100%
   );
+  transition: opacity 0.5s;
   transform: skew(-25deg);
   -webkit-animation: shine 6s infinite;
   animation: shine 6s infinite;
+}
+
+.project-overlay:hover::after {
+  opacity: 0;
 }
 
 @-webkit-keyframes shine {
