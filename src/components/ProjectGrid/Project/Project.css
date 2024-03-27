@@ -34,7 +34,7 @@
   width: 100%;
   height: 100%;
   color: var(--primary-font-color);
-  background-color: #1b2028;
+  background-color: #1b2028e8;
   transition: 0.5s;
 
   > .row {
@@ -50,7 +50,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
   }
 }
@@ -107,7 +107,42 @@
 .project-name {
   font-family: custom-bold;
   font-style: oblique;
+  font-size: 1.35em;
   padding: 1em;
+}
+
+.live-demo-link {
+  opacity: 1;
+  color: #df0000;
+}
+
+.live-demo-link:hover {
+  color: #ff0000;
+}
+
+.circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #df0000;
+  border-radius: 50%;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
 }
 
 .project-image {

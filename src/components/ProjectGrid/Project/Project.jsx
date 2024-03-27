@@ -31,8 +31,14 @@ const Project = ({ projectData }) => {
             <ul>
               {projectData.demo_link && 
                 <li>
-                  <a href={projectData.demo_link} target="_blank" rel="noreferrer">
-                    Live Demo
+                  <a
+                    href={projectData.demo_link} 
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Click to view a live demo."
+                    className="live-demo-link"
+                  >
+                    Live Demo{" "}<span className="circle"></span>
                   </a>
                 </li>
               }
