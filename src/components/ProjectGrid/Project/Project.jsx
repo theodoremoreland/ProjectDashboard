@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 
 // Images
 import alt from "../../../images/under-construction-thumbnail.jpg";
-import htmlIcon from "../../../images/languages/html.png";
+import htmlIcon from "../../../images/languages/html.png"; // TODO replace with image without background
 import javascriptIcon from "../../../images/languages/javascript.png";
 import typescriptIcon from "../../../images/languages/typescript.png";
 import pythonIcon from "../../../images/languages/python.png";
