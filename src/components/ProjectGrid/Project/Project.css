@@ -117,12 +117,27 @@
 }
 
 .live-demo-link {
-  opacity: 1;
   color: #df0000;
+  text-decoration: underline;
 }
 
 .live-demo-link:hover {
-  color: #ff0000;
+  color: #df0000;
+}
+
+.learn-more {
+  cursor: pointer;
+  color: rgb(4, 184, 255);
+  text-decoration: underline;
+}
+
+.live-demo-link:hover,
+.learn-more:hover,
+.live-demo-link:focus,
+.learn-more:focus,
+.live-demo-link:active,
+.learn-more:active {
+  opacity: 0.5;
 }
 
 .circle {

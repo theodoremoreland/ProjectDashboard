@@ -35,14 +35,18 @@ const Project = ({ projectData }) => {
                     href={projectData.demo_link} 
                     target="_blank"
                     rel="noreferrer"
-                    title="Click to view a live demo."
+                    title={`Click to view a live demo of the ${projectData.name} project.`}
                     className="live-demo-link"
                   >
                     Live Demo{" "}<span className="circle"></span>
                   </a>
                 </li>
               }
-              <li onClick={() => {}}>
+              <li 
+                onClick={() => {}}
+                className="learn-more"
+                title={`Click to learn more about the ${projectData.name} project.`}
+              >
                 Learn More
               </li>
             </ul>
