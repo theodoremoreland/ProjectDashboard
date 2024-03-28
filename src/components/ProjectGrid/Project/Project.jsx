@@ -12,6 +12,7 @@ import typescriptIcon from "../../../images/languages/typescript.png";
 import pythonIcon from "../../../images/languages/python.png";
 import javaIcon from "../../../images/languages/java.png";
 import vbaIcon from "../../../images/languages/vba.png";
+import sqlIcon from "../../../images/languages/sql.png";
 
 // Custom styles
 import "./Project.css";
@@ -30,6 +31,8 @@ const renderLanguageIcon = (topic) => {
       return <li><img src={javaIcon} alt="Java" className="language-icon" /></li>;
     case "vba":
       return <li key={topic}><img src={vbaIcon} alt="VBA" className="language-icon" /></li>;
+    case "sql":
+      return <li key={topic}><img src={sqlIcon} alt="SQL" className="language-icon" /></li>;
     default:
       return null;
   }
