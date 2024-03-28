@@ -6,11 +6,35 @@ import Card from "react-bootstrap/Card";
 
 // Images
 import alt from "../../../images/under-construction-thumbnail.jpg";
+import htmlIcon from "../../../images/languages/html.png";
+import javascriptIcon from "../../../images/languages/javascript.png";
+import typescriptIcon from "../../../images/languages/typescript.png";
+import pythonIcon from "../../../images/languages/python.png";
+import javaIcon from "../../../images/languages/java.png";
+import vbaIcon from "../../../images/languages/vba.png";
 
 // Custom styles
 import "./Project.css";
 
-// TODO: Hover effect slides up the overlay to reveal the title, whether live demo is available, and tech icons.
+const renderLanguageIcon = (topic) => {
+  switch (topic) {
+    case "html":
+      return <li><img src={htmlIcon} alt="HTML" className="language-icon" /></li>;
+    case "javascript":
+      return <li><img src={javascriptIcon} alt="JavaScript" className="language-icon" /></li>;
+    case "typescript":
+      return <li><img src={typescriptIcon} alt="TypeScript" className="language-icon" /></li>;
+    case "python":
+      return <li><img src={pythonIcon} alt="Python" className="language-icon" /></li>;
+    case "java":
+      return <li><img src={javaIcon} alt="Java" className="language-icon" /></li>;
+    case "vba":
+      return <li key={topic}><img src={vbaIcon} alt="VBA" className="language-icon" /></li>;
+    default:
+      return null;
+  }
+};
+
 const Project = ({ projectData }) => {
   return (
     <Card className="project-card">
@@ -27,7 +51,7 @@ const Project = ({ projectData }) => {
       />
       <div className="project-overlay"> 
         <div id="content">
-        <div className="row">
+          <div className="row">
             <h2 className="project-name">{projectData.name}</h2>
           </div>
           <div className="row">
@@ -55,7 +79,9 @@ const Project = ({ projectData }) => {
             </ul>
           </div>
           <div className="row">
-            <ul className="language-icons"></ul>
+            <ul className="language-icons">
+              {projectData.topics.map(topic => renderLanguageIcon(topic))}
+            </ul>
           </div>
         </div>
       </div>
