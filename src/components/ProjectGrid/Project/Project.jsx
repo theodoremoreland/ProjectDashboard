@@ -27,6 +27,9 @@ const Project = ({ projectData }) => {
       />
       <div className="project-overlay"> 
         <div id="content">
+        <div className="row">
+            <h2 className="project-name">{projectData.name}</h2>
+          </div>
           <div className="row">
             <ul>
               {projectData.demo_link && 
@@ -50,9 +53,6 @@ const Project = ({ projectData }) => {
                 Learn More
               </li>
             </ul>
-          </div>
-          <div className="row">
-            <h2 className="project-name">{projectData.name}</h2>
           </div>
           <div className="row">
             <ul className="language-icons"></ul>
