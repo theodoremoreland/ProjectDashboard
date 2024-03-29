@@ -12,6 +12,11 @@
   padding: 2.5em;
   color: var(--primary-font-color);
   background-color: #1b2028;
+  background: radial-gradient(
+    circle farthest-corner at top left,
+    #1b2028 3%,
+    #000001 100%
+  );
   transition: 0.5s;
   overflow-y: auto;
 }
