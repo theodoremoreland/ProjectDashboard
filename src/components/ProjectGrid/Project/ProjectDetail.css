@@ -19,4 +19,18 @@
   );
   transition: 0.5s;
   overflow-y: auto;
+
+  > h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+    width: 100%;
+    max-width: 75ch;
+  }
+
+  > p {
+    font-size: 1rem;
+    margin-bottom: 1em;
+    width: 100%;
+    max-width: 75ch;
+  }
 }
