@@ -9,25 +9,33 @@
 .readme h5,
 .readme h6 {
   padding: 10px 0;
-  font: var(--heading-medium);
   color: var(--color-primary);
 }
 
 .readme h1 {
-  font: var(--heading-large);
+  font-size: 2rem;
+  border-bottom: 1px solid var(--color-primary);
+  padding: 10px 0;
+  margin: 10px 0;
 }
 
 .readme h2 {
-  font: var(--heading-medium);
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--color-primary);
+  padding: 10px 0;
+  margin: 10px 0;
 }
 
 .readme h3 {
-  font: var(--heading-small);
+  font-size: 1.25rem;
+  border-bottom: 1px solid var(--color-primary);
+  padding: 10px 0;
+  margin: 10px 0;
 }
 
 .readme p {
   padding: 7px 0px;
-  font: var(--body-medium);
+  font-size: 1rem;
   color: var(--color-primary);
 }
 
