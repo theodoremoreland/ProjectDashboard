@@ -50,7 +50,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     width: 100%;
   }
 }
@@ -118,17 +118,17 @@
 
 .live-demo-link {
   color: #df0000;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .live-demo-link:hover {
   color: #df0000;
+  text-decoration: none;
 }
 
 .learn-more {
   cursor: pointer;
   color: rgb(4, 184, 255);
-  text-decoration: underline;
 }
 
 .live-demo-link:hover,
@@ -146,6 +146,7 @@
   height: 10px;
   background-color: #df0000;
   border-radius: 50%;
+  margin-left: 2px;
   animation: pulsate 1s ease-out;
   animation-iteration-count: infinite;
   opacity: 0;
@@ -175,7 +176,7 @@
 }
 
 .language-icon {
-  height: 1em;
+  height: 1.2em;
 }
 
 .project-image {

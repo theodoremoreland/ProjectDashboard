@@ -9,34 +9,24 @@
 .readme h5,
 .readme h6 {
   padding: 10px 0;
-  color: var(--color-primary);
 }
 
 .readme h1 {
   font-size: 2rem;
-  border-bottom: 1px solid var(--color-primary);
-  padding: 10px 0;
-  margin: 10px 0;
+  border-bottom: 1px solid var(--primary-font-color);
 }
 
 .readme h2 {
   font-size: 1.5rem;
-  border-bottom: 1px solid var(--color-primary);
-  padding: 10px 0;
-  margin: 10px 0;
 }
 
 .readme h3 {
   font-size: 1.25rem;
-  border-bottom: 1px solid var(--color-primary);
-  padding: 10px 0;
-  margin: 10px 0;
 }
 
 .readme p {
   padding: 7px 0px;
   font-size: 1rem;
-  color: var(--color-primary);
 }
 
 .readme a {
@@ -52,13 +42,11 @@
   margin-left: 20px;
   padding: 5px;
   font: var(--body-small);
-  color: var(--color-primary);
 }
 
 .readme li {
   padding: initial;
   font: var(--body-small);
-  color: var(--color-primary);
 }
 
 .readme pre {
