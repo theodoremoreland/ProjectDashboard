@@ -50,7 +50,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     width: 100%;
   }
 }
@@ -112,7 +112,7 @@
 .project-name {
   font-family: custom-bold;
   font-style: oblique;
-  font-size: 1.35em;
+  font-size: 1.38em;
   padding: 1em;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .language-icon {
-  height: 1.2em;
+  height: 1.1em;
 }
 
 .project-image {
