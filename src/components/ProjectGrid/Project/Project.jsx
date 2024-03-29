@@ -1,5 +1,5 @@
 // React
-import React from "react";
+import React, { useState } from "react";
 
 // Bootstrap
 import Card from "react-bootstrap/Card";
@@ -16,6 +16,8 @@ import sqlIcon from "../../../images/languages/sql.png";
 
 // Custom styles
 import "./Project.css";
+import ProjectDetail from "./ProjectDetail";
+
 
 const renderLanguageIcon = (topic) => {
   const titleTemplate = "This project uses ";
@@ -41,7 +43,10 @@ const renderLanguageIcon = (topic) => {
 };
 
 const Project = ({ projectData }) => {
+  const [shouldShowDetail, setShouldShowDetail] = useState(false);
+
   return (
+    <>
     <Card className="project-card">
       <Card.Img
         className="project-image"
@@ -75,7 +80,8 @@ const Project = ({ projectData }) => {
                 </li>
               }
               <li 
-                onClick={() => {}}
+                onClick={() => setShouldShowDetail(true)}
+                role="presentation"
                 className="learn-more"
                 title={`Click to learn more about the ${projectData.name} project.`}
               >
@@ -91,6 +97,8 @@ const Project = ({ projectData }) => {
         </div>
       </div>
     </Card>
+    { shouldShowDetail && <ProjectDetail projectData={projectData} /> }
+    </>
   );
 };
 

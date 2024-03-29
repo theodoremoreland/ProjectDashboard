@@ -4,21 +4,15 @@ import React, { useEffect, useState } from "react";
 // Third party
 import ReactMarkdown from "react-markdown/with-html";
 import { useQuery } from "@tanstack/react-query";
-import Alert from "react-bootstrap/Alert";
 
 // Controller
 import { fetchReadme } from "./README.controller";
-import extractErrorMessage from "../../../utils/extractErrorMessage";
+import extractErrorMessage from "../../utils/extractErrorMessage";
 
 // Custom Styles
 import "./README.css";
 
-export default function README({
-  name,
-  link,
-  readmeIsActive,
-  setReadmeIsActive,
-}) {
+const README = ({ name, link }) => {
   const [readmeString, setReadmeString] = useState(undefined);
 
   const { data } = useQuery({
@@ -37,26 +31,12 @@ export default function README({
   }, [data]);
 
   return (
-    <>
-      {readmeIsActive ? (
-        <>
-          {/* The div: "clickAwayArea" is used to mimic clickAway event such that the readme closes
-                        when the user clicks something other than the readme itself. */}
-          <div
-            className="readmeClickAwayArea"
-            onClick={() => setReadmeIsActive(false)}
-          />
-          <Alert
-            className="readme"
-            onClose={() => setReadmeIsActive(false)}
-            dismissible
-          >
-            <ReactMarkdown allowDangerousHtml children={readmeString} />
-          </Alert>
-        </>
-      ) : (
-        ""
-      )}
-    </>
+    <ReactMarkdown
+      className="readme"
+      allowDangerousHtml
+      children={readmeString}
+    />
   );
-}
+};
+
+export default README;

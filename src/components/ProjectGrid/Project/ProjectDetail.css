@@ -1,0 +1,17 @@
+.project-detail {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 2.5em;
+  color: var(--primary-font-color);
+  background-color: #1b2028;
+  transition: 0.5s;
+  overflow-y: auto;
+}
