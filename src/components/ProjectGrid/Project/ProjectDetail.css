@@ -9,7 +9,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  padding: 2.5em;
+  padding: 0;
   color: var(--primary-font-color);
   background-color: #1b2028;
   background: radial-gradient(
@@ -19,18 +19,26 @@
   );
   transition: 0.5s;
   overflow-y: auto;
+  overflow-x: hidden;
 
-  > h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1em;
-    width: 100%;
-    max-width: 75ch;
+  .project-detail__image {
+    width: 100vw;
+    height: 100%;
+    object-fit: fill;
+    opacity: 0.5;
   }
 
-  > p {
-    font-size: 1rem;
-    margin-bottom: 1em;
+  .project-detail__title {
+    font-size: 7vw;
+    font-family: custom-bold;
+    font-style: oblique;
+  }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
-    max-width: 75ch;
+    flex-grow: 1;
   }
 }
