@@ -35,6 +35,9 @@
 
     .x {
       cursor: pointer;
+      border: none;
+      color: var(--primary-font-color);
+      background-color: transparent;
     }
 
     .x:hover,
