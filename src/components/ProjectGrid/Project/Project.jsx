@@ -4,9 +4,12 @@ import React, { useState } from "react";
 // Bootstrap
 import Card from "react-bootstrap/Card";
 
+// Custom components
+import ProjectDetail from "./ProjectDetail";
+
 // Images
 import alt from "../../../images/under-construction-thumbnail.jpg";
-import htmlIcon from "../../../images/languages/html.png"; // TODO replace with image without background
+import htmlIcon from "../../../images/languages/html.png";
 import javascriptIcon from "../../../images/languages/javascript.png";
 import typescriptIcon from "../../../images/languages/typescript.png";
 import pythonIcon from "../../../images/languages/python.png";
@@ -16,7 +19,6 @@ import sqlIcon from "../../../images/languages/sql.png";
 
 // Custom styles
 import "./Project.css";
-import ProjectDetail from "./ProjectDetail";
 
 
 const renderLanguageIcon = (topic) => {
@@ -97,7 +99,7 @@ const Project = ({ projectData }) => {
         </div>
       </div>
     </Card>
-    { shouldShowDetail && <ProjectDetail projectData={projectData} /> }
+    { shouldShowDetail && <ProjectDetail projectData={projectData} handleClose={() => setShouldShowDetail(false)} /> }
     </>
   );
 };
