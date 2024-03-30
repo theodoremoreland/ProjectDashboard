@@ -44,7 +44,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
             </article>
             <footer className="project-detail__footer">
                 <ul className="topics" title="GitHub topic associated with this project.">
-                    { projectData.topics.map((topic) => <li key={topic}>{topic}</li>) }
+                    { projectData.topics.map((topic) => <li key={topic} className="topic">{topic}</li>) }
                 </ul>
             </footer>
         </div>
