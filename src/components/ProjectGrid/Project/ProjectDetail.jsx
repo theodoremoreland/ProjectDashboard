@@ -20,17 +20,30 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                     <h1 className="project-detail__title">{projectData.name}</h1>
                     <p className="project-detail__description">{projectData.desc}</p>
                     <ul className="links">
+                        {projectData.demo_link && 
+                            <li>
+                                <a
+                                    href={projectData.demo_link} 
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    title={`Click to view a live demo of the ${projectData.name} project.`}
+                                    className="live-demo-link"
+                                >
+                                    Live Demo{" "}<span className="circle"></span>
+                                </a>
+                            </li>
+                        }
                         <li>
                             <a href={projectData.url} target="_blank" rel="noreferrer">Source code</a>
                         </li>
                         <li>
-                            <a href={projectData.url} target="_blank" rel="noreferrer">README</a>
+                            Preview README
                         </li>
                     </ul>
                 </div>
             </article>
             <footer className="project-detail__footer">
-                <ul>
+                <ul className="topics" title="GitHub topic associated with this project.">
                     { projectData.topics.map((topic) => <li key={topic}>{topic}</li>) }
                 </ul>
             </footer>
