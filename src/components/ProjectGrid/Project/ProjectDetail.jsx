@@ -10,7 +10,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
     return (
         <div className="project-detail">
             <header>
-                <button type="button" className="x" onClick={handleClose}>x</button>
+                <button type="button" title="Close" className="x" onClick={handleClose}>x</button>
             </header>
             <article>
                 <div>
@@ -19,11 +19,13 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                 <div>
                     <h1 className="project-detail__title">{projectData.name}</h1>
                     <p className="project-detail__description">{projectData.desc}</p>
-                    <ul className="dates">
-                        <li>Date created: {projectData.date_created}</li>
-                        <li>Last modified: {projectData.date_updated}</li>
-                        <li><a href={projectData.url} target="_blank" rel="noreferrer">Source code</a></li>
-                        <li><a href={projectData.url} target="_blank" rel="noreferrer">README</a></li>
+                    <ul className="links">
+                        <li>
+                            <a href={projectData.url} target="_blank" rel="noreferrer">Source code</a>
+                        </li>
+                        <li>
+                            <a href={projectData.url} target="_blank" rel="noreferrer">README</a>
+                        </li>
                     </ul>
                 </div>
             </article>
