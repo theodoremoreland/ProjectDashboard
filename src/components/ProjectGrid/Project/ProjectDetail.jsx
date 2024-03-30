@@ -6,11 +6,11 @@ import README from "../../README/README";
 // Custom styles
 import "./ProjectDetail.css";
 
-const ProjectDetail = ({ projectData }) => {
+const ProjectDetail = ({ projectData, handleClose }) => {
     return (
         <div className="project-detail">
             <header>
-                <span>X</span>
+                <span className="x"  onClick={handleClose}>X</span>
             </header>
             <article>
                 <div>
@@ -19,13 +19,11 @@ const ProjectDetail = ({ projectData }) => {
                 <div>
                     <h1 className="project-detail__title">{projectData.name}</h1>
                     <p className="project-detail__description">{projectData.desc}</p>
-                    <ul>
+                    <ul className="dates">
                         <li>Date created: {projectData.date_created}</li>
-                        <li>Date updated: {projectData.date_updated}</li>
-                    </ul>
-                    <ul>
-                        <li>Source code</li>
-                        <li>README</li>
+                        <li>Last modified: {projectData.date_updated}</li>
+                        <li><a href={projectData.url} target="_blank" rel="noreferrer">Source code</a></li>
+                        <li><a href={projectData.url} target="_blank" rel="noreferrer">README</a></li>
                     </ul>
                 </div>
             </article>

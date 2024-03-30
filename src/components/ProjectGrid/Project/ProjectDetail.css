@@ -32,6 +32,10 @@
     font-size: 1.3em;
     font-style: custom-bold;
     color: var(--primary-font-color);
+
+    .x {
+      cursor: pointer;
+    }
   }
 
   article {
@@ -65,11 +69,12 @@
 
     h1,
     p {
-      margin: 10px 0;
+      margin: 8px 0;
       text-align: left;
     }
 
     h1 {
+      margin-left: -5px;
       font-size: 3.5vw;
       font-family: custom-bold;
       font-style: oblique;
@@ -80,6 +85,16 @@
       font-size: 1em;
       width: 80%;
       max-width: 75ch;
+    }
+
+    .dates,
+    .links {
+      display: none;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 15px;
+      width: 100%;
     }
   }
 
