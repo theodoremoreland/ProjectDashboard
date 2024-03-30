@@ -10,7 +10,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
     return (
         <div className="project-detail">
             <header>
-                <span className="x"  onClick={handleClose}>X</span>
+                <span className="x" onClick={handleClose}>x</span>
             </header>
             <article>
                 <div>
