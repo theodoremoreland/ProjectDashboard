@@ -19,7 +19,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                 <div>
                     <h1 className="project-detail__title">{projectData.name}</h1>
                     <p className="project-detail__description">{projectData.desc}</p>
-                    <table className="dates">
+                    <table className="metadata">
                         <tbody>
                             <tr>
                                 <td>Created</td>
