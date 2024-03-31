@@ -29,8 +29,6 @@
     width: 100%;
     padding: 0.3em 1.5em;
     margin: 0;
-    font-size: 1.3em;
-    font-style: custom-bold;
     color: var(--primary-font-color);
 
     .x {
@@ -39,6 +37,8 @@
       border: none;
       margin: 0;
       color: var(--primary-font-color);
+      font-style: custom-bold;
+      font-size: 1.3em;
       background-color: transparent;
     }
 
@@ -89,7 +89,7 @@
     }
 
     h1 {
-      margin-left: -5px;
+      margin-left: -3px;
       font-size: 3.5vw;
       font-family: custom-bold;
       font-style: oblique;
@@ -100,6 +100,27 @@
       font-size: 1em;
       width: 80%;
       max-width: 75ch;
+    }
+
+    .topics {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      width: 80%;
+      margin: 8px 0;
+    }
+
+    .topic {
+      padding: 0.3em 0.8em;
+      border-radius: 1em;
+      color: var(--primary-font-color);
+      font-size: 0.9em;
+      background-color: var(--secondary-font-color);
+      box-shadow: rgba(0, 0, 0, 0.21) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
     }
 
     .dates,
@@ -116,27 +137,21 @@
 
   footer {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
     width: 100%;
     height: 6em;
     padding: 0.3em 1.5em;
 
-    ul {
+    > ul {
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 5px;
-      width: 100%;
-    }
-
-    .topic {
-      padding: 0.5em 1em;
-      color: var(--primary-font-color);
-      font-size: 0.9em;
-      background-color: var(--secondary-font-color);
-      box-shadow: rgba(0, 0, 0, 0.21) 0px 10px 15px -3px,
-        rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
+      gap: 15px;
     }
   }
 
