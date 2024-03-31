@@ -97,7 +97,7 @@
 
     p {
       text-align: left;
-      font-size: 1em;
+      font-size: 1.1em;
       width: 80%;
       max-width: 75ch;
     }
@@ -123,15 +123,17 @@
         rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
     }
 
-    .dates,
-    .links {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 15px;
-      width: 100%;
+    table.dates {
+      width: 80%;
       margin: 8px 0;
+      border-collapse: collapse;
+      font-size: 0.9em;
+
+      td {
+        padding: 0.3em 0.8em;
+        border: 1px solid var(--border-color);
+        text-align: left;
+      }
     }
   }
 
