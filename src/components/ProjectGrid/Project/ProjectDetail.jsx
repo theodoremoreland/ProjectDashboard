@@ -47,23 +47,25 @@ const ProjectDetail = ({ projectData, handleClose }) => {
             <footer className="project-detail__footer">
                 <ul className="links">
                     {projectData.demo_link && 
-                        <li>
-                            <DeployedCodeIcon />
-                            <a
-                                href={projectData.demo_link} 
-                                target="_blank"
-                                rel="noreferrer"
-                                title={`Click to view a live demo of the ${projectData.name} project.`}
-                                className="deployment"
-                            >
+                        <a
+                            href={projectData.demo_link} 
+                            target="_blank"
+                            rel="noreferrer"
+                            title={`Click to view a live demo of the ${projectData.name} project.`}
+                            className="deployment"
+                        >
+                            <li>
+                                <DeployedCodeIcon />
                                 Deployment
-                            </a>
-                        </li>
+                            </li>
+                        </a>
                     }
-                    <li>
-                        <CodeIcon />
-                        <a href={projectData.url} target="_blank" rel="noreferrer">Source code</a>
-                    </li>
+                    <a href={projectData.url} target="_blank" rel="noreferrer">
+                        <li>
+                            <CodeIcon className="code-icon" />
+                            Source code
+                        </li>
+                    </a>
                     <li>
                         <PreviewIcon />
                         <span>Preview README</span>

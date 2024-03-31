@@ -172,6 +172,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 5px;
         cursor: pointer;
       }
 
@@ -184,6 +185,11 @@
         height: 1.6em;
         fill: var(--primary-font-color);
         transition: 0.5s;
+
+        &.code-icon {
+          width: 1.7em;
+          height: 1.7em;
+        }
       }
     }
   }
