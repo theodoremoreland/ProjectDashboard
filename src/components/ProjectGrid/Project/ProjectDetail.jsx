@@ -19,6 +19,22 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                 <div>
                     <h1 className="project-detail__title">{projectData.name}</h1>
                     <p className="project-detail__description">{projectData.desc}</p>
+                    <table className="dates">
+                        <tbody>
+                            <tr>
+                                <td>Created</td>
+                                <td>{projectData.date_created}</td>
+                            </tr>
+                            <tr>
+                                <td>Last modified</td>
+                                <td>{projectData.date_updated}</td>
+                            </tr>
+                            <tr>
+                                <td>Stars</td>
+                                <td>{projectData.stars}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <ul className="topics" title="GitHub topic associated with this project.">
                         { projectData.topics.map((topic) => <li key={topic} className="topic">{topic}</li>) }
                     </ul>
