@@ -52,10 +52,10 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                             target="_blank"
                             rel="noreferrer"
                             title={`Click to view a live demo of the ${projectData.name} project.`}
-                            className="deployment"
+                            className="deployment-link"
                         >
                             <li>
-                                <DeployedCodeIcon />
+                                <DeployedCodeIcon className="deployment-icon" />
                                 Deployment
                             </li>
                         </a>
