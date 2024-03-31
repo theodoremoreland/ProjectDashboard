@@ -3,6 +3,10 @@ import React from "react";
 // Custom components
 import README from "../../README/README";
 
+import { ReactComponent as DeployedCodeIcon } from "../../../images/deployed-code.svg";
+import { ReactComponent as CodeIcon } from "../../../images/code.svg";
+import { ReactComponent as PreviewIcon } from "../../../images/preview.svg";
+
 // Custom styles
 import "./ProjectDetail.css";
 
@@ -44,22 +48,25 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                 <ul className="links">
                     {projectData.demo_link && 
                         <li>
+                            <DeployedCodeIcon />
                             <a
                                 href={projectData.demo_link} 
                                 target="_blank"
                                 rel="noreferrer"
                                 title={`Click to view a live demo of the ${projectData.name} project.`}
-                                className="live-demo-link"
+                                className="deployment"
                             >
-                                Live Demo{" "}<span className="circle"></span>
+                                Deployment
                             </a>
                         </li>
                     }
                     <li>
+                        <CodeIcon />
                         <a href={projectData.url} target="_blank" rel="noreferrer">Source code</a>
                     </li>
                     <li>
-                        Preview README
+                        <PreviewIcon />
+                        <span>Preview README</span>
                     </li>
                 </ul>
             </footer>
