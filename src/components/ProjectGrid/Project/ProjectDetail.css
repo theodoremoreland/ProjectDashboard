@@ -61,26 +61,36 @@
     align-items: center;
     width: 100%;
     flex-grow: 1;
+  }
 
-    > div {
-      position: relative;
-      width: 50%;
-      height: 100%;
-    }
+  .project-detail__image-container,
+  .project-detail__info-container {
+    position: relative;
+    width: 50%;
+    height: 100%;
+  }
 
-    > div:first-child {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  .project-detail__image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    > div:last-child {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
+    .project-detail__image {
+      width: 85%;
+      aspect-ratio: 4/3;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      border: 1px solid var(--border-color);
     }
+  }
+
+  .project-detail__info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
     h1,
     p {
@@ -113,15 +123,6 @@
         border: 1px solid var(--border-color);
         text-align: left;
       }
-    }
-
-    .project-detail__image {
-      width: 85%;
-      aspect-ratio: 4/3;
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-      border: 1px solid var(--border-color);
     }
 
     .topics {
@@ -174,7 +175,7 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      gap: 30px;
+      gap: 20px;
 
       li {
         display: flex;
@@ -186,6 +187,7 @@
       }
 
       .deployment-link {
+        color: rgb(4, 184, 255);
         transform: scale(1);
         animation: pulse 2s infinite;
       }
@@ -203,6 +205,10 @@
         &.code-icon {
           width: 1.7em;
           height: 1.7em;
+        }
+
+        &.deployment-icon {
+          fill: rgb(4, 184, 255);
         }
       }
     }
