@@ -52,6 +52,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                         >
                             <li>
                                 <DeployedCodeIcon className="deployment-icon" />
+                                Deployment
                             </li>
                         </a>
                     }
@@ -63,6 +64,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                     >
                         <li>
                             <CodeIcon className="code-icon" />
+                            Source Code
                         </li>
                     </a>
                 </ul>
