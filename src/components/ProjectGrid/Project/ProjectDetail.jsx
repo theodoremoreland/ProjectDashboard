@@ -41,11 +41,11 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                             <tbody>
                                 <tr>
                                     <td>Created</td>
-                                    <td>{projectData.date_created}</td>
+                                    <td>{new Date(projectData.date_created).toLocaleDateString()}</td>
                                 </tr>
                                 <tr>
                                     <td>Last modified</td>
-                                    <td>{projectData.date_updated}</td>
+                                    <td>{new Date(projectData.date_updated).toLocaleDateString()}</td>
                                 </tr>
                                 <tr>
                                     <td>Stars</td>
