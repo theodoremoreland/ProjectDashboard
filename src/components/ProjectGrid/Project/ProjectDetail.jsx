@@ -1,64 +1,45 @@
 import React from "react";
 
-// Custom components
-import README from "../../README/README";
-
 import { ReactComponent as DeployedCodeIcon } from "../../../images/deployed-code.svg";
 import { ReactComponent as CodeIcon } from "../../../images/code.svg";
-import { ReactComponent as PreviewIcon } from "../../../images/preview.svg";
 
 // Custom styles
 import "./ProjectDetail.css";
 
 const ProjectDetail = ({ projectData, handleClose }) => {
-    const [shouldShowReadme, setShouldShowReadme] = React.useState(false);
-
     return (
         <div className="project-detail">
             <header>
                 <button type="button" title="Close" className="x" onClick={handleClose}>x</button>
             </header>
-            {
-                shouldShowReadme && 
-                <article>
-                    <README 
-                        name={projectData.name}
-                        link={projectData.readme}
-                        handleClose={() => setShouldShowReadme(false)}
-                    />
-                </article>
-            }
-            {
-                !shouldShowReadme &&
-                <article>
-                    <div className="project-detail__image-container">
-                        <img className="project-detail__image" src={projectData.image} alt={projectData.name} />
-                    </div>
-                    <div className="project-detail__info-container">
-                        <h1 className="project-detail__title">{projectData.name}</h1>
-                        <p className="project-detail__description">{projectData.desc}</p>
-                        <table className="metadata">
-                            <tbody>
-                                <tr>
-                                    <td>Created</td>
-                                    <td>{new Date(projectData.date_created).toLocaleDateString()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Last modified</td>
-                                    <td>{new Date(projectData.date_updated).toLocaleDateString()}</td>
-                                </tr>
-                                <tr>
-                                    <td>Stars</td>
-                                    <td>{projectData.stars}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <ul className="topics" title="GitHub topic associated with this project.">
-                            { projectData.topics.map((topic) => <li key={topic} className="topic">{topic}</li>) }
-                        </ul>
-                    </div>
-                </article>
-            }
+            <article>
+                <div className="project-detail__image-container">
+                    <img className="project-detail__image" src={projectData.image} alt={projectData.name} />
+                </div>
+                <div className="project-detail__info-container">
+                    <h1 className="project-detail__title">{projectData.name}</h1>
+                    <p className="project-detail__description">{projectData.desc}</p>
+                    <table className="metadata">
+                        <tbody>
+                            <tr>
+                                <td>Created</td>
+                                <td>{new Date(projectData.date_created).toLocaleDateString()}</td>
+                            </tr>
+                            <tr>
+                                <td>Last modified</td>
+                                <td>{new Date(projectData.date_updated).toLocaleDateString()}</td>
+                            </tr>
+                            <tr>
+                                <td>Stars</td>
+                                <td>{projectData.stars}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul className="topics" title="GitHub topic associated with this project.">
+                        { projectData.topics.map((topic) => <li key={topic} className="topic">{topic}</li>) }
+                    </ul>
+                </div>
+            </article>
             <footer className="project-detail__footer">
                 <ul className="links">
                     {projectData.demo_link && 
@@ -84,9 +65,6 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                             <CodeIcon className="code-icon" />
                         </li>
                     </a>
-                    <li role="presentation" onClick={() => setShouldShowReadme(!shouldShowReadme)}>
-                        <PreviewIcon />
-                    </li>
                 </ul>
             </footer>
         </div>
