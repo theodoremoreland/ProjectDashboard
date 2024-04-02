@@ -11,6 +11,11 @@
   border: 1px solid var(--border-color);
   border-radius: 0 !important;
   color: var(--primary-font-color);
+
+  &.not-featured {
+    pointer-events: none;
+    opacity: 0.1;
+  }
 }
 
 .project-overlay {
@@ -59,7 +64,7 @@
   left: 0;
 }
 
-.project-overlay::after {
+.project-card.featured .project-overlay::after {
   z-index: 2;
   position: absolute;
   content: "";

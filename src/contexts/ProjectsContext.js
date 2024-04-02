@@ -1,7 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState, useRef } from "react";
 
 // Third party
 import { useQuery } from "@tanstack/react-query";
+
+// Controller
+import { defaultOrder } from "./ProjectsContext.controller.js";
 
 // Custom
 import { getRepoData } from "../http/getRepoData.js";
@@ -12,6 +15,7 @@ export const ProjectsContext = createContext();
 
 const ProjectsContextProvider = ({ children }) => {
   const [repos, setRepos] = useState(undefined);
+  const featuredTopics = useRef(new Set());
 
   const { data, isError } = useQuery({
     queryKey: ["repos"],
@@ -22,9 +26,27 @@ const ProjectsContextProvider = ({ children }) => {
     retry: false,
   });
 
+  const updateFeaturedTopics = useCallback((selectedTopic) => {
+    const topicsRef = featuredTopics.current;
+
+    if (!topicsRef) {
+      return;
+    }
+
+    if (topicsRef.has(selectedTopic)) {
+      topicsRef.delete(selectedTopic);
+    } else {
+      topicsRef.add(selectedTopic);
+    }
+
+    console.log(featuredTopics.current);
+  }, []);
+
   useEffect(() => {
     if (data) {
-      setRepos(data);
+      const orderedProjects = defaultOrder(data);
+
+      setRepos(orderedProjects);
     }
   }, [data]);
 
@@ -35,7 +57,9 @@ const ProjectsContextProvider = ({ children }) => {
   }, [isError]);
 
   return (
-    <ProjectsContext.Provider value={{ repos, isError }}>
+    <ProjectsContext.Provider
+      value={{ repos, updateFeaturedTopics, featuredTopics, isError }}
+    >
       {children}
     </ProjectsContext.Provider>
   );

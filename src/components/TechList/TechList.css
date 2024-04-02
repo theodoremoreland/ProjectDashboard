@@ -44,6 +44,14 @@
   cursor: pointer;
 }
 
+#tech-list > li {
+  color: var(--primary-font-color);
+}
+
+#tech-list > li[data-filter-active="true"] {
+  color: rgb(4, 184, 255);
+}
+
 #tech-list > li:hover,
 #tech-list > li.active,
 #tech-list > p#live-demos:hover,
@@ -52,6 +60,5 @@
 }
 
 #tech-list .count {
-  color: var(--primary-font-color);
   margin: 0 0.5em;
 }

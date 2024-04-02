@@ -35,6 +35,20 @@ const tools = {
   matplotlib: "Matplotlib",
 };
 
+export const findKeyForTopicLabel = (topicLabel) => {
+  const topicMap = { ...frameworks, ...competencies, ...languages, ...tools };
+  let topicKey = null;
+
+  Object.entries(topicMap).forEach(([key, value]) => {
+    console.log(value, topicLabel);
+    if (value === topicLabel) topicKey = key;
+  });
+
+  if (topicKey) return topicKey;
+
+  throw new Error("Invalid topic label");
+};
+
 /**
  *
  * @param {*} repos
