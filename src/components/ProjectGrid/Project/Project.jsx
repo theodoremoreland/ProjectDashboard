@@ -1,8 +1,11 @@
 // React
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 // Bootstrap
 import Card from "react-bootstrap/Card";
+
+// Contexts
+import { ProjectsContext } from '../../../contexts/ProjectsContext'; 
 
 // Custom components
 import ProjectDetail from "./ProjectDetail";
@@ -45,11 +48,23 @@ const renderLanguageIcon = (topic) => {
 };
 
 const Project = ({ projectData }) => {
+  const { featuredTopics } = useContext(ProjectsContext);
   const [shouldShowDetail, setShouldShowDetail] = useState(false);
+  const [shouldFeatureProject, setShouldFeatureProject] = useState(true);
+
+  console.log(shouldFeatureProject);
+
+  useEffect(() => {
+    if (featuredTopics.current.size > 0) {
+      const projectTopics = projectData.topics;
+
+      setShouldFeatureProject(projectTopics.some(topic => featuredTopics.current.has(topic)));
+    }
+  }, [featuredTopics, projectData.topics]);
 
   return (
     <>
-    <Card className="project-card">
+    <Card className={`project-card ${shouldFeatureProject ? 'featured' : 'not-featured'}`}>
       <Card.Img
         className="project-image"
         variant="top"
