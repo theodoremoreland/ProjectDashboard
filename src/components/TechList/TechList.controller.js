@@ -39,10 +39,12 @@ export const findKeyForTopicLabel = (topicLabel) => {
   const topicMap = { ...frameworks, ...competencies, ...languages, ...tools };
   let topicKey = null;
 
-  Object.entries(topicMap).forEach(([key, value]) => {
-    console.log(value, topicLabel);
-    if (value === topicLabel) topicKey = key;
-  });
+  for (const [key, value] of Object.entries(topicMap)) {
+    if (value === topicLabel) {
+      topicKey = key;
+      break;
+    }
+  }
 
   if (topicKey) return topicKey;
 

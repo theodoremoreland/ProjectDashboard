@@ -55,12 +55,22 @@ const Project = ({ projectData }) => {
   console.log(shouldFeatureProject);
 
   useEffect(() => {
-    if (featuredTopics.current.size > 0) {
-      const projectTopics = projectData.topics;
+    if (featuredTopics?.size > 0) {
+      const { topics } = projectData;
+      let isFeatured = false;
 
-      setShouldFeatureProject(projectTopics.some(topic => featuredTopics.current.has(topic)));
+      for (const topic of topics) {
+        if (featuredTopics.has(topic)) {
+          isFeatured = true;
+          break;
+        }
+      }
+
+      setShouldFeatureProject(isFeatured);
+    } else {
+      setShouldFeatureProject(true);
     }
-  }, [featuredTopics, projectData.topics]);
+  }, [featuredTopics, projectData]);
 
   return (
     <>
