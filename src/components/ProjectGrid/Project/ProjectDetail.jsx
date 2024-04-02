@@ -33,6 +33,38 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                 <td>Stars</td>
                                 <td>{projectData.stars}</td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <CodeIcon className="code-icon" />
+                                    <span>Source Code</span>
+                                </td>
+                                <td>
+                                    <a href={projectData.url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        title={`Click to view the source code for ${projectData.name}.`}
+                                    >
+                                        Namebehbsjsb
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <DeployedCodeIcon className="deployment-icon" />
+                                    <span>Deployment</span>
+                                </td>
+                                <td>
+                                    <a
+                                        href={projectData.demo_link} 
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        title={`Click to view a live demo of the ${projectData.name} project.`}
+                                        className="deployment-link"
+                                    >
+                                        Namebehbsjsb
+                                    </a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <ul className="topics" title="GitHub topic associated with this project.">
@@ -40,35 +72,6 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                     </ul>
                 </div>
             </article>
-            <footer className="project-detail__footer">
-                <ul className="links">
-                    {projectData.demo_link && 
-                        <a
-                            href={projectData.demo_link} 
-                            target="_blank"
-                            rel="noreferrer"
-                            title={`Click to view a live demo of the ${projectData.name} project.`}
-                            className="deployment-link"
-                        >
-                            <li>
-                                <DeployedCodeIcon className="deployment-icon" />
-                                Deployment
-                            </li>
-                        </a>
-                    }
-                    <a 
-                        href={projectData.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        title={`Click to view the source code for ${projectData.name}.`}
-                    >
-                        <li>
-                            <CodeIcon className="code-icon" />
-                            Source Code
-                        </li>
-                    </a>
-                </ul>
-            </footer>
         </div>
     );
 };
