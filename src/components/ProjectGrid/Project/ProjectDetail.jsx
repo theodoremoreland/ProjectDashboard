@@ -2,6 +2,9 @@ import React from "react";
 
 import { ReactComponent as DeployedCodeIcon } from "../../../images/deployed-code.svg";
 import { ReactComponent as CodeIcon } from "../../../images/code.svg";
+import { ReactComponent as StarIcon } from "../../../images/star.svg";
+import { ReactComponent as EventIcon } from "../../../images/event.svg";
+import { ReactComponent as EventRepeatIcon } from "../../../images/event_repeat.svg";
 
 // Custom styles
 import "./ProjectDetail.css";
@@ -22,21 +25,30 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                     <table className="metadata">
                         <tbody>
                             <tr>
-                                <td>Created</td>
+                                <td>
+                                    <EventIcon className="event icon" />
+                                    <span>Created</span>
+                                </td>
                                 <td>{new Date(projectData.date_created).toLocaleDateString()}</td>
                             </tr>
                             <tr>
-                                <td>Last modified</td>
+                                <td>
+                                    <EventRepeatIcon className="event-repeat icon" />
+                                    <span>Last modified</span>
+                                </td>
                                 <td>{new Date(projectData.date_updated).toLocaleDateString()}</td>
                             </tr>
                             <tr>
-                                <td>Stars</td>
+                                <td>
+                                    <StarIcon className="star icon" />
+                                    <span>Stars</span>
+                                </td>
                                 <td>{projectData.stars}</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <CodeIcon className="code-icon" />
-                                    <span>Source Code</span>
+                                    <CodeIcon className="code icon" />
+                                    <span>Source code</span>
                                 </td>
                                 <td>
                                     <a href={projectData.url}
@@ -44,25 +56,28 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                         rel="noreferrer"
                                         title={`Click to view the source code for ${projectData.name}.`}
                                     >
-                                        Namebehbsjsb
+                                        /{projectData.name}
                                     </a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <DeployedCodeIcon className="deployment-icon" />
+                                    <DeployedCodeIcon className="deployment icon" />
                                     <span>Deployment</span>
                                 </td>
                                 <td>
-                                    <a
-                                        href={projectData.demo_link} 
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        title={`Click to view a live demo of the ${projectData.name} project.`}
-                                        className="deployment-link"
-                                    >
-                                        Namebehbsjsb
-                                    </a>
+                                    { projectData.demo_link
+                                        ?   <a
+                                                href={projectData.demo_link} 
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                title={`Click to view a live demo of the ${projectData.name} project.`}
+                                                className="deployment-link"
+                                            >
+                                                Available
+                                            </a>
+                                        :   "None"
+                                    }
                                 </td>
                             </tr>
                         </tbody>
