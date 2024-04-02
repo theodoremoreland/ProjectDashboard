@@ -11,6 +11,8 @@
   border: 1px solid var(--border-color);
   border-radius: 0 !important;
   color: var(--primary-font-color);
+  opacity: 1;
+  transition: opacity 0.5s;
 
   &.not-featured {
     pointer-events: none;
