@@ -1,4 +1,4 @@
-import { createContext, useCallback, useEffect, useState, useRef } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 
 // Third party
 import { useQuery } from "@tanstack/react-query";
@@ -15,7 +15,7 @@ export const ProjectsContext = createContext();
 
 const ProjectsContextProvider = ({ children }) => {
   const [repos, setRepos] = useState(undefined);
-  const featuredTopics = useRef(new Set());
+  const [featuredTopics, setFeaturedTopics] = useState(new Set());
 
   const { data, isError } = useQuery({
     queryKey: ["repos"],
@@ -26,21 +26,26 @@ const ProjectsContextProvider = ({ children }) => {
     retry: false,
   });
 
-  const updateFeaturedTopics = useCallback((selectedTopic) => {
-    const topicsRef = featuredTopics.current;
+  const updateFeaturedTopics = useCallback(
+    (selectedTopic) => {
+      const topicsCopy = featuredTopics
+        ? new Set([...featuredTopics])
+        : undefined;
 
-    if (!topicsRef) {
-      return;
-    }
+      if (!topicsCopy) {
+        return;
+      }
 
-    if (topicsRef.has(selectedTopic)) {
-      topicsRef.delete(selectedTopic);
-    } else {
-      topicsRef.add(selectedTopic);
-    }
+      if (topicsCopy.has(selectedTopic)) {
+        topicsCopy.delete(selectedTopic);
+      } else {
+        topicsCopy.add(selectedTopic);
+      }
 
-    console.log(featuredTopics.current);
-  }, []);
+      setFeaturedTopics(topicsCopy);
+    },
+    [featuredTopics]
+  );
 
   useEffect(() => {
     if (data) {
@@ -58,7 +63,12 @@ const ProjectsContextProvider = ({ children }) => {
 
   return (
     <ProjectsContext.Provider
-      value={{ repos, updateFeaturedTopics, featuredTopics, isError }}
+      value={{
+        repos,
+        updateFeaturedTopics,
+        featuredTopics,
+        isError,
+      }}
     >
       {children}
     </ProjectsContext.Provider>
