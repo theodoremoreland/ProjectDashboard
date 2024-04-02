@@ -21,6 +21,10 @@
   overflow-y: auto;
   overflow-x: hidden;
 
+  a {
+    color: rgb(4, 184, 255);
+  }
+
   header {
     display: flex;
     flex-direction: row;
@@ -122,6 +126,13 @@
         padding: 0.3em 0.8em;
         border: 1px solid var(--border-color);
         text-align: left;
+      }
+
+      .icon {
+        width: 0.85em;
+        height: 0.85em;
+        margin: -0.2em 5px 0 0;
+        fill: var(--primary-font-color);
       }
     }
 
