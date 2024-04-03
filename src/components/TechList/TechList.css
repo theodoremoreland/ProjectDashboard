@@ -48,7 +48,7 @@
   color: var(--primary-font-color);
 }
 
-#tech-list > li[data-filter-active="true"] {
+#tech-list > li.selected {
   color: rgb(4, 184, 255);
 }
 
