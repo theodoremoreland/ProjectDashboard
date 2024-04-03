@@ -32,7 +32,6 @@ export const getRepoData = async () => {
       readme: `https://raw.githubusercontent.com/theodoremoreland/${repo.name}/master/README.md`,
       size: Number(repo.size),
       stars: Number(repo.stargazers_count) || 0,
-      featured: true,
     };
 
     if (repoData.topics.length > 0) {
