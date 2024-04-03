@@ -1,4 +1,10 @@
-import { createContext, useCallback, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 // Third party
 import { useQuery } from "@tanstack/react-query";
@@ -16,6 +22,23 @@ export const ProjectsContext = createContext();
 const ProjectsContextProvider = ({ children }) => {
   const [repos, setRepos] = useState(undefined);
   const [featuredTopics, setFeaturedTopics] = useState(new Set());
+  const taggedRepos = useMemo(() => {
+    if (!repos) {
+      return;
+    }
+
+    return repos.map((repo) => {
+      const { topics } = repo;
+
+      return {
+        ...repo,
+        isFeatured:
+          featuredTopics.size === 0
+            ? true
+            : topics.some((topic) => featuredTopics.has(topic)),
+      };
+    });
+  }, [repos, featuredTopics]);
 
   const { data, isError } = useQuery({
     queryKey: ["repos"],
@@ -64,7 +87,7 @@ const ProjectsContextProvider = ({ children }) => {
   return (
     <ProjectsContext.Provider
       value={{
-        repos,
+        repos: taggedRepos,
         updateFeaturedTopics,
         featuredTopics,
         isError,

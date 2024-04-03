@@ -1,11 +1,8 @@
 // React
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 
 // Bootstrap
 import Card from "react-bootstrap/Card";
-
-// Contexts
-import { ProjectsContext } from '../../../contexts/ProjectsContext'; 
 
 // Custom components
 import ProjectDetail from "./ProjectDetail";
@@ -22,7 +19,6 @@ import sqlIcon from "../../../images/languages/sql.png";
 
 // Custom styles
 import "./Project.css";
-
 
 const renderLanguageIcon = (topic) => {
   const titleTemplate = "This project uses ";
@@ -48,33 +44,11 @@ const renderLanguageIcon = (topic) => {
 };
 
 const Project = ({ projectData }) => {
-  const { featuredTopics } = useContext(ProjectsContext);
   const [shouldShowDetail, setShouldShowDetail] = useState(false);
-  const [shouldFeatureProject, setShouldFeatureProject] = useState(true);
-
-  console.log(shouldFeatureProject);
-
-  useEffect(() => {
-    if (featuredTopics?.size > 0) {
-      const { topics } = projectData;
-      let isFeatured = false;
-
-      for (const topic of topics) {
-        if (featuredTopics.has(topic)) {
-          isFeatured = true;
-          break;
-        }
-      }
-
-      setShouldFeatureProject(isFeatured);
-    } else {
-      setShouldFeatureProject(true);
-    }
-  }, [featuredTopics, projectData]);
 
   return (
     <>
-    <Card className={`project-card ${shouldFeatureProject ? 'featured' : 'not-featured'}`}>
+    <Card className={`project-card ${projectData.isFeatured ? 'featured' : 'not-featured'}`}>
       <Card.Img
         className="project-image"
         variant="top"
