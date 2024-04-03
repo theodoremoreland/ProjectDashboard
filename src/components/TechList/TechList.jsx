@@ -18,7 +18,7 @@ const TechList = () => {
             .entries(topics)
             .sort(([k1, v1], [k2, v2]) => v2 - v1)
             .map(([k, v]) => <li key={k} data-filter-active="false" onClick={(e) => {
-                const target = e.target;
+                const target = e.currentTarget;
 
                 target.dataset.filterActive = target.dataset.filterActive === 'true' ? 'false' : 'true';
 
