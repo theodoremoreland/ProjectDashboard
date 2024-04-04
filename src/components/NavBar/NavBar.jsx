@@ -1,43 +1,34 @@
 import React from 'react';
 
-// Bootstrap
-import Image from "react-bootstrap/Image";
-
 // Images
-import octocatIcon from "../../images/Octocat.png";
-import linkedInIcon from "../../images/LI-In-Bug.png";
+import { ReactComponent as QueryStatsIcon } from "../../images/query_stats.svg";
+import { ReactComponent as HelpIcon } from "../../images/help.svg";
 
 // Styles
 import './NavBar.css';
 
 const NavBar = () => {
     return (
-        <nav id="app-nav">
-            <h1>Project List</h1>
-            <input type="text" id="search" placeholder="Search..." />
-            <ul>
-                <li>
-                <a
-            href="https://github.com/theodoremoreland"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="My GitHub Profile"
+      <nav id="app-nav">
+        <h1>Project List</h1>
+        <input type="text" id="search" placeholder="Search..." />
+        <ul>
+          <li 
+            title='Analytics'
+            role='presentation'
+            onClick={() => {}}
           >
-            <Image className="octocatIcon" src={octocatIcon} fluid />
-          </a>
-                </li>
-                <li>
-                <a
-            href="https://www.linkedin.com/in/theodore-moreland/"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="My LinkedIn Profile"
+            <QueryStatsIcon className="query_stats icon" />
+          </li>
+          <li
+            title='Help'
+            role='presentation'
+            onClick={() => {}}
           >
-            <Image className="linkedInIcon" src={linkedInIcon} fluid />
-          </a>
-                </li>
-            </ul>
-        </nav>
+            <HelpIcon className="help icon" />
+          </li>
+        </ul>
+      </nav>
     )
 };
 
