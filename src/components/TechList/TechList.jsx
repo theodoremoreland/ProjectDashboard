@@ -14,13 +14,26 @@ const TechList = () => {
     const [topicsCount, setTopicsCount] = useState(null);
 
     const generateListItems = useCallback((topics) => {
+        const determineClassName = (topicLabel) => {
+            if (featuredTopics.size === 0) {
+                return '';
+            }
+
+            if (featuredTopics.has(findKeyForTopicLabel(topicLabel))) {
+                return 'selected';
+            }
+
+            return 'filtered-out';
+        }
+
+        
         return Object
             .entries(topics)
             .sort(([topicLabel1, topicCount1], [topicLabel2, topicCount2]) => topicCount2 - topicCount1)
             .map(([topicLabel, topicCount]) => 
                 <li
                     key={topicLabel}
-                    className={`${featuredTopics?.has(findKeyForTopicLabel(topicLabel)) ? 'selected' : ''}`}
+                    className={`${determineClassName(topicLabel)}`}
                     onClick={() => updateFeaturedTopics(findKeyForTopicLabel(topicLabel))}
                 >
                     {topicLabel}:<span className='count'>{topicCount}</span>
