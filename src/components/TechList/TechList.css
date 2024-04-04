@@ -22,11 +22,6 @@
   padding: 0.35em;
 }
 
-#tech-list > p#live-demos .count {
-  color: red;
-  text-shadow: none;
-}
-
 #tech-list .tech-category {
   width: 100%;
   margin: 15px 0 0 0;
@@ -46,10 +41,15 @@
 
 #tech-list > li {
   color: var(--primary-font-color);
+  transition: all 0.3s ease-in-out;
 }
 
 #tech-list > li.selected {
   color: rgb(4, 184, 255);
+}
+
+#tech-list > li.filtered-out {
+  text-decoration: line-through;
 }
 
 #tech-list > li:hover,
@@ -57,6 +57,7 @@
 #tech-list > p#live-demos:hover,
 #tech-list > p#live-demos.active {
   opacity: 0.7;
+  text-decoration: none;
 }
 
 #tech-list .count {
