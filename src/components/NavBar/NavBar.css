@@ -21,6 +21,18 @@
     #1b2028 3%,
     #000001 70%
   );
+
+  .icon {
+    width: 1.85em;
+    height: 1.85em;
+    fill: var(--primary-font-color);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+  }
 }
 
 #app-nav::after {
@@ -47,7 +59,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 1.2em;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -60,15 +72,4 @@
   padding: 0.25em 1.25em;
   color: var(--secondary-font-color);
   background-color: var(--primary-font-color);
-}
-
-.octocatIcon,
-.linkedInIcon {
-  width: 40px;
-  transition: transform;
-}
-
-.octocatIcon:hover,
-.linkedInIcon:hover {
-  transform: scale(1.2);
 }
