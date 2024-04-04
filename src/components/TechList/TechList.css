@@ -52,11 +52,17 @@
   text-decoration: line-through;
 }
 
-#tech-list > li:hover,
-#tech-list > li.active,
-#tech-list > p#live-demos:hover,
-#tech-list > p#live-demos.active {
+#tech-list > li:hover {
+  background-color: #1b2028;
+}
+
+#tech-list > li.active {
   opacity: 0.7;
+  scale: 0.95;
+}
+
+#tech-list > li:hover,
+#tech-list > li.active {
   text-decoration: none;
 }
 
