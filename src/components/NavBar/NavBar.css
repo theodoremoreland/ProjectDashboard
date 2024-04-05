@@ -70,12 +70,3 @@
   margin: 0;
   padding: 0;
 }
-
-#app-nav #search {
-  outline: transparent;
-  border-radius: 1em;
-  border: none;
-  padding: 0.25em 1.25em;
-  color: var(--secondary-font-color);
-  background-color: var(--primary-font-color);
-}
