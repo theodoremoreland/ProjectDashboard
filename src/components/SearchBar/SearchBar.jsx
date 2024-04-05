@@ -17,10 +17,22 @@ const SearchBar = () => {
           <input
             id="search"
             type="text"
-            placeholder="Search..."
+            placeholder="Search by topic..."
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
+          <ul id='search-results'>
+            {
+              repos && repos
+                .map((repo) => 
+                <li key={repo.name} className='search-result'>
+                  <p className='title'>{repo.name}</p>
+                  <div className='topics'>
+                    {repo.topics.map((topic) => <span key={topic} className='topic'>{topic}</span>)}
+                  </div>
+                </li>)
+            }
+          </ul>
         </div>
       
 

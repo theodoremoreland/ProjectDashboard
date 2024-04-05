@@ -3,6 +3,7 @@
 
   #search {
     outline: transparent;
+    width: 37ch;
     border-radius: 1em;
     border: none;
     padding: 0.25em 1.25em;
@@ -20,8 +21,49 @@
     align-items: center;
     width: 100%;
     height: 50vh;
-    background-color: var(--primary-font-color);
+    margin-top: 5px;
     overflow-y: auto;
+    background-color: var(--primary-font-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     color: black;
+
+    .search-result {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0.5em;
+      width: 100%;
+      padding: 0.5em;
+      border-bottom: solid 1px var(--border-color);
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: var(--secondary-font-color);
+        color: var(--primary-font-color);
+      }
+    }
+
+    .title {
+      font-size: 1.1em;
+      font-family: custom-bold;
+      font-style: oblique;
+    }
+
+    .topics {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5em;
+    }
+
+    .topic {
+      padding: 0.25em 0.5em;
+      border-radius: 1em;
+      background-color: #1b2028;
+    }
   }
 }
