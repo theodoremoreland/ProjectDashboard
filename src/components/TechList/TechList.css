@@ -49,7 +49,7 @@
 }
 
 #tech-list > li.filtered-out {
-  text-decoration: line-through;
+  /* Placeholder */
 }
 
 #tech-list > li:hover {
