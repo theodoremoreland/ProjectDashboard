@@ -1,4 +1,15 @@
+#clickaway-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.688);
+}
+
 #search-bar {
+  z-index: 3;
   position: relative;
 
   #search {
@@ -12,7 +23,7 @@
   }
 
   #search-results {
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     top: 100%;
     display: flex;
@@ -81,6 +92,10 @@
       border-radius: 1em;
       color: var(--primary-font-color);
       background-color: #1b2028;
+    }
+
+    .none {
+      font-size: 0.8em;
     }
   }
 }

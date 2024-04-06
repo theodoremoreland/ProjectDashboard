@@ -1,7 +1,6 @@
-import React, { useState, useContext, useCallback, useEffect } from 'react';
+import React, { useState, useContext, useCallback, useEffect, useRef } from 'react';
 
 // Third party
-import { debounce } from 'lodash';
 import Fuse from 'fuse.js';
 
 // Context
@@ -15,6 +14,7 @@ const SearchBar = () => {
     const { repos, setSelectedProject } = useContext(ProjectsContext);
     const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState(repos);
+    const inputRef = useRef(null);
 
     const handleSearchResultClick = useCallback((projectData) => {
       setSearchValue('');
@@ -22,7 +22,9 @@ const SearchBar = () => {
     }, [setSelectedProject]);
 
     useEffect(() => {
-      if (searchValue && repos) {
+      const hasFocus = inputRef.current === document.activeElement;
+
+      if (hasFocus && searchValue && repos) {
         const fuse = new Fuse(repos, {
           keys: ['name', 'topics'],
           threshold: 0.3
@@ -39,8 +41,11 @@ const SearchBar = () => {
     }, [searchValue, repos]);
 
     return (
+      <>
+        {searchValue && <div id="clickaway-area" onClick={() => setSearchValue("")}></div> }
         <div id="search-bar">
           <input
+            ref={inputRef}
             id="search"
             type="text"
             placeholder="Search..."
@@ -74,7 +79,7 @@ const SearchBar = () => {
       
                                   return <span key={topic} className='topic'>{topic}</span>;
                                 })
-                              : <p>No matching topics</p>}
+                              : <p className='none'>No matching topics</p>}
                           </div>
                         </li>
                 })
@@ -83,6 +88,7 @@ const SearchBar = () => {
           </ul>
           }
         </div>
+      </>
     )
 }
 
