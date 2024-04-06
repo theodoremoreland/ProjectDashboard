@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 
 // Context
 import { ProjectsContext } from '../../contexts/ProjectsContext';
@@ -8,9 +8,13 @@ import './SearchBar.css';
 
 
 const SearchBar = () => {
-    const { repos } = useContext(ProjectsContext);
+    const { repos, setSelectedProject } = useContext(ProjectsContext);
     const [searchValue, setSearchValue] = useState('');
 
+    const handleSearchResultClick = useCallback((projectData) => {
+      setSearchValue('');
+      setSelectedProject(projectData);
+    }, [setSelectedProject]);
 
     return (
         <div id="search-bar">
@@ -25,7 +29,11 @@ const SearchBar = () => {
             {
               repos && repos
                 .map((repo) => 
-                <li key={repo.name} className='search-result'>
+                <li
+                  key={repo.name}
+                  className='search-result'
+                  onClick={() => handleSearchResultClick(repo)}
+                >
                   <p className='title'>{repo.name}</p>
                   <div className='topics'>
                     {repo.topics.map((topic) => <span key={topic} className='topic'>{topic}</span>)}
