@@ -1,11 +1,8 @@
 // React
-import React, { useState } from "react";
+import React from "react";
 
 // Bootstrap
 import Card from "react-bootstrap/Card";
-
-// Custom components
-import ProjectDetail from "./ProjectDetail";
 
 // Images
 import alt from "../../../images/under-construction-thumbnail.jpg";
@@ -43,11 +40,8 @@ const renderLanguageIcon = (topic) => {
   }
 };
 
-const Project = ({ projectData }) => {
-  const [shouldShowDetail, setShouldShowDetail] = useState(false);
-
+const Project = ({ projectData, setSelectedProject }) => {
   return (
-    <>
     <Card className={`project-card ${projectData.isFeatured ? 'featured' : 'not-featured'}`}>
       <Card.Img
         className="project-image"
@@ -81,7 +75,7 @@ const Project = ({ projectData }) => {
                 </li>
               }
               <li 
-                onClick={() => setShouldShowDetail(true)}
+                onClick={() => setSelectedProject(projectData)}
                 role="presentation"
                 className="learn-more"
                 title={`Click to learn more about the ${projectData.name} project.`}
@@ -98,8 +92,6 @@ const Project = ({ projectData }) => {
         </div>
       </div>
     </Card>
-    { shouldShowDetail && <ProjectDetail projectData={projectData} handleClose={() => setShouldShowDetail(false)} /> }
-    </>
   );
 };
 

@@ -10,16 +10,17 @@ import { ProjectsContext } from "./contexts/ProjectsContext";
 // Custom Components
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
+import ProjectDetail from "./components/ProjectDetail/ProjectDetail.jsx";
 import ProjectGrid from "./components/ProjectGrid/ProjectGrid.jsx";
 
 // Custom Styles
 import "./reset.css";
 import "./App.css";
 
-function App() {
-  const { repos, isError } = useContext(ProjectsContext);
+const App = () => {
+  const { repos, isError, selectedProject, setSelectedProject } =
+    useContext(ProjectsContext);
   const [showErrorModal, setShowErrorModal] = useState(false);
-
   const handleCloseErrorModal = useCallback(() => setShowErrorModal(false), []);
   const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
 
@@ -65,11 +66,22 @@ function App() {
         <NavBar />
         <div id="content">
           <Sidebar />
-          {repos !== undefined ? <ProjectGrid projects={repos} /> : null}
+          {repos !== undefined ? (
+            <ProjectGrid
+              projects={repos}
+              setSelectedProject={setSelectedProject}
+            />
+          ) : null}
+          {selectedProject && (
+            <ProjectDetail
+              projectData={selectedProject}
+              handleClose={() => setSelectedProject(null)}
+            />
+          )}
         </div>
       </main>
     </>
   );
-}
+};
 
 export default App;

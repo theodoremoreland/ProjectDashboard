@@ -1,10 +1,11 @@
 import React from "react";
 
-import { ReactComponent as DeployedCodeIcon } from "../../../images/deployed-code.svg";
-import { ReactComponent as CodeIcon } from "../../../images/code.svg";
-import { ReactComponent as StarIcon } from "../../../images/star.svg";
-import { ReactComponent as EventIcon } from "../../../images/event.svg";
-import { ReactComponent as EventRepeatIcon } from "../../../images/event_repeat.svg";
+import { ReactComponent as DeployedCodeIcon } from "../../images/deployed-code.svg";
+import { ReactComponent as CodeIcon } from "../../images/code.svg";
+import { ReactComponent as StarIcon } from "../../images/star.svg";
+import { ReactComponent as EventIcon } from "../../images/event.svg";
+import { ReactComponent as EventRepeatIcon } from "../../images/event_repeat.svg";
+
 
 // Custom styles
 import "./ProjectDetail.css";
