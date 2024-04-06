@@ -43,12 +43,27 @@
         background-color: var(--secondary-font-color);
         color: var(--primary-font-color);
       }
+
+      &:hover .title {
+        color: var(--primary-font-color);
+      }
+
+      &:hover .topic {
+        background-color: var(--primary-font-color);
+        color: #1b2028;
+      }
+    }
+
+    img {
+      width: 65%;
+      aspect-ratio: 4/3;
     }
 
     .title {
       font-size: 1.1em;
       font-family: custom-bold;
       font-style: oblique;
+      color: #1b2028;
     }
 
     .topics {
@@ -61,8 +76,10 @@
     }
 
     .topic {
+      font-size: 0.8em;
       padding: 0.25em 0.5em;
       border-radius: 1em;
+      color: var(--primary-font-color);
       background-color: #1b2028;
     }
   }

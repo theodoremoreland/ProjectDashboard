@@ -28,6 +28,11 @@ const SearchBar = () => {
           threshold: 0.3
         });
         const results = fuse.search(searchValue);
+
+        results.sort((a, b) => {
+          return a.refIndex - b.refIndex;
+        });
+
         setSearchResults(results);
       }
 
@@ -38,7 +43,8 @@ const SearchBar = () => {
           <input
             id="search"
             type="text"
-            placeholder="Search by topic..."
+            placeholder="Search..."
+            autoComplete="off"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
@@ -49,14 +55,26 @@ const SearchBar = () => {
               searchResults ? searchResults
                 .map((searchResult) => {
                   const repo = searchResult.item;
+                  const matchingTopics = new Fuse(repo.topics, {
+                    threshold: 0.3
+                  });
+                  const topics = matchingTopics.search(searchValue);
+
                   return <li
                           key={repo.name}
                           className='search-result'
                           onClick={() => handleSearchResultClick(repo)}
                         >
                           <p className='title'>{repo.name}</p>
+                          <img src={repo.image} alt={repo.name} />
                           <div className='topics'>
-                            {repo.topics.map((topic) => <span key={topic} className='topic'>{topic}</span>)}
+                            {topics.length > 0
+                              ? topics.map((topicResult) => {
+                                  const topic = topicResult.item;
+      
+                                  return <span key={topic} className='topic'>{topic}</span>;
+                                })
+                              : <p>No matching topics</p>}
                           </div>
                         </li>
                 })
