@@ -25,9 +25,11 @@ const SearchBar = () => {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
-          <ul id='search-results'>
+          {
+            searchValue &&
+            <ul id='search-results'>
             {
-              repos && repos
+              repos ? repos
                 .map((repo) => 
                 <li
                   key={repo.name}
@@ -39,11 +41,11 @@ const SearchBar = () => {
                     {repo.topics.map((topic) => <span key={topic} className='topic'>{topic}</span>)}
                   </div>
                 </li>)
+                : <li className='search-result'>No results found</li>
             }
           </ul>
+          }
         </div>
-      
-
     )
 }
 
