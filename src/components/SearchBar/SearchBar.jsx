@@ -32,6 +32,21 @@ const SearchBar = () => {
     , [inputRef]);
 
     useEffect(() => {
+      const input = inputRef.current;
+      const focusHandler = () => setShowResults(true);
+
+      if (input) {
+        input.addEventListener('focus', focusHandler);
+      }
+
+      return () => {
+        if (input) {
+          input.removeEventListener('focus', focusHandler);
+        }
+      }
+    }, [inputRef]);
+
+    useEffect(() => {
       const hasFocus = inputRef?.current === document.activeElement;
 
       if (hasFocus && searchValue && repos) {
@@ -52,7 +67,7 @@ const SearchBar = () => {
 
     return (
       <>
-        {searchValue && <div id="clickaway-area" onClick={() => setSearchValue("")}></div> }
+        {searchValue && showResults && <div id="clickaway-area" onClick={() => setShowResults(false)}></div> }
         <div id="search-bar">
           <input
             ref={inputRef}
@@ -67,7 +82,7 @@ const SearchBar = () => {
             <CancelIcon className='icon' />
           </span>}
           {
-            searchValue &&
+            searchValue && showResults &&
             <ul id='search-results'>
             {
               searchResults?.length > 0 ? searchResults
