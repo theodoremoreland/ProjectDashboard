@@ -21,6 +21,7 @@ export const ProjectsContext = createContext();
 
 const ProjectsContextProvider = ({ children }) => {
   const [repos, setRepos] = useState(undefined);
+  const [selectedProject, setSelectedProject] = useState(null);
   const [featuredTopics, setFeaturedTopics] = useState(new Set());
   const taggedRepos = useMemo(() => {
     if (!repos) {
@@ -89,6 +90,8 @@ const ProjectsContextProvider = ({ children }) => {
       value={{
         repos: taggedRepos,
         updateFeaturedTopics,
+        selectedProject,
+        setSelectedProject,
         featuredTopics,
         isError,
       }}
