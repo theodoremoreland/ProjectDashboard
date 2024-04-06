@@ -6,6 +6,9 @@ import Fuse from 'fuse.js';
 // Context
 import { ProjectsContext } from '../../contexts/ProjectsContext';
 
+// Images
+import { ReactComponent as CancelIcon } from '../../images/cancel.svg';
+
 // Styles
 import './SearchBar.css';
 
@@ -14,6 +17,7 @@ const SearchBar = () => {
     const { repos, setSelectedProject } = useContext(ProjectsContext);
     const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState(repos);
+    const [showResults, setShowResults] = useState(false);
     const inputRef = useRef(null);
 
     const handleSearchResultClick = useCallback((projectData) => {
@@ -21,8 +25,14 @@ const SearchBar = () => {
       setSelectedProject(projectData);
     }, [setSelectedProject]);
 
+    const handleCancelClick = useCallback(() => {
+      setSearchValue('');
+      inputRef?.current?.focus();
+    }
+    , [inputRef]);
+
     useEffect(() => {
-      const hasFocus = inputRef.current === document.activeElement;
+      const hasFocus = inputRef?.current === document.activeElement;
 
       if (hasFocus && searchValue && repos) {
         const fuse = new Fuse(repos, {
@@ -53,13 +63,21 @@ const SearchBar = () => {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
+          {searchValue && <span id='delete' onClick={handleCancelClick}>
+            <CancelIcon className='icon' />
+          </span>}
           {
             searchValue &&
             <ul id='search-results'>
             {
-              searchResults ? searchResults
+              searchResults?.length > 0 ? searchResults
                 .map((searchResult) => {
                   const repo = searchResult.item;
+
+                  if (!repo) {
+                    return null;
+                  }
+
                   const matchingTopics = new Fuse(repo.topics, {
                     threshold: 0.3
                   });
