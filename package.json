@@ -10,16 +10,13 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.3",
     "fuse.js": "^7.0.0",
-    "lodash": "^4.17.21",
-    "react": "^16.13.1",
+    "react": "^18.2.0",
     "react-bootstrap": "^1.4.0",
-    "react-dom": "^16.13.1",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.1.0",
-    "react-loading-skeleton": "^2.1.1",
     "react-markdown": "^5.0.3",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.1",
-    "react-wordcloud": "^1.2.7"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
