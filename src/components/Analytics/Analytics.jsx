@@ -36,10 +36,7 @@ const Analytics = ({ projects, handleClose }) => {
 
     return (
         <section id="analytics">
-            <header>
-                <button type="button" title="Close" className="x" onClick={handleClose}>x</button>
-            </header>
-            <article>
+            <div className='row'>
                 <div id="kpis">
                     <div id="total-features" className="kpi">
                         <span className='label'>Projects featured</span>
@@ -62,11 +59,13 @@ const Analytics = ({ projects, handleClose }) => {
                     <div id="total-size" className="kpi">
                         <span className='label'>Total file size</span>
                         <span className='value'>
-                            <WeightIcon className='icon' /> {totalSize.toLocaleString()}mb
+                            <WeightIcon className='icon' /> {totalSize.toLocaleString()}+ mb
                         </span>
                     </div>
                 </div>
-                <div id='charts'>
+                <button type="button" title="Close" className="x" onClick={handleClose}>Close</button>
+            </div>
+            <div id='charts' className='row'>
                 <div id='pie-charts'>
                     <h2 className='pie-chart-title'>Projects by context</h2>
                     <PieChart
@@ -100,8 +99,7 @@ const Analytics = ({ projects, handleClose }) => {
                         
                     />
                 </div>
-                </div>
-            </article>
+            </div>
         </section>
     );
 };

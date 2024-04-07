@@ -14,7 +14,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
     return (
         <div className="project-detail">
             <header>
-                <button type="button" title="Close" className="x" onClick={handleClose}>x</button>
+                <button type="button" title="Close" className="x" onClick={handleClose}>Close</button>
             </header>
             <article>
                 <div className="project-detail__image-container">
