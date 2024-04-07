@@ -1,15 +1,34 @@
 import React, { useMemo } from 'react';
 
+// MUI
 import { PieChart } from '@mui/x-charts/PieChart';
+import { mangoFusionPalette } from '@mui/x-charts/colorPalettes';
+
+// Images
+import { ReactComponent as DeploymentIcon } from '../../images/deployed-code.svg';
+import { ReactComponent as StarIcon } from '../../images/star.svg';
+import { ReactComponent as WeightIcon } from '../../images/weight.svg';
+import { ReactComponent as CodeIcon } from '../../images/code.svg';
 
 // Styles
 import './Analytics.css';
 
+const getProjectFileSizes = (projects) => {
+    let totalSize = 0;
+
+    projects.forEach((project) => {
+        totalSize += project.size;
+    });
+
+    return totalSize;
+};
+
+
 const getCourseCounts = (projects) => {
-    const lc101 = { id: 1, value: 0, label: 'LaunchCode LC101' };
-    const dataAnalyticsBootCamp = { id: 2, value: 0, label: 'Wash U Data Analytics Boot Camp' };
-    const fullStackFlex = { id: 3, value: 0, label: 'SMU Full Stack Flex' };
-    const lindenwoodUniversity = { id: 4, value: 0, label: 'Lindenwood University' };
+    const lc101 = { id: 1, value: 0, label: 'LC101' };
+    const dataAnalyticsBootCamp = { id: 2, value: 0, label: 'Wash U Data' };
+    const fullStackFlex = { id: 3, value: 0, label: 'SMU Full Stack' };
+    const lindenwoodUniversity = { id: 4, value: 0, label: 'Lindenwood' };
 
     projects.forEach((project) => {
         if (project.topics.includes('lc101')) {
@@ -80,54 +99,70 @@ const Analytics = ({ projects, handleClose }) => {
     const totalDeployments = useMemo(() => getTotalDeployments(projects), [projects]);
     const totalFeatures = useMemo(() => getTotalFeatures(projects), [projects]);
     const totalStars = useMemo(() => getTotalStars(projects), [projects]);
+    const totalSize = useMemo(() => getProjectFileSizes(projects), [projects]);
 
     return (
         <section id="analytics">
             <header>
                 <button type="button" title="Close" className="x" onClick={handleClose}>x</button>
             </header>
-            <h1>Analytics</h1>
-            <div id="kpis">
-                <div id="total-features" className="kpi">
-                    <span>Total features</span>
-                    <span>{totalFeatures}</span>
+            <article>
+                <div id="kpis">
+                    <div id="total-features" className="kpi">
+                        <span className='label'>Projects featured</span>
+                        <span className='value'>
+                             <CodeIcon className='icon'/> {totalFeatures}
+                        </span>
+                    </div>
+                    <div id="total-deployments" className="kpi">
+                        <span className='label'>Active deployments</span>
+                        <span className='value'>
+                            <DeploymentIcon className='icon'/> {totalDeployments}
+                        </span>
+                    </div>
+                    <div id="total-stars" className="kpi">
+                        <span className='label'>Stars received</span>
+                        <span className='value'>
+                           <StarIcon className='icon' /> {totalStars}
+                        </span>
+                    </div>
+                    <div id="total-size" className="kpi">
+                        <span className='label'>File size</span>
+                        <span className='value'>
+                            <WeightIcon className='icon' /> {totalSize.toLocaleString()}mb
+                        </span>
+                    </div>
                 </div>
-                <div id="total-deployments" className="kpi">
-                    <span>Total deployments</span>
-                    <span>{totalDeployments}</span>
-                </div>
-                <div id="total-stars" className="kpi">
-                    <span>Total stars</span>
-                    <span>{totalStars}</span>
-                </div>
-            </div>
-            <div id="scatter">
+                <div id="scatter">
 
-            </div>
-            <div id='pie-charts'>
-                <PieChart
-                    series={[
-                        {
-                        data: courseCounts,
-                        highlightScope: { faded: 'global', highlighted: 'item' },
-                        faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
-                        },
-                    ]}
-                    width={400}
-                    height={200}
-                />
-                <PieChart
-                    series={[
-                        {
-                        data: contextCounts,
-                        highlightScope: { faded: 'global', highlighted: 'item' },
-                        faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
-                        },
-                    ]}
-                    width={400}
-                    height={200}
-                />
-            </div>
+                </div>
+                <div id='pie-charts'>
+                    <PieChart
+                        colors={mangoFusionPalette}
+                        series={[
+                            {
+                            data: courseCounts,
+                            highlightScope: { faded: 'global', highlighted: 'item' },
+                            faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                            },
+                        ]}
+                        width={400}
+                        height={200}
+                    />
+                    <PieChart
+                        colors={mangoFusionPalette}
+                        series={[
+                            {
+                            data: contextCounts,
+                            highlightScope: { faded: 'global', highlighted: 'item' },
+                            faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                            },
+                        ]}
+                        width={400}
+                        height={200}
+                    />
+                </div>
+            </article>
         </section>
     );
 };
