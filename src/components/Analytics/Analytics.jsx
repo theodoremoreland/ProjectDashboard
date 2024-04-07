@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 
 // MUI
 import { PieChart } from '@mui/x-charts/PieChart';
+import { BarChart } from '@mui/x-charts/BarChart';
 import { mangoFusionPalette } from '@mui/x-charts/colorPalettes';
 
 // Images
@@ -12,6 +13,46 @@ import { ReactComponent as CodeIcon } from '../../images/code.svg';
 
 // Styles
 import './Analytics.css';
+
+const getTopTechnologies = (projects, limit=10) => {
+    const topicsToIgnore = [
+        'personal',
+        'professional',
+        'coursework',
+        'exercise',
+        'lc101',
+        'data-analytics-bootcamp',
+        'full-stack-bootcamp',
+        'lindenwood-university',
+        'web-development',
+        'data-engineering',
+        'data-analytics',
+        'mobile-development',
+        'web-scraping',
+        'unit-testing',
+        'rest-api',
+    ];
+    const technologies = {};
+
+    projects.forEach((project) => {
+        project.topics.forEach((technology) => {
+            if (technologies[technology]) {
+                technologies[technology] += 1;
+            } else {
+                technologies[technology] = 1;
+            }
+        });
+    });
+
+    const dataset = Object.entries(technologies)
+                        .sort((a, b) => b[1] - a[1])
+                        .filter(([technology, count]) => !topicsToIgnore.includes(technology))
+                        .map(([technology, count]) => ({ technology, count }))
+                        .slice(0, limit);
+
+    console.log(dataset);
+    return dataset;
+};
 
 const getProjectFileSizes = (projects) => {
     let totalSize = 0;
@@ -100,6 +141,7 @@ const Analytics = ({ projects, handleClose }) => {
     const totalFeatures = useMemo(() => getTotalFeatures(projects), [projects]);
     const totalStars = useMemo(() => getTotalStars(projects), [projects]);
     const totalSize = useMemo(() => getProjectFileSizes(projects), [projects]);
+    const technologies = useMemo(() => getTopTechnologies(projects), [projects]);
 
     return (
         <section id="analytics">
@@ -133,9 +175,7 @@ const Analytics = ({ projects, handleClose }) => {
                         </span>
                     </div>
                 </div>
-                <div id="scatter">
-
-                </div>
+                <div id='charts'>
                 <div id='pie-charts'>
                     <PieChart
                         colors={mangoFusionPalette}
@@ -146,8 +186,6 @@ const Analytics = ({ projects, handleClose }) => {
                             faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                             },
                         ]}
-                        width={400}
-                        height={200}
                     />
                     <PieChart
                         colors={mangoFusionPalette}
@@ -158,9 +196,16 @@ const Analytics = ({ projects, handleClose }) => {
                             faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                             },
                         ]}
-                        width={400}
-                        height={200}
                     />
+                </div>
+                <div id="bar-chart-container">
+                    <BarChart
+                        dataset={technologies}
+                        series={[{ dataKey: 'count', label: 'Projects'}]}
+                        xAxis={[{ scaleType: 'band', dataKey: "technology", label: 'Technologies' }]}
+                        
+                    />
+                </div>
                 </div>
             </article>
         </section>

@@ -55,15 +55,23 @@
   article {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     gap: 1em;
     width: 100%;
+    padding: 1em;
   }
 
   #kpis {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
     .kpi {
       display: flex;
       flex-direction: column;
@@ -79,13 +87,37 @@
     }
   }
 
+  #charts {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+  }
+
   #pie-charts {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 1em;
-    width: 50%;
+    width: 40%;
+    height: 100%;
+    padding: 1em;
+    border: 1px solid var(--border-color);
+
+    text {
+      fill: var(--primary-font-color) !important;
+    }
+  }
+
+  #bar-chart-container {
+    position: relative;
+    width: 60%;
+    height: 100%;
     padding: 1em;
     border: 1px solid var(--border-color);
 
