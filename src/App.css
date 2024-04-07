@@ -23,6 +23,8 @@
   --primary-font-color: #fafafa;
   --secondary-font-color: #333;
   --border-color: #f5f5f554;
+  --temp-1: rgb(4, 184, 255);
+  --temp-2: #173a5e;
 }
 
 /* ------------------- GLOBAL ------------------- */
@@ -59,21 +61,23 @@ body {
 }
 
 body::-webkit-scrollbar,
-ul::-webkit-scrollbar {
+ul::-webkit-scrollbar,
+section::-webkit-scrollbar {
   height: 5px;
-  width: 3px;
+  width: 4px;
 }
 
 body::-webkit-scrollbar-track,
-ul::-webkit-scrollbar-track {
-  background: #000000; /* color of the tracking area */
+ul::-webkit-scrollbar-track,
+section::-webkit-scrollbar-track {
+  background: var(--secondary-font-color); /* color of the tracking area */
   border: none;
 }
 
 body::-webkit-scrollbar-thumb,
-ul::-webkit-scrollbar-thumb {
-  background-color: aliceblue; /* color of the scroll thumb */
-  border-radius: 4px;
+ul::-webkit-scrollbar-thumb,
+section::-webkit-scrollbar-thumb {
+  background-color: var(--temp-2); /* color of the scroll thumb */
 }
 
 /* ------------------- TITLE CARD ------------------- */
