@@ -2,6 +2,7 @@ Analytics
 
 - Totals (KPI)
 
+  - Total featured repos
   - Total stars received
   - Total repo size (MB)
   - Total commits
@@ -25,12 +26,6 @@ Analytics
 
   - Creation
   - Last modified
-
-- Technology breakdown (Word cloud)
-  - Competency
-  - Languages
-  - Frameworks
-  - Tools
 
 # Project List
 

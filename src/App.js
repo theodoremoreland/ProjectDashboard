@@ -1,6 +1,7 @@
 // React
 import React, { useEffect, useState, useCallback, useContext } from "react";
 
+// Bootstrap Components
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
@@ -8,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import { ProjectsContext } from "./contexts/ProjectsContext";
 
 // Custom Components
+import Analytics from "./components/Analytics/Analytics.jsx";
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import ProjectDetail from "./components/ProjectDetail/ProjectDetail.jsx";
@@ -21,6 +23,7 @@ const App = () => {
   const { repos, isError, selectedProject, setSelectedProject } =
     useContext(ProjectsContext);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showAnalytics, setShowAnalytics] = useState(false);
   const handleCloseErrorModal = useCallback(() => setShowErrorModal(false), []);
   const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
 
@@ -63,7 +66,7 @@ const App = () => {
         )}
       </header>
       <main>
-        <NavBar />
+        <NavBar setShowAnalytics={setShowAnalytics} />
         <div id="content">
           <Sidebar />
           {repos !== undefined ? (
@@ -76,6 +79,12 @@ const App = () => {
             <ProjectDetail
               projectData={selectedProject}
               handleClose={() => setSelectedProject(null)}
+            />
+          )}
+          {showAnalytics && (
+            <Analytics
+              projects={repos}
+              handleClose={() => setShowAnalytics(false)}
             />
           )}
         </div>
