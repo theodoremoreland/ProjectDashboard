@@ -46,11 +46,10 @@ const getTopTechnologies = (projects, limit=10) => {
 
     const dataset = Object.entries(technologies)
                         .sort((a, b) => b[1] - a[1])
-                        .filter(([technology, count]) => !topicsToIgnore.includes(technology))
+                        .filter(([technology, _]) => !topicsToIgnore.includes(technology))
                         .map(([technology, count]) => ({ technology, count }))
                         .slice(0, limit);
 
-    console.log(dataset);
     return dataset;
 };
 
@@ -177,6 +176,7 @@ const Analytics = ({ projects, handleClose }) => {
                 </div>
                 <div id='charts'>
                 <div id='pie-charts'>
+                    <h2 className='pie-chart-title'>Projects by context</h2>
                     <PieChart
                         colors={mangoFusionPalette}
                         series={[
@@ -187,6 +187,7 @@ const Analytics = ({ projects, handleClose }) => {
                             },
                         ]}
                     />
+                    <h2 className='pie-chart-title'>Academic projects by course</h2>
                     <PieChart
                         colors={mangoFusionPalette}
                         series={[
@@ -202,8 +203,8 @@ const Analytics = ({ projects, handleClose }) => {
                     <BarChart
                         colors={mangoFusionPalette}
                         dataset={technologies}
-                        series={[{ dataKey: 'count', label: '# of projects using technology'}]}
-                        xAxis={[{ scaleType: 'band', dataKey: "technology", label: 'Top 10 Technologies' }]}
+                        series={[{ dataKey: 'count', label: 'Count of projects using technology'}]}
+                        xAxis={[{ scaleType: 'band', dataKey: "technology", label: 'Top 10 technologies used' }]}
                         
                     />
                 </div>
