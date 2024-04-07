@@ -169,7 +169,7 @@ const Analytics = ({ projects, handleClose }) => {
                         </span>
                     </div>
                     <div id="total-size" className="kpi">
-                        <span className='label'>File size</span>
+                        <span className='label'>Total file size</span>
                         <span className='value'>
                             <WeightIcon className='icon' /> {totalSize.toLocaleString()}mb
                         </span>
@@ -181,7 +181,7 @@ const Analytics = ({ projects, handleClose }) => {
                         colors={mangoFusionPalette}
                         series={[
                             {
-                            data: courseCounts,
+                            data: contextCounts,
                             highlightScope: { faded: 'global', highlighted: 'item' },
                             faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                             },
@@ -191,7 +191,7 @@ const Analytics = ({ projects, handleClose }) => {
                         colors={mangoFusionPalette}
                         series={[
                             {
-                            data: contextCounts,
+                            data: courseCounts,
                             highlightScope: { faded: 'global', highlighted: 'item' },
                             faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                             },
@@ -200,9 +200,10 @@ const Analytics = ({ projects, handleClose }) => {
                 </div>
                 <div id="bar-chart-container">
                     <BarChart
+                        colors={mangoFusionPalette}
                         dataset={technologies}
-                        series={[{ dataKey: 'count', label: 'Projects'}]}
-                        xAxis={[{ scaleType: 'band', dataKey: "technology", label: 'Technologies' }]}
+                        series={[{ dataKey: 'count', label: '# of projects using technology'}]}
+                        xAxis={[{ scaleType: 'band', dataKey: "technology", label: 'Top 10 Technologies' }]}
                         
                     />
                 </div>
