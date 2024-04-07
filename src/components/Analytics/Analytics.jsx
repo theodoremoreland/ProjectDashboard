@@ -69,6 +69,7 @@ const getCourseCounts = (projects) => {
     const dataAnalyticsBootCamp = { id: 2, value: 0, label: 'Wash U Data' };
     const fullStackFlex = { id: 3, value: 0, label: 'SMU Full Stack' };
     const lindenwoodUniversity = { id: 4, value: 0, label: 'Lindenwood' };
+    const other = { id: 5, value: 0, label: 'Other' };
 
     projects.forEach((project) => {
         if (project.topics.includes('lc101')) {
@@ -79,10 +80,13 @@ const getCourseCounts = (projects) => {
             fullStackFlex.value += 1;
         } else if (project.topics.includes('lindenwood-university')) {
             lindenwoodUniversity.value += 1;
+        } else if (project.topics.includes('coursework') || project.topics.includes('exercise')) {
+            // If the project is not associated with a course, count it as an academic project
+            other.value += 1;
         }
     });
 
-    return [lc101, dataAnalyticsBootCamp, fullStackFlex, lindenwoodUniversity];
+    return [lc101, dataAnalyticsBootCamp, fullStackFlex, lindenwoodUniversity, other];
 };
 
 const getContextCounts = (projects) => {
@@ -164,7 +168,7 @@ const Analytics = ({ projects, handleClose }) => {
                     <div id="total-stars" className="kpi">
                         <span className='label'>Stars received</span>
                         <span className='value'>
-                           <StarIcon className='icon' /> {totalStars}
+                           <StarIcon className='icon' /> {totalStars}+
                         </span>
                     </div>
                     <div id="total-size" className="kpi">
