@@ -91,9 +91,3 @@ export const getTopicCounts = (repos) => {
 
   return topicCounts;
 };
-
-export const getLiveDemosCount = (repos) => {
-  if (!repos) return 0;
-
-  return repos.filter((repo) => repo.demo_link).length;
-};
