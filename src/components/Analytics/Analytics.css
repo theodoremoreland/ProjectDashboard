@@ -7,9 +7,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 1em;
   width: 100vw;
   height: 100vh;
-  padding: 0;
+  padding: 1em 1.25em;
   color: var(--primary-font-color);
   background-color: #1b2028;
   background: radial-gradient(
@@ -20,25 +21,25 @@
   overflow-y: auto;
   overflow-x: hidden;
 
-  header {
+  > div.row:first-of-type {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0.3em 2em;
     margin: 0;
     color: var(--primary-font-color);
 
     .x {
       cursor: pointer;
-      padding: 0;
+      padding: 0.5em 1em;
       border: none;
+      border-radius: 1em;
       margin: 0;
       color: var(--primary-font-color);
       font-style: custom-bold;
-      font-size: 1.5em;
-      background-color: transparent;
+      font-size: 1em;
+      background-color: #173a5e;
     }
 
     .x:hover,
@@ -52,25 +53,13 @@
     }
   }
 
-  article {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1em;
-    width: 100%;
-    padding: 1em;
-  }
-
   #kpis {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    gap: 0.5em;
 
     .kpi {
       display: flex;
@@ -111,7 +100,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 1em;
+    gap: 0.5em;
     width: 40%;
     height: 100%;
     padding-right: 1em;
