@@ -6,7 +6,6 @@ import { ReactComponent as StarIcon } from "../../images/star.svg";
 import { ReactComponent as EventIcon } from "../../images/event.svg";
 import { ReactComponent as EventRepeatIcon } from "../../images/event_repeat.svg";
 
-
 // Custom styles
 import "./ProjectDetail.css";
 
