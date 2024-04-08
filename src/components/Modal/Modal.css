@@ -64,28 +64,6 @@
       border: none;
       border-radius: 0;
       background-color: transparent;
-
-      .x {
-        cursor: pointer;
-        padding: 0.5em 1em;
-        border: none;
-        border-radius: 1em;
-        margin: 0;
-        color: var(--primary-font-color);
-        font-style: custom-bold;
-        font-size: 1em;
-        background-color: #173a5e;
-      }
-
-      .x:hover,
-      .x:active,
-      .x:focus {
-        opacity: 0.7;
-      }
-
-      .x:active {
-        transform: scale(0.9);
-      }
     }
 
     .custom-modal-title {

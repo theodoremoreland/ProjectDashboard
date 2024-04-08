@@ -63,7 +63,7 @@ const Analytics = ({ projects, handleClose }) => {
                         </span>
                     </div>
                 </div>
-                <button type="button" title="Close" className="x" onClick={handleClose}>Close</button>
+                <button type="button" title="Close" className="close-button" onClick={handleClose}>Close</button>
             </div>
             <div className='row'>
                 <div id='pie-charts'>

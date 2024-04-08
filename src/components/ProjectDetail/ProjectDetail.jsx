@@ -11,11 +11,11 @@ import "./ProjectDetail.css";
 
 const ProjectDetail = ({ projectData, handleClose }) => {
     return (
-        <div id="ProjectDetail">
-            <header>
-                <button type="button" title="Close" className="x" onClick={handleClose}>Close</button>
-            </header>
-            <article>
+        <section id="ProjectDetail">
+            <div className="row">
+                <button type="button" title="Close" className="close-button" onClick={handleClose}>Close</button>
+            </div>
+            <div className="row">
                 <div id="image-container">
                     <img src={projectData.image} alt={projectData.name} />
                 </div>
@@ -86,8 +86,8 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                         { projectData.topics.map((topic) => <li key={topic} className="topic">{topic}</li>) }
                     </ul>
                 </div>
-            </article>
-        </div>
+            </div>
+        </section>
     );
 };
 

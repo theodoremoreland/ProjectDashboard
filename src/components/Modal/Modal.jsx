@@ -10,7 +10,7 @@ const Modal = ({ children, title, handleClose }) => {
         }}>
             <div className="custom-modal">
             <header className="custom-modal-header">
-                <button title='close' className="x" onClick={handleClose}>
+                <button title='close' className="close-button" onClick={handleClose}>
                         Close
                 </button>
             </header>
