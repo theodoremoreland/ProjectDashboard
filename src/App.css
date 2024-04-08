@@ -1,56 +1,50 @@
 /* ___________________ FONTS ____________________________ */
 
 @font-face {
-  font-family: Raleway-Bold;
-  src: url("./fonts/Raleway/Raleway-Bold.ttf");
+  font-family: custom-bold;
+  src: url("./fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf");
 }
 
 @font-face {
-  font-family: Raleway-Medium;
-  src: url("./fonts/Raleway/Raleway-Medium.ttf");
+  font-family: custom-regular;
+  src: url("./fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf");
 }
 
 @font-face {
-  font-family: Raleway-Thin;
-  src: url("./fonts/Raleway/Raleway-Thin.ttf");
+  font-family: custom-thin;
+  src: url("./fonts/IBM_Plex_Sans/IBMPlexSans-Thin.ttf");
 }
 
 /* ------------------- VARIABLES ------------------- */
 
 :root {
-  --header-xxl: 4rem Raleway-Bold;
-  --header-xl: 2.8rem Raleway-Bold;
-  --header-large: 2.25rem Raleway-Bold;
-  --header-medium: 1.4rem Raleway-Bold;
-  --header-small: 1.13rem Raleway-Bold;
-  --header-xs: 0.85rem Raleway-Bold;
-
-  --body-xxl: 1.8rem Raleway-Medium;
-  --body-xl: 1.3rem Raleway-Medium;
-  --body-large: 1.15rem Raleway-Medium;
-  --body-medium: 0.9rem Raleway-Medium;
-  --body-small: 0.8rem Raleway-Medium;
-
-  --accent-xl: 1.2rem Raleway-Thin;
-  --accent-large: 1rem Raleway-Thin;
-  --accent-medium: 0.75rem Raleway-Thin;
-  --accent-small: 0.69rem Raleway-Thin;
-
   --primary-color: #28313b;
   --overlay-color: #28313b9a;
+  --primary-font-color: #fafafa;
+  --secondary-font-color: #333;
+  --border-color: #f5f5f554;
+  --temp-1: rgb(4, 184, 255);
+  --temp-2: #173a5e;
 }
 
 /* ------------------- GLOBAL ------------------- */
-html,
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: custom-regular;
+  background-color: black;
+}
+
 body,
 div#root {
   height: 100%;
   width: 100%;
-}
-
-html {
-  overflow-x: hidden;
-  background-color: black;
 }
 
 body {
@@ -68,43 +62,25 @@ body {
 
 body::-webkit-scrollbar,
 ul::-webkit-scrollbar,
-.timeline::-webkit-scrollbar,
-.projectCardScrollContainer::-webkit-scrollbar,
-.projectCardBody::-webkit-scrollbar {
+section::-webkit-scrollbar {
   height: 5px;
-  width: 3px;
+  width: 4px;
 }
 
 body::-webkit-scrollbar-track,
 ul::-webkit-scrollbar-track,
-.timeline::-webkit-scrollbar-track,
-.projectCardScrollContainer::-webkit-scrollbar-track,
-.projectCardBody::-webkit-scrollbar-track {
-  background: #000000; /* color of the tracking area */
+section::-webkit-scrollbar-track {
+  background: var(--secondary-font-color); /* color of the tracking area */
   border: none;
 }
 
 body::-webkit-scrollbar-thumb,
 ul::-webkit-scrollbar-thumb,
-.timeline::-webkit-scrollbar-thumb,
-.projectCardScrollContainer::-webkit-scrollbar-thumb,
-.projectCardBody::-webkit-scrollbar-thumb {
-  background-color: aliceblue; /* color of the scroll thumb */
-  border-radius: 4px;
+section::-webkit-scrollbar-thumb {
+  background-color: var(--temp-2); /* color of the scroll thumb */
 }
 
-/* ------------------- FX ------------------- */
-
-.overlay {
-  z-index: -1;
-  top: 0;
-  background-color: #28313b6b;
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-}
-
-/* ------------------- APP HEADER ------------------- */
+/* ------------------- TITLE CARD ------------------- */
 
 .titleCard {
   z-index: 5;
@@ -135,11 +111,33 @@ ul::-webkit-scrollbar-thumb,
 }
 
 .appTitle {
-  font: var(--header-small);
+  font-size: 1.13rem;
+  font-family: custom-bold;
+  font-style: oblique;
+  letter-spacing: -1px;
 }
 
 .appSubtitle {
-  font: var(--accent-medium);
+  font-size: 0.8rem;
+  font-style: oblique;
+  font-family: custom-thin;
+}
+
+@media screen and (min-width: 481px) {
+  .appTitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .appTitle {
+    font-size: 2.8rem;
+    transition: all 1.2s linear;
+  }
+
+  .appSubtitle {
+    font-size: 1.2rem;
+  }
 }
 
 .appSubtitle.loading {
@@ -158,166 +156,18 @@ ul::-webkit-scrollbar-thumb,
   }
 }
 
-/* ------------------- CONTENT ------------------- */
-
-nav {
-  position: absolute;
-  font: var(--body-small);
-  color: aliceblue;
-  background-color: transparent;
-  width: 100%;
-  padding: 5px 0;
-  overflow: hidden;
-  z-index: 5;
-}
-
-#scroll-text {
-  list-style: none;
-  white-space: nowrap;
-  /* animation properties */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-
-  -moz-animation: my-animation 15s linear infinite;
-  -webkit-animation: my-animation 15s linear infinite;
-  animation: my-animation 15s linear infinite;
-}
-
-/* for Firefox */
-@-moz-keyframes my-animation {
-  from {
-    -moz-transform: translateX(100%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-  }
-}
-
-/* for Chrome */
-@-webkit-keyframes my-animation {
-  from {
-    -webkit-transform: translateX(100%);
-  }
-  to {
-    -webkit-transform: translateX(-100%);
-  }
-}
-
-@keyframes my-animation {
-  from {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-  }
-  to {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-  }
-}
-
-/* ------------------- CONTENT ------------------- */
-
-.content {
+main {
+  position: relative;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  justify-content: flex-start;
   width: 100%;
+  height: 100%;
 }
 
-.timelineContainerHeader {
-  display: none;
-}
-
-.timelineContainer {
+#content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
+  flex-direction: row;
   width: 100%;
-  min-width: 280px;
-}
-
-/* ------------------- MEDIA QUERIES ------------------- */
-
-@media screen and (min-width: 481px) {
-  .appTitle {
-    font: var(--header-medium);
-  }
-
-  .appSubtitle {
-    font: var(--accent-medium);
-  }
-}
-
-@media screen and (min-width: 769px) {
-  html {
-    overflow-x: auto;
-  }
-
-  .appTitle {
-    font: var(--header-xl);
-    transition: all 1.2s linear;
-  }
-
-  .appSubtitle {
-    font: var(--accent-large);
-  }
-
-  .content {
-    position: relative;
-    justify-content: center;
-    padding: 0px 20px;
-  }
-
-  .timelineContainerHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: azure;
-  }
-
-  .timelineContainerTitle {
-    font: var(--header-xl);
-  }
-
-  .timelineContainerSubtitle {
-    font: var(--body-medium);
-    word-wrap: break-word;
-    width: 170px;
-    margin: 15px 0px;
-  }
-
-  .timelineContainer {
-    justify-content: center;
-    padding: 0px 20px;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .timelineContainerHeader {
-    padding-right: 0px;
-  }
-
-  .timelineContainer {
-    height: 80%;
-    width: 83%;
-  }
-}
-
-@media screen and (min-width: 1366px) {
-  .timelineContainer {
-    width: 80%;
-  }
-}
-
-@media screen and (min-width: 3200px) {
-  .timelineContainer {
-    width: 85%;
-  }
+  height: calc(100% - (var(--navbar-height)));
 }
