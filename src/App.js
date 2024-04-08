@@ -1,10 +1,6 @@
 // React
 import React, { useEffect, useState, useCallback, useContext } from "react";
 
-// Bootstrap Components
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-
 // Context
 import { ProjectsContext } from "./contexts/ProjectsContext";
 
@@ -14,6 +10,8 @@ import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import ProjectDetail from "./components/ProjectDetail/ProjectDetail.jsx";
 import ProjectGrid from "./components/ProjectGrid/ProjectGrid.jsx";
+import Help from "./components/Modal/Help/Help.jsx";
+import Error from "./components/Modal/Error/Error.jsx";
 
 // Custom Styles
 import "./reset.css";
@@ -24,6 +22,7 @@ const App = () => {
     useContext(ProjectsContext);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
+  const [showHelpModal, setShowHelpModal] = useState(false);
   const handleCloseErrorModal = useCallback(() => setShowErrorModal(false), []);
   const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
 
@@ -35,26 +34,7 @@ const App = () => {
 
   return (
     <>
-      <Modal
-        show={showErrorModal}
-        onHide={handleCloseErrorModal}
-        size="lg"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Something went wrong</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          There was an issue loading projects from GitHub. As a result, backup
-          data will be used instead. The information that you see may be
-          outdated and some features may not work as intended.
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleCloseErrorModal}>
-            Ok
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {showErrorModal && <Error handleClose={handleCloseErrorModal} />}
       <header className={`titleCard ${repos ? "transition" : ""}`}>
         <h1 className={`appTitle ${repos ? "transition" : ""}`}>
           Project List
@@ -66,7 +46,10 @@ const App = () => {
         )}
       </header>
       <main>
-        <NavBar setShowAnalytics={setShowAnalytics} />
+        <NavBar
+          setShowAnalytics={setShowAnalytics}
+          setShowHelpModal={setShowHelpModal}
+        />
         <div id="content">
           <Sidebar />
           {repos !== undefined ? (
@@ -86,6 +69,9 @@ const App = () => {
               projects={repos}
               handleClose={() => setShowAnalytics(false)}
             />
+          )}
+          {showHelpModal && (
+            <Help handleClose={() => setShowHelpModal(false)} />
           )}
         </div>
       </main>
