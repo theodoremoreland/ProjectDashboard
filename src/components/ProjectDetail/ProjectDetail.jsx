@@ -17,12 +17,12 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                 <button type="button" title="Close" className="x" onClick={handleClose}>Close</button>
             </header>
             <article>
-                <div className="project-detail__image-container">
-                    <img className="project-detail__image" src={projectData.image} alt={projectData.name} />
+                <div className="project-detail-image-container">
+                    <img className="project-detail-image" src={projectData.image} alt={projectData.name} />
                 </div>
-                <div className="project-detail__info-container">
-                    <h1 className="project-detail__title">{projectData.name}</h1>
-                    <p className="project-detail__description">{projectData.desc}</p>
+                <div className="project-detail-info-container">
+                    <h1 className="project-detail-title">{projectData.name}</h1>
+                    <p className="project-detail-description">{projectData.desc}</p>
                     <table className="metadata">
                         <tbody>
                             <tr>
