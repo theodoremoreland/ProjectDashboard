@@ -1,19 +1,14 @@
 # Project List
 
-An alternative view of my public GitHub repositories. Repository previews are generated dynamically via GitHub API. Word-clouds are used as a filtering interface such that said interface doubles as a filtering mechanism and a metric of technologies and/or competencies demonstrated throughout my GitHub profile.
+An alternative view of my public GitHub repositories. Repository previews are generated dynamically via GitHub API.
 
 [View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
-
-_This project was originally my portfolio website in 2020. It was originally in a different GitHub repo but I migrated that work here as I wanted to redesign said portfolio. Now this project is just an ordinary side project with a design I like to think I outgrew._ :innocent:
-
-<img src="presentation/thumbnail.png" width="800">
 
 ## Table of contents
 
 - [Technologies Used](#technologies-used)
-- [Screenshots](#screenshots)
+- [Screenshots (WIP)](#screenshots)
   - [Desktop](#desktop-ultra-wide)
-  - [Mobile](#mobile)
 
 ### Technologies Used
 
@@ -22,8 +17,7 @@ _This project was originally my portfolio website in 2020. It was originally in 
 - HTML5
 - CSS3
 - Bootstrap (via react-bootstrap)
-- react-wordcloud
-- react-markdown
+- MUI X Charts
 - AWS
 
 # Screenshots
@@ -33,41 +27,3 @@ _This project was originally my portfolio website in 2020. It was originally in 
 ### Title Card
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/6.png" width="800">
-
-### Default view
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/1.png" width="800">
-
-### View with word-cloud filter open
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/2.png" width="800">
-
-### View with README open
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/3.png" width="800">
-
-### View when mouse hovers over thumbnail
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/4.png" width="800">
-
-### View after scrolling
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="800">
-
-## Mobile
-
-### View
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="300">
-
-### View after scrolling
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/9.png" width="300">
-
-### View with README open
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/8.png" width="300">
-
-### View with mobile filter open
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/10.png" width="300">
