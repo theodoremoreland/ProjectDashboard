@@ -11,18 +11,18 @@ import "./ProjectDetail.css";
 
 const ProjectDetail = ({ projectData, handleClose }) => {
     return (
-        <div id="project-detail">
+        <div id="ProjectDetail">
             <header>
                 <button type="button" title="Close" className="x" onClick={handleClose}>Close</button>
             </header>
             <article>
-                <div className="project-detail-image-container">
-                    <img className="project-detail-image" src={projectData.image} alt={projectData.name} />
+                <div id="image-container">
+                    <img src={projectData.image} alt={projectData.name} />
                 </div>
-                <div className="project-detail-info-container">
-                    <h1 className="project-detail-title">{projectData.name}</h1>
-                    <p className="project-detail-description">{projectData.desc}</p>
-                    <table className="metadata">
+                <div id="info-container">
+                    <h1>{projectData.name}</h1>
+                    <p>{projectData.desc}</p>
+                    <table id="metadata">
                         <tbody>
                             <tr>
                                 <td>
@@ -82,7 +82,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                             </tr>
                         </tbody>
                     </table>
-                    <ul className="topics" title="GitHub topic associated with this project.">
+                    <ul id="topics" title="GitHub topic associated with this project.">
                         { projectData.topics.map((topic) => <li key={topic} className="topic">{topic}</li>) }
                     </ul>
                 </div>
