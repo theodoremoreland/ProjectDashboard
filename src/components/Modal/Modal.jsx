@@ -3,17 +3,21 @@ import React from 'react';
 // Styles
 import './Modal.css';
 
-const Modal = ({ children, onClose }) => {
+const Modal = ({ children, title, handleClose }) => {
     return (
-        <div className="modal">
-            <div className="modal-backdrop" onClick={onClose}></div>
-            <header className="modal-header">
-                <button className="close" onClick={onClose}>
-                        X
+        <div className="custom-modal-backdrop" onClick={(e) => {
+            if (e.target === e.currentTarget) handleClose();
+        }}>
+            <div className="custom-modal">
+            <header className="custom-modal-header">
+                <button title='close' className="x" onClick={handleClose}>
+                        Close
                 </button>
             </header>
-            <div className="modal-content">
+            <h2 className="custom-modal-title">{title}</h2>
+            <div className="custom-modal-content">
                 {children}
+            </div>
             </div>
         </div>
     );

@@ -10,7 +10,7 @@ import { ReactComponent as HelpIcon } from "../../images/help.svg";
 // Styles
 import './NavBar.css';
 
-const NavBar = ({ setShowAnalytics }) => {
+const NavBar = ({ setShowAnalytics, setShowHelpModal }) => {
     return (
       <nav id="app-nav">
         <h1>Project List</h1>
@@ -26,7 +26,7 @@ const NavBar = ({ setShowAnalytics }) => {
           <li
             title='Help'
             role='presentation'
-            onClick={() => {}}
+            onClick={() => setShowHelpModal(true)}
           >
             <HelpIcon className="help icon" />
           </li>
