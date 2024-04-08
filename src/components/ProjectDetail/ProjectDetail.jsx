@@ -11,7 +11,7 @@ import "./ProjectDetail.css";
 
 const ProjectDetail = ({ projectData, handleClose }) => {
     return (
-        <div className="project-detail">
+        <div id="project-detail">
             <header>
                 <button type="button" title="Close" className="x" onClick={handleClose}>Close</button>
             </header>
