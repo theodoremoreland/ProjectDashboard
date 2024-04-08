@@ -171,3 +171,25 @@ main {
   width: 100%;
   height: calc(100% - (var(--navbar-height)));
 }
+
+.close-button {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 1em;
+  margin: 0;
+  color: var(--primary-font-color);
+  font-style: custom-bold;
+  font-size: 1em;
+  background-color: #173a5e;
+}
+
+.close-button:hover,
+.close-button:active,
+.close-button:focus {
+  opacity: 0.7;
+}
+
+.close-button:active {
+  transform: scale(0.9);
+}
