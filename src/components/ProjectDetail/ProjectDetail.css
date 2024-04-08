@@ -21,10 +21,6 @@
   overflow-y: auto;
   overflow-x: hidden;
 
-  a {
-    color: rgb(4, 184, 255);
-  }
-
   header {
     display: flex;
     flex-direction: row;
@@ -34,28 +30,6 @@
     padding: 1em 3em 0 3em;
     margin: 0;
     color: var(--primary-font-color);
-
-    .x {
-      cursor: pointer;
-      padding: 0.5em 1em;
-      border: none;
-      border-radius: 1em;
-      margin: 0;
-      color: var(--primary-font-color);
-      font-style: custom-bold;
-      font-size: 1em;
-      background-color: #173a5e;
-    }
-
-    .x:hover,
-    .x:active,
-    .x:focus {
-      opacity: 0.7;
-    }
-
-    .x:active {
-      transform: scale(0.9);
-    }
   }
 
   article {
@@ -66,6 +40,28 @@
     align-items: center;
     width: 100%;
     flex-grow: 1;
+  }
+
+  .x {
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 1em;
+    margin: 0;
+    color: var(--primary-font-color);
+    font-style: custom-bold;
+    font-size: 1em;
+    background-color: #173a5e;
+  }
+
+  .x:hover,
+  .x:active,
+  .x:focus {
+    opacity: 0.7;
+  }
+
+  .x:active {
+    transform: scale(0.9);
   }
 
   .project-detail-image-container,
@@ -81,7 +77,7 @@
     justify-content: center;
     align-items: center;
 
-    .project-detail-image {
+    img {
       width: 85%;
       aspect-ratio: 4/3;
       box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
@@ -111,7 +107,6 @@
     }
 
     p {
-      text-align: left;
       font-size: 1em;
       width: 80%;
       max-width: 75ch;
@@ -121,6 +116,10 @@
       width: 80%;
       border-collapse: collapse;
       font-size: 0.85em;
+
+      a {
+        color: rgb(4, 184, 255);
+      }
 
       td {
         cursor: default;
