@@ -1,4 +1,4 @@
-#project-detail {
+#ProjectDetail {
   z-index: 99;
   position: fixed;
   top: 0;
@@ -64,14 +64,14 @@
     transform: scale(0.9);
   }
 
-  .project-detail-image-container,
-  .project-detail-info-container {
+  #image-container,
+  #info-container {
     position: relative;
     width: 50%;
     height: 100%;
   }
 
-  .project-detail-image-container {
+  #image-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,7 +87,7 @@
     }
   }
 
-  .project-detail-info-container {
+  #info-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +112,7 @@
       max-width: 75ch;
     }
 
-    table.metadata {
+    #metadata {
       width: 80%;
       border-collapse: collapse;
       font-size: 0.85em;
@@ -136,7 +136,7 @@
       }
     }
 
-    .topics {
+    #topics {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
