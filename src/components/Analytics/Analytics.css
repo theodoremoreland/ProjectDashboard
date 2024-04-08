@@ -41,7 +41,7 @@
     gap: 0.5em;
 
     .kpi {
-      display: flex;
+      display: flex !important;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
