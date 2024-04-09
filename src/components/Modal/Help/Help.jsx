@@ -7,7 +7,7 @@ const Help = ({ handleClose }) => {
         <Modal title='Help' handleClose={handleClose}>
             <div>
                 <p> 
-                    Project List dynamically renders a list of my GitHub repositories by leveraging
+                    This project dynamically renders a list of my GitHub repositories by leveraging
                     the GitHub API. The projects featured meet a specific set of criteria and thus do
                     not feature every repository that I own.
                 </p>
@@ -15,12 +15,15 @@ const Help = ({ handleClose }) => {
                     The following features are available
                     <li>
                         - Projects can be filtered by toggling items in the sidebar.
+                        Upon a project being filtered out, its thumbnail will lose opacity.
+                        Filters can be stacked.
                     </li>
                     <li>
                         - Projects can be searched by name or GitHub topic in the search bar.
+                        Topics corresponding to the search query will be displayed in the search results.
                     </li>
                     <li>
-                        - Project List data can be viewed by clicking on the analytics icon in the navbar.
+                        - Analytics can be viewed by clicking on the analytics icon in the navbar.
                     </li>
                 </ul>
             </div>
