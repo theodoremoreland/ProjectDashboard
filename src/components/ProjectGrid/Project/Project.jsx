@@ -1,9 +1,6 @@
 // React
 import React from "react";
 
-// Bootstrap
-import Card from "react-bootstrap/Card";
-
 // Images
 import alt from "../../../images/under-construction-thumbnail.jpg";
 import htmlIcon from "../../../images/languages/html.png";
@@ -42,12 +39,11 @@ const renderLanguageIcon = (topic) => {
 
 const Project = ({ projectData, setSelectedProject }) => {
   return (
-    <Card className={`project-card ${projectData.isFeatured ? 'featured' : 'not-featured'}`}>
-      <Card.Img
+    <div className={`project-card ${projectData.isFeatured ? 'featured' : 'not-featured'}`}>
+      <img
         className="project-image"
-        variant="top"
         src={projectData.image}
-        alt={""}
+        alt={projectData.name}
         onError={(e) => {
           if (e.target.src !== alt) {
             e.target.src = alt;
@@ -91,7 +87,7 @@ const Project = ({ projectData, setSelectedProject }) => {
           </div>
         </div>
       </div>
-    </Card>
+    </div>
   );
 };
 
