@@ -16,7 +16,6 @@ An alternative view of my public GitHub repositories. Repository previews are ge
 - JavaScript (ES6)
 - HTML5
 - CSS3
-- Bootstrap (via react-bootstrap)
 - MUI X Charts
 - AWS
 
