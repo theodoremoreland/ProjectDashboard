@@ -42,19 +42,19 @@
 
     .kpi {
       display: flex !important;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
       gap: 0.5em;
       padding: 1em;
       border: 1px solid var(--border-color);
     }
 
     .value {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: center !important;
       gap: 0.5em;
     }
 
