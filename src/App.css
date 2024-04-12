@@ -78,7 +78,7 @@ body::-webkit-scrollbar-thumb,
 ul::-webkit-scrollbar-thumb,
 section::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: var(--temp-2); /* color of the scroll thumb */
+  background-color: rgb(165, 165, 165); /* color of the scroll thumb */
 }
 
 /* ------------------- TITLE CARD ------------------- */
