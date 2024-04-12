@@ -84,8 +84,17 @@
   );
   transition: opacity 0.5s;
   transform: skew(-25deg);
+}
+
+.project-card.featured:nth-child(odd) .project-overlay::after {
   -webkit-animation: shine 6s infinite;
   animation: shine 6s infinite;
+}
+
+.project-card.featured:nth-child(even) .project-overlay::after {
+  -webkit-animation: shine 6s infinite;
+  animation: shine 6s infinite;
+  animation-delay: 2.1s;
 }
 
 .project-overlay:hover::after {
