@@ -70,13 +70,14 @@ section::-webkit-scrollbar {
 body::-webkit-scrollbar-track,
 ul::-webkit-scrollbar-track,
 section::-webkit-scrollbar-track {
-  background: var(--secondary-font-color); /* color of the tracking area */
+  background: transparent; /* color of the tracking area */
   border: none;
 }
 
 body::-webkit-scrollbar-thumb,
 ul::-webkit-scrollbar-thumb,
 section::-webkit-scrollbar-thumb {
+  border-radius: 10px;
   background-color: var(--temp-2); /* color of the scroll thumb */
 }
 
