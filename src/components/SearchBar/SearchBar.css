@@ -14,12 +14,12 @@
 
   #search {
     outline: transparent;
-    width: 37ch;
+    width: 50ch;
     border-radius: 1em;
     border: none;
     padding: 0.25em 2.3em 0.25em 1.25em;
     color: var(--secondary-font-color);
-    font-size: 1em;
+    font-size: 1.1em;
     background-color: var(--primary-font-color);
   }
 
