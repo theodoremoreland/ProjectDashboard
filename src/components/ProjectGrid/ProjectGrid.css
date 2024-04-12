@@ -15,6 +15,18 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+  #project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  #project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
 #project-grid-overlay {
   pointer-events: none;
   z-index: 1;
