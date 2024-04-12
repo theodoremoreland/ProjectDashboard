@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 // MUI
 import { PieChart } from '@mui/x-charts/PieChart';
@@ -25,14 +25,88 @@ import { ReactComponent as CodeIcon } from '../../images/code.svg';
 // Styles
 import './Analytics.css';
 
+
 const Analytics = ({ projects, handleClose }) => {
     const courseCounts = useMemo(() => getCourseCounts(projects), [projects]);
     const contextCounts = useMemo(() => getContextCounts(projects), [projects]);
-    const totalDeployments = useMemo(() => getTotalDeployments(projects), [projects]);
-    const totalFeatures = useMemo(() => getTotalFeatures(projects), [projects]);
-    const totalStars = useMemo(() => getTotalStars(projects), [projects]);
-    const totalSize = useMemo(() => getProjectFileSizes(projects), [projects]);
     const technologies = useMemo(() => getTopTechnologies(projects), [projects]);
+
+    const smallNumberIntervalRef = useRef(null);
+    const largeNumberIntervalRef = useRef(null);
+
+    const totalFeaturesRef = useRef(getTotalFeatures(projects));
+    const totalDeploymentsRef = useRef(getTotalDeployments(projects));
+    const totalStarsRef = useRef(getTotalStars(projects));
+    const totalSizeRef = useRef(getProjectFileSizes(projects));
+
+    const [totalDeployments, setTotalDeployments] = useState(0); 
+    const [totalFeatures, setTotalFeatures] = useState(0); 
+    const [totalStars, setTotalStars] = useState(0); 
+    const [totalSize, setTotalSize] = useState(0); 
+
+    const incrementSmallKpis = useCallback(() => {
+        setTotalDeployments((prev) => {
+            if (prev < totalDeploymentsRef.current) {
+                return prev + 1;
+            }
+
+            return prev;
+        });
+        setTotalFeatures((prev) => {
+            if (prev < totalFeaturesRef.current) {
+                return prev + 1;
+            }
+
+            return prev;
+        });
+        setTotalStars((prev) => {
+            if (prev < totalStarsRef.current) {
+                return prev + 1;
+            }
+
+            return prev;
+        });
+    }, []);
+
+    const incrementLargeKpis = useCallback(() => {
+        setTotalSize((prev) => {
+            if (prev <= totalSizeRef.current) {
+                return prev + 20_000;
+            }
+
+            return totalSizeRef.current;
+        });
+    }, []);
+
+    useEffect(() => {
+        smallNumberIntervalRef.current = setInterval(incrementSmallKpis, 5);
+        largeNumberIntervalRef.current = setInterval(incrementLargeKpis, 5);
+
+        return () => {
+            clearTimeout(smallNumberIntervalRef.current);
+            clearTimeout(largeNumberIntervalRef.current);
+        }
+    }, [incrementLargeKpis, incrementSmallKpis]);
+
+    useEffect(() => {
+        const areSmallKpiIncrementsComplete = 
+            totalDeployments === totalDeploymentsRef.current && 
+            totalFeatures === totalFeaturesRef.current && 
+            totalStars === totalStarsRef.current;
+
+        if (areSmallKpiIncrementsComplete) {
+            clearTimeout(smallNumberIntervalRef.current);
+        }
+    }, [totalDeployments, totalFeatures, totalStars]);
+
+    useEffect(() => {
+        const areLargeKpiIncrementsComplete = totalSize === totalSizeRef.current;
+
+        if (areLargeKpiIncrementsComplete) {
+            clearTimeout(largeNumberIntervalRef.current);
+        }
+    }, [totalSize]);
+
 
     return (
         <section id="analytics">
