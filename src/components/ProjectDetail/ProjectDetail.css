@@ -98,6 +98,11 @@
 
   a {
     color: rgb(4, 184, 255);
+    text-decoration: none;
+  }
+
+  a:hover {
+    opacity: 0.7;
   }
 
   td {
