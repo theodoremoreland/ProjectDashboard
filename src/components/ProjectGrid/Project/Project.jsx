@@ -15,7 +15,7 @@ import sqlIcon from "../../../images/languages/sql.png";
 import "./Project.css";
 
 const renderLanguageIcon = (topic) => {
-  const titleTemplate = "This project features the language ";
+  const titleTemplate = "This project was written with ";
 
   switch (topic) {
     case "html":
