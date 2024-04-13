@@ -16,3 +16,21 @@
     #000001 70%
   );
 }
+
+@media screen and (min-width: 1440px) {
+  #sidebar {
+    width: 25em;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  #sidebar {
+    width: 20em;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  #sidebar {
+    width: 15em;
+  }
+}
