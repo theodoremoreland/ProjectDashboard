@@ -1,0 +1,36 @@
+#sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 35em;
+  height: 100%;
+  margin: 0;
+  padding: 0 10px 10px 10px;
+  border-right: 2px outset var(--border-color);
+  color: var(--primary-font-color);
+  background: radial-gradient(
+    circle farthest-corner at top left,
+    #1b2028 3%,
+    #000001 70%
+  );
+}
+
+@media screen and (min-width: 1440px) {
+  #sidebar {
+    width: 25em;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  #sidebar {
+    width: 20em;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  #sidebar {
+    width: 15em;
+  }
+}
