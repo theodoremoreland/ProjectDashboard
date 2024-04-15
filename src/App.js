@@ -7,6 +7,7 @@ import { ProjectsContext } from "./contexts/ProjectsContext";
 // Custom Components
 import Analytics from "./components/Analytics/Analytics.jsx";
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
+import SidebarMobile from "./components/SidebarMobile/SidebarMobile.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import ProjectDetail from "./components/ProjectDetail/ProjectDetail.jsx";
 import ProjectGrid from "./components/ProjectGrid/ProjectGrid.jsx";
@@ -51,6 +52,7 @@ const App = () => {
           setShowHelpModal={setShowHelpModal}
         />
         <div id="content">
+          <SidebarMobile />
           <Sidebar />
           {repos !== undefined ? (
             <ProjectGrid
