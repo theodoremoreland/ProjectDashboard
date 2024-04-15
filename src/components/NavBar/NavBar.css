@@ -55,9 +55,16 @@
 }
 
 #app-nav > h1 {
+  display: none;
   font-size: 2em;
   font-family: custom-bold;
   letter-spacing: -1px;
+}
+
+@media screen and (min-width: 729px) {
+  #app-nav > h1 {
+    display: initial;
+  }
 }
 
 #app-nav > ul {
