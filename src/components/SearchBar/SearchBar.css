@@ -11,16 +11,27 @@
 #search-bar {
   z-index: 3;
   position: relative;
+  width: 80%;
 
   #search {
     outline: transparent;
-    width: 50ch;
+    width: 100%;
     border-radius: 1em;
     border: none;
     padding: 0.25em 2.3em 0.25em 1.25em;
     color: var(--secondary-font-color);
     font-size: 1.1em;
     background-color: var(--primary-font-color);
+  }
+
+  @media screen and (min-width: 729px) {
+    & {
+      width: auto;
+    }
+
+    #search {
+      width: 50ch;
+    }
   }
 
   #delete {
