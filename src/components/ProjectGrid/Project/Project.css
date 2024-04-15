@@ -127,8 +127,26 @@
 .project-name {
   font-family: custom-bold;
   font-style: oblique;
-  font-size: 1.38em;
+  font-size: 1em;
   padding: 1em;
+}
+
+@media screen and (min-width: 729px) {
+  .project-name {
+    font-size: 1.38em;
+  }
+}
+
+.live-demo-link,
+.learn-more {
+  font-size: 0.75em;
+}
+
+@media screen and (min-width: 729px) {
+  .live-demo-link,
+  .learn-more {
+    font-size: 1em;
+  }
 }
 
 .live-demo-link {
