@@ -17,6 +17,7 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }) => {
         <SearchBar />
         <ul>
           <li 
+            id="analytics-nav"
             title='Analytics'
             role='presentation'
             onClick={() => setShowAnalytics(true)}
@@ -24,6 +25,7 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }) => {
             <QueryStatsIcon className="query_stats icon" />
           </li>
           <li
+            id="nav-help"
             title='Help'
             role='presentation'
             onClick={() => setShowHelpModal(true)}
