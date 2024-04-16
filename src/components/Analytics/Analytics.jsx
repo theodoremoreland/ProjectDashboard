@@ -139,10 +139,16 @@ const Analytics = ({ projects, handleClose }) => {
                     </span>
                 </div>
             </div>
+            {/* The titles below should only display on tablet/mobile */}
+            <div id="pie-chart-titles" className='row'>
+                <h2 className='pie-chart-title'>Projects by context</h2>
+                <h2 className='pie-chart-title'>Academic projects by course</h2>
+            </div>
             <div id="charts" className='row'>
                 <div id='pie-charts'>
                     <h2 className='pie-chart-title'>Projects by context</h2>
                     <PieChart
+                        title='Projects by context'
                         colors={mangoFusionPalette}
                         series={[
                             {
