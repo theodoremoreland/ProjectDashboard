@@ -113,35 +113,33 @@ const Analytics = ({ projects, handleClose }) => {
             <nav id="analytics-nav">
                 <button type="button" title="Close" className="close-button" onClick={handleClose}>Close</button>
             </nav>
-            <div className='row'>
-                <div id="kpis">
-                    <div id="total-features" className="kpi">
-                        <span className='label'>Projects featured</span>
-                        <span className='value'>
-                            <CodeIcon className='icon'/> {totalFeatures}
-                        </span>
-                    </div>
-                    <div id="total-deployments" className="kpi">
-                        <span className='label'>Active deployments</span>
-                        <span className='value'>
-                            <DeploymentIcon className='icon'/> {totalDeployments}
-                        </span>
-                    </div>
-                    <div id="total-stars" className="kpi">
-                        <span className='label'>Stars received</span>
-                        <span className='value'>
-                            <StarIcon className='icon' /> {totalStars}+
-                        </span>
-                    </div>
-                    <div id="total-size" className="kpi">
-                        <span className='label'>Total file size</span>
-                        <span className='value'>
-                            <WeightIcon className='icon' /> {totalSize.toLocaleString()}+ mb
-                        </span>
-                    </div>
+            <div id="kpis">
+                <div id="total-features" className="kpi">
+                    <span className='label'>Projects featured</span>
+                    <span className='value'>
+                        <CodeIcon className='icon'/> {totalFeatures}
+                    </span>
+                </div>
+                <div id="total-deployments" className="kpi">
+                    <span className='label'>Active deployments</span>
+                    <span className='value'>
+                        <DeploymentIcon className='icon'/> {totalDeployments}
+                    </span>
+                </div>
+                <div id="total-stars" className="kpi">
+                    <span className='label'>Stars received</span>
+                    <span className='value'>
+                        <StarIcon className='icon' /> {totalStars}+
+                    </span>
+                </div>
+                <div id="total-size" className="kpi">
+                    <span className='label'>Total file size</span>
+                    <span className='value'>
+                        <WeightIcon className='icon' /> {totalSize.toLocaleString()}+ mb
+                    </span>
                 </div>
             </div>
-            <div className='row'>
+            <div id="charts" className='row'>
                 <div id='pie-charts'>
                     <h2 className='pie-chart-title'>Projects by context</h2>
                     <PieChart
