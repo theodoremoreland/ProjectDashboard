@@ -22,7 +22,7 @@
   overflow-x: hidden;
 }
 
-#ProjectDetail > div.row:first-of-type {
+#ProjectDetail > #project-detail-nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -33,7 +33,7 @@
   color: var(--primary-font-color);
 }
 
-#ProjectDetail > div.row:nth-of-type(2) {
+#ProjectDetail > #project-detail-content {
   position: relative;
   display: flex;
   flex-direction: row;

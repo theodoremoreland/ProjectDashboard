@@ -12,10 +12,10 @@ import "./ProjectDetail.css";
 const ProjectDetail = ({ projectData, handleClose }) => {
     return (
         <section id="ProjectDetail">
-            <div className="row">
+            <nav id="project-detail-nav">
                 <button type="button" title="Close" className="close-button" onClick={handleClose}>Close</button>
-            </div>
-            <div className="row">
+            </nav>
+            <div id="project-detail-content" className="row">
                 <div id="image-container">
                     <img src={projectData.image} alt={projectData.name} />
                 </div>
