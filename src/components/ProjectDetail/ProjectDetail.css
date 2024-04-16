@@ -36,18 +36,36 @@
 #ProjectDetail > #project-detail-content {
   position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1em;
   width: 100%;
   flex-grow: 1;
+  padding: 1em 1.25em;
+}
+
+@media screen and (min-width: 768px) {
+  #ProjectDetail > #project-detail-content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+  }
 }
 
 #image-container,
 #info-container {
   position: relative;
-  width: 50%;
+  width: 100%;
   height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  #image-container,
+  #info-container {
+    width: 50%;
+  }
 }
 
 #image-container {
@@ -69,7 +87,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
 
   h1,
@@ -88,6 +106,12 @@
     font-size: 1em;
     width: 80%;
     max-width: 75ch;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #info-container {
+    align-items: flex-start;
   }
 }
 
