@@ -65,7 +65,7 @@
   left: 0;
 }
 
-.project-card.featured .project-overlay::after {
+.project-card .project-overlay::after {
   z-index: 2;
   position: absolute;
   content: "";
@@ -89,11 +89,15 @@
 }
 
 @media screen and (min-width: 1920px) {
-  .project-card.featured .project-overlay::after {
+  .project-card .project-overlay::after {
     animation-delay: 3.2s;
     -webkit-animation: shine 9s infinite;
     animation: shine 9s infinite;
   }
+}
+
+.project-card.not-featured .project-overlay::after {
+  opacity: 0;
 }
 
 /* .project-card.featured:nth-child(odd) .project-overlay::after {
