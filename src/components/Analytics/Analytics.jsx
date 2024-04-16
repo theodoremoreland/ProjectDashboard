@@ -110,6 +110,9 @@ const Analytics = ({ projects, handleClose }) => {
 
     return (
         <section id="analytics">
+            <nav id="analytics-nav">
+                <button type="button" title="Close" className="close-button" onClick={handleClose}>Close</button>
+            </nav>
             <div className='row'>
                 <div id="kpis">
                     <div id="total-features" className="kpi">
@@ -137,7 +140,6 @@ const Analytics = ({ projects, handleClose }) => {
                         </span>
                     </div>
                 </div>
-                <button type="button" title="Close" className="close-button" onClick={handleClose}>Close</button>
             </div>
             <div className='row'>
                 <div id='pie-charts'>
