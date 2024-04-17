@@ -44,7 +44,7 @@
     display: none;
   }
 
-  @media screen and (min-width: 729px) {
+  @media screen and (min-width: 769px) {
     #nav-help {
       display: initial;
     }
@@ -71,7 +71,7 @@
   letter-spacing: -1px;
 }
 
-@media screen and (min-width: 729px) {
+@media screen and (min-width: 769px) {
   #app-nav > h1 {
     display: initial;
   }
