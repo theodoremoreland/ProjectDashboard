@@ -130,7 +130,7 @@
     }
 
     .css-1u0lry5-MuiChartsLegend-root {
-      display: none;
+      display: none !important;
     }
 
     @media screen and (min-width: 1150px) {
@@ -146,7 +146,7 @@
       }
 
       .css-1u0lry5-MuiChartsLegend-root {
-        display: initial;
+        display: initial !important;
       }
     }
 
