@@ -92,29 +92,6 @@
     }
   }
 
-  #pie-chart-titles {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
-    width: 100%;
-    height: 100%;
-
-    @media screen and (min-width: 1150px) {
-      & {
-        display: none;
-      }
-    }
-
-    > h2 {
-      text-align: center;
-      min-width: 50%;
-      flex-grow: 1;
-    }
-  }
-
   #pie-charts {
     position: relative;
     display: flex;
@@ -123,21 +100,14 @@
     align-items: center;
     gap: 0.5em;
     width: 100%;
+    min-height: 475px;
     height: 100%;
     padding: 0;
-
-    > h2 {
-      display: none;
-    }
 
     @media screen and (min-width: 1150px) {
       & {
         width: 40%;
         padding-right: 1em;
-      }
-
-      > h2 {
-        display: initial;
       }
     }
 
