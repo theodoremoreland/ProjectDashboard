@@ -1,3 +1,15 @@
+:root {
+  --project-detail-content-width: 100%;
+  --project-detail-content-padding: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --project-detail-content-width: 80%;
+    --project-detail-content-padding: 1.25em;
+  }
+}
+
 #ProjectDetail {
   z-index: 99;
   position: fixed;
@@ -28,7 +40,8 @@
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  padding: 1em 1.25em 0 1.25em;
+  padding: var(--project-detail-content-padding);
+  padding-bottom: 0;
   margin: 0;
   color: var(--primary-font-color);
 }
@@ -39,10 +52,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 1em;
   width: 100%;
+  gap: 16px;
   flex-grow: 1;
-  padding: 1em 1.25em;
+  padding: var(--project-detail-content-padding);
 }
 
 @media screen and (min-width: 768px) {
@@ -58,13 +71,14 @@
 #info-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 @media screen and (min-width: 768px) {
   #image-container,
   #info-container {
     width: 50%;
+    height: 100%;
   }
 }
 
@@ -76,11 +90,17 @@
 }
 
 #image-container img {
-  width: 85%;
+  width: var(--project-detail-content-width);
   aspect-ratio: 4/3;
   border: 1px solid var(--border-color);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+@media screen and (min-width: 768px) {
+  #image-container img {
+    width: 85%;
+  }
 }
 
 #info-container {
@@ -95,16 +115,21 @@
     text-align: left;
   }
 
-  h1 {
-    margin-left: -3px;
-    font-size: 3.5vw;
+  > h1 {
+    font-size: 1.3em;
     font-family: custom-bold;
     font-style: oblique;
   }
 
+  @media screen and (min-width: 768px) {
+    > h1 {
+      font-size: 3.5vw;
+    }
+  }
+
   p {
     font-size: 1em;
-    width: 80%;
+    width: var(--project-detail-content-width);
     max-width: 75ch;
   }
 }
@@ -116,7 +141,7 @@
 }
 
 #metadata {
-  width: 80%;
+  width: var(--project-detail-content-width);
   border-collapse: collapse;
   font-size: 0.85em;
 
@@ -151,7 +176,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 5px;
-  width: 80%;
+  width: var(--project-detail-content-width);
 }
 
 .topic {
