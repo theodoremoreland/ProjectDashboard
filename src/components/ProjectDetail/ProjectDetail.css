@@ -116,6 +116,7 @@
   }
 
   > h1 {
+    width: 100%;
     font-size: 1.3em;
     font-family: custom-bold;
     font-style: oblique;
@@ -123,6 +124,7 @@
 
   @media screen and (min-width: 768px) {
     > h1 {
+      width: auto;
       font-size: 3.5vw;
     }
   }
