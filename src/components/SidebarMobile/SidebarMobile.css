@@ -24,7 +24,7 @@
   left: 0;
 }
 
-@media screen and (min-width: 729px) {
+@media screen and (min-width: 769px) {
   #sidebar-mobile {
     display: none;
   }
