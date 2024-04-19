@@ -37,6 +37,7 @@ html {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+  overflow-y: hidden;
   font-family: custom-regular;
   background-color: black;
 }
@@ -163,18 +164,12 @@ main {
 
 #content {
   position: absolute;
-  bottom: 0;
+  top: var(--navbar-height);
   left: 0;
   display: flex;
   flex-direction: row;
   width: 100%;
   height: calc(100% - (var(--navbar-height)));
-}
-
-@media screen and (min-width: 769px) {
-  #content {
-    height: calc(100% - (var(--navbar-height)));
-  }
 }
 
 .close-button {
