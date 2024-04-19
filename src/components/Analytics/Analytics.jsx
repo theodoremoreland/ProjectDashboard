@@ -60,7 +60,7 @@ const Analytics = ({ projects, handleClose }) => {
         } else if (window.innerWidth < 769) {
             const _pieChartSlotProps = {
                 legend: { 
-                    position: { vertical: 'bottom', horizontal: 'center' },
+                    position: { vertical: 'bottom', horizontal: 'middle' },
                     direction: 'row'
                 }
             };
