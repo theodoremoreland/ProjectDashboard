@@ -121,8 +121,8 @@ const Analytics = ({ projects, handleClose }) => {
         largeNumberIntervalRef.current = setInterval(incrementLargeKpis, 5);
 
         return () => {
-            clearTimeout(smallNumberIntervalRef.current);
-            clearTimeout(largeNumberIntervalRef.current);
+            clearInterval(smallNumberIntervalRef.current);
+            clearInterval(largeNumberIntervalRef.current);
         }
     }, [incrementLargeKpis, incrementSmallKpis]);
 
@@ -133,7 +133,7 @@ const Analytics = ({ projects, handleClose }) => {
             totalStars === totalStarsRef.current;
 
         if (areSmallKpiIncrementsComplete) {
-            clearTimeout(smallNumberIntervalRef.current);
+            clearInterval(smallNumberIntervalRef.current);
         }
     }, [totalDeployments, totalFeatures, totalStars]);
 
@@ -141,7 +141,7 @@ const Analytics = ({ projects, handleClose }) => {
         const areLargeKpiIncrementsComplete = totalSize === totalSizeRef.current;
 
         if (areLargeKpiIncrementsComplete) {
-            clearTimeout(largeNumberIntervalRef.current);
+            clearInterval(largeNumberIntervalRef.current);
         }
     }, [totalSize]);
 
