@@ -25,7 +25,6 @@ import { ReactComponent as CodeIcon } from '../../images/code.svg';
 // Styles
 import './Analytics.css';
 
-
 const Analytics = ({ projects, handleClose }) => {
     const courseCounts = useMemo(() => getCourseCounts(projects), [projects]);
     const contextCounts = useMemo(() => getContextCounts(projects), [projects]);
@@ -43,6 +42,45 @@ const Analytics = ({ projects, handleClose }) => {
     const [totalFeatures, setTotalFeatures] = useState(0); 
     const [totalStars, setTotalStars] = useState(0); 
     const [totalSize, setTotalSize] = useState(0); 
+    const [pieChartMargins, setPieChartMargins] = useState(undefined);
+    const [pieChartSlotProps, setPieChartSlotProps] = useState({});
+
+    const handleResize = useCallback(() => {
+        if (window.innerWidth <= 640) {
+            const _pieChartSlotProps = {
+                legend: { 
+                    position: { vertical: 'bottom', horizontal: 'center' },
+                    direction: 'row'
+                }
+            };
+            const _pieChartMargins = { top: 0, right: 0, bottom: 110, left: 0 };
+
+            setPieChartSlotProps(_pieChartSlotProps);
+            setPieChartMargins(_pieChartMargins);
+        } else if (window.innerWidth < 769) {
+            const _pieChartSlotProps = {
+                legend: { 
+                    position: { vertical: 'bottom', horizontal: 'center' },
+                    direction: 'row'
+                }
+            };
+            const _pieChartMargins = { top: 0, right: 0, bottom: 50, left: 0 };
+
+            setPieChartSlotProps(_pieChartSlotProps);
+            setPieChartMargins(_pieChartMargins);
+        } else if (window.innerWidth >= 769) {
+            const _pieChartSlotProps = {
+                legend: { 
+                    position: { vertical: 'middle', horizontal: 'right' },
+                    direction: 'column'
+                }
+            };
+            const _pieChartMargins = { top: 0, right: 100, bottom: 0, left: 0 };
+            
+            setPieChartSlotProps(_pieChartSlotProps);
+            setPieChartMargins(_pieChartMargins);
+        }
+    }, []);
 
     const incrementSmallKpis = useCallback(() => {
         setTotalDeployments((prev) => {
@@ -107,6 +145,14 @@ const Analytics = ({ projects, handleClose }) => {
         }
     }, [totalSize]);
 
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, [handleResize]);
+
 
     return (
         <section id="analytics">
@@ -145,6 +191,8 @@ const Analytics = ({ projects, handleClose }) => {
                     <PieChart
                         title='Projects by context'
                         colors={mangoFusionPalette}
+                        slotProps={pieChartSlotProps}
+                        margin={pieChartMargins}
                         series={[
                             {
                             data: contextCounts,
@@ -156,6 +204,8 @@ const Analytics = ({ projects, handleClose }) => {
                     <h2 className='pie-chart-title'>Academic projects by course</h2>
                     <PieChart
                         colors={mangoFusionPalette}
+                        slotProps={pieChartSlotProps}
+                        margin={pieChartMargins}
                         series={[
                             {
                             data: courseCounts,

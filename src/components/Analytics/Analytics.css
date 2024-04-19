@@ -100,13 +100,14 @@
     align-items: center;
     gap: 0.5em;
     width: 100%;
-    min-height: 475px;
+    min-height: 550px;
     height: 100%;
     padding: 0;
 
     @media screen and (min-width: 1150px) {
       & {
         width: 40%;
+        min-height: 300px;
         padding-right: 1em;
       }
     }
