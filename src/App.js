@@ -51,7 +51,7 @@ const App = () => {
           setShowAnalytics={setShowAnalytics}
           setShowHelpModal={setShowHelpModal}
         />
-        <div id="content">
+        <div id="app-content">
           <SidebarMobile />
           <Sidebar />
           {repos !== undefined ? (
