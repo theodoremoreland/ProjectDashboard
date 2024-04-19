@@ -4,12 +4,12 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 2;
+  z-index: 5;
   background-color: rgba(0, 0, 0, 0.688);
 }
 
 #search-bar {
-  z-index: 3;
+  z-index: 6;
   position: relative;
   width: 80%;
 
@@ -57,7 +57,7 @@
   }
 
   #search-results {
-    z-index: 3;
+    z-index: 7;
     position: absolute;
     top: 100%;
     display: flex;

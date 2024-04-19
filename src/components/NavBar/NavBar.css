@@ -11,7 +11,7 @@
 }
 
 #app-nav {
-  z-index: 1;
+  z-index: 4;
   position: fixed;
   top: 0;
   left: 0;
@@ -62,7 +62,7 @@
 
 #app-nav::after {
   pointer-events: none;
-  z-index: 2;
+  z-index: 5;
   content: "";
   position: absolute;
   bottom: 0;
