@@ -37,7 +37,6 @@ html {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: hidden;
   font-family: custom-regular;
   background-color: black;
 }
@@ -160,16 +159,18 @@ main {
   justify-content: flex-start;
   width: 100%;
   height: 100%;
+  overflow-y: hidden;
 }
 
 #content {
   position: absolute;
-  top: var(--navbar-height);
+  top: 0;
   left: 0;
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: calc(100% - (var(--navbar-height)));
+  height: 100%;
+  padding-top: var(--navbar-height);
 }
 
 .close-button {
