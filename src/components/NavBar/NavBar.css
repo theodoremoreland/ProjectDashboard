@@ -1,7 +1,13 @@
 :root {
   --navbar-height: 4em;
   --navbar-vertical-padding: 1em;
-  --navbar-horizontal-padding: 15px;
+  --navbar-horizontal-padding: 20px;
+}
+
+@media screen and (min-width: 769px) {
+  :root {
+    --navbar-horizontal-padding: 15px;
+  }
 }
 
 #app-nav {

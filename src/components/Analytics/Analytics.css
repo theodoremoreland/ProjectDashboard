@@ -124,11 +124,13 @@
     min-height: 375px;
     height: 100%;
     padding: 1em;
+    padding-bottom: 1.2em;
     border: 1px solid var(--border-color);
 
     @media screen and (min-width: 1150px) {
       & {
         width: 60%;
+        padding-bottom: 1em;
       }
     }
   }
