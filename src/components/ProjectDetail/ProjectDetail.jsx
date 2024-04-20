@@ -56,7 +56,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                         rel="noreferrer"
                                         title={`Click to view the source code for ${projectData.name}.`}
                                     >
-                                        /{projectData.name}
+                                        View on GitHub
                                     </a>
                                 </td>
                             </tr>
@@ -74,7 +74,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                                 title={`Click to view a live demo of the ${projectData.name} project.`}
                                                 className="deployment-link"
                                             >
-                                                Available
+                                                Live Demo{" "}<span className="circle"></span>
                                             </a>
                                         :   "None"
                                     }
