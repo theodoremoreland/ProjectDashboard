@@ -66,8 +66,8 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                     <span>Deployment</span>
                                 </td>
                                 <td>
-                                    { projectData.demo_link
-                                        ?   <a
+                                    { projectData.demo_link && projectData.name !== "ProjectList"
+                                        &&  <a
                                                 href={projectData.demo_link} 
                                                 target="_blank"
                                                 rel="noreferrer"
@@ -76,7 +76,14 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                             >
                                                 Live Demo{" "}<span className="circle"></span>
                                             </a>
-                                        :   "None"
+                                    }
+                                    { projectData.name === "ProjectList" && 
+                                        <span className="you-are-here">
+                                            You are here!
+                                        </span>
+                                    }
+                                    { projectData.name !== "ProjectList" && projectData.demo_link === "" &&
+                                        "None"
                                     }
                                 </td>
                             </tr>

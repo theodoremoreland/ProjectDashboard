@@ -57,7 +57,7 @@ const Project = ({ projectData, setSelectedProject }) => {
           </div>
           <div className="row">
             <ul>
-              {projectData.demo_link && 
+              {projectData.demo_link && projectData.name !== "ProjectList" &&
                 <li>
                   <a
                     href={projectData.demo_link} 
@@ -68,6 +68,11 @@ const Project = ({ projectData, setSelectedProject }) => {
                   >
                     Live Demo{" "}<span className="circle"></span>
                   </a>
+                </li>
+              }
+              {projectData.name === "ProjectList" && 
+                <li className="you-are-here">
+                  You are here!
                 </li>
               }
               <li 

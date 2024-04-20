@@ -154,15 +154,20 @@
 }
 
 .live-demo-link,
-.learn-more {
+.learn-more .you-are-here {
   font-size: 0.88em;
 }
 
 @media screen and (min-width: 769px) {
   .live-demo-link,
-  .learn-more {
+  .learn-more,
+  .you-are-here {
     font-size: 1em;
   }
+}
+
+.you-are-here {
+  font-style: italic;
 }
 
 .live-demo-link {
