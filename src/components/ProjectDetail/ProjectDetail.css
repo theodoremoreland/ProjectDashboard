@@ -152,6 +152,10 @@
     text-decoration: none;
   }
 
+  a.deployment-link {
+    color: #df0000;
+  }
+
   a:hover {
     opacity: 0.7;
   }
