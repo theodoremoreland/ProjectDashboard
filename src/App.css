@@ -136,6 +136,26 @@ section::-webkit-scrollbar-thumb {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .appTitle {
+    font-size: 3.25rem;
+  }
+
+  .appSubtitle {
+    font-size: 1.35rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .appTitle {
+    font-size: 4rem;
+  }
+
+  .appSubtitle {
+    font-size: 1.75rem;
+  }
+}
+
 .appSubtitle.loading {
   animation: blink 1.5s linear infinite;
 }
