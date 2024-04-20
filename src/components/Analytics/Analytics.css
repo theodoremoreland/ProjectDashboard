@@ -53,6 +53,13 @@
       gap: 0.5em;
       padding: 1em;
       border: 1px solid var(--border-color);
+
+      @media screen and (min-width: 1150px) {
+        & {
+          min-width: 170px;
+          flex-grow: 1;
+        }
+      }
     }
 
     .value {
