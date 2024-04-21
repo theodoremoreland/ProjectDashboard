@@ -21,7 +21,9 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                 </div>
                 <div id="info-container">
                     <h1>{projectData.name}</h1>
-                    <p>{projectData.desc}</p>
+                    <p>
+                        {projectData.name !== "ProjectList" ? projectData.desc : `You are currently viewing this project.`}
+                    </p>
                     <table id="metadata">
                         <tbody>
                             <tr>
@@ -60,33 +62,28 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <DeployedCodeIcon className="deployment icon" />
-                                    <span>Deployment</span>
-                                </td>
-                                <td>
-                                    { projectData.demo_link && projectData.name !== "ProjectList"
-                                        &&  <a
-                                                href={projectData.demo_link} 
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                title={`Click to view a live demo of the ${projectData.name} project.`}
-                                                className="deployment-link"
-                                            >
-                                                Live Demo{" "}<span className="circle"></span>
-                                            </a>
-                                    }
-                                    { projectData.name === "ProjectList" && 
-                                        <span className="you-are-here">
-                                            You are here!
-                                        </span>
-                                    }
-                                    { projectData.name !== "ProjectList" && projectData.demo_link === "" &&
-                                        "None"
-                                    }
-                                </td>
-                            </tr>
+                            {projectData.name !== "ProjectList" &&
+                                <tr>
+                                    <td>
+                                        <DeployedCodeIcon className="deployment icon" />
+                                        <span>Deployment</span>
+                                    </td>
+                                    <td>
+                                        { projectData.demo_link
+                                            ?   <a
+                                                    href={projectData.demo_link} 
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    title={`Click to view a live demo of the ${projectData.name} project.`}
+                                                    className="deployment-link"
+                                                >
+                                                    Live Demo{" "}<span className="circle"></span>
+                                                </a>
+                                            :   "None"
+                                        }
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                     <ul id="topics" title="GitHub topic associated with this project.">

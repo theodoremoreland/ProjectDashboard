@@ -70,11 +70,6 @@ const Project = ({ projectData, setSelectedProject }) => {
                   </a>
                 </li>
               }
-              {projectData.name === "ProjectList" && 
-                <li className="you-are-here">
-                  You are here!
-                </li>
-              }
               <li 
                 onClick={() => setSelectedProject(projectData)}
                 role="presentation"
