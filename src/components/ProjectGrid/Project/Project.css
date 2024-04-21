@@ -154,7 +154,8 @@
 }
 
 .live-demo-link,
-.learn-more .you-are-here {
+.learn-more,
+.you-are-here {
   font-size: 0.88em;
 }
 
