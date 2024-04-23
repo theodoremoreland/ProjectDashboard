@@ -141,19 +141,20 @@
 .project-name {
   font-family: custom-bold;
   font-style: oblique;
-  font-size: 1.15em;
-  padding: 1em;
+  font-size: 1.05em;
+  padding: 1em 0.5em;
 }
 
 @media screen and (min-width: 1150px) {
   .project-name {
     font-size: 1.38em;
+    padding: 1em;
   }
 }
 
 .live-demo-link,
 .learn-more {
-  font-size: 0.88em;
+  font-size: 0.8em;
 }
 
 @media screen and (min-width: 1150px) {
