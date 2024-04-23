@@ -91,8 +91,6 @@
 @media screen and (min-width: 1920px) {
   .project-card .project-overlay::after {
     animation-delay: 3.2s;
-    -webkit-animation: shine 9s infinite;
-    animation: shine 9s infinite;
   }
 }
 
@@ -100,7 +98,7 @@
   opacity: 0;
 }
 
-@media screen and (min-width: 2160px) {
+/* @media screen and (min-width: 2160px) {
   .project-card.featured:nth-child(odd) .project-overlay::after {
     -webkit-animation: shine 6s infinite;
     animation: shine 6s infinite;
@@ -111,7 +109,7 @@
     animation: shine 6s infinite;
     animation-delay: 2.1s;
   }
-}
+} */
 
 .project-overlay:hover::after {
   opacity: 0;
