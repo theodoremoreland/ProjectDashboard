@@ -79,6 +79,17 @@ const Analytics = ({ projects, handleClose }) => {
             
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
+        }  else if (window.innerWidth >= 1150) {
+            const _pieChartSlotProps = {
+                legend: { 
+                    position: { vertical: 'middle', horizontal: 'right' },
+                    direction: 'column'
+                }
+            };
+            const _pieChartMargins = { top: 0, right: 175, bottom: 0, left: 0 };
+            
+            setPieChartSlotProps(_pieChartSlotProps);
+            setPieChartMargins(_pieChartMargins);
         }
     }, []);
 
