@@ -83,7 +83,7 @@
     align-items: center;
     gap: 1em;
     width: 100%;
-    min-height: 1280px;
+    min-height: 1080px;
     flex-grow: 1;
 
     @media screen and (min-width: 1150px) {
