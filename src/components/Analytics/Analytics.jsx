@@ -68,7 +68,7 @@ const Analytics = ({ projects, handleClose }) => {
 
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
-        } else if (window.innerWidth >= 769) {
+        } else if (window.innerWidth <= 1150) {
             const _pieChartSlotProps = {
                 legend: { 
                     position: { vertical: 'middle', horizontal: 'right' },
@@ -79,14 +79,14 @@ const Analytics = ({ projects, handleClose }) => {
             
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
-        }  else if (window.innerWidth >= 1150) {
+        }  else {
             const _pieChartSlotProps = {
                 legend: { 
                     position: { vertical: 'middle', horizontal: 'right' },
                     direction: 'column'
                 }
             };
-            const _pieChartMargins = { top: 0, right: 175, bottom: 0, left: 0 };
+            const _pieChartMargins = { top: 0, right: 200, bottom: 0, left: 0 };
             
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
