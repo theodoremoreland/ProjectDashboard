@@ -90,9 +90,7 @@
 
 @media screen and (min-width: 1920px) {
   .project-card .project-overlay::after {
-    animation-delay: 3.5s;
-    -webkit-animation: shine 8s infinite;
-    animation: shine 8s infinite;
+    animation-delay: 4s;
   }
 }
 
