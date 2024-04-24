@@ -90,7 +90,13 @@
 
 @media screen and (min-width: 1920px) {
   .project-card .project-overlay::after {
-    animation-delay: 3.2s;
+    animation-delay: 3.5s;
+  }
+}
+
+@media screen and (min-width: 2160px) {
+  .project-card .project-overlay::after {
+    animation-delay: 5s;
   }
 }
 
