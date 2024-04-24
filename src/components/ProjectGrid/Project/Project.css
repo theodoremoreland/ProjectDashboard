@@ -91,12 +91,14 @@
 @media screen and (min-width: 1920px) {
   .project-card .project-overlay::after {
     animation-delay: 3.5s;
+    -webkit-animation: shine 8s infinite;
+    animation: shine 8s infinite;
   }
 }
 
 @media screen and (min-width: 2160px) {
   .project-card .project-overlay::after {
-    animation-delay: 5s;
+    animation-delay: 6.5s;
   }
 }
 
