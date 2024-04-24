@@ -101,6 +101,12 @@ section::-webkit-scrollbar-thumb {
   transition-delay: 3s;
 }
 
+@media screen and (min-width: 2160px) {
+  .titleCard {
+    transition: all 3s linear;
+  }
+}
+
 .titleCard.transition {
   left: -115vw;
   visibility: hidden;
