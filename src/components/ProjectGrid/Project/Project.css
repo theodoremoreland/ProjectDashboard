@@ -158,13 +158,13 @@
   }
 }
 
-.live-demo-link,
+.live-demo,
 .learn-more {
   font-size: 0.8em;
 }
 
 @media screen and (min-width: 1150px) {
-  .live-demo-link,
+  .live-demo,
   .learn-more {
     font-size: 1em;
   }
@@ -185,11 +185,11 @@
   color: rgb(4, 184, 255);
 }
 
-.live-demo-link:hover,
+.live-demo:hover,
 .learn-more:hover,
-.live-demo-link:focus,
+.live-demo:focus,
 .learn-more:focus,
-.live-demo-link:active,
+.live-demo:active,
 .learn-more:active {
   opacity: 0.5;
 }

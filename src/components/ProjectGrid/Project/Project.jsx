@@ -58,7 +58,7 @@ const Project = ({ projectData, setSelectedProject }) => {
           <div className="row">
             <ul>
               {projectData.demo_link && projectData.name !== "ProjectList" &&
-                <li>
+                <li className="live-demo">
                   <a
                     href={projectData.demo_link} 
                     target="_blank"
