@@ -161,6 +161,8 @@
 .live-demo,
 .learn-more {
   font-size: 0.8em;
+  text-align: center;
+  min-width: 10ch;
 }
 
 @media screen and (min-width: 1150px) {
@@ -181,17 +183,20 @@
 }
 
 .learn-more {
-  cursor: pointer;
   color: rgb(4, 184, 255);
 }
 
 .live-demo:hover,
 .learn-more:hover,
 .live-demo:focus,
-.learn-more:focus,
+.learn-more:focus {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .live-demo:active,
 .learn-more:active {
-  opacity: 0.5;
+  scale: 0.95;
 }
 
 .circle {
