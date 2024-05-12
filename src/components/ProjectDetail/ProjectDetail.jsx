@@ -77,7 +77,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                                     title={`Click to view a live demo of the ${projectData.name} project.`}
                                                     className="deployment-link"
                                                 >
-                                                    Live Demo{" "}<span className="circle"></span>
+                                                    View Live Demo{" "}<span className="circle"></span>
                                                 </a>
                                             :   "None"
                                         }
