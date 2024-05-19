@@ -15,6 +15,7 @@ export const defaultOrder = (projects) => {
     "ShelfCheck",
     "PortfolioExample",
     "HawaiiClimateDataAPI",
+    "NodeJsQuiz"
   ].sort(() => Math.random() - 0.5); // Randomize order of first set of featured projects
 
   featuredProjectNames.push("YelpETL", "STLServiceCalls", "Decades"); // Add remaining featured projects in exact order
