@@ -162,13 +162,17 @@
 .learn-more {
   font-size: 0.8em;
   text-align: center;
-  min-width: 10ch;
+  min-width: 14ch;
+  padding: 6px 8px;
+  border: 1px solid color-mix(in srgb, var(--border-color) 80%, transparent);
+  background-color: color-mix(in srgb, #1b2028 55%, transparent);
 }
 
 @media screen and (min-width: 1150px) {
   .live-demo,
   .learn-more {
     font-size: 1em;
+    background-color: color-mix(in srgb, #1b2028 15%, transparent);
   }
 }
 
