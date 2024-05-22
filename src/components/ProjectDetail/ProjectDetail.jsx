@@ -9,6 +9,20 @@ import { ReactComponent as EventRepeatIcon } from "../../images/event_repeat.svg
 // Custom styles
 import "./ProjectDetail.css";
 
+const getProjectContext = (projectData) => {
+    if (projectData.topics.some(topic => topic === "coursework" || topic === "exercise" )) {
+        return "Coursework";
+    }
+
+    else if (projectData.topics.some(topic => topic === "professional")) {
+        return "Professional";
+    }
+
+    else {
+        return "Personal";
+    }
+};
+
 const ProjectDetail = ({ projectData, handleClose }) => {
     return (
         <section id="ProjectDetail">
@@ -26,6 +40,12 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                     </p>
                     <table id="metadata">
                         <tbody>
+                            <tr title="The context in which this project was created. Can be either Coursework, Professional, or Personal.">
+                                <td>
+                                    <span>Context</span>
+                                </td>
+                                <td>{getProjectContext(projectData)}</td>
+                            </tr>
                             <tr>
                                 <td>
                                     <EventIcon className="event icon" />
