@@ -5,6 +5,7 @@ import { ReactComponent as CodeIcon } from "../../images/code.svg";
 import { ReactComponent as StarIcon } from "../../images/star.svg";
 import { ReactComponent as EventIcon } from "../../images/event.svg";
 import { ReactComponent as EventRepeatIcon } from "../../images/event_repeat.svg";
+import { ReactComponent as LandscapeIcon } from "../../images/landscape.svg";
 
 // Custom styles
 import "./ProjectDetail.css";
@@ -42,6 +43,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                         <tbody>
                             <tr title="The context in which this project was created. Can be either Coursework / Exercise, Professional, or Personal.">
                                 <td>
+                                    <LandscapeIcon className="landscape icon" />
                                     <span>Context</span>
                                 </td>
                                 <td>{getProjectContext(projectData)}</td>
