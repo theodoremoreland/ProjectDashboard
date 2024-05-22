@@ -10,11 +10,11 @@ import { ReactComponent as EventRepeatIcon } from "../../images/event_repeat.svg
 import "./ProjectDetail.css";
 
 const getProjectContext = (projectData) => {
-    if (projectData.topics.some(topic => topic === "coursework" || topic === "exercise" )) {
-        return "Coursework";
+    if (projectData.topics?.some(topic => topic === "coursework" || topic === "exercise" )) {
+        return "Coursework / Exercise";
     }
 
-    else if (projectData.topics.some(topic => topic === "professional")) {
+    else if (projectData.topics?.some(topic => topic === "professional")) {
         return "Professional";
     }
 
@@ -40,7 +40,7 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                     </p>
                     <table id="metadata">
                         <tbody>
-                            <tr title="The context in which this project was created. Can be either Coursework, Professional, or Personal.">
+                            <tr title="The context in which this project was created. Can be either Coursework / Exercise, Professional, or Personal.">
                                 <td>
                                     <span>Context</span>
                                 </td>
