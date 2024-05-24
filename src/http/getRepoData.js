@@ -41,5 +41,6 @@ export const getRepoData = async () => {
     }
   }, []);
 
+  console.log(repoDataArray);
   return repoDataArray;
 };
