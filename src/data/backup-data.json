@@ -1,13 +1,58 @@
 [
   {
+    "name": "Decades",
+    "url": "https://github.com/theodoremoreland/Decades",
+    "desc": "Web pages exploring the evolution of website design across the 90s, 2000s, 2010s, and 2020s.",
+    "date_created": "2024-01-21",
+    "date_updated": "2024-03-12",
+    "topics": [
+      "coursework",
+      "css",
+      "fundamentals-of-html",
+      "html",
+      "lindenwood-university",
+      "web-development"
+    ],
+    "image": "https://raw.githubusercontent.com/theodoremoreland/Decades/master/presentation/thumbnail.webp",
+    "demo_link": "https://theodoremoreland.github.io/Decades/",
+    "readme": "https://raw.githubusercontent.com/theodoremoreland/Decades/master/README.md",
+    "size": 4747,
+    "stars": 0
+  },
+  {
+    "name": "ProjectList",
+    "url": "https://github.com/theodoremoreland/ProjectList",
+    "desc": "An alternative view of my public GitHub repositories. A list dynamically generated via GitHub API, JavaScript, and React. ",
+    "date_created": "2023-12-30",
+    "date_updated": "2024-05-23",
+    "topics": [
+      "aws",
+      "css",
+      "github-api",
+      "html",
+      "javascript",
+      "mui-x-charts",
+      "personal",
+      "react",
+      "tanstack-react-query",
+      "web-development"
+    ],
+    "image": "https://raw.githubusercontent.com/theodoremoreland/ProjectList/master/presentation/thumbnail.webp",
+    "demo_link": "https://main.d2wyze0voo0sc5.amplifyapp.com/",
+    "readme": "https://raw.githubusercontent.com/theodoremoreland/ProjectList/master/README.md",
+    "size": 9655,
+    "stars": 0
+  },
+  {
     "name": "MyMovieList",
     "url": "https://github.com/theodoremoreland/MyMovieList",
     "desc": "A React, JavaScript, Python, PostgreSQL, AWS based web application for browsing, searching, and adding movies to a watch list. Features 34k+ movies from 1901-2017.",
     "date_created": "2021-10-06",
-    "date_updated": "2022-05-20",
+    "date_updated": "2024-05-15",
     "topics": [
       "aws",
       "css",
+      "exercise",
       "html",
       "javascript",
       "lambda-functions",
@@ -15,19 +60,21 @@
       "postgresql",
       "python",
       "react",
-      "sql"
+      "sql",
+      "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/MyMovieList/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/MyMovieList/master/presentation/thumbnail.webp",
     "demo_link": "https://main.dcbz4xkz1gclh.amplifyapp.com/#/movie-list",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/MyMovieList/master/README.md",
-    "size": 12240
+    "size": 12252,
+    "stars": 1
   },
   {
     "name": "WeatherDashboard",
     "url": "https://github.com/theodoremoreland/WeatherDashboard",
-    "desc": "A weather dashboard built atop the OpenWeather API using vanilla JavaScript and vanilla CSS.",
+    "desc": "A weather dashboard built atop the OpenWeather API using JavaScript and CSS (no frameworks).",
     "date_created": "2021-09-15",
-    "date_updated": "2023-12-20",
+    "date_updated": "2024-05-14",
     "topics": [
       "coursework",
       "css",
@@ -38,17 +85,18 @@
       "javascript",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/WeatherDashboard/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/WeatherDashboard/master/presentation/thumbnail.webp",
     "demo_link": "https://theodoremoreland.github.io/WeatherDashboard/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/WeatherDashboard/master/README.md",
-    "size": 52765
+    "size": 54516,
+    "stars": 2
   },
   {
     "name": "JavaScriptQuiz",
     "url": "https://github.com/theodoremoreland/JavaScriptQuiz",
-    "desc": "A timed, browser based JavaScript quiz. Built using vanilla JavaScript and vanilla CSS.",
+    "desc": "A timed, browser based JavaScript quiz. Built using JavaScript and CSS (no frameworks).",
     "date_created": "2021-08-22",
-    "date_updated": "2023-11-23",
+    "date_updated": "2024-05-15",
     "topics": [
       "coursework",
       "css",
@@ -59,17 +107,18 @@
       "unit-testing",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/JavaScriptQuiz/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/JavaScriptQuiz/master/presentation/thumbnail.webp",
     "demo_link": "https://theodoremoreland.github.io/JavaScriptQuiz/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/JavaScriptQuiz/master/README.md",
-    "size": 1470
+    "size": 1475,
+    "stars": 1
   },
   {
     "name": "PasswordGenerator",
     "url": "https://github.com/theodoremoreland/PasswordGenerator",
-    "desc": "A webpage that generates a random password based on user selected criteria. Built using vanilla JavaScript w/ automated testing using Jest.",
+    "desc": "A webpage that generates a random password based on user selected criteria. Built using JavaScript w/ automated testing using Jest.",
     "date_created": "2021-08-15",
-    "date_updated": "2023-11-24",
+    "date_updated": "2024-04-18",
     "topics": [
       "coursework",
       "css",
@@ -82,17 +131,18 @@
       "unit-testing",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/PasswordGenerator/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/PasswordGenerator/master/presentation/thumbnail.webp",
     "demo_link": "https://theodoremoreland.github.io/PasswordGenerator/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/PasswordGenerator/master/README.md",
-    "size": 14655
+    "size": 14667,
+    "stars": 1
   },
   {
     "name": "PortfolioExample",
     "url": "https://github.com/theodoremoreland/PortfolioExample",
-    "desc": "An example of a basic, responsive portfolio website using only HTML and CSS.",
+    "desc": "An example of a basic, responsive portfolio website using only HTML and CSS (no JS and no frameworks). Not my actual portfolio.",
     "date_created": "2021-08-09",
-    "date_updated": "2022-05-19",
+    "date_updated": "2024-05-22",
     "topics": [
       "coursework",
       "css",
@@ -101,56 +151,37 @@
       "html",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/PortfolioExample/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/PortfolioExample/master/presentation/thumbnail.webp",
     "demo_link": "https://theodoremoreland.github.io/PortfolioExample/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/PortfolioExample/master/README.md",
-    "size": 18059
-  },
-  {
-    "name": "TodoListApp",
-    "url": "https://github.com/theodoremoreland/TodoListApp",
-    "desc": "A Todo List mobile app built using React-Native, TypeScript, and Realm.",
-    "date_created": "2021-04-01",
-    "date_updated": "2021-07-29",
-    "topics": [
-      "android",
-      "css",
-      "javascript",
-      "mobile-development",
-      "personal",
-      "react",
-      "react-native",
-      "realm",
-      "typescript"
-    ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/TodoListApp/master/presentation/thumbnail.png",
-    "demo_link": "",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/TodoListApp/master/README.md",
-    "size": 4399
+    "size": 112982,
+    "stars": 1
   },
   {
     "name": "Episodic",
     "url": "https://github.com/theodoremoreland/Episodic",
     "desc": "A Python, PostgreSQL, React, JavaScript, and AWS based web application for reporting, recording, and visualizing data. Uses an arbitrary Anime theme for demonstration purposes.",
     "date_created": "2020-12-10",
-    "date_updated": "2023-12-17",
+    "date_updated": "2024-03-29",
     "topics": [
       "aws",
       "css",
+      "data-analytics",
+      "exercise",
       "html",
       "javascript",
       "material-ui",
       "postgresql",
-      "professional",
       "python",
       "react",
       "sql",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/Episodic/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/Episodic/master/presentation/thumbnail.webp",
     "demo_link": "https://main.d28h6t4ey37fqg.amplifyapp.com/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/Episodic/master/README.md",
-    "size": 29260
+    "size": 29265,
+    "stars": 2
   },
   {
     "name": "TikTokDL",
@@ -169,10 +200,11 @@
       "splinter",
       "webscraping"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/TikTokDL/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/TikTokDL/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/TikTokDL/master/README.md",
-    "size": 13560
+    "size": 13560,
+    "stars": 2
   },
   {
     "name": "REDB-API",
@@ -192,10 +224,11 @@
       "rest-api",
       "swagger-ui"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/REDB-API/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/REDB-API/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/REDB-API/master/README.md",
-    "size": 812
+    "size": 812,
+    "stars": 1
   },
   {
     "name": "EssentialWorkers",
@@ -219,10 +252,11 @@
       "react",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/EssentialWorkers/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/EssentialWorkers/master/presentation/thumbnail.webp",
     "demo_link": "https://apps.stldata.org/essential-workers",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/EssentialWorkers/master/README.md",
-    "size": 48924
+    "size": 48924,
+    "stars": 1
   },
   {
     "name": "REDB",
@@ -244,50 +278,26 @@
       "sqlalchemy",
       "unittest"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/REDB/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/REDB/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/REDB/master/README.md",
-    "size": 45429
-  },
-  {
-    "name": "theodoremoreland.dev",
-    "url": "https://github.com/theodoremoreland/theodoremoreland.dev",
-    "desc": "My personal portfolio website developed in React.js which leverages the GitHub API to dynamically render my public GitHub projects.",
-    "date_created": "2020-08-15",
-    "date_updated": "2023-12-29",
-    "topics": [
-      "bootstrap",
-      "css",
-      "github-api",
-      "html",
-      "javascript",
-      "personal",
-      "portfolio-website",
-      "react",
-      "react-bootstrap",
-      "react-markdown",
-      "react-wordcloud",
-      "web-development"
-    ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/theodoremoreland.dev/master/presentation/thumbnail.png",
-    "demo_link": "https://www.theodoremoreland.dev/",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/theodoremoreland.dev/master/README.md",
-    "size": 31388
+    "size": 45429,
+    "stars": 1
   },
   {
     "name": "TypeRace",
     "url": "https://github.com/theodoremoreland/TypeRace",
     "desc": "Practice your typing speed while reading words of wisdom. Built with React, TypeScript, Vite, TanStack Query, Zod, and AWS.",
     "date_created": "2020-08-01",
-    "date_updated": "2023-12-05",
+    "date_updated": "2024-05-15",
     "topics": [
       "aws",
       "aws-amplify",
-      "aws-amplify-react",
       "coursework",
       "css",
       "daugherty-university",
       "eslint",
+      "html",
       "javascript",
       "prettier",
       "react",
@@ -298,10 +308,11 @@
       "web-development",
       "zod"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/TypeRace/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/TypeRace/master/presentation/thumbnail.webp",
     "demo_link": "https://master.d1wzvrnr7vhxf7.amplifyapp.com/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/TypeRace/master/README.md",
-    "size": 7594
+    "size": 7344,
+    "stars": 2
   },
   {
     "name": "ShelfCheck",
@@ -317,10 +328,11 @@
       "userform",
       "vba"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/ShelfCheck/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/ShelfCheck/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/ShelfCheck/master/README.md",
-    "size": 930
+    "size": 930,
+    "stars": 3
   },
   {
     "name": "TemplateMacro",
@@ -329,59 +341,11 @@
     "date_created": "2020-06-28",
     "date_updated": "2021-05-21",
     "topics": ["excel", "professional", "vba", "vlookup"],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/TemplateMacro/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/TemplateMacro/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/TemplateMacro/master/README.md",
-    "size": 621
-  },
-  {
-    "name": "Poker",
-    "url": "https://github.com/theodoremoreland/Poker",
-    "desc": "A text only game of Poker played in the command line.",
-    "date_created": "2020-06-18",
-    "date_updated": "2021-09-03",
-    "topics": [
-      "coursework",
-      "daugherty-university",
-      "python",
-      "unit-testing",
-      "unittest"
-    ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/Poker/master/presentation/thumbnail.png",
-    "demo_link": "",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/Poker/master/README.md",
-    "size": 14
-  },
-  {
-    "name": "Namesake",
-    "url": "https://github.com/theodoremoreland/Namesake",
-    "desc": "An Amazon Alexa game where you must deduce the name of the villain.",
-    "date_created": "2020-05-14",
-    "date_updated": "2020-12-02",
-    "topics": ["alexa", "lambda", "personal", "python"],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/Namesake/master/presentation/thumbnail.png",
-    "demo_link": "",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/Namesake/master/README.md",
-    "size": 6
-  },
-  {
-    "name": "Head-Butt",
-    "url": "https://github.com/theodoremoreland/Head-Butt",
-    "desc": "An I.Q. test based party game using Amazon Alexa.",
-    "date_created": "2020-05-14",
-    "date_updated": "2021-09-03",
-    "topics": [
-      "alexa",
-      "beautifulsoup4",
-      "get-request",
-      "lambda",
-      "personal",
-      "python"
-    ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/Head-Butt/master/presentation/thumbnail.png",
-    "demo_link": "",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/Head-Butt/master/README.md",
-    "size": 6
+    "size": 621,
+    "stars": 2
   },
   {
     "name": "TechJobsPersistent",
@@ -404,17 +368,18 @@
       "thymeleaf",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/TechJobsPersistent/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/TechJobsPersistent/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/TechJobsPersistent/master/README.md",
-    "size": 468
+    "size": 468,
+    "stars": 1
   },
   {
     "name": "LinkedInScrape",
     "url": "https://github.com/theodoremoreland/LinkedInScrape",
-    "desc": "Bot for scraping LinkedIn company profiles and posts. Local IT consultation firms used as examples.",
+    "desc": "Script for scraping LinkedIn company profiles and posts. Local IT consultation firms used as examples.",
     "date_created": "2020-01-23",
-    "date_updated": "2022-12-08",
+    "date_updated": "2024-02-03",
     "topics": [
       "beautifulsoup",
       "bs4",
@@ -429,10 +394,11 @@
       "sql",
       "web-scraping"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/LinkedInScrape/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/LinkedInScrape/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/LinkedInScrape/master/README.md",
-    "size": 12217
+    "size": 12219,
+    "stars": 3
   },
   {
     "name": "MarsRover",
@@ -443,88 +409,57 @@
     "topics": [
       "coursework",
       "jasmine-framework",
-      "javascipt",
+      "javascript",
       "lc101",
       "node",
       "test-driven-development",
       "unit-tesing"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/MarsRover/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/MarsRover/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/MarsRover/master/README.md",
-    "size": 670
+    "size": 670,
+    "stars": 1
   },
   {
-    "name": "CandidateTesting",
-    "url": "https://github.com/theodoremoreland/CandidateTesting",
-    "desc": "A trivia quiz written in node.js for the command line.",
+    "name": "NodeJsQuiz",
+    "url": "https://github.com/theodoremoreland/NodeJsQuiz",
+    "desc": "A Node.js quiz through a Node.js command line program. The program can be used directly in a command line environment or indirectly via webpage. The latter leverages WebSockets and child_process to pipe IO between web client and command line environment. The webpage is served using Express.js.",
     "date_created": "2019-11-14",
-    "date_updated": "2020-12-14",
-    "topics": ["coursework", "javascript", "lc101", "node"],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/CandidateTesting/master/presentation/thumbnail.png",
-    "demo_link": "https://repl.it/@theodoremorelan/CandidateTesting?embed=1&output=1",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/CandidateTesting/master/README.md",
-    "size": 253
+    "date_updated": "2024-05-21",
+    "topics": [
+      "coursework",
+      "css",
+      "docker",
+      "express",
+      "figlet",
+      "html",
+      "inquirer",
+      "javascript",
+      "lc101",
+      "node",
+      "regex",
+      "web-development",
+      "ws"
+    ],
+    "image": "https://raw.githubusercontent.com/theodoremoreland/NodeJsQuiz/master/presentation/thumbnail.webp",
+    "demo_link": "http://node-js-quiz.us-east-1.elasticbeanstalk.com/",
+    "readme": "https://raw.githubusercontent.com/theodoremoreland/NodeJsQuiz/master/README.md",
+    "size": 1266,
+    "stars": 1
   },
   {
     "name": "ScrabbleScorer",
     "url": "https://github.com/theodoremoreland/ScrabbleScorer",
     "desc": "A program that accepts user input in the form of a word and returns a Scrabble score relative to one of three scoring algorithms.",
     "date_created": "2019-11-10",
-    "date_updated": "2020-12-20",
+    "date_updated": "2024-02-01",
     "topics": ["coursework", "javascript", "lc101", "node"],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/ScrabbleScorer/master/presentation/thumbnail.png",
-    "demo_link": "https://repl.it/@theodoremorelan/ScrabbleScorer?embed=1&output=1",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/ScrabbleScorer/master/README.md",
-    "size": 486
-  },
-  {
-    "name": "FlightSimulator",
-    "url": "https://github.com/theodoremoreland/FlightSimulator",
-    "desc": "A script that lets the user control the movement of a tiny rocket on their web browser. The script uses JavaScript DOM-Manipulation and HTML/CSS to accomplish this.",
-    "date_created": "2019-10-03",
-    "date_updated": "2021-11-15",
-    "topics": [
-      "coursework",
-      "css",
-      "dom-manipulation",
-      "events",
-      "github-pages",
-      "html",
-      "javascript",
-      "lc101",
-      "web-development"
-    ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/FlightSimulator/master/presentation/thumbnail.png",
-    "demo_link": "https://theodoremoreland.github.io/FlightSimulator/",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/FlightSimulator/master/README.md",
-    "size": 629
-  },
-  {
-    "name": "ClassViewerWeb",
-    "url": "https://github.com/theodoremoreland/ClassViewerWeb",
-    "desc": "A dashboard to help with Teaching Assistant duties by extracting and graphing student data.",
-    "date_created": "2019-08-23",
-    "date_updated": "2022-12-13",
-    "topics": [
-      "css",
-      "data-analytics",
-      "etl",
-      "express",
-      "html",
-      "javascript",
-      "mongodb",
-      "node",
-      "personal",
-      "react",
-      "typescript",
-      "web-development",
-      "web-scraping"
-    ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/ClassViewerWeb/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/ScrabbleScorer/master/presentation/thumbnail.webp",
     "demo_link": "",
-    "readme": "https://raw.githubusercontent.com/theodoremoreland/ClassViewerWeb/master/README.md",
-    "size": 1535
+    "readme": "https://raw.githubusercontent.com/theodoremoreland/ScrabbleScorer/master/README.md",
+    "size": 495,
+    "stars": 1
   },
   {
     "name": "YelpETL",
@@ -543,17 +478,18 @@
       "python",
       "yelp-api"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/YelpETL/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/YelpETL/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/YelpETL/master/README.md",
-    "size": 37957
+    "size": 37957,
+    "stars": 2
   },
   {
     "name": "MovieIon",
     "url": "https://github.com/theodoremoreland/MovieIon",
     "desc": "A Python (Flask), PostgreSQL, and AWS based web application that uses machine learning to recommend movies that you'll love or movies that you'll hate.",
     "date_created": "2019-07-11",
-    "date_updated": "2023-12-24",
+    "date_updated": "2024-05-15",
     "topics": [
       "aws",
       "bootstrap",
@@ -576,17 +512,18 @@
       "web-development",
       "web-scraping"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/MovieIon/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/MovieIon/master/presentation/thumbnail.webp",
     "demo_link": "http://movieion.us-east-2.elasticbeanstalk.com/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/MovieIon/master/README.md",
-    "size": 92917
+    "size": 92926,
+    "stars": 1
   },
   {
     "name": "TopWine",
     "url": "https://github.com/theodoremoreland/TopWine",
     "desc": "A Python (Flask) and AWS web application featuring visualizations (Plotly, Leaflet) and analysis of wine quality based on reviews from the country's top 10 wine critics.",
     "date_created": "2019-05-24",
-    "date_updated": "2023-12-24",
+    "date_updated": "2024-05-14",
     "topics": [
       "bootstrap",
       "coursework",
@@ -594,7 +531,9 @@
       "data-analytics",
       "data-analytics-bootcamp",
       "data-visualization",
+      "docker",
       "flask",
+      "flask-sqlalchemy",
       "html",
       "javascript",
       "jupyter-notebook",
@@ -605,35 +544,43 @@
       "sqlite",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/TopWine/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/TopWine/master/presentation/thumbnail.webp",
     "demo_link": "http://top-wine.us-east-2.elasticbeanstalk.com/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/TopWine/master/README.md",
-    "size": 69523
+    "size": 69839,
+    "stars": 3
   },
   {
     "name": "BellyButtonBiodiversity",
     "url": "https://github.com/theodoremoreland/BellyButtonBiodiversity",
-    "desc": "An interactive dashboard for exploring the various bacteria present on the human belly button. The app uses Plotly.js to display an interactive pie and bubble chart + dropdown for each sample.",
+    "desc": "An interactive dashboard for exploring bacteria present on the human belly button. Created with Python (Flask), SQLAlchemy ORM, Pandas, JavaScript, d3, Plotly, and Docker.",
     "date_created": "2019-04-29",
-    "date_updated": "2020-12-14",
+    "date_updated": "2024-05-18",
     "topics": [
+      "aws",
       "coursework",
+      "css",
       "d3",
       "data-analytics",
       "data-analytics-bootcamp",
+      "docker",
       "flask",
-      "heroku",
+      "flask-sqlalchemy",
+      "html",
       "javascript",
+      "pandas",
       "plotly",
       "python",
       "sql",
+      "sqlalchemy",
       "sqlite",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/BellyButtonBiodiversity/master/presentation/thumbnail.png",
-    "demo_link": "",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/BellyButtonBiodiversity/master/presentation/thumbnail.webp",
+    "demo_link": "http://belly-button-biodiversity.us-east-2.elasticbeanstalk.com/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/BellyButtonBiodiversity/master/README.md",
-    "size": 667
+    "size": 3227,
+    "stars": 2
   },
   {
     "name": "MissionToMars",
@@ -647,6 +594,7 @@
       "data-analytics-bootcamp",
       "data-engineering",
       "flask",
+      "html",
       "jupyter-notebook",
       "mongodb",
       "pandas",
@@ -656,25 +604,29 @@
       "web-development",
       "web-scraping"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/MissionToMars/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/MissionToMars/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/MissionToMars/master/README.md",
-    "size": 27406
+    "size": 27406,
+    "stars": 1
   },
   {
     "name": "HawaiiClimateDataAPI",
     "url": "https://github.com/theodoremoreland/HawaiiClimateDataAPI",
     "desc": "A REST-API developed in Python (Flask) and analytics using SQLAlchemy ORM queries, Pandas, and Matplotlib for Hawaii climate data.",
     "date_created": "2019-03-27",
-    "date_updated": "2023-12-25",
+    "date_updated": "2024-05-13",
     "topics": [
       "api",
       "black",
       "coursework",
+      "css",
       "data-analytics",
       "data-analytics-bootcamp",
       "data-engineering",
+      "docker",
       "flask",
+      "html",
       "jupyter-notebook",
       "matplotlib",
       "pandas",
@@ -685,10 +637,11 @@
       "sqlite",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/HawaiiClimateDataAPI/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/HawaiiClimateDataAPI/master/presentation/thumbnail.webp",
     "demo_link": "http://hawaii-climate-data-api.us-east-2.elasticbeanstalk.com/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/HawaiiClimateDataAPI/master/README.md",
-    "size": 25113
+    "size": 28688,
+    "stars": 2
   },
   {
     "name": "WeatherPy",
@@ -709,10 +662,11 @@
       "pandas",
       "python"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/WeatherPy/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/WeatherPy/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/WeatherPy/master/README.md",
-    "size": 4506
+    "size": 4506,
+    "stars": 1
   },
   {
     "name": "Pymaceuticals",
@@ -728,10 +682,11 @@
       "matplotlib",
       "python"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/Pymaceuticals/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/Pymaceuticals/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/Pymaceuticals/master/README.md",
-    "size": 875
+    "size": 875,
+    "stars": 1
   },
   {
     "name": "STLServiceCalls",
@@ -748,10 +703,11 @@
       "pandas",
       "python"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/STLServiceCalls/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/STLServiceCalls/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/STLServiceCalls/master/README.md",
-    "size": 35644
+    "size": 35644,
+    "stars": 1
   },
   {
     "name": "HeroesOfPymoli",
@@ -768,10 +724,11 @@
       "pandas",
       "python"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/HeroesOfPymoli/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/HeroesOfPymoli/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/HeroesOfPymoli/master/README.md",
-    "size": 711
+    "size": 711,
+    "stars": 1
   },
   {
     "name": "YearlyStocks",
@@ -786,10 +743,11 @@
       "excel",
       "vba"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/YearlyStocks/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/YearlyStocks/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/YearlyStocks/master/README.md",
-    "size": 95810
+    "size": 95810,
+    "stars": 1
   },
   {
     "name": "CheeseMVCPersistent",
@@ -809,35 +767,38 @@
       "thymeleaf",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/CheeseMVCPersistent/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/CheeseMVCPersistent/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/CheeseMVCPersistent/master/README.md",
-    "size": 347
+    "size": 347,
+    "stars": 1
   },
   {
     "name": "Blogz",
     "url": "https://github.com/theodoremoreland/Blogz",
-    "desc": "A Python (Flask) web application where multiple users can create their own Blog. Updated to use Flask blueprints and Bootstrap CSS.",
+    "desc": "A rudimentary Python (Flask) based blogging platform. Uses Flask, SQLAlchemy ORM, PostgreSQL, CSS, JavaScript, and Docker.",
     "date_created": "2018-05-03",
-    "date_updated": "2023-08-13",
+    "date_updated": "2024-03-10",
     "topics": [
-      "bootstrap",
       "coursework",
       "css",
+      "docker",
       "flask",
       "flask-blueprints",
       "html",
+      "javascript",
       "lc101",
-      "mysql",
+      "postgresql",
       "python",
       "sql",
       "sqlalchemy",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/Blogz/master/presentation/thumbnail.png",
-    "demo_link": "",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/Blogz/master/presentation/thumbnail.webp",
+    "demo_link": "http://blogz.us-east-2.elasticbeanstalk.com/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/Blogz/master/README.md",
-    "size": 2248
+    "size": 4465,
+    "stars": 2
   },
   {
     "name": "WebCaesar",
@@ -856,10 +817,11 @@
       "rot13",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/WebCaesar/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/WebCaesar/master/presentation/thumbnail.webp",
     "demo_link": "",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/WebCaesar/master/README.md",
-    "size": 163
+    "size": 163,
+    "stars": 2
   },
   {
     "name": "html-me-something",
@@ -875,9 +837,10 @@
       "lc101",
       "web-development"
     ],
-    "image": "https://raw.githubusercontent.com/theodoremoreland/html-me-something/master/presentation/thumbnail.png",
+    "image": "https://raw.githubusercontent.com/theodoremoreland/html-me-something/master/presentation/thumbnail.webp",
     "demo_link": "https://theodoremoreland.github.io/html-me-something/",
     "readme": "https://raw.githubusercontent.com/theodoremoreland/html-me-something/master/README.md",
-    "size": 95217
+    "size": 95217,
+    "stars": 1
   }
 ]
