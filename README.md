@@ -1,6 +1,8 @@
 # Project List
 
-An alternative view of my public GitHub repositories. Repository previews are generated dynamically via GitHub API.
+An alternative view of my GitHub repositories generated dynamically with the use of GitHub's API. The application provides a streamlined way for interested parties to audit my GitHub. The projects featured in the application are selected given a set of criteria and thus does not feature all of my GitHub repositories.
+
+<img src="/presentation/thumbnail.webp" width="800">
 
 [View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
 
@@ -12,11 +14,13 @@ An alternative view of my public GitHub repositories. Repository previews are ge
 
 ### Technologies Used
 
-- React.js
-- JavaScript (ES6)
-- HTML5
-- CSS3
+- React
+- JavaScript
+- HTML
+- CSS
+- Tanstack React Query
 - MUI X Charts
+- GitHub API
 - AWS
 
 # Screenshots
