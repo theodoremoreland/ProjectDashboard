@@ -1,5 +1,11 @@
 // React
-import React, { useEffect, useState, useCallback, useContext } from "react";
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  useContext,
+  useRef,
+} from "react";
 
 // Context
 import { ProjectsContext } from "./contexts/ProjectsContext";
@@ -20,6 +26,8 @@ import "./App.css";
 const App = () => {
   const { repos, isError, selectedProject, setSelectedProject } =
     useContext(ProjectsContext);
+  const titleCardRef = useRef(null);
+  const intervalRef = useRef(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
   const [showHelpModal, setShowHelpModal] = useState(false);
@@ -32,10 +40,38 @@ const App = () => {
     }
   }, [isError, handleShowErrorModal]);
 
+  /**
+   * Checks to see when titleCard animation is complete
+   * then sets the display to none as to remove it from
+   * the DOM's render tree (hoping this helps with performance of shine animations).
+   */
+  useEffect(() => {
+    const titleCard = titleCardRef.current;
+    const shouldSetInterval =
+      repos && titleCard && intervalRef.current === null;
+
+    if (shouldSetInterval) {
+      intervalRef.current = setInterval(() => {
+        const titleCardStyle = getComputedStyle(titleCard);
+
+        if (titleCardStyle.visibility === "hidden") {
+          titleCard.style.display = "none"; // All this to help with performance
+
+          clearInterval(intervalRef.current);
+        }
+      }, 500);
+    }
+
+    return () => clearInterval(intervalRef.current);
+  }, [repos]);
+
   return (
     <>
       {showErrorModal && <Error handleClose={handleCloseErrorModal} />}
-      <header className={`titleCard ${repos ? "transition" : ""}`}>
+      <header
+        ref={titleCardRef}
+        className={`titleCard ${repos ? "transition" : ""}`}
+      >
         <h1 className={`appTitle ${repos ? "transition" : ""}`}>
           Project List
         </h1>
