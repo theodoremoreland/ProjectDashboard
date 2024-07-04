@@ -2,6 +2,7 @@ export const defaultOrder = (projects) => {
   if (projects.length === 0) return [];
 
   const featuredProjectNames = [
+    "OrderDashboard",
     "BellyButtonBiodiversity",
     "Blogz",
     "Episodic",
