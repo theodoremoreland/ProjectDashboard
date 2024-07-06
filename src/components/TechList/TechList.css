@@ -41,7 +41,7 @@
 
 #tech-list > li {
   color: var(--primary-font-color);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 #tech-list > li.selected {
@@ -53,7 +53,7 @@
 }
 
 #tech-list > li:hover {
-  background-color: #1b2028;
+  background-color: #252b36;
 }
 
 #tech-list > li.active {
