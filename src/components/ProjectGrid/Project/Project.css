@@ -159,8 +159,10 @@
 }
 
 .live-demo,
-.learn-more {
-  font-size: 0.8em;
+.learn-more-button {
+  font-size: 0.8rem;
+  font-family: custom-regular;
+  line-height: 1;
   text-align: center;
   min-width: 14ch;
   padding: 6px 8px;
@@ -170,8 +172,8 @@
 
 @media screen and (min-width: 1150px) {
   .live-demo,
-  .learn-more {
-    font-size: 1em;
+  .learn-more-button {
+    font-size: 1rem;
     background-color: color-mix(in srgb, #1b2028 15%, transparent);
   }
 }
@@ -186,20 +188,20 @@
   text-decoration: none;
 }
 
-.learn-more {
+.learn-more-button {
   color: rgb(4, 184, 255);
 }
 
 .live-demo:hover,
-.learn-more:hover,
+.learn-more-button:hover,
 .live-demo:focus,
-.learn-more:focus {
+.learn-more-button:focus {
   cursor: pointer;
   opacity: 0.5;
 }
 
 .live-demo:active,
-.learn-more:active {
+.learn-more-button:active {
   scale: 0.95;
 }
 
