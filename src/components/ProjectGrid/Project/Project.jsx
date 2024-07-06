@@ -58,25 +58,35 @@ const Project = ({ projectData, setSelectedProject }) => {
           <div className="row">
             <ul>
               {projectData.demo_link && projectData.name !== "ProjectList" &&
-                <li className="live-demo">
-                  <a
-                    href={projectData.demo_link} 
-                    target="_blank"
-                    rel="noreferrer"
-                    title={`Click to view a live demo of the ${projectData.name} project.`}
-                    className="live-demo-link"
-                  >
-                    Live Demo{" "}<span className="circle"></span>
-                  </a>
-                </li>
+                // <a> tag needs to wrap the <li> tag to make the entire list item clickable.
+                <a
+                  href={projectData.demo_link} 
+                  target="_blank"
+                  rel="noreferrer"
+                  title={`Click to view a live demo of the ${projectData.name} project.`}
+                  className="live-demo-link"
+                >
+                  <li className="live-demo">
+                      Learn More{" "}<span className="circle"></span>
+                  </li>
+                </a>
               }
+              {/* Putting the onClick handler on the div because
+                  the padding on the button wasn't triggering to onClick event.
+                  This is a workaround to make the button padding clickable. 
+              */}
               <li 
                 onClick={() => setSelectedProject(projectData)}
                 role="presentation"
                 className="learn-more"
                 title={`Click to learn more about the ${projectData.name} project.`}
               >
-                Learn More
+                <button
+                  type="button"
+                  className="learn-more-button"
+                >
+                  Learn More
+                </button>
               </li>
             </ul>
           </div>
