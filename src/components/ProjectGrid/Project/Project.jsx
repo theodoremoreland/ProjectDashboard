@@ -67,7 +67,7 @@ const Project = ({ projectData, setSelectedProject }) => {
                   className="live-demo-link"
                 >
                   <li className="live-demo">
-                      Learn More{" "}<span className="circle"></span>
+                      Live Demo{" "}<span className="circle"></span>
                   </li>
                 </a>
               }
