@@ -168,7 +168,19 @@ const Analytics = ({ projects, handleClose }) => {
     return (
         <section id="analytics">
             <nav id="analytics-nav">
-                <button type="button" title="Close" className="close-button" onClick={handleClose}>Close</button>
+                {/* Putting the onClick handler on the div because
+                    the padding on the button wasn't triggering to onClick event.
+                    This is a workaround to make the button padding clickable. 
+                */}
+                <div onClick={handleClose}>
+                    <button
+                        type="button"
+                        title="Close"
+                        className="close-button"
+                    >
+                        Close
+                    </button>
+                </div>
             </nav>
             <div id="kpis">
                 <div id="total-features" className="kpi">
