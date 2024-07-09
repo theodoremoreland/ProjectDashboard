@@ -170,25 +170,25 @@ const Analytics = ({ projects, handleClose }) => {
                 </div>
             </nav>
             <div id="kpis">
-                <div id="total-features" className="kpi">
+                <div id="total-features" className="kpi" title="The total number of projects featured in this web app.">
                     <span className='label'>Projects featured</span>
                     <span className='value'>
                         <CodeIcon className='icon'/> {totalFeatures}
                     </span>
                 </div>
-                <div id="total-deployments" className="kpi">
+                <div id="total-deployments" className="kpi" title="The total number of active web apps across featured projects.">
                     <span className='label'>Active deployments</span>
                     <span className='value'>
                         <DeploymentIcon className='icon'/> {totalDeployments}
                     </span>
                 </div>
-                <div id="total-stars" className="kpi">
+                <div id="total-stars" className="kpi" title="The total number of stars obtained across featured projects.">
                     <span className='label'>Stars received</span>
                     <span className='value'>
-                        <StarIcon className='icon' /> {totalStars}+
+                        <StarIcon className='icon' /> {totalStars}
                     </span>
                 </div>
-                <div id="total-topics" className="kpi">
+                <div id="total-topics" className="kpi" title="The number of unique GitHub topics present throughout featured projects (e.g. react, python, aws, etc...).">
                     <span className='label'>Unique topics</span>
                     <span className='value'>
                         <TopicIcon className='icon' /> {uniqueTopicsCount.toLocaleString()}
