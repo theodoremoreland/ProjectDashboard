@@ -19,7 +19,7 @@ import {
 // Images
 import { ReactComponent as DeploymentIcon } from '../../images/deployed-code.svg';
 import { ReactComponent as StarIcon } from '../../images/star.svg';
-import { ReactComponent as WeightIcon } from '../../images/weight.svg';
+import { ReactComponent as TopicIcon } from '../../images/topic.svg';
 import { ReactComponent as CodeIcon } from '../../images/code.svg';
 
 // Styles
@@ -191,7 +191,7 @@ const Analytics = ({ projects, handleClose }) => {
                 <div id="total-topics" className="kpi">
                     <span className='label'>Unique topics</span>
                     <span className='value'>
-                        <WeightIcon className='icon' /> {uniqueTopicsCount.toLocaleString()}
+                        <TopicIcon className='icon' /> {uniqueTopicsCount.toLocaleString()}
                     </span>
                 </div>
             </div>
