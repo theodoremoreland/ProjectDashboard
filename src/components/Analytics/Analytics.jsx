@@ -12,7 +12,7 @@ import {
     getTotalDeployments,
     getTotalFeatures,
     getTotalStars,
-    getProjectFileSizes,
+    getTotalTopics,
     getTopTechnologies
 } from './Analytics.controller';
 
@@ -36,7 +36,7 @@ const Analytics = ({ projects, handleClose }) => {
     const totalFeaturesRef = useRef(getTotalFeatures(projects));
     const totalDeploymentsRef = useRef(getTotalDeployments(projects));
     const totalStarsRef = useRef(getTotalStars(projects));
-    const totalSizeRef = useRef(getProjectFileSizes(projects));
+    const totalSizeRef = useRef(getTotalTopics(projects));
 
     const [totalDeployments, setTotalDeployments] = useState(0); 
     const [totalFeatures, setTotalFeatures] = useState(0); 
@@ -201,10 +201,10 @@ const Analytics = ({ projects, handleClose }) => {
                         <StarIcon className='icon' /> {totalStars}+
                     </span>
                 </div>
-                <div id="total-size" className="kpi">
-                    <span className='label'>Total file size</span>
+                <div id="total-topics" className="kpi">
+                    <span className='label'>Unique topics</span>
                     <span className='value'>
-                        <WeightIcon className='icon' /> {totalSize.toLocaleString()}+ mb
+                        <WeightIcon className='icon' /> {totalSize.toLocaleString()}
                     </span>
                 </div>
             </div>

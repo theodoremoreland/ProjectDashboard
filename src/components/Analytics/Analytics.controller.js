@@ -131,3 +131,15 @@ export const getTotalStars = (projects) => {
 
   return totalStars;
 };
+
+export const getTotalTopics = (projects) => {
+  const topics = new Set();
+
+  projects.forEach((project) => {
+    project.topics.forEach((topic) => {
+      topics.add(topic);
+    });
+  });
+
+  return topics.size;
+};
