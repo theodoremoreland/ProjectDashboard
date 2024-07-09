@@ -31,7 +31,6 @@ const Analytics = ({ projects, handleClose }) => {
     const technologies = useMemo(() => getTopTechnologies(projects), [projects]);
 
     const smallNumberIntervalRef = useRef(null);
-    const largeNumberIntervalRef = useRef(null);
 
     const totalFeaturesRef = useRef(getTotalFeatures(projects));
     const totalDeploymentsRef = useRef(getTotalDeployments(projects));
@@ -115,46 +114,34 @@ const Analytics = ({ projects, handleClose }) => {
 
             return prev;
         });
-    }, []);
-
-    const incrementLargeKpis = useCallback(() => {
         setUniqueTopicsCount((prev) => {
-            if (prev <= uniqueTopicsCountRef.current) {
+            if (prev < uniqueTopicsCountRef.current) {
                 return prev + 1;
             }
 
-            return uniqueTopicsCountRef.current;
+            return prev;
         });
     }, []);
 
     useEffect(() => {
         smallNumberIntervalRef.current = setInterval(incrementSmallKpis, 5);
-        largeNumberIntervalRef.current = setInterval(incrementLargeKpis, 5);
 
         return () => {
             clearInterval(smallNumberIntervalRef.current);
-            clearInterval(largeNumberIntervalRef.current);
         }
-    }, [incrementLargeKpis, incrementSmallKpis]);
+    }, [incrementSmallKpis]);
 
     useEffect(() => {
         const areSmallKpiIncrementsComplete = 
             totalDeployments === totalDeploymentsRef.current && 
             totalFeatures === totalFeaturesRef.current && 
-            totalStars === totalStarsRef.current;
+            totalStars === totalStarsRef.current &&
+            uniqueTopicsCount === uniqueTopicsCountRef.current;
 
         if (areSmallKpiIncrementsComplete) {
             clearInterval(smallNumberIntervalRef.current);
         }
-    }, [totalDeployments, totalFeatures, totalStars]);
-
-    useEffect(() => {
-        const areLargeKpiIncrementsComplete = uniqueTopicsCount === uniqueTopicsCountRef.current;
-
-        if (areLargeKpiIncrementsComplete) {
-            clearInterval(largeNumberIntervalRef.current);
-        }
-    }, [uniqueTopicsCount]);
+    }, [totalDeployments, totalFeatures, totalStars, uniqueTopicsCount]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
