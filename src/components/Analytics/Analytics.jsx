@@ -36,12 +36,12 @@ const Analytics = ({ projects, handleClose }) => {
     const totalFeaturesRef = useRef(getTotalFeatures(projects));
     const totalDeploymentsRef = useRef(getTotalDeployments(projects));
     const totalStarsRef = useRef(getTotalStars(projects));
-    const totalSizeRef = useRef(getTotalTopics(projects));
+    const uniqueTopicsCountRef = useRef(getTotalTopics(projects));
 
     const [totalDeployments, setTotalDeployments] = useState(0); 
     const [totalFeatures, setTotalFeatures] = useState(0); 
     const [totalStars, setTotalStars] = useState(0); 
-    const [totalSize, setTotalSize] = useState(0); 
+    const [uniqueTopicsCount, setUniqueTopicsCount] = useState(0); 
     const [pieChartMargins, setPieChartMargins] = useState(undefined);
     const [pieChartSlotProps, setPieChartSlotProps] = useState({});
 
@@ -118,12 +118,12 @@ const Analytics = ({ projects, handleClose }) => {
     }, []);
 
     const incrementLargeKpis = useCallback(() => {
-        setTotalSize((prev) => {
-            if (prev <= totalSizeRef.current) {
-                return prev + 20_000;
+        setUniqueTopicsCount((prev) => {
+            if (prev <= uniqueTopicsCountRef.current) {
+                return prev + 1;
             }
 
-            return totalSizeRef.current;
+            return uniqueTopicsCountRef.current;
         });
     }, []);
 
@@ -149,12 +149,12 @@ const Analytics = ({ projects, handleClose }) => {
     }, [totalDeployments, totalFeatures, totalStars]);
 
     useEffect(() => {
-        const areLargeKpiIncrementsComplete = totalSize === totalSizeRef.current;
+        const areLargeKpiIncrementsComplete = uniqueTopicsCount === uniqueTopicsCountRef.current;
 
         if (areLargeKpiIncrementsComplete) {
             clearInterval(largeNumberIntervalRef.current);
         }
-    }, [totalSize]);
+    }, [uniqueTopicsCount]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -204,7 +204,7 @@ const Analytics = ({ projects, handleClose }) => {
                 <div id="total-topics" className="kpi">
                     <span className='label'>Unique topics</span>
                     <span className='value'>
-                        <WeightIcon className='icon' /> {totalSize.toLocaleString()}
+                        <WeightIcon className='icon' /> {uniqueTopicsCount.toLocaleString()}
                     </span>
                 </div>
             </div>
