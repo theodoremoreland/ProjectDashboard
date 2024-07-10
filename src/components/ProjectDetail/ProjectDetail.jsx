@@ -55,66 +55,99 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                         <tbody>
                             <tr title="The context in which this project was created. Can be either Coursework / Exercise, Professional, or Personal.">
                                 <td>
-                                    <LandscapeIcon className="landscape icon" />
-                                    <span>Context</span>
+                                    <div>
+                                        <LandscapeIcon className="landscape icon" />
+                                        <span>Context</span>
+                                    </div>
                                 </td>
-                                <td>{getProjectContext(projectData)}</td>
+                                <td>
+                                    <div>
+                                        {getProjectContext(projectData)}
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <EventIcon className="event icon" />
-                                    <span>Created</span>
+                                    <div>
+                                        <EventIcon className="event icon" />
+                                        <span>Created</span>
+                                    </div>
                                 </td>
-                                <td>{new Date(projectData.date_created).toLocaleDateString()}</td>
+                                <td>
+                                    <div>
+                                        {new Date(projectData.date_created).toLocaleDateString()}
+                                    </div>
+
+                                </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <EventRepeatIcon className="event-repeat icon" />
-                                    <span>Last modified</span>
+                                    <div>
+                                        <EventRepeatIcon className="event-repeat icon" />
+                                        <span>Last modified</span>
+                                    </div>
                                 </td>
-                                <td>{new Date(projectData.date_updated).toLocaleDateString()}</td>
+                                <td>
+                                    <div>
+                                        {new Date(projectData.date_updated).toLocaleDateString()}
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <StarIcon className="star icon" />
-                                    <span>Stars</span>
+                                    <div>
+                                        <StarIcon className="star icon" />
+                                        <span>Stars</span>
+                                    </div>
                                 </td>
-                                <td>{projectData.stars}</td>
+                                <td>
+                                   <div>
+                                        {projectData.stars}
+                                   </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <CodeIcon className="code icon" />
-                                    <span>Source code</span>
+                                    <div>
+                                        <CodeIcon className="code icon" />
+                                        <span>Source code</span>
+                                    </div>
                                 </td>
                                 <td>
-                                    <a href={projectData.url}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        title={`Click to view the source code for ${projectData.name}.`}
-                                    >
-                                        View on GitHub
-                                    </a>
+                                    <div>
+                                        <a href={projectData.url}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            title={`Click to view the source code for ${projectData.name}.`}
+                                        >
+                                            View on GitHub
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             {projectData.name !== "ProjectList" &&
                                 <tr>
                                     <td>
-                                        <DeployedCodeIcon className="deployment icon" />
-                                        <span>Deployment</span>
+                                        <div>
+                                            <DeployedCodeIcon className="deployment icon" />
+                                            <span>Deployment</span>
+                                        </div>
                                     </td>
                                     <td>
-                                        { projectData.demo_link
-                                            ?   <a
-                                                    href={projectData.demo_link} 
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                    title={`Click to view a live demo of the ${projectData.name} project.`}
-                                                    className="deployment-link"
-                                                >
-                                                    View Live Demo{" "}<span className="circle"></span>
-                                                </a>
-                                            :   "None"
-                                        }
+                                        <div>
+                                            { projectData.demo_link
+                                                ?   <a
+                                                        href={projectData.demo_link} 
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        title={`Click to view a live demo of the ${projectData.name} project.`}
+                                                        className="deployment-link"
+                                                    >
+                                                        View Live Demo{" "}<span className="circle"></span>
+                                                    </a>
+                                                :   "None"
+                                            }
+                                        </div>
                                     </td>
                                 </tr>
                             }
