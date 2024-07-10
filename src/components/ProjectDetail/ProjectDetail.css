@@ -173,16 +173,24 @@
   }
 
   td {
-    cursor: default;
+    vertical-align: middle;
     padding: 0.3em 0.8em;
     border: 1px solid var(--border-color);
-    text-align: left;
+
+    > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: default;
+      text-align: left;
+    }
   }
 
   .icon {
     width: 0.85em;
     height: 0.85em;
-    margin: -0.2em 5px 0 0;
+    margin-right: 5px;
     fill: var(--primary-font-color);
   }
 }
