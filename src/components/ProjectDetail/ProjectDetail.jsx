@@ -101,9 +101,9 @@ const ProjectDetail = ({ projectData, handleClose }) => {
                                     </div>
                                 </td>
                                 <td>
-                                   <div>
+                                    <div>
                                         {projectData.stars}
-                                   </div>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
