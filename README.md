@@ -6,7 +6,9 @@ Integral to my argument, was conveying the quanitity of experience with certain 
 
 This application uses the GitHub API to determine what content to render in real time, so no repository has to be managed in the application directly. Anything I do on GitHub is reflected in what's rendered in the app. Because of the app's real-time, dynamic, and automated nature, my GitHub as a whole needed to be formatted in a way that could be leveraged by the app. Most of my GitHub repositories are organized with a specific formula as to comply with this app's expectations.
 
-Because this application expects a particular formula to my GitHub, it cannot be used to display content for other GitHub profiles (assuming other profiles don't adopt the same organization strategy). So, unfortunately, this app would be of little value to someone else. However, given this application was designed to serve (and did serve) a very specific purpose, I won't be updating its capabilities. 
+Because this application expects a particular formula to my GitHub, it cannot be used to display content for other GitHub profiles (assuming other profiles don't adopt the same organization strategy). So, unfortunately, this codebase would be of little value to anyone else. This also means this application cannot run locally as a GitHub API key for a similarly organized GitHub profile would be needed to work properly.
+
+Given this application was designed to serve (and did serve) a very specific purpose, I won't be updating its capabilities. 
 
 <img src="/presentation/thumbnail.webp" width="650">
 
