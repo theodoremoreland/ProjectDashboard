@@ -10,11 +10,13 @@ Because this application expects a particular formula to my GitHub, it cannot be
 
 Given this application was designed to serve (and did serve) a very specific purpose, I won't be updating its capabilities. 
 
-<img src="/presentation/thumbnail.webp" width="650">
-
 [View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
 
+<img src="/presentation/thumbnail.webp" width="650">
+
 ## Table of contents
+
+[View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
 
 - [Technologies Used](#technologies-used)
 - [Screenshots (WIP)](#screenshots)
