@@ -1,6 +1,6 @@
 # Project List
 
-At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer" (an internal position). I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to stregnthen my argument by virtue of summarizing my GitHub content.
+At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer" (an internal position). I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to stregnthen my argument by summarizing my GitHub content.
 
 Relaying the breadth experience with various technologies was my goal. The result is similar to that of a portfolio in that it puts my project work on display, but there is a key distinction in that this application was designed to supplement a live conversation with management as opposed to being something that could effectively standalone. Also distinct from a portfolio, this application makes the assumption that the viewer/user is invested in understanding quantity of work and experience moreso than quality, hence the application making no effort to highlight select projects.
 
