@@ -45,14 +45,14 @@
     width: 2.5em;
     height: 100%;
     cursor: pointer;
-    color: #1b2028;
+    color: var(--primary-color);
     padding: 0.25em 0.5em 0.25em 0.25em;
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
     background-color: transparent;
 
     .icon {
-      fill: #1b2028;
+      fill: var(--primary-color);
     }
   }
 
@@ -95,7 +95,7 @@
 
       &:hover .topic {
         background-color: var(--primary-font-color);
-        color: #1b2028;
+        color: var(--primary-color);
       }
     }
 
@@ -108,7 +108,7 @@
       font-size: 1.1em;
       font-family: custom-bold;
       font-style: oblique;
-      color: #1b2028;
+      color: var(--primary-color);
     }
 
     .topics {
@@ -125,7 +125,7 @@
       padding: 0.3em 0.55em;
       border-radius: 1em;
       color: var(--primary-font-color);
-      background-color: #1b2028;
+      background-color: var(--primary-color);
     }
 
     .none {

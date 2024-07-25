@@ -27,8 +27,8 @@
   color: var(--primary-font-color);
   background: radial-gradient(
     circle farthest-corner at top left,
-    #1b2028 3%,
-    #000001 70%
+    var(--primary-color) 3%,
+    var(--secondary-color) 70%
   );
 
   .icon {
