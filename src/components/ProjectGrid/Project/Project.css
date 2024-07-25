@@ -166,7 +166,7 @@
   text-align: center;
   min-width: 14ch;
   padding: 6px 8px;
-  border: 2px solid #1e5183;
+  border: 1px solid var(--temp-2);
   background-color: #1b2028;
 }
 
@@ -174,22 +174,17 @@
   .live-demo,
   .learn-more-button {
     font-size: 1rem;
-    background-color: #1b2028;
   }
 }
 
-.live-demo-link {
-  color: #df0000;
-  text-decoration: none;
-}
-
+.live-demo-link,
 .live-demo-link:hover {
-  color: #df0000;
+  color: var(--primary-font-color);
   text-decoration: none;
 }
 
 .learn-more-button {
-  color: rgb(4, 184, 255);
+  color: var(--primary-font-color);
 }
 
 .live-demo:hover,
