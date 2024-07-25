@@ -18,13 +18,17 @@
 /* ------------------- VARIABLES ------------------- */
 
 :root {
-  --primary-color: #28313b;
+  --primary-color: #1b2028;
+  --secondary-color: #000001;
   --overlay-color: #28313b9a;
+
+  --primary-highlight-color: #173a5e;
+  --secondary-highlight-color: rgb(4, 184, 255);
+
   --primary-font-color: #fafafa;
   --secondary-font-color: #333;
+
   --border-color: #f5f5f554;
-  --temp-1: rgb(4, 184, 255);
-  --temp-2: #173a5e;
 }
 
 /* ------------------- GLOBAL ------------------- */
@@ -38,7 +42,7 @@ html {
   height: 100vh;
   overflow-x: hidden;
   font-family: custom-regular;
-  background-color: black;
+  background-color: var(--secondary-color);
 }
 
 body,
@@ -50,8 +54,8 @@ div#root {
 body {
   background: radial-gradient(
     circle farthest-corner at top left,
-    #1b2028 3%,
-    #000001 70%
+    var(--primary-color) 3%,
+    var(--secondary-color) 70%
   );
 }
 
@@ -94,8 +98,8 @@ section::-webkit-scrollbar-thumb {
   visibility: visible;
   background: radial-gradient(
     circle farthest-corner at top left,
-    #1b2028 3%,
-    #000001 70%
+    var(--primary-color) 3%,
+    var(--secondary-color) 70%
   );
   transition: left 2.7s linear, visibility 2.7s linear;
   transition-delay: 3s;

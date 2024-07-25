@@ -40,7 +40,7 @@
   width: 100%;
   height: 100%;
   color: var(--primary-font-color);
-  background-color: #1b2028e8;
+  background-color: color-mix(in srgb, var(--primary-color) 80%, transparent);
   transition: 0.5s;
 
   > .row {
@@ -166,8 +166,8 @@
   text-align: center;
   min-width: 14ch;
   padding: 6px 8px;
-  border: 1px solid var(--temp-2);
-  background-color: #1b2028;
+  border: 1px solid var(--primary-highlight-color);
+  background-color: var(--primary-color);
 }
 
 @media screen and (min-width: 1150px) {
