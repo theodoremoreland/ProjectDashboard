@@ -59,10 +59,28 @@
     gap: 15px;
     width: 100%;
   }
+
+  .circle {
+    display: none;
+    width: 10px;
+    height: 10px;
+    background-color: #df0000;
+    border-radius: 50%;
+    margin-left: 2px;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0;
+    content-visibility: hidden;
+  }
 }
 
 .project-overlay:hover > #content {
   left: 0;
+
+  .circle {
+    display: inline-block;
+    content-visibility: visible;
+  }
 }
 
 .project-card .project-overlay::after {
@@ -103,19 +121,6 @@
 .project-card.not-featured .project-overlay::after {
   opacity: 0;
 }
-
-/* @media screen and (min-width: 2160px) {
-  .project-card.featured:nth-child(odd) .project-overlay::after {
-    -webkit-animation: shine 6s infinite;
-    animation: shine 6s infinite;
-  }
-
-  .project-card.featured:nth-child(even) .project-overlay::after {
-    -webkit-animation: shine 6s infinite;
-    animation: shine 6s infinite;
-    animation-delay: 2.1s;
-  }
-} */
 
 .project-overlay:hover::after {
   opacity: 0;
@@ -199,18 +204,6 @@
 .live-demo:active,
 .learn-more-button:active {
   scale: 0.95;
-}
-
-.circle {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background-color: #df0000;
-  border-radius: 50%;
-  margin-left: 2px;
-  animation: pulsate 1s ease-out;
-  animation-iteration-count: infinite;
-  opacity: 0;
 }
 
 @keyframes pulsate {
