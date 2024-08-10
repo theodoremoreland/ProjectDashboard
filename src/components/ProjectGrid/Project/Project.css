@@ -1,6 +1,7 @@
 .project-card {
   position: relative;
   display: flex;
+  /* visibility: hidden; */
   width: 100%;
   aspect-ratio: 4/3;
   background-color: #3d485300;
@@ -16,6 +17,10 @@
   &.not-featured {
     pointer-events: none;
     opacity: 0.1;
+  }
+
+  &.in-view {
+    visibility: visible;
   }
 }
 
