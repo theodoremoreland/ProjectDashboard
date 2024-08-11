@@ -1,7 +1,6 @@
 .project-card {
   position: relative;
   display: flex;
-  /* visibility: hidden; */
   width: 100%;
   aspect-ratio: 4/3;
   background-color: #3d485300;
@@ -17,10 +16,6 @@
   &.not-featured {
     pointer-events: none;
     opacity: 0.1;
-  }
-
-  &.in-view {
-    visibility: visible;
   }
 }
 
@@ -75,7 +70,6 @@
     animation: pulsate 1s ease-out;
     animation-iteration-count: infinite;
     opacity: 0;
-    content-visibility: hidden;
   }
 }
 
@@ -84,7 +78,6 @@
 
   .circle {
     display: inline-block;
-    content-visibility: visible;
   }
 }
 
@@ -242,4 +235,10 @@
   width: 100%;
   height: 100%;
   object-fit: fill;
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  &.loaded {
+    opacity: 1;
+  }
 }

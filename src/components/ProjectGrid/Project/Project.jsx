@@ -52,7 +52,7 @@ const Project = ({ projectData, setSelectedProject }) => {
     >
       <img
         className="project-image"
-        loading="lazy"
+        onLoad={(e) => e.target.classList.add("loaded")}
         src={projectData.image}
         alt={projectData.name}
         onError={(e) => {
