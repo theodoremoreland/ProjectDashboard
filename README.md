@@ -32,6 +32,7 @@ Given this application was designed to serve (and did serve) a very specific pur
 - CSS
 - Tanstack React Query
 - MUI X Charts
+- react-intersection-observer
 - GitHub API
 - AWS
 
