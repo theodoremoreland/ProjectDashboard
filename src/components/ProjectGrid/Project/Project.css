@@ -81,16 +81,12 @@
   }
 }
 
-.project-card .project-overlay::after {
+.project-overlay::after {
   z-index: 2;
   position: absolute;
   content: "";
   top: 0;
   left: -125%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 50%;
   height: 100%;
   background: linear-gradient(
@@ -105,13 +101,13 @@
 }
 
 @media screen and (min-width: 1920px) {
-  .project-card .project-overlay::after {
+  .project-overlay::after {
     animation-delay: 4s;
   }
 }
 
 @media screen and (min-width: 2160px) {
-  .project-card .project-overlay::after {
+  .project-overlay::after {
     animation-delay: 6.5s;
   }
 }
