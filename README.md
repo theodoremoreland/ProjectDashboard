@@ -36,10 +36,8 @@ Given this application was designed to serve (and did serve) a very specific pur
 - GitHub API
 - AWS
 
-# Screenshots
+## Screenshots
 
-## Desktop (Ultra-wide)
+### Desktop
 
-### Title Card
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/6.png" width="800">
+<img src="/presentation/thumbnail.webp" width="650">
