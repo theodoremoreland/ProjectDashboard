@@ -14,6 +14,8 @@ Because this application expects a particular formula to the repositories of a g
 
 Given this application was designed to serve (and did serve) a very specific purpose, I won't be updating its capabilities.
 
+This project's design has changed over the years, screenshots of older versions can be found @ [Older versions](#older-versions)
+
 [View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
 
 ## Table of contents
@@ -21,8 +23,9 @@ Given this application was designed to serve (and did serve) a very specific pur
 [View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
 
 - [Technologies Used](#technologies-used)
-- [Screenshots (WIP)](#screenshots)
+- [Screenshots](#screenshots)
   - [Desktop](#desktop-ultra-wide)
+  - [Older versions](#older-versions)
 
 ### Technologies Used
 
@@ -41,3 +44,5 @@ Given this application was designed to serve (and did serve) a very specific pur
 ### Desktop
 
 <img src="/presentation/thumbnail.webp" width="650">
+
+### Older versions
