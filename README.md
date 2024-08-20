@@ -12,9 +12,7 @@ This application uses the GitHub API to determine what content to render in real
 
 Because this application expects a particular formula to the repositories of a given GitHub, it cannot be used to display content for other GitHub profiles (assuming other profiles don't adopt the same organization strategy). This also means this application cannot run locally, as a GitHub API key for a similarly organized GitHub profile would be needed to work properly.
 
-Given this application was designed to serve (and did serve) a very specific purpose, I won't be updating its capabilities.
-
-This project's design has changed over the years, screenshots of older versions can be found @ [Older versions](#older-versions)
+This application has undergone numerous design updates. See screenshots below.
 
 [View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
 
@@ -24,7 +22,8 @@ This project's design has changed over the years, screenshots of older versions 
 
 - [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
-  - [Desktop](#desktop-ultra-wide)
+  - [Desktop](#desktop)
+  - [Mobile](#mobile)
   - [Older versions](#older-versions)
 
 ### Technologies Used
@@ -44,5 +43,7 @@ This project's design has changed over the years, screenshots of older versions 
 ### Desktop
 
 <img src="/presentation/thumbnail.webp" width="650">
+
+### Mobile
 
 ### Older versions
