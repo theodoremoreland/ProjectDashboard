@@ -54,7 +54,7 @@ All previous versions arranged the projects horizontally. The horizontal alignme
 
 Previous versions also used word clouds as filter interfaces. While I still like the concept, this was difficult to implement in a mobile friendly way.
 
-Version #3 made some improvements to streamline the layout by improvement alignment symmetry and using less text.
+Version #3 made some improvements to streamline the layout by improving layout symmetry and using less text. Version #3 also displayed names in the word clouds using their standard casing (e.g. JavaScript as opposed to Javascript etc...)
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/41.png" width="700">
 
