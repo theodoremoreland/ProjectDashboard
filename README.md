@@ -2,6 +2,19 @@
 
 <img src="/presentation/thumbnail.webp" width="650">
 
+[View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
+
+## Table of contents
+
+- [Overview](#overview)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+  - [Desktop](#desktop)
+  - [Mobile](#mobile)
+  - [Older versions](#older-versions)
+ 
+## Overview
+
 At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer" (an internal position). I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to strengthen my argument by summarizing my GitHub content.
 
 Relaying a breadth of experience with various technologies was my goal. The result is similar to that of a portfolio in that it puts my project work on display, but there is a key distinction in that this application was designed to supplement a live conversation with management as opposed to being something that could effectively standalone. Also distinct from a portfolio, this application makes the assumption that the viewer/user is invested in understanding quantity of work and experience moreso than quality, hence the application making little effort to highlight select projects.
@@ -13,18 +26,6 @@ This application uses the GitHub API to determine what content to render in real
 Because this application expects a particular formula to the repositories of a given GitHub, it cannot be used to display content for other GitHub profiles (assuming other profiles don't adopt the same organization strategy). This also means this application cannot run locally, as a GitHub API key for a similarly organized GitHub profile would be needed to work properly.
 
 This application has undergone numerous design updates. See screenshots below.
-
-[View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
-
-## Table of contents
-
-[View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
-
-- [Technologies Used](#technologies-used)
-- [Screenshots](#screenshots)
-  - [Desktop](#desktop)
-  - [Mobile](#mobile)
-  - [Older versions](#older-versions)
 
 ### Technologies Used
 
