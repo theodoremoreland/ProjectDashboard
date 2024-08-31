@@ -48,13 +48,15 @@ This application has undergone numerous design updates. See screenshots below.
 
 ### Older versions
 
-### Version 3
+#### Version 3 (Desktop)
 
 All previous versions arranged the projects horizontally. The horizontal alignment didn't turn out as I intended, the result was an unideal user experience. By version #3, I tried to compensate by syncing the user's vertical scroll to the app's horizontal scroll. This was ultimately not enough as said functionality wasn't intuitive to the user.
 
 Previous versions also used word clouds as filter interfaces. While I still like the concept, this was difficult to implement in a mobile friendly way.
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/41.png" width="700">
+
+#### Version 3 (Mobile)
 
 The mobile version didn't feature the word cloud filter interface, which made it feel inferior to the desktop version as the filtering interface was the app's core idea.
 
