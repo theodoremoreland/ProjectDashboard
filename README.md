@@ -47,3 +47,8 @@ This application has undergone numerous design updates. See screenshots below.
 ### Mobile
 
 ### Older versions
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/40.png" width="700">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/41.png" width="700">
+
