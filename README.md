@@ -52,3 +52,5 @@ This application has undergone numerous design updates. See screenshots below.
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/41.png" width="700">
 
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/42.png" width="250">
+
