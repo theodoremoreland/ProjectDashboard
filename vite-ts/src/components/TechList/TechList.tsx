@@ -6,15 +6,18 @@ import { findKeyForTopicLabel, getTopicCounts } from './TechList.controller';
 // Context
 import { ProjectsContext } from '../../contexts/ProjectsContext'; 
 
+// Types
+import { TopicCounts } from '../../types';
+
 // Styles
 import './TechList.css';
 
 const TechList = () => {
     const { repos, updateFeaturedTopics, featuredTopics } = useContext(ProjectsContext);
-    const [topicsCount, setTopicsCount] = useState(null);
+    const [topicsCount, setTopicsCount] = useState<TopicCounts | null>(null);
 
-    const generateListItems = useCallback((topics) => {
-        const determineClassName = (topicLabel) => {
+    const generateListItems = useCallback((topics: { [key: string]: number }) => {
+        const determineClassName = (topicLabel: string) => {
             if (featuredTopics.size === 0) {
                 return '';
             }
@@ -29,6 +32,7 @@ const TechList = () => {
         
         return Object
             .entries(topics)
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             .sort(([topicLabel1, topicCount1], [topicLabel2, topicCount2]) => topicCount2 - topicCount1)
             .map(([topicLabel, topicCount]) => 
                 <li

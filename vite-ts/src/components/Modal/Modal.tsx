@@ -1,9 +1,15 @@
-import React from 'react';
+import { ReactElement } from 'react';
 
 // Styles
 import './Modal.css';
 
-const Modal = ({ children, title, handleClose }) => {
+interface Props {
+    children: ReactElement;
+    title: string;
+    handleClose: () => void;
+}
+
+const Modal = ({ children, title, handleClose }: Props) => {
     return (
         <div className="custom-modal-backdrop" onClick={(e) => {
             if (e.target === e.currentTarget) handleClose();
