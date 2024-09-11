@@ -60,12 +60,22 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
     >
       <img
         className="project-image"
-        onLoad={(e) => e.target.classList.add("loaded")}
+        onLoad={(e) => {
+          const target: EventTarget = e.target;
+
+          if (target instanceof HTMLImageElement) {
+            target.classList.add("loaded");
+          }
+        }}
         src={projectData.image}
         alt={projectData.name}
         onError={(e) => {
-          if (e.target.src !== alt) {
-            e.target.src = alt;
+          const target: EventTarget = e.target;
+          
+          if (target instanceof HTMLImageElement) {
+            if (target.src !== alt) {
+              target.src = alt;
+            }
           }
         }}
       />
