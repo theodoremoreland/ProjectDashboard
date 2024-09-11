@@ -1,13 +1,21 @@
 // React
-import React from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 
 // Custom Components
-import Project from "./Project/Project.jsx";
+import Project from "./Project/Project";
+
+// Types
+import { TaggedRepoData } from "../../types";
 
 // Custom styles
 import "./ProjectGrid.css";
 
-const ProjectGrid = ({ projects, setSelectedProject }) => {
+interface Props {
+  projects: TaggedRepoData[];
+  setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | undefined>>;
+}
+
+const ProjectGrid = ({ projects, setSelectedProject }: Props): ReactElement => {
 
   return (
     <section id="project-grid">

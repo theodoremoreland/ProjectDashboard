@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 
 // Components
 import TechList from '../TechList/TechList.jsx';
 
 // Images
-import { ReactComponent as DoubleArrowIcon } from "../../images/double-arrow-right.svg";
+import DoubleArrowIcon from "../../images/double-arrow-right.svg?react";
 
 // Styles
 import './Sidebar.css';
 
-const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(true);
+const Sidebar = (): ReactElement => {
+    const [isOpen, setIsOpen] = useState<boolean>(true);
 
     useEffect(() => {
         if (window.innerWidth < 769) {

@@ -1,8 +1,12 @@
-import React from 'react';
+import { ReactElement } from 'react';
 
 import Modal from '../Modal';
 
-const Help = ({ handleClose }) => {
+interface Props {
+    handleClose: () => void;
+}
+
+const Help = ({ handleClose }: Props): ReactElement => {
     return (
         <Modal title='Help' handleClose={handleClose}>
             <div>

@@ -1,8 +1,11 @@
 // React
-import React from "react";
+import { ReactElement, SetStateAction, Dispatch } from "react";
 
 // Third party
 import { useInView } from "react-intersection-observer";
+
+// Types
+import { TaggedRepoData } from "../../../types";
 
 // Images
 import alt from "../../../images/under-construction-thumbnail.jpg";
@@ -17,7 +20,12 @@ import sqlIcon from "../../../images/languages/sql.png";
 // Custom styles
 import "./Project.css";
 
-const renderLanguageIcon = (topic) => {
+interface Props {
+  projectData: TaggedRepoData;
+  setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | undefined>>;
+}
+
+const renderLanguageIcon = (topic: string): ReactElement | null => {
   const titleTemplate = "This project was written with ";
 
   switch (topic) {
@@ -40,7 +48,7 @@ const renderLanguageIcon = (topic) => {
   }
 };
 
-const Project = ({ projectData, setSelectedProject }) => {
+const Project = ({ projectData, setSelectedProject }: Props) => {
   const { ref, inView } = useInView({
     threshold: 0,
   });

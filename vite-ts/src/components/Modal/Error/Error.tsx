@@ -1,8 +1,12 @@
-import React from 'react';
+import { ReactElement } from 'react';
 
 import Modal from '../Modal';
 
-const Error = ({ handleClose }) => {
+interface Props {
+    handleClose: () => void;
+}
+
+const Error = ({ handleClose }: Props): ReactElement => {
     return (
         <Modal title='Something went wrong' handleClose={handleClose}>
             <p>There was an issue loading projects from GitHub. As a result, backup
