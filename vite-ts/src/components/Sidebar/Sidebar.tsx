@@ -1,7 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react';
 
 // Components
-import TechList from '../TechList/TechList.jsx';
+import TechList from '../TechList/TechList';
 
 // Images
 import DoubleArrowIcon from "../../images/double-arrow-right.svg?react";
