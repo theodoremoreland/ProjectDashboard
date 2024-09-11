@@ -1,10 +1,13 @@
 import { useState, useContext, useCallback, useEffect, useRef, ReactElement } from 'react';
 
 // Third party
-import Fuse from 'fuse.js';
+import Fuse, { FuseResult } from 'fuse.js';
 
 // Context
 import { ProjectsContext } from '../../contexts/ProjectsContext';
+
+// Types
+import { TaggedRepoData } from '../../types';
 
 // Images
 import CancelIcon from '../../images/cancel.svg?react';
@@ -16,11 +19,11 @@ import './SearchBar.css';
 const SearchBar = (): ReactElement => {
     const { repos, setSelectedProject } = useContext(ProjectsContext);
     const [searchValue, setSearchValue] = useState('');
-    const [searchResults, setSearchResults] = useState(repos);
+    const [searchResults, setSearchResults] = useState<FuseResult<TaggedRepoData>[] | TaggedRepoData[] | undefined>(repos);
     const [showResults, setShowResults] = useState(false);
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
-    const handleSearchResultClick = useCallback((projectData) => {
+    const handleSearchResultClick = useCallback((projectData: TaggedRepoData) => {
       setSearchValue('');
       setSelectedProject(projectData);
     }, [setSelectedProject]);
@@ -85,9 +88,11 @@ const SearchBar = (): ReactElement => {
             searchValue && showResults &&
             <ul id='search-results'>
             {
-              searchResults?.length > 0 ? searchResults
+              searchResults && searchResults?.length > 0 ? searchResults
                 .map((searchResult) => {
-                  const repo = searchResult.item;
+                  const repo = Object.prototype.hasOwnProperty.call(searchResult, "item")
+                    ? (searchResult as FuseResult<TaggedRepoData>).item
+                    : undefined;
 
                   if (!repo) {
                     return null;
