@@ -1,35 +1,118 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// React
+import {
+  useEffect,
+  useState,
+  useCallback,
+  useContext,
+  useRef,
+  ReactElement,
+} from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Context
+import { ProjectsContext } from "./contexts/ProjectsContext";
+
+// Custom Components
+import Analytics from "./components/Analytics/Analytics";
+import Sidebar from "./components/Sidebar/Sidebar";
+import NavBar from "./components/NavBar/NavBar";
+import ProjectDetail from "./components/ProjectDetail/ProjectDetail";
+import ProjectGrid from "./components/ProjectGrid/ProjectGrid";
+import Help from "./components/Modal/Help/Help";
+import Error from "./components/Modal/Error/Error";
+
+// Custom Styles
+import "./App.css";
+
+const App = (): ReactElement => {
+  const { repos, isError, selectedProject, setSelectedProject } =
+    useContext(ProjectsContext);
+  const titleCardRef = useRef<HTMLElement>(null);
+  const intervalRef = useRef<number | undefined>(undefined);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showAnalytics, setShowAnalytics] = useState(false);
+  const [showHelpModal, setShowHelpModal] = useState(false);
+  const handleCloseErrorModal = useCallback(() => setShowErrorModal(false), []);
+  const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
+
+  useEffect(() => {
+    if (isError) {
+      handleShowErrorModal();
+    }
+  }, [isError, handleShowErrorModal]);
+
+  /**
+   * Checks to see when titleCard animation is complete
+   * then sets the display to none as to remove it from
+   * the DOM's render tree (hoping this helps with performance of shine animations).
+   */
+  useEffect(() => {
+    const titleCard = titleCardRef.current;
+    const shouldSetInterval =
+      repos && titleCard && intervalRef.current === undefined;
+
+    if (shouldSetInterval) {
+      intervalRef.current = window.setInterval(() => {
+        const titleCardStyle = getComputedStyle(titleCard);
+
+        if (titleCardStyle.visibility === "hidden") {
+          titleCard.style.display = "none"; // All this to help with performance
+
+          window.clearInterval(intervalRef.current);
+        }
+      }, 500);
+    }
+
+    return () => window.clearInterval(intervalRef.current);
+  }, [repos]);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {showErrorModal && <Error handleClose={handleCloseErrorModal} />}
+      <header
+        ref={titleCardRef}
+        className={`titleCard ${repos ? "transition" : ""}`}
+      >
+        <h1 className={`appTitle ${repos ? "transition" : ""}`}>
+          Project List
+        </h1>
+        {repos ? (
+          <p className="appSubtitle">{repos.length} projects available</p>
+        ) : (
+          <p className="appSubtitle loading">Loading projects from GitHub...</p>
+        )}
+      </header>
+      <main>
+        <NavBar
+          setShowAnalytics={setShowAnalytics}
+          setShowHelpModal={setShowHelpModal}
+        />
+        <div id="app-content">
+          <Sidebar />
+          {repos !== undefined ? (
+            <ProjectGrid
+              projects={repos}
+              setSelectedProject={setSelectedProject}
+            />
+          ) : null}
+          {selectedProject && (
+            <ProjectDetail
+              projectData={selectedProject}
+              handleClose={() => setSelectedProject(null)}
+            />
+          )}
+          {showAnalytics && (
+            <Analytics
+              projects={repos}
+              handleClose={() => setShowAnalytics(false)}
+            />
+          )}
+          {showHelpModal && (
+            <Help handleClose={() => setShowHelpModal(false)} />
+          )}
+        </div>
+      </main>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
