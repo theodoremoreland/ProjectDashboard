@@ -16,7 +16,9 @@ export interface TaggedRepoData extends RepoData {
     isFeatured: boolean;
 };
 
-export interface SortValue {
-    name: string;
-    direction: string;
-};
+export interface TopicCounts {
+    frameworks: { [key: string]: number };
+    competencies: { [key: string]: number };
+    languages: { [key: string]: number };
+    tools: { [key: string]: number };
+}
