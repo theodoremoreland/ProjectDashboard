@@ -11,9 +11,6 @@ import ProjectsContextProvider from "./contexts/ProjectsContext";
 // Components
 import App from './App.tsx';
 
-// Styles
-import './reset.css';
-
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
 });
