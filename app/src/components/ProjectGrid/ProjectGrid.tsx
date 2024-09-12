@@ -16,7 +16,6 @@ interface Props {
 }
 
 const ProjectGrid = ({ projects, setSelectedProject }: Props): ReactElement => {
-
   return (
     <section id="project-grid">
       {projects &&
@@ -25,7 +24,7 @@ const ProjectGrid = ({ projects, setSelectedProject }: Props): ReactElement => {
                     key={project.name} 
                     projectData={project} 
                     setSelectedProject={setSelectedProject}
-                  />;
+                  />
         })}
         <div id="project-grid-overlay"></div>
     </section>
