@@ -30,15 +30,15 @@ interface ProjectsProviderProps {
 export const ProjectsContext = createContext({
   repos: undefined as TaggedRepoData[] | undefined,
   updateFeaturedTopics: (() => {}) as (selectedTopic: string) => void,
-  selectedProject: null as RepoData | null,
-  setSelectedProject: (() => {}) as Dispatch<SetStateAction<RepoData | null>>,
+  selectedProject: null as TaggedRepoData | null,
+  setSelectedProject: (() => {}) as Dispatch<SetStateAction<TaggedRepoData | null>>,
   featuredTopics: new Set<string>(),
   isError: false,
 });
 
 const ProjectsContextProvider = ({ children }: ProjectsProviderProps): ReactElement => {
   const [repos, setRepos] = useState<RepoData[] | undefined>(undefined);
-  const [selectedProject, setSelectedProject] = useState<RepoData | null>(null);
+  const [selectedProject, setSelectedProject] = useState<TaggedRepoData | null>(null);
   const [featuredTopics, setFeaturedTopics] = useState<Set<string>>(new Set());
   const taggedRepos: TaggedRepoData[] | undefined = useMemo(() => {
     if (!repos) {

@@ -32,8 +32,7 @@ const TechList = () => {
         
         return Object
             .entries(topics)
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            .sort(([topicLabel1, topicCount1], [topicLabel2, topicCount2]) => topicCount2 - topicCount1)
+            .sort(([, topicCount1], [, topicCount2]) => topicCount2 - topicCount1)
             .map(([topicLabel, topicCount]) => 
                 <li
                     key={topicLabel}

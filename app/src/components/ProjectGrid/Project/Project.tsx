@@ -22,7 +22,7 @@ import "./Project.css";
 
 interface Props {
   projectData: TaggedRepoData;
-  setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | undefined>>;
+  setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | null>>;
 }
 
 const renderLanguageIcon = (topic: string): ReactElement | null => {

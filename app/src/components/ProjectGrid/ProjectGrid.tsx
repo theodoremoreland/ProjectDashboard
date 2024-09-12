@@ -12,7 +12,7 @@ import "./ProjectGrid.css";
 
 interface Props {
   projects: TaggedRepoData[];
-  setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | undefined>>;
+  setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | null>>;
 }
 
 const ProjectGrid = ({ projects, setSelectedProject }: Props): ReactElement => {

@@ -21,6 +21,7 @@ import Help from "./components/Modal/Help/Help";
 import Error from "./components/Modal/Error/Error";
 
 // Custom Styles
+import './reset.css';
 import "./App.css";
 
 const App = (): ReactElement => {
@@ -88,19 +89,19 @@ const App = (): ReactElement => {
         />
         <div id="app-content">
           <Sidebar />
-          {repos !== undefined ? (
+          {repos &&
             <ProjectGrid
               projects={repos}
               setSelectedProject={setSelectedProject}
             />
-          ) : null}
+          }
           {selectedProject && (
             <ProjectDetail
               projectData={selectedProject}
               handleClose={() => setSelectedProject(null)}
             />
           )}
-          {showAnalytics && (
+          {showAnalytics && repos && (
             <Analytics
               projects={repos}
               handleClose={() => setShowAnalytics(false)}
