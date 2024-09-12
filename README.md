@@ -12,7 +12,7 @@
   - [Desktop](#desktop)
   - [Mobile](#mobile)
   - [Older versions](#older-versions)
- 
+
 ## Overview
 
 At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer" (an internal position). I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to strengthen my argument by summarizing my GitHub content.
@@ -30,6 +30,7 @@ This application has undergone numerous design updates. See screenshots below.
 ### Technologies Used
 
 - React
+- TypeScript
 - JavaScript
 - HTML
 - CSS
@@ -38,6 +39,7 @@ This application has undergone numerous design updates. See screenshots below.
 - react-intersection-observer
 - GitHub API
 - AWS
+- vite
 
 ## Screenshots
 
@@ -64,4 +66,3 @@ Version #3, in comparison to version #2, made some improvements to streamline th
 The mobile version didn't feature the word cloud filter interface, which made it feel inferior to the desktop version as the filtering interface was the app's core idea.
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/42.png" width="250">
-
