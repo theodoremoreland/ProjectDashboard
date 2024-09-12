@@ -58,11 +58,9 @@ const ProjectsContextProvider = ({ children }: ProjectsProviderProps): ReactElem
     });
   }, [repos, featuredTopics]);
 
-  const { data, isError } = useQuery({
+  const { data, isError, error } = useQuery({
     queryKey: ["repos"],
     queryFn: getRepoData,
-    onError: (err) => console.error(extractErrorMessage(err)),
-    cacheTime: 300_000,
     staleTime: 240_000,
     retry: false,
   });
@@ -99,8 +97,10 @@ const ProjectsContextProvider = ({ children }: ProjectsProviderProps): ReactElem
   useEffect(() => {
     if (isError) {
       setRepos(backupData);
+
+      console.error(extractErrorMessage(error));
     }
-  }, [isError]);
+  }, [isError, error]);
 
   return (
     <ProjectsContext.Provider
