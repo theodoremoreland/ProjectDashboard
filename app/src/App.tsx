@@ -28,9 +28,9 @@ const App = (): ReactElement => {
     useContext(ProjectsContext);
   const titleCardRef = useRef<HTMLElement>(null);
   const intervalRef = useRef<number | undefined>(undefined);
-  const [showErrorModal, setShowErrorModal] = useState(false);
-  const [showAnalytics, setShowAnalytics] = useState(false);
-  const [showHelpModal, setShowHelpModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
+  const [showAnalytics, setShowAnalytics] = useState<boolean>(false);
+  const [showHelpModal, setShowHelpModal] = useState<boolean>(false);
   const handleCloseErrorModal = useCallback(() => setShowErrorModal(false), []);
   const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
 
@@ -46,12 +46,14 @@ const App = (): ReactElement => {
    * the DOM's render tree (hoping this helps with performance of shine animations).
    */
   useEffect(() => {
-    const titleCard = titleCardRef.current;
-    const shouldSetInterval =
+    const titleCard: HTMLElement | null = titleCardRef.current;
+    const shouldSetInterval: boolean | null | undefined =
       repos && titleCard && intervalRef.current === undefined;
 
     if (shouldSetInterval) {
       intervalRef.current = window.setInterval(() => {
+        if (!titleCard) return;
+
         const titleCardStyle = getComputedStyle(titleCard);
 
         if (titleCardStyle.visibility === "hidden") {
