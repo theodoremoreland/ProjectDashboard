@@ -58,6 +58,9 @@
     align-items: center;
     gap: 15px;
     width: 100%;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
   }
 
   .circle {
@@ -148,6 +151,7 @@
   font-style: oblique;
   font-size: 1.05em;
   padding: 1em 0.5em;
+  margin: 0;
 }
 
 @media screen and (min-width: 1150px) {
