@@ -82,6 +82,22 @@ section::-webkit-scrollbar-thumb {
   background-color: rgb(165, 165, 165); /* color of the scroll thumb */
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /* ------------------- TITLE CARD ------------------- */
 
 .titleCard {
