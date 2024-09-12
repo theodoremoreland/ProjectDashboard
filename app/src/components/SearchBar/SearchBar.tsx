@@ -86,24 +86,25 @@ const SearchBar = (): ReactElement => {
           </span>}
           {
             searchValue && showResults &&
-            <ul id='search-results'>
-            {
-              searchResults && searchResults?.length > 0 ? searchResults
-                .map((searchResult) => {
-                  const repo = Object.prototype.hasOwnProperty.call(searchResult, "item")
-                    ? (searchResult as FuseResult<TaggedRepoData>).item
-                    : undefined;
+              <ul id='search-results'>
+              {
+                  searchResults && searchResults?.length > 0
+                  ? searchResults.map((searchResult) => {
+                      const repo = Object.prototype.hasOwnProperty.call(searchResult, "item")
+                        ? (searchResult as FuseResult<TaggedRepoData>).item
+                        : undefined;
 
-                  if (!repo) {
-                    return null;
-                  }
+                      if (!repo) {
+                        return null;
+                      }
 
-                  const matchingTopics = new Fuse(repo.topics, {
-                    threshold: 0.3
-                  });
-                  const topics = matchingTopics.search(searchValue);
+                      const matchingTopics = new Fuse(repo.topics, {
+                        threshold: 0.3
+                      });
+                      const topics = matchingTopics.search(searchValue);
 
-                  return <li
+                      return (
+                        <li
                           key={repo.name}
                           className='search-result'
                           onClick={() => handleSearchResultClick(repo)}
@@ -114,16 +115,17 @@ const SearchBar = (): ReactElement => {
                             {topics.length > 0
                               ? topics.map((topicResult) => {
                                   const topic = topicResult.item;
-      
+
                                   return <span key={topic} className='topic'>{topic}</span>;
                                 })
                               : <p className='none'>No matching topics</p>}
                           </div>
                         </li>
-                })
-                : <li className='search-result'>No results found</li>
-            }
-          </ul>
+                      );
+                    })
+                    : <li className='search-result'>No results found</li>
+                }
+              </ul>
           }
         </div>
       </>
