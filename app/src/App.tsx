@@ -21,7 +21,6 @@ import Help from "./components/Modal/Help/Help";
 import Error from "./components/Modal/Error/Error";
 
 // Custom Styles
-import './reset.css';
 import "./App.css";
 
 const App = (): ReactElement => {
