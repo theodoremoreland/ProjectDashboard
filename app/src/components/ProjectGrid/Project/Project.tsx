@@ -101,7 +101,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                     </li>
                   </a>
                 }
-                {/* Putting the onClick handler on the div because
+                {/* Putting the onClick handler on the li because
                     the padding on the button wasn't triggering to onClick event.
                     This is a workaround to make the button padding clickable. 
                 */}
