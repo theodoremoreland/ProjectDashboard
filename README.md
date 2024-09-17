@@ -39,7 +39,7 @@ This application has undergone numerous design updates. See screenshots below.
 - react-intersection-observer
 - GitHub API
 - AWS
-- vite
+- Vite
 
 ## Screenshots
 
