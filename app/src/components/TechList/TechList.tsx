@@ -36,6 +36,7 @@ const TechList = () => {
             .map(([topicLabel, topicCount]) => 
                 <li
                     key={topicLabel}
+                    title={`Click to filter by ${topicLabel}`}
                     className={`${determineClassName(topicLabel)}`}
                     onClick={() => updateFeaturedTopics(findKeyForTopicLabel(topicLabel))}
                 >
