@@ -2,7 +2,7 @@
 
 <img src="/presentation/thumbnail.webp" width="650">
 
-[View the application live](https://main.d2wyze0voo0sc5.amplifyapp.com/)
+[View the application](https://main.d2wyze0voo0sc5.amplifyapp.com/)
 
 ## Table of contents
 
