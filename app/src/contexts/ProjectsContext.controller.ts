@@ -22,7 +22,7 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
     "ScrabbleScorer"
   ].sort(() => Math.random() - 0.5); // Randomize order of first set of featured projects
 
-  featuredProjectNames.push("YelpETL", "STLServiceCalls", "Decades"); // Add remaining featured projects in exact order
+  featuredProjectNames.push("html-me-something", "YelpETL", "STLServiceCalls"); // Add remaining featured projects in exact order
 
   const reposSortedByFeatured: RepoData[] = [
     ...featuredProjectNames.reduce<RepoData[]>((newProjectsArray, name) => {
