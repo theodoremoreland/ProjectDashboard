@@ -69,9 +69,20 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
           open={isMobileMenuOpen}
           onClose={handleMobileMenuClose}
         >
-          <MenuItem title="Adjust display settings">
+          <MenuItem
+            id="analytics-nav"
+            title='Analytics'
+            role='presentation'
+            onClick={() => setShowAnalytics(true)}
+          >
+            <QueryStatsIcon className="query_stats icon" />
           </MenuItem>
-          <MenuItem title="Visualize your own data by attaching a JSON file">
+          <MenuItem
+            id="nav-help"
+            title='Help'
+            role='presentation'
+            onClick={() => setShowHelpModal(true)}
+          >
           </MenuItem>  
         </Menu>
       </nav>
