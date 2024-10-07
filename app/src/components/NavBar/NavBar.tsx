@@ -1,7 +1,7 @@
 import { ReactElement, useState, useCallback } from 'react';
 
 // MUI
-import { Menu, MenuItem } from '@mui/material';
+import { IconButton, Menu, MenuItem } from '@mui/material';
 
 // Components
 import SearchBar from '../SearchBar/SearchBar';
@@ -9,6 +9,7 @@ import SearchBar from '../SearchBar/SearchBar';
 // Images
 import QueryStatsIcon from "../../images/query_stats.svg?react";
 import HelpIcon from "../../images/help.svg?react";
+import MenuIcon from "../assets/images/icons/menu.svg?react";
 
 // Styles
 import './NavBar.css';
@@ -52,17 +53,27 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             <HelpIcon className="help icon" />
           </li>
         </ul>
-        <Menu
-                id="mobile-menu"
-                anchorEl={mobileMenuAnchorEl}
-                open={isMobileMenuOpen}
-                onClose={handleMobileMenuClose}
+        <IconButton
+                id="mobile-menu-icon"
+                aria-label="menu"
+                aria-controls={isMobileMenuOpen ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={isMobileMenuOpen ? 'true' : undefined}
+                onClick={handleMobileMenuOpen}
             >
-                <MenuItem title="Adjust display settings">
-                </MenuItem>
-                <MenuItem title="Visualize your own data by attaching a JSON file">
-                </MenuItem>  
-            </Menu>
+              <MenuIcon />
+        </IconButton>
+        <Menu
+          id="mobile-menu"
+          anchorEl={mobileMenuAnchorEl}
+          open={isMobileMenuOpen}
+          onClose={handleMobileMenuClose}
+        >
+          <MenuItem title="Adjust display settings">
+          </MenuItem>
+          <MenuItem title="Visualize your own data by attaching a JSON file">
+          </MenuItem>  
+        </Menu>
       </nav>
     )
 };
