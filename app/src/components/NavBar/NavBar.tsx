@@ -1,4 +1,7 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState, useCallback } from 'react';
+
+// MUI
+import { Menu, MenuItem } from '@mui/material';
 
 // Components
 import SearchBar from '../SearchBar/SearchBar';
@@ -16,6 +19,17 @@ interface Props {
 }
 
 const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => {
+    const [mobileMenuAnchorEl, setMobileMenuAnchorEl] = useState<null | HTMLElement>(null);
+    const isMobileMenuOpen = Boolean(mobileMenuAnchorEl);
+
+    const handleMobileMenuOpen = useCallback((event: React.MouseEvent<HTMLElement>) => {
+      setMobileMenuAnchorEl(event.currentTarget);
+  }, []);
+
+  const handleMobileMenuClose = useCallback(() => {
+      setMobileMenuAnchorEl(null);
+  }, []);
+
     return (
       <nav id="app-nav">
         <h1>Project List</h1>
@@ -38,6 +52,17 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             <HelpIcon className="help icon" />
           </li>
         </ul>
+        <Menu
+                id="mobile-menu"
+                anchorEl={mobileMenuAnchorEl}
+                open={isMobileMenuOpen}
+                onClose={handleMobileMenuClose}
+            >
+                <MenuItem title="Adjust display settings">
+                </MenuItem>
+                <MenuItem title="Visualize your own data by attaching a JSON file">
+                </MenuItem>  
+            </Menu>
       </nav>
     )
 };
