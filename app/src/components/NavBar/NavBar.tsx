@@ -45,6 +45,19 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
           >
             <QueryStatsIcon className="query_stats icon" />
           </li>
+          <a
+            href="https://github.com/theodoremoreland"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <li
+              id="github-nav"
+              title='My GitHub'
+              role='presentation'
+            >
+              <GitHubIcon id="github-icon" className="github icon" />
+            </li>
+          </a>
           <li
             id="nav-help"
             title='Help'
@@ -73,7 +86,6 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
           <MenuItem
             id="analytics-nav"
             title='Analytics'
-            role='presentation'
             onClick={() => {
               setShowAnalytics(true);
               handleMobileMenuClose();
@@ -82,25 +94,26 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             <QueryStatsIcon className="query_stats icon" />
           </MenuItem>
           <MenuItem
+            id="github-nav"
+            title='My GitHub'
+          >
+            <a
+              href="https://github.com/theodoremoreland"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GitHubIcon id="github-icon" className="github icon" />
+            </a>
+          </MenuItem>
+          <MenuItem
             id="nav-help"
             title='Help'
-            role='presentation'
             onClick={() => {
               setShowHelpModal(true);
               handleMobileMenuClose();
             }}
           >
             <HelpIcon className="help icon" />
-          </MenuItem>
-          <MenuItem
-            id="octocat-nav"
-            title='My GitHub'
-            role='presentation'
-            onClick={() => {
-              handleMobileMenuClose();
-            }}
-          >
-            <GitHubIcon id="github-icon" className="github icon" />
           </MenuItem>
         </Menu>
       </nav>
