@@ -73,7 +73,10 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             id="analytics-nav"
             title='Analytics'
             role='presentation'
-            onClick={() => setShowAnalytics(true)}
+            onClick={() => {
+              setShowAnalytics(true);
+              handleMobileMenuClose();
+            }}
           >
             <QueryStatsIcon className="query_stats icon" />
           </MenuItem>
@@ -81,8 +84,12 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             id="nav-help"
             title='Help'
             role='presentation'
-            onClick={() => setShowHelpModal(true)}
+            onClick={() => {
+              setShowHelpModal(true);
+              handleMobileMenuClose();
+            }}
           >
+            <HelpIcon className="help icon" />
           </MenuItem> 
         </Menu>
       </nav>

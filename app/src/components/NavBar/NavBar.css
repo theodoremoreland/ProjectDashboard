@@ -50,16 +50,6 @@
   }
 }
 
-#nav-help {
-  display: none;
-}
-
-@media screen and (min-width: 769px) {
-  #nav-help {
-    display: initial;
-  }
-}
-
 #app-nav::after {
   pointer-events: none;
   z-index: 5;
