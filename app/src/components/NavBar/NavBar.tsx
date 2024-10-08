@@ -10,6 +10,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import QueryStatsIcon from "../../images/query_stats.svg?react";
 import HelpIcon from "../../images/help.svg?react";
 import MenuIcon from "../../images/menu.svg?react";
+import GitHubIcon from "../../images/github.svg?react";
 
 // Styles
 import './NavBar.css';
@@ -90,7 +91,17 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             }}
           >
             <HelpIcon className="help icon" />
-          </MenuItem> 
+          </MenuItem>
+          <MenuItem
+            id="octocat-nav"
+            title='My GitHub'
+            role='presentation'
+            onClick={() => {
+              handleMobileMenuClose();
+            }}
+          >
+            <GitHubIcon id="github-icon" className="github icon" />
+          </MenuItem>
         </Menu>
       </nav>
     )
