@@ -9,7 +9,7 @@ import SearchBar from '../SearchBar/SearchBar';
 // Images
 import QueryStatsIcon from "../../images/query_stats.svg?react";
 import HelpIcon from "../../images/help.svg?react";
-import MenuIcon from "../assets/images/icons/menu.svg?react";
+import MenuIcon from "../../images/menu.svg?react";
 
 // Styles
 import './NavBar.css';
@@ -35,7 +35,7 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
       <nav id="app-nav">
         <h1>Project List</h1>
         <SearchBar />
-        <ul>
+        <ul id='desktop-menu'>
           <li 
             id="analytics-nav"
             title='Analytics'
@@ -83,7 +83,7 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             role='presentation'
             onClick={() => setShowHelpModal(true)}
           >
-          </MenuItem>  
+          </MenuItem> 
         </Menu>
       </nav>
     )
