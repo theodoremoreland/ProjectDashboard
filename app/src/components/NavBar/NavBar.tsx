@@ -17,10 +17,10 @@ import './NavBar.css';
 
 interface Props {
   setShowAnalytics: (show: boolean) => void;
-  setShowHelpModal: (show: boolean) => void;
+  setShowOverviewModal: (show: boolean) => void;
 }
 
-const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => {
+const NavBar = ({ setShowAnalytics, setShowOverviewModal }: Props): ReactElement => {
     const [mobileMenuAnchorEl, setMobileMenuAnchorEl] = useState<null | HTMLElement>(null);
     const isMobileMenuOpen = Boolean(mobileMenuAnchorEl);
 
@@ -59,10 +59,10 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             </li>
           </a>
           <li
-            id="nav-help"
-            title='Help'
+            id="nav-overview"
+            title='Overview'
             role='presentation'
-            onClick={() => setShowHelpModal(true)}
+            onClick={() => setShowOverviewModal(true)}
           >
             <HelpIcon className="help icon" />
           </li>
@@ -109,7 +109,7 @@ const NavBar = ({ setShowAnalytics, setShowHelpModal }: Props): ReactElement => 
             id="nav-help"
             title='Help'
             onClick={() => {
-              setShowHelpModal(true);
+              setShowOverviewModal(true);
               handleMobileMenuClose();
             }}
           >
