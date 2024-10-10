@@ -8,12 +8,30 @@ interface Props {
 
 const Help = ({ handleClose }: Props): ReactElement => {
     return (
-        <Modal title='Help' handleClose={handleClose}>
+        <Modal title='Overview' handleClose={handleClose}>
             <div>
                 <p> 
-                    This web application dynamically renders a list of my GitHub projects. Projects are
-                    queried in real-time from the GitHub API and are displayed in semi-random order. 
+                    This web application dynamically renders a list of my <a target='_blank' rel='noreferrer' href="https://github.com/theodoremoreland?tab=repositories">GitHub repositories</a>. Repositories are
+                    queried in real-time from the <a target='_blank' rel='noreferrer' href="https://docs.github.com/en/rest">GitHub API</a> and are displayed in semi-random order.
                 </p>
+                <p>
+                    NOTE: <i>The terms "project" and "repository" are used interchangeably throughout this application.</i>
+                </p>
+                <article>
+                    <h3>Preview</h3>
+                    <p>
+                        Each project is displayed as a thumbnail. Upon hovering over a thumbnail, a thumbnail overlay appears
+                        featuring the project's name and a list of icons representing the programming languages used.
+                    </p>
+                    <p>
+                        Additionally, each thumbnail overlay features a "Learn More" button, that when clicked, will display
+                        additional information about the project.
+                    </p>
+                    <p>
+                        Conditionally, a "Live Demo" button appears if the project is actively hosted on a live server. Clicking
+                        the button will open a new tab featuring the web application.
+                    </p>
+                </article>
                 <article>
                     <h3>Filter</h3>
                     <p>
@@ -26,17 +44,18 @@ const Help = ({ handleClose }: Props): ReactElement => {
                     <h3>Search</h3>
                     <p>
                         The search bar can be used to search for projects by name. The search is case-insensitive and will
-                        display projects that contain the search term in their name or in their list of GitHub topics.
+                        display projects that contain the search term in their name or in their list of <a target='_blank' rel='noreferrer' href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics">GitHub topics</a>.
                     </p>
                 </article>
                 <article>
                     <h3>Analytics</h3>
                     <p>
-                        Clicking on the analytics icon in the navbar will open a small analytics dashboard 
+                        Clicking on the analytics icon in the navbar will display
+
                     </p>
                 </article>
                 <p>
-                    The source code for this project can be viewed <a target='_blank' rel='noreferrer' href="https://github.com/theodoremoreland/ProjectList">here</a>.
+                    <a target='_blank' rel='noreferrer' href="https://github.com/theodoremoreland/ProjectList">View the source code for this web application</a>
                 </p>
             </div>
         </Modal>
