@@ -24,19 +24,18 @@ const Help = ({ handleClose }: Props): ReactElement => {
                         featuring the project's name and a list of icons representing the programming languages used.
                     </p>
                     <p>
-                        Additionally, each thumbnail overlay features a "Learn More" button, that when clicked, will display
+                        Additionally, each thumbnail overlay features a <b>Learn More</b> button, that when clicked, will display
                         additional information about the project.
                     </p>
                     <p>
-                        Conditionally, a "Live Demo" button appears if the project is actively hosted on a live server. Clicking
+                        Conditionally, a <b>Live Demo</b> button appears if the project is actively hosted on a live server. Clicking
                         the button will open a new tab featuring the web application.
                     </p>
                 </article>
                 <article>
                     <h3>Filter</h3>
                     <p>
-                        Technologies listed on the left panel can be clicked to filter projects by corresponding technology.
-                        Projects not featuring said technology will be disabled from the list. The numbers displayed next to each
+                        Technologies listed on the left panel can be clicked to filter projects by corresponding technology. The numbers displayed next to each
                         technology represent the number of projects that utilize that technology.
                     </p>
                 </article>
@@ -50,7 +49,7 @@ const Help = ({ handleClose }: Props): ReactElement => {
                 <article>
                     <h3>Analytics</h3>
                     <p>
-                        Clicking on the analytics icon in the navbar will display
+                        Clicking on the analytics icon in the navbar will display aggregate statistics about the projects featured.
 
                     </p>
                 </article>
