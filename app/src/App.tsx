@@ -17,7 +17,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import NavBar from "./components/NavBar/NavBar";
 import ProjectDetail from "./components/ProjectDetail/ProjectDetail";
 import ProjectGrid from "./components/ProjectGrid/ProjectGrid";
-import Help from "./components/Modal/Help/Help";
+import Overview from "./components/Modal/Overview/Overview";
 import Error from "./components/Modal/Error/Error";
 
 // Custom Styles
@@ -30,7 +30,7 @@ const App = (): ReactElement => {
   const intervalRef = useRef<number | undefined>(undefined);
   const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
   const [showAnalytics, setShowAnalytics] = useState<boolean>(false);
-  const [showHelpModal, setShowHelpModal] = useState<boolean>(false);
+  const [showOverviewModal, setShowOverviewModal] = useState<boolean>(false);
   const handleCloseErrorModal = useCallback(() => setShowErrorModal(false), []);
   const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
 
@@ -86,7 +86,7 @@ const App = (): ReactElement => {
       <main>
         <NavBar
           setShowAnalytics={setShowAnalytics}
-          setShowHelpModal={setShowHelpModal}
+          setShowOverviewModal={setShowOverviewModal}
         />
         <div id="app-content">
           <Sidebar />
@@ -108,8 +108,8 @@ const App = (): ReactElement => {
               handleClose={() => setShowAnalytics(false)}
             />
           )}
-          {showHelpModal && (
-            <Help handleClose={() => setShowHelpModal(false)} />
+          {showOverviewModal && (
+            <Overview handleClose={() => setShowOverviewModal(false)} />
           )}
         </div>
       </main>

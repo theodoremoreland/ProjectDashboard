@@ -6,7 +6,7 @@ interface Props {
     handleClose: () => void;
 }
 
-const Help = ({ handleClose }: Props): ReactElement => {
+const Overview = ({ handleClose }: Props): ReactElement => {
     return (
         <Modal title='Overview' handleClose={handleClose}>
             <div>
@@ -42,8 +42,7 @@ const Help = ({ handleClose }: Props): ReactElement => {
                 <article>
                     <h3>Search</h3>
                     <p>
-                        The search bar can be used to search for projects by name. The search is case-insensitive and will
-                        display projects that contain the search term in their name or in their list of <a target='_blank' rel='noreferrer' href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics">GitHub topics</a>.
+                        The search bar can be used to search for projects by name or <a target='_blank' rel='noreferrer' href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics">GitHub topic</a>.
                     </p>
                 </article>
                 <article>
@@ -61,4 +60,4 @@ const Help = ({ handleClose }: Props): ReactElement => {
     );
 };
 
-export default Help;
+export default Overview;
