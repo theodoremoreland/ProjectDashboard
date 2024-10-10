@@ -8,7 +8,7 @@ import SearchBar from '../SearchBar/SearchBar';
 
 // Images
 import QueryStatsIcon from "../../images/query_stats.svg?react";
-import HelpIcon from "../../images/help.svg?react";
+import InfoIcon from "../../images/info.svg?react";
 import MenuIcon from "../../images/menu.svg?react";
 import GitHubIcon from "../../images/github.svg?react";
 
@@ -64,7 +64,7 @@ const NavBar = ({ setShowAnalytics, setShowOverviewModal }: Props): ReactElement
             role='presentation'
             onClick={() => setShowOverviewModal(true)}
           >
-            <HelpIcon className="help icon" />
+            <InfoIcon className="help icon" />
           </li>
         </ul>
         <IconButton
@@ -113,7 +113,7 @@ const NavBar = ({ setShowAnalytics, setShowOverviewModal }: Props): ReactElement
               handleMobileMenuClose();
             }}
           >
-            <HelpIcon className="help icon" />
+            <InfoIcon className="help icon" />
           </MenuItem>
         </Menu>
       </nav>
