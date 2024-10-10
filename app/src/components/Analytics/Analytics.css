@@ -21,6 +21,18 @@
   overflow-y: auto;
   overflow-x: hidden;
 
+  svg {
+    user-select: initial;
+    touch-action: initial;
+  }
+
+  @media screen and (min-width: 1150px) {
+    svg {
+      user-select: none;
+      touch-action: pan-y;
+    }
+  }
+
   > #analytics-nav {
     display: flex;
     flex-direction: row;
