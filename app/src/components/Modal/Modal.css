@@ -18,8 +18,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: clamp(300px, 50%, 800px);
-    height: clamp(300px, 65%, 500px);
+    width: clamp(250px, 75%, 1200px);
+    height: clamp(380px, 70%, 750px);
     padding: 1em 1.25em;
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -34,6 +34,13 @@
     );
     overflow-x: hidden;
     overflow-y: auto;
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: var(--secondary-highlight-color);
+    }
 
     ul {
       display: flex;
