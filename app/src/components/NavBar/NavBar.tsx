@@ -64,7 +64,7 @@ const NavBar = ({ setShowAnalytics, setShowOverviewModal }: Props): ReactElement
             role='presentation'
             onClick={() => setShowOverviewModal(true)}
           >
-            <InfoIcon className="help icon" />
+            <InfoIcon className="info icon" />
           </li>
         </ul>
         <IconButton
@@ -106,14 +106,14 @@ const NavBar = ({ setShowAnalytics, setShowOverviewModal }: Props): ReactElement
             </a>
           </MenuItem>
           <MenuItem
-            id="nav-help"
-            title='Help'
+            id="overview-nav"
+            title='Overview'
             onClick={() => {
               setShowOverviewModal(true);
               handleMobileMenuClose();
             }}
           >
-            <InfoIcon className="help icon" />
+            <InfoIcon className="overview icon" />
           </MenuItem>
         </Menu>
       </nav>
