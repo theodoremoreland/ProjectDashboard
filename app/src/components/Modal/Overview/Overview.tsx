@@ -38,6 +38,9 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         Technologies listed on the left panel can be clicked to filter projects by corresponding technology. The numbers displayed next to each
                         technology represent the number of projects that utilize that technology.
                     </p>
+                    <p>
+                        Multiple filters can be applied simultaneously. Any project that does not feature any of the selected technologies will be hidden.
+                    </p>
                 </article>
                 <article>
                     <h3>Search</h3>
