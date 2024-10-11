@@ -98,6 +98,11 @@
     min-height: 1080px;
     flex-grow: 1;
 
+    text {
+      user-select: none !important;
+      fill: var(--primary-font-color) !important;
+    }
+
     @media screen and (min-width: 1150px) {
       & {
         flex-direction: row;
@@ -105,10 +110,10 @@
         gap: 0;
         min-height: 400px;
       }
-    }
 
-    text {
-      fill: var(--primary-font-color) !important;
+      & text {
+        user-select: auto !important;
+      }
     }
   }
 
