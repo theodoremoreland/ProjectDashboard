@@ -18,7 +18,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: clamp(250px, auto, 1200px);
+    width: auto;
+    max-width: 92%;
     height: clamp(380px, 72%, 750px);
     padding: 1em 1.25em;
     border: 1px solid var(--border-color);
