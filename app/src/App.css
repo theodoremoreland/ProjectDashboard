@@ -245,3 +245,73 @@ main {
 .close-button:active {
   transform: scale(0.9);
 }
+
+.live-demo,
+.learn-more-button {
+  color: var(--primary-font-color);
+  font-size: 0.8rem;
+  font-family: custom-regular;
+  line-height: 1;
+  text-align: center;
+  min-width: 14ch;
+  padding: 6px 8px;
+  border: 1px solid var(--primary-highlight-color);
+  background-color: var(--primary-color);
+}
+
+@media screen and (min-width: 1150px) {
+  .live-demo,
+  .learn-more-button {
+    font-size: 1rem;
+  }
+}
+
+.live-demo-link,
+.live-demo-link:hover {
+  color: var(--primary-font-color);
+  text-decoration: none;
+}
+
+.learn-more-button {
+  color: var(--primary-font-color);
+}
+
+.live-demo:hover,
+.learn-more-button:hover,
+.live-demo:focus,
+.learn-more-button:focus {
+  cursor: pointer;
+  border-color: var(--primary-font-color);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.live-demo:active,
+.learn-more-button:active {
+  scale: 0.95;
+}
+
+.circle {
+  display: none;
+  width: 10px;
+  height: 10px;
+  background-color: #df0000;
+  border-radius: 50%;
+  margin-left: 2px;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
+}
