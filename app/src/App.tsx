@@ -72,15 +72,15 @@ const App = (): ReactElement => {
       {showErrorModal && <Error handleClose={handleCloseErrorModal} />}
       <header
         ref={titleCardRef}
-        className={`titleCard ${repos ? "transition" : ""}`}
+        className={`title-card ${repos ? "transition" : ""}`}
       >
-        <h1 className={`appTitle ${repos ? "transition" : ""}`}>
+        <h1 className={`app-title ${repos ? "transition" : ""}`}>
           Project List
         </h1>
         {repos ? (
-          <p className="appSubtitle">{repos.length} projects available</p>
+          <p className="app-subtitle">{repos.length} projects available</p>
         ) : (
-          <p className="appSubtitle loading">Loading projects from GitHub...</p>
+          <p className="app-subtitle loading">Loading projects from GitHub...</p>
         )}
       </header>
       <main>
