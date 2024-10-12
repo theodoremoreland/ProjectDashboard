@@ -40,6 +40,11 @@
     a:hover,
     a:active {
       color: var(--secondary-highlight-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     article {
