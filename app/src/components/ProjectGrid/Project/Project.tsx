@@ -96,9 +96,9 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                     title={`Click to view a live demo of the ${projectData.name} project.`}
                     className="live-demo-link"
                   >
-                    <li className="live-demo">
+                    <button className="live-demo">
                         Live Demo{" "}<span className="circle"></span>
-                    </li>
+                    </button>
                   </a>
                 }
                 {/* Putting the onClick handler on the li because
