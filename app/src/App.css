@@ -63,21 +63,24 @@ body {
 
 body::-webkit-scrollbar,
 ul::-webkit-scrollbar,
-section::-webkit-scrollbar {
+section::-webkit-scrollbar,
+div::-webkit-scrollbar {
   height: 5px;
   width: 4px;
 }
 
 body::-webkit-scrollbar-track,
 ul::-webkit-scrollbar-track,
-section::-webkit-scrollbar-track {
+section::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track {
   background: transparent; /* color of the tracking area */
   border: none;
 }
 
 body::-webkit-scrollbar-thumb,
 ul::-webkit-scrollbar-thumb,
-section::-webkit-scrollbar-thumb {
+section::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgb(165, 165, 165); /* color of the scroll thumb */
 }
