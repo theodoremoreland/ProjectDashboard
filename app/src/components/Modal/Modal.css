@@ -42,6 +42,10 @@
       color: var(--secondary-highlight-color);
     }
 
+    article {
+      margin: 1.3em 0;
+    }
+
     ul {
       display: flex;
       flex-direction: column;
@@ -92,6 +96,20 @@
         margin: 1em 0;
         line-height: 1.2em;
       }
+    }
+
+    img.example {
+      width: 50%;
+      height: auto;
+    }
+
+    .icon {
+      fill: var(--primary-font-color);
+      margin: 0 5px;
+    }
+
+    .circle {
+      display: inline-block;
     }
   }
 }
