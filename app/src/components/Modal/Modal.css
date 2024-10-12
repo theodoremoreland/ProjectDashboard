@@ -18,7 +18,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: clamp(250px, 94%, 1200px);
+    width: clamp(250px, auto, 1200px);
     height: clamp(380px, 72%, 750px);
     padding: 1em 1.25em;
     border: 1px solid var(--border-color);
@@ -67,6 +67,10 @@
       padding-left: 1em;
     }
 
+    button {
+      margin: 0 5px;
+    }
+
     .custom-modal-header {
       position: relative;
       display: flex;
@@ -100,6 +104,7 @@
         padding: 0;
         margin: 1em 0;
         line-height: 1.2em;
+        max-width: 75ch;
       }
     }
 
