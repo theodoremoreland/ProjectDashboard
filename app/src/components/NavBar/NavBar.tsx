@@ -7,10 +7,10 @@ import { IconButton, Menu, MenuItem } from '@mui/material';
 import SearchBar from '../SearchBar/SearchBar';
 
 // Images
-import QueryStatsIcon from "../../images/query_stats.svg?react";
-import InfoIcon from "../../images/info.svg?react";
-import MenuIcon from "../../images/menu.svg?react";
-import GitHubIcon from "../../images/github.svg?react";
+import QueryStatsIcon from "../../images/icons/query_stats.svg?react";
+import InfoIcon from "../../images/icons/info.svg?react";
+import MenuIcon from "../../images/icons/menu.svg?react";
+import GitHubIcon from "../../images/icons/github.svg?react";
 
 // Styles
 import './NavBar.css';

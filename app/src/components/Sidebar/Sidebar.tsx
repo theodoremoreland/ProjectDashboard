@@ -4,7 +4,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import TechList from '../TechList/TechList';
 
 // Images
-import DoubleArrowIcon from "../../images/double-arrow-right.svg?react";
+import DoubleArrowIcon from "../../images/icons/double-arrow-right.svg?react";
 
 // Styles
 import './Sidebar.css';
