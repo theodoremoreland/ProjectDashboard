@@ -2,6 +2,9 @@ import { ReactElement } from 'react';
 
 import Modal from '../Modal';
 
+// Images
+import QueryStatsIcon from "../../../images/icons/query_stats.svg?react";
+
 interface Props {
     handleClose: () => void;
 }
@@ -24,11 +27,11 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         featuring the project's name and a list of icons representing the programming languages used.
                     </p>
                     <p>
-                        Additionally, each thumbnail overlay features a <b>Learn More</b> button, that when clicked, will display
+                        Additionally, each thumbnail overlay features a <button title="learn more" type="button" className="learn-more-button">Learn More</button> button, that when clicked, will display
                         additional information about the project.
                     </p>
                     <p>
-                        Conditionally, a <b>Live Demo</b> button appears if the project is actively hosted on a live server. Clicking
+                        Conditionally, a <button title="live demo" className="live-demo">Live Demo{" "}<span className="circle"></span></button> button appears if the project is actively hosted on a live server. Clicking
                         the button will open a new tab featuring the web application.
                     </p>
                 </article>
@@ -51,13 +54,15 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                 <article>
                     <h3>Analytics</h3>
                     <p>
-                        Clicking on the analytics icon in the navbar will display aggregate statistics about the projects featured.
-
+                        Clicking on the <QueryStatsIcon title="analytics icon" className="query_stats icon" /> icon in the navbar will display aggregate statistics about the projects featured.
                     </p>
                 </article>
-                <p>
-                    <a target='_blank' rel='noreferrer' href="https://github.com/theodoremoreland/ProjectList">View the source code for this web application</a>
-                </p>
+                <article>
+                    <h3>Source Code</h3>
+                    <p>
+                        <a target='_blank' rel='noreferrer' href="https://github.com/theodoremoreland/ProjectList">The source code for this web application is available on GitHub.</a>
+                    </p>
+                </article>
             </div>
         </Modal>
     );
