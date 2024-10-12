@@ -21,10 +21,11 @@ import {
 import { TaggedRepoData } from '../../types';
 
 // Images
-import DeploymentIcon from '../../images/deployed-code.svg?react';
-import StarIcon from '../../images/star.svg?react';
-import TopicIcon from '../../images/topic.svg?react';
-import CodeIcon from '../../images/code.svg?react';
+import DeploymentIcon from '../../images/icons/deployed-code.svg?react';
+import StarIcon from '../../images/icons/star.svg?react';
+import TopicIcon from '../../images/icons/topic.svg?react';
+import CodeIcon from '../../images/icons/code.svg?react';
+
 
 // Styles
 import './Analytics.css';

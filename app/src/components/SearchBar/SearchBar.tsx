@@ -10,7 +10,7 @@ import { ProjectsContext } from '../../contexts/ProjectsContext';
 import { TaggedRepoData } from '../../types';
 
 // Images
-import CancelIcon from '../../images/cancel.svg?react';
+import CancelIcon from '../../images/icons/cancel.svg?react';
 
 // Styles
 import './SearchBar.css';

@@ -1,11 +1,11 @@
 import { ReactElement } from "react";
 
-import DeployedCodeIcon from "../../images/deployed-code.svg?react";
-import CodeIcon from "../../images/code.svg?react";
-import StarIcon from "../../images/star.svg?react";
-import EventIcon from "../../images/event.svg?react";
-import EventRepeatIcon from "../../images/event_repeat.svg?react";
-import LandscapeIcon from "../../images/landscape.svg?react";
+import DeployedCodeIcon from "../../images/icons/deployed-code.svg?react";
+import CodeIcon from "../../images/icons/code.svg?react";
+import StarIcon from "../../images/icons/star.svg?react";
+import EventIcon from "../../images/icons/event.svg?react";
+import EventRepeatIcon from "../../images/icons/event_repeat.svg?react";
+import LandscapeIcon from "../../images/icons/landscape.svg?react";
 
 // Types
 import { TaggedRepoData } from "../../types";
