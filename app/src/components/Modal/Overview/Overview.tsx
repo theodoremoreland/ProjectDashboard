@@ -4,6 +4,8 @@ import Modal from '../Modal';
 
 // Images
 import QueryStatsIcon from "../../../images/icons/query_stats.svg?react";
+import preview from "../../../images/preview.gif";
+import filter from "../../../images/filter.gif";
 
 interface Props {
     handleClose: () => void;
@@ -26,6 +28,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         Each project is displayed as a thumbnail. Upon hovering over a thumbnail, a thumbnail overlay appears
                         featuring the project's name and a list of icons representing the programming languages used.
                     </p>
+                    <img className="example" src={preview} alt="preview" />
                     <p>
                         Additionally, each thumbnail overlay features a <button title="learn more" type="button" className="learn-more-button">Learn More</button> button, that when clicked, will display
                         additional information about the project.
@@ -44,6 +47,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                     <p>
                         Multiple filters can be applied simultaneously. Any project that does not feature any of the selected technologies will be hidden.
                     </p>
+                    <img className="example" src={filter} alt="filter" />
                 </article>
                 <article>
                     <h3>Search</h3>
@@ -60,7 +64,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                 <article>
                     <h3>Source Code</h3>
                     <p>
-                        <a target='_blank' rel='noreferrer' href="https://github.com/theodoremoreland/ProjectList">The source code for this web application is available on GitHub.</a>
+                        <a target='_blank' rel='noreferrer' href="https://github.com/theodoremoreland/ProjectList">The source code for this web application is available on GitHub</a>.
                     </p>
                 </article>
             </div>
