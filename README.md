@@ -18,7 +18,7 @@
 
 This web application dynamically renders a list of my GitHub repositories. Repositories are queried in real-time from the GitHub API and are displayed in semi-random order.
 
-NOTE: The terms "project" and "repository" are used interchangeably throughout this document.
+_NOTE: The terms "project" and "repository" are used interchangeably throughout this document._
 
 ### Preview
 
