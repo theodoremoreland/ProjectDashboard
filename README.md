@@ -7,6 +7,7 @@
 ## Table of contents
 
 - [Overview](#overview)
+- [Context for design](#context-for-design)
 - [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
   - [Desktop](#desktop)
@@ -41,7 +42,7 @@ The search bar can be used to search for projects by name or GitHub topic.
 
 Clicking on the analytics icon in the navbar will display aggregate statistics about the projects featured.
 
-## Context
+## Context for design
 
 At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer" (an internal position). I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to strengthen my argument by summarizing my GitHub content.
 
