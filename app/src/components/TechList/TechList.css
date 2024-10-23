@@ -46,10 +46,14 @@
 	transition: all 0.2s ease-in-out;
 }
 
-#tech-list > li.selected {
-	color: rgb(4, 184, 255);
-	/*  larger font size, more shadow distance  */
-	text-shadow: 0.1em 0.1em 0 hsl(200 50% 30%);
+#tech-list > li.selected::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0.3rem;
+	height: 100%;
+	background-color: rgb(4, 184, 255);
 }
 
 #tech-list > li:hover {
