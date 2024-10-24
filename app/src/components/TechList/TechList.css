@@ -81,7 +81,7 @@
 #tech-list > li.selected .topic-label-container,
 #tech-list > li:hover .topic-label-container,
 #tech-list > li.active .topic-label-container {
-	padding-left: 1.6rem;
+	padding-left: 1.5rem;
 }
 
 #tech-list .tech-icon-container {
@@ -102,7 +102,7 @@
 	user-select: none;
 	pointer-events: none;
 	position: relative;
-	height: 80%;
+	height: 75%;
 	opacity: 0.3;
 	filter: contrast(2);
 	transition: all 0.2s ease-in-out;
@@ -110,7 +110,7 @@
 
 #tech-list .topic-label-container {
 	z-index: 3;
-	padding-left: 1.4rem;
+	padding-left: 1.3rem;
 	transition: all 0.2s ease-in-out;
 }
 
