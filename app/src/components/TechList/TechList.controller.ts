@@ -168,3 +168,18 @@ export const getTopicCounts = (repos: TaggedRepoData[]): TopicCounts => {
 
 	return topicCounts;
 };
+
+export const determineClassName = (
+	topicLabel: string,
+	featuredTopics: Set<string>
+): "" | "selected" | "filtered-out" => {
+	if (featuredTopics.size === 0) {
+		return "";
+	}
+
+	if (featuredTopics.has(findKeyForTopicLabel(topicLabel))) {
+		return "selected";
+	}
+
+	return "filtered-out";
+};
