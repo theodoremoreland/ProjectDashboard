@@ -22,6 +22,9 @@ import reactIcon from "../../images/frameworks/react.png";
 import springBootIcon from "../../images/frameworks/spring-boot.png";
 import junitIcon from "../../images/frameworks/junit.png";
 import jestIcon from "../../images/frameworks/jest.png";
+import dataAnalyticsIcon from "../../images/competencies/data-analytics.png";
+import webDevelopmentIcon from "../../images/competencies/web-development.png";
+import dataEngineeringIcon from "../../images/competencies/data-engineering.png";
 
 const frameworks: { [key: string]: string } = {
 	express: "Express",
@@ -126,6 +129,12 @@ export const findTopicLabelImageSrc = (topicLabel: string): string => {
 			return junitIcon;
 		case "Jest":
 			return jestIcon;
+		case "Data analytics":
+			return dataAnalyticsIcon;
+		case "Web development":
+			return webDevelopmentIcon;
+		case "Data engineering":
+			return dataEngineeringIcon;
 		default:
 			return "";
 	}
