@@ -56,7 +56,12 @@
 	background-color: rgb(4, 184, 255);
 }
 
+#tech-list > li.filtered-out {
+	opacity: 0.5;
+}
+
 #tech-list > li:hover {
+	opacity: 1;
 	background-color: #252b36;
 }
 
