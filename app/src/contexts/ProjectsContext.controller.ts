@@ -4,7 +4,7 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
   if (projects.length === 0) return [];
 
   const featuredProjectNames: string[] = [
-    "EssentialWorkersRemixed",
+    "EssentialWorkers",
     "OrderDashboard",
     "BellyButtonBiodiversity",
     "Blogz",
