@@ -11,24 +11,26 @@ import { TaggedRepoData } from "../../types";
 import "./ProjectGrid.css";
 
 interface Props {
-  projects: TaggedRepoData[];
-  setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | null>>;
+    projects: TaggedRepoData[];
+    setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | null>>;
 }
 
 const ProjectGrid = ({ projects, setSelectedProject }: Props): ReactElement => {
-  return (
-    <section id="project-grid">
-      {projects &&
-        projects.map((project) => {
-          return  <Project 
-                    key={project.name} 
-                    projectData={project} 
-                    setSelectedProject={setSelectedProject}
-                  />
-        })}
-        <div id="project-grid-overlay"></div>
-    </section>
-  );
+    return (
+        <section id="project-grid">
+            {projects &&
+                projects.map((project) => {
+                    return (
+                        <Project
+                            key={project.name}
+                            projectData={project}
+                            setSelectedProject={setSelectedProject}
+                        />
+                    );
+                })}
+            <div id="project-grid-overlay"></div>
+        </section>
+    );
 };
 
 export default ProjectGrid;
