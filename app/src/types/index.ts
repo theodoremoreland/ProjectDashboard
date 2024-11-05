@@ -10,11 +10,11 @@ export interface RepoData {
     readme: string;
     size: number;
     stars: number;
-};
+}
 
 export interface TaggedRepoData extends RepoData {
     isFeatured: boolean;
-};
+}
 
 export interface TopicCounts {
     frameworks: { [key: string]: number };
