@@ -1,240 +1,230 @@
 :root {
-  --project-detail-content-width: 100%;
-  --project-detail-content-padding: 16px;
+    --project-detail-content-width: 100%;
+    --project-detail-content-padding: 16px;
 }
 
 @media screen and (min-width: 768px) {
-  :root {
-    --project-detail-content-width: 80%;
-    --project-detail-content-padding: 1.25em;
-  }
+    :root {
+        --project-detail-content-width: 80%;
+        --project-detail-content-padding: 1.25em;
+    }
 }
 
 #ProjectDetail {
-  z-index: 99;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  color: var(--primary-font-color);
-  background-color: var(--primary-color);
-  background: radial-gradient(
-    circle farthest-corner at top left,
-    var(--primary-color) 3%,
-    var(--secondary-color) 100%
-  );
-  transition: 0.5s;
-  overflow-y: auto;
-  overflow-x: hidden;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    color: var(--primary-font-color);
+    background-color: var(--primary-color);
+    background: radial-gradient(
+        circle farthest-corner at top left,
+        var(--primary-color) 3%,
+        var(--secondary-color) 100%
+    );
+    transition: 0.5s;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #ProjectDetail > #project-detail-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  padding: var(--project-detail-content-padding);
-  padding-bottom: 0;
-  margin: 0;
-  color: var(--primary-font-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: var(--project-detail-content-padding);
+    padding-bottom: 0;
+    margin: 0;
+    color: var(--primary-font-color);
 }
 
 #ProjectDetail > #project-detail-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  gap: 16px;
-  flex-grow: 1;
-  padding: var(--project-detail-content-padding);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+    flex-grow: 1;
+    padding: var(--project-detail-content-padding);
 }
 
 @media screen and (min-width: 768px) {
-  #ProjectDetail > #project-detail-content {
-    flex-direction: row;
-    justify-content: center;
-    gap: 0;
-    padding: 0;
-  }
+    #ProjectDetail > #project-detail-content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0;
+        padding: 0;
+    }
 }
 
 #image-container,
 #info-container {
-  position: relative;
-  width: 100%;
-  height: auto;
+    position: relative;
+    width: 100%;
+    height: auto;
 }
 
 @media screen and (min-width: 768px) {
-  #image-container,
-  #info-container {
-    width: 50%;
-    height: 100%;
-  }
+    #image-container,
+    #info-container {
+        width: 50%;
+        height: 100%;
+    }
 }
 
 #image-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #image-container img {
-  width: var(--project-detail-content-width);
-  aspect-ratio: 4/3;
-  border: 1px solid var(--border-color);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    width: var(--project-detail-content-width);
+    aspect-ratio: 4/3;
+    border: 1px solid var(--border-color);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 @media screen and (min-width: 768px) {
-  #image-container img {
-    width: 85%;
-  }
+    #image-container img {
+        width: 85%;
+    }
 }
 
 #info-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 
-  h1,
-  p {
-    text-align: left;
-    padding: 0;
-    margin: 0;
-  }
-
-  > h1 {
-    width: 100%;
-    font-size: 1.3em;
-    font-family: custom-bold;
-    font-style: oblique;
-  }
-
-  @media screen and (min-width: 768px) {
-    > h1 {
-      width: auto;
-      font-size: 3.5vw;
-    }
-  }
-
-  p {
-    font-size: 1em;
-    width: var(--project-detail-content-width);
-    max-width: 75ch;
-  }
-
-  @media screen and (min-width: 1440px) {
+    h1,
     p {
-      font-size: 1vw;
+        text-align: left;
+        padding: 0;
+        margin: 0;
     }
-  }
+
+    > h1 {
+        width: 100%;
+        font-size: 1.3em;
+        font-family: custom-bold;
+        font-style: oblique;
+    }
+
+    @media screen and (min-width: 768px) {
+        > h1 {
+            width: auto;
+            font-size: 3.5vw;
+        }
+    }
+
+    p {
+        font-size: 1em;
+        width: var(--project-detail-content-width);
+        max-width: 75ch;
+    }
+
+    @media screen and (min-width: 1440px) {
+        p {
+            font-size: 1vw;
+        }
+    }
 }
 
 @media screen and (min-width: 768px) {
-  #info-container {
-    align-items: flex-start;
-  }
+    #info-container {
+        align-items: flex-start;
+    }
 }
 
 #metadata {
-  width: var(--project-detail-content-width);
-  border-collapse: collapse;
-  font-size: 0.85em;
+    width: var(--project-detail-content-width);
+    border-collapse: collapse;
+    font-size: 0.85em;
 
-  @media screen and (min-width: 1440px) {
-    & {
-      font-size: 1vw;
-    }
-  }
-
-  a {
-    color: rgb(4, 184, 255);
-    text-decoration: none;
-  }
-
-  a.deployment-link {
-    color: #df0000;
-  }
-
-  a:hover {
-    opacity: 0.7;
-  }
-
-  td {
-    vertical-align: middle;
-    padding: 0.3em 0.8em;
-    border: 1px solid var(--border-color);
-
-    > div {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      cursor: default;
-      text-align: left;
+    @media screen and (min-width: 1440px) {
+        & {
+            font-size: 1vw;
+        }
     }
 
-    &:has(a) {
-      background-color: rgba(183, 183, 183, 0.109);
+    a {
+        color: rgb(4, 184, 255);
+        text-decoration: none;
     }
-  }
 
-  .icon {
-    width: 0.85em;
-    height: 0.85em;
-    margin-right: 5px;
-    fill: var(--primary-font-color);
-  }
+    a.deployment-link {
+        color: #df0000;
+    }
+
+    a:hover {
+        opacity: 0.7;
+    }
+
+    td {
+        vertical-align: middle;
+        padding: 0.3em 0.8em;
+        border: 1px solid var(--border-color);
+
+        > div {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            cursor: default;
+            text-align: left;
+        }
+
+        &:has(a) {
+            background-color: rgba(183, 183, 183, 0.109);
+        }
+    }
+
+    .icon {
+        width: 0.85em;
+        height: 0.85em;
+        margin-right: 5px;
+        fill: var(--primary-font-color);
+    }
 }
 
 #topics {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5px;
-  width: var(--project-detail-content-width);
-  padding-bottom: 1em;
-  padding-left: 0;
-  margin: 0;
-  list-style: none;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: var(--project-detail-content-width);
+    padding-bottom: 1em;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
 }
 
 @media screen and (min-width: 768px) {
-  #topics {
-    padding-bottom: 0;
-  }
-}
-
-.topic {
-  cursor: default;
-  padding: 0.3em 0.8em;
-  border-radius: 1em;
-  color: var(--primary-font-color);
-  font-size: 0.85em;
-  background-color: var(--secondary-font-color);
-  box-shadow: rgba(0, 0, 0, 0.21) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
+    #topics {
+        padding-bottom: 0;
+    }
 }
 
 @media screen and (min-width: 768px) {
-  .topic {
-    font-size: 1vw;
-  }
+    .topic {
+        font-size: 1vw;
+    }
 }
