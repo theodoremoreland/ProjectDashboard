@@ -103,11 +103,11 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                     </p>
                     <p>
                         Some examples include:{" "}
-                        <span className="topic">responsive</span>,{" "}
-                        <span className="topic">rest-api</span>,{" "}
-                        <span className="topic">material-ui</span>,{" "}
-                        <span className="topic">jupyter-notebook</span>,{" "}
-                        <span className="topic">react-query</span>
+                        <span className="topic">responsive</span>{" "}
+                        <span className="topic">mui-x</span>{" "}
+                        <span className="topic">tanstack-react-query</span>{" "}
+                        <span className="topic">jupyter-notebook</span>{" "}
+                        <span className="topic">rest-api</span>
                     </p>
                 </article>
                 <article>
