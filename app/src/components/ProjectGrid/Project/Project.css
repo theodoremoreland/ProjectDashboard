@@ -94,13 +94,13 @@
 
 @media screen and (min-width: 1920px) {
     .project-overlay::after {
-        animation-delay: 4s;
+        animation-delay: 5s;
     }
 }
 
 @media screen and (min-width: 2160px) {
     .project-overlay::after {
-        animation-delay: 6.5s;
+        animation-delay: 7s;
     }
 }
 
