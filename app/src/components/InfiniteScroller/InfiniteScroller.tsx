@@ -10,29 +10,18 @@ interface Props {
 
 const InfiniteScroller = ({ items }: Props): ReactElement => {
     const halfwayPoint: number = Math.floor(items.length / 2);
-    const firstHalf: (string | number)[] = items.slice(0, halfwayPoint);
-    const secondHalf: (string | number)[] = items.slice(halfwayPoint);
+    const firstHalf: (string | number)[] = items.slice(0, 17);
 
     return (
         <div className="InfiniteScroller">
-            <div className="row">
-                {firstHalf.map((item, index) => (
-                    <span
-                        key={index}
-                        className="item topic"
-                        style={{
-                            animationDelay: `calc(30s / ${halfwayPoint} * (${
-                                halfwayPoint - 1
-                            }) * -1s`,
-                        }}
-                    >
+            <div className="row left">
+                {firstHalf.map((item) => (
+                    <span key={`${item}-1`} className="item topic">
                         {item}
                     </span>
                 ))}
-            </div>
-            <div className="row">
-                {secondHalf.map((item, index) => (
-                    <span key={index} className="item topic">
+                {firstHalf.map((item) => (
+                    <span key={`${item}-2`} className="item topic">
                         {item}
                     </span>
                 ))}
