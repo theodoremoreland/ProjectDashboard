@@ -16,7 +16,7 @@
 
 ## Overview
 
-This web application dynamically renders a list of my GitHub repositories. Repositories are queried in real-time from the GitHub API and are displayed in semi-random order.
+This web application dynamically renders a list of my GitHub repositories. Repositories are queried in real-time from the GitHub API and are displayed in random order.
 
 _NOTE: The terms "project" and "repository" are used interchangeably throughout this document._
 
@@ -48,11 +48,13 @@ Clicking on the analytics icon in the navbar will display aggregate statistics a
 
 ## Context for design
 
-At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer" (an internal position). I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to strengthen my argument by summarizing my GitHub content.
+At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer". I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to strengthen my argument by summarizing my GitHub content.
 
-Relaying a breadth of experience with various technologies was my goal. The result is similar to that of a portfolio in that it puts my project work on display, but there is a key distinction in that this application was designed to supplement a live conversation with management as opposed to being something that could effectively standalone. To that end, presenting projects in semi-random order with little effort to highlight select projects (the vast majority of which are enhanced homework assignments) was by design.
+The main point I wanted to make was that my experience and skill-set aligned more with the role of Software Engineer than that of Data Engineer. To that end, this dashboard was originally designed to compare quantities of work related to each role. For example, the dashboard displays the number of projects based on dimensions such as competencies like web development or based on programming languages such as JavaScript, etc.
 
-This application has undergone numerous design updates (see [screenshots](#screenshots) below).
+Originally, the design featured a word cloud based filtering interface wherein the user could click on a keyword to filter projects while incidentally comparing my experience with said keyword. For example, a filter for programming languages might show the keywords "Python" and "JavaScript" as filtering options, but the word "Python" might be visibly larger than the word "JavaScript". Hovering over a keyword would then display the exact count of projects corresponding to the keyword. Said interface was eventually removed in place of a simple list (see [screenshots](#screenshots) below).
+
+The resulting dashboard is similar to that of a portfolio in that it puts my project work on display, but there is a key distinction in that this application was designed to supplement a live conversation with management as opposed to being something that could effectively standalone. The dashboard aims to make a point of comparing skill-sets and relaying a breadth of experience first and foremost, with the option to do a deep dive into whatever project(s) pique the interest of the parties involved. Antithetical to a portfolio, little effort was made to emphasize projects of particular quality.
 
 ### Technologies Used
 
