@@ -52,6 +52,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         () => getTopTechnologies(projects),
         [projects]
     );
+    const topics = useMemo(() => getTopics(projects), [projects]);
 
     const smallNumberIntervalRef = useRef<number | undefined>(undefined);
 
@@ -240,7 +241,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                     </span>
                 </div>
             </div>
-            <InfiniteScroller items={getTopics(projects)} />
+            <InfiniteScroller items={topics} />
             <div id="charts" className="row">
                 <div id="pie-charts">
                     <h2 className="pie-chart-title">Projects by context</h2>
