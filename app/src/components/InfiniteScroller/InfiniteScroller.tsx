@@ -10,22 +10,31 @@ interface Props {
 
 const InfiniteScroller = ({ items }: Props): ReactElement => {
     const halfwayPoint: number = Math.floor(items.length / 2);
-    const firstHalf: (string | number)[] = items.slice(0, 17);
+    const firstHalf_Repeated: (string | number)[] = [
+        ...items.slice(0, halfwayPoint),
+        ...items.slice(0, halfwayPoint),
+    ];
+    const secondHalf_Repeated: (string | number)[] = [
+        ...items.slice(halfwayPoint),
+        ...items.slice(halfwayPoint),
+    ];
 
     return (
         <div className="InfiniteScroller">
-            <div className="row left">
-                {firstHalf.map((item) => (
-                    <span key={`${item}-1`} className="item topic">
+            <ul className="row left">
+                {firstHalf_Repeated.map((item, index) => (
+                    <li key={`${item}-${index}`} className="item topic">
                         {item}
-                    </span>
+                    </li>
                 ))}
-                {firstHalf.map((item) => (
-                    <span key={`${item}-2`} className="item topic">
+            </ul>
+            <ul className="row right">
+                {secondHalf_Repeated.map((item, index) => (
+                    <li key={`${item}-${index}`} className="item topic">
                         {item}
-                    </span>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 };
