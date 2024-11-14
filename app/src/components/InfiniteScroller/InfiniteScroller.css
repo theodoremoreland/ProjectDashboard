@@ -1,10 +1,6 @@
-@keyframes scrollLeft {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-50% - 0.5rem));
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-50% - 0.25rem));
     }
 }
 
@@ -14,7 +10,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 0.25rem;
     width: 100%;
     mask-image: linear-gradient(
         to right,
@@ -25,7 +22,6 @@
     );
 
     .row {
-        position: relative;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -34,13 +30,18 @@
         gap: 0.5rem;
         width: fit-content;
         padding: 0.5rem 0;
+        animation: scroll 50s linear 0.5s infinite;
+
+        &.left {
+            animation-direction: normal;
+        }
+
+        &.right {
+            animation-direction: reverse;
+        }
 
         &:hover {
             animation-play-state: paused;
         }
-    }
-
-    .left {
-        animation: scrollLeft 20s linear infinite;
     }
 }
