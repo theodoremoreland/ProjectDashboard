@@ -101,7 +101,11 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         </a>
                         .
                     </p>
-                    <p>
+                    <p
+                        style={{
+                            lineHeight: "2.2em",
+                        }}
+                    >
                         Some examples include:{" "}
                         <span className="topic">responsive</span>{" "}
                         <span className="topic">mui-x</span>{" "}
