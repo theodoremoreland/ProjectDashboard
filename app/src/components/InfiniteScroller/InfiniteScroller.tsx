@@ -6,9 +6,10 @@ import "./InfiniteScroller.css";
 
 interface Props {
     items: (string | number)[];
+    scrollReady: boolean;
 }
 
-const InfiniteScroller = ({ items }: Props): ReactElement => {
+const InfiniteScroller = ({ items, scrollReady }: Props): ReactElement => {
     const halfwayPoint: number = Math.floor(items.length / 2);
     const firstHalf_Repeated: (string | number)[] = [
         ...items.slice(0, halfwayPoint),
@@ -21,14 +22,14 @@ const InfiniteScroller = ({ items }: Props): ReactElement => {
 
     return (
         <div className="InfiniteScroller">
-            <ul className="row left">
+            <ul className={`row ${scrollReady ? "left" : ""}`}>
                 {firstHalf_Repeated.map((item, index) => (
                     <li key={`${item}-${index}`} className="item topic">
                         {item}
                     </li>
                 ))}
             </ul>
-            <ul className="row right">
+            <ul className={`row ${scrollReady ? "right" : ""}`}>
                 {secondHalf_Repeated.map((item, index) => (
                     <li key={`${item}-${index}`} className="item topic">
                         {item}

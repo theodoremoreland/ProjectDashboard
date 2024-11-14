@@ -30,7 +30,11 @@
         gap: 0.5rem;
         width: fit-content;
         padding: 0.5rem 0;
-        animation: scroll 70s linear 2s infinite;
+
+        &.left,
+        &.right {
+            animation: scroll 70s linear infinite;
+        }
 
         &.left {
             animation-direction: normal;

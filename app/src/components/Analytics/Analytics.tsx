@@ -70,6 +70,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
     >(undefined);
     const [pieChartSlotProps, setPieChartSlotProps] =
         useState<PieChartSlotProps>({});
+    const [isScrollReady, setIsScrollReady] = useState<boolean>(false);
 
     const handleResize = useCallback(() => {
         if (window.innerWidth <= 640) {
@@ -145,6 +146,9 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             if (prev < uniqueTopicsCountRef.current) {
                 return prev + 1;
             }
+
+            // Start the infinite scroller once the unique topics count is reached as it is the largest number thus will end last.
+            setIsScrollReady(true);
 
             return prev;
         });
@@ -241,7 +245,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                     </span>
                 </div>
             </div>
-            <InfiniteScroller items={topics} />
+            <InfiniteScroller items={topics} scrollReady={isScrollReady} />
             <div id="charts" className="row">
                 <div id="pie-charts">
                     <h2 className="pie-chart-title">Projects by context</h2>
