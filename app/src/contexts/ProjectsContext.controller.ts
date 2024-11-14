@@ -4,24 +4,25 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
     if (projects.length === 0) return [];
 
     const featuredProjectNames: string[] = [
-        "EssentialWorkers",
         "OrderDashboard",
-        "BellyButtonBiodiversity",
-        "Blogz",
-        "Episodic",
-        "MovieIon",
-        "TopWine",
-        "MyMovieList",
-        "TypeRace",
-        "WeatherDashboard",
-        "JavaScriptQuiz",
-        "REDB",
+        "EssentialWorkers",
         "ShelfCheck",
+        "REDB",
+        "WeatherDashboard",
+        "TypeRace",
+        "BellyButtonBiodiversity",
+        "JavaScriptQuiz",
         "PortfolioExample",
+        "Blogz",
+        "TopWine",
+        "MovieIon",
+        "ScrabbleScorer",
         "HawaiiClimateDataAPI",
         "NodeJsQuiz",
-        "ScrabbleScorer",
-    ].sort(() => Math.random() - 0.5); // Randomize order of first set of featured projects
+        "Episodic",
+        "MyMovieList",
+    ];
+    //.sort(() => Math.random() - 0.5); // Randomize order of first set of featured projects
 
     featuredProjectNames.push(
         "html-me-something",
