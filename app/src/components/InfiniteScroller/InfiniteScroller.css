@@ -1,5 +1,19 @@
 .InfiniteScroller {
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     width: 100%;
+
+    .row {
+        position: relative;
+        width: 100%;
+        height: 1.2rem;
+
+        .item {
+        }
+    }
 }
