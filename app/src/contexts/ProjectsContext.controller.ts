@@ -7,25 +7,25 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
         "OrderDashboard",
         "EssentialWorkers",
         "ShelfCheck",
-        "REDB",
         "WeatherDashboard",
         "TypeRace",
         "BellyButtonBiodiversity",
         "JavaScriptQuiz",
         "PortfolioExample",
-        "Blogz",
         "TopWine",
         "MovieIon",
+        "Episodic",
+        "Blogz",
         "ScrabbleScorer",
         "HawaiiClimateDataAPI",
         "NodeJsQuiz",
-        "Episodic",
         "MyMovieList",
     ];
     //.sort(() => Math.random() - 0.5); // Randomize order of first set of featured projects
 
     featuredProjectNames.push(
         "html-me-something",
+        "REDB",
         "YelpETL",
         "STLServiceCalls"
     ); // Add remaining featured projects in exact order
