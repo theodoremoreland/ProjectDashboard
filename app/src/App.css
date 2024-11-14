@@ -325,3 +325,15 @@ main {
         opacity: 0;
     }
 }
+
+.topic {
+    cursor: default;
+    padding: 0.3em 0.8em;
+    border-radius: 1em;
+    color: var(--primary-font-color);
+    text-wrap: nowrap;
+    font-size: 0.85em;
+    background-color: var(--secondary-font-color);
+    box-shadow: rgba(0, 0, 0, 0.21) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
+}
