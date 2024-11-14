@@ -22,7 +22,11 @@ import {
     getTotalStars,
     getTotalTopics,
     getTopTechnologies,
+    getTopics,
 } from "./Analytics.controller";
+
+// Components
+import InfiniteScroller from "../InfiniteScroller/InfiniteScroller";
 
 // Types
 import { TaggedRepoData } from "../../types";
@@ -236,6 +240,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                     </span>
                 </div>
             </div>
+            <InfiniteScroller items={getTopics(projects)} />
             <div id="charts" className="row">
                 <div id="pie-charts">
                     <h2 className="pie-chart-title">Projects by context</h2>
