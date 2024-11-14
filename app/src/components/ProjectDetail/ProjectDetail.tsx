@@ -18,16 +18,18 @@ interface Props {
     handleClose: () => void;
 }
 
-const getProjectContext = (projectData: TaggedRepoData): "Coursework / Exercise" | "Professional" | "Personal" => {
-    if (projectData.topics?.some(topic => topic === "coursework" || topic === "exercise" )) {
+const getProjectContext = (
+    projectData: TaggedRepoData
+): "Coursework / Exercise" | "Professional" | "Personal" => {
+    if (
+        projectData.topics?.some(
+            (topic) => topic === "coursework" || topic === "exercise"
+        )
+    ) {
         return "Coursework / Exercise";
-    }
-
-    else if (projectData.topics?.some(topic => topic === "professional")) {
+    } else if (projectData.topics?.some((topic) => topic === "professional")) {
         return "Professional";
-    }
-
-    else {
+    } else {
         return "Personal";
     }
 };
@@ -57,7 +59,9 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                 <div id="info-container">
                     <h1>{projectData.name}</h1>
                     <p>
-                        {projectData.name !== "ProjectList" ? projectData.desc : `You are currently viewing this project.`}
+                        {projectData.name !== "ProjectList"
+                            ? projectData.desc
+                            : `You are currently viewing this project.`}
                     </p>
                     <table id="metadata">
                         <tbody>
@@ -69,9 +73,7 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                     </div>
                                 </td>
                                 <td>
-                                    <div>
-                                        {getProjectContext(projectData)}
-                                    </div>
+                                    <div>{getProjectContext(projectData)}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -83,9 +85,10 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                 </td>
                                 <td>
                                     <div>
-                                        {new Date(projectData.date_created).toLocaleDateString()}
+                                        {new Date(
+                                            projectData.date_created
+                                        ).toLocaleDateString()}
                                     </div>
-
                                 </td>
                             </tr>
                             <tr>
@@ -97,7 +100,9 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                 </td>
                                 <td>
                                     <div>
-                                        {new Date(projectData.date_updated).toLocaleDateString()}
+                                        {new Date(
+                                            projectData.date_updated
+                                        ).toLocaleDateString()}
                                     </div>
                                 </td>
                             </tr>
@@ -109,9 +114,7 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                     </div>
                                 </td>
                                 <td>
-                                    <div>
-                                        {projectData.stars}
-                                    </div>
+                                    <div>{projectData.stars}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -123,7 +126,8 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                 </td>
                                 <td>
                                     <div>
-                                        <a href={projectData.url}
+                                        <a
+                                            href={projectData.url}
                                             target="_blank"
                                             rel="noreferrer"
                                             title={`Click to view the source code for ${projectData.name}.`}
@@ -133,7 +137,7 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                     </div>
                                 </td>
                             </tr>
-                            {projectData.name !== "ProjectList" &&
+                            {projectData.name !== "ProjectList" && (
                                 <tr>
                                     <td>
                                         <div>
@@ -143,26 +147,35 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                     </td>
                                     <td>
                                         <div>
-                                            { projectData.demo_link
-                                                ?   <a
-                                                        href={projectData.demo_link} 
-                                                        target="_blank"
-                                                        rel="noreferrer"
-                                                        title={`Click to view a live demo of the ${projectData.name} project.`}
-                                                        className="deployment-link"
-                                                    >
-                                                        View Live Demo{" "}<span className="circle"></span>
-                                                    </a>
-                                                :   "None"
-                                            }
+                                            {projectData.demo_link ? (
+                                                <a
+                                                    href={projectData.demo_link}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    title={`Click to view a live demo of the ${projectData.name} project.`}
+                                                    className="deployment-link"
+                                                >
+                                                    View Live Demo{" "}
+                                                    <span className="circle"></span>
+                                                </a>
+                                            ) : (
+                                                "None"
+                                            )}
                                         </div>
                                     </td>
                                 </tr>
-                            }
+                            )}
                         </tbody>
                     </table>
-                    <ul id="topics" title="GitHub topic associated with this project.">
-                        { projectData.topics.map((topic) => <li key={topic} className="topic">{topic}</li>) }
+                    <ul
+                        id="topics"
+                        title="GitHub topic associated with this project."
+                    >
+                        {projectData.topics.map((topic) => (
+                            <li key={topic} className="topic">
+                                {topic}
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
