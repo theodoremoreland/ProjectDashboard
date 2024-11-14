@@ -17,14 +17,22 @@ const InfiniteScroller = ({ items }: Props): ReactElement => {
         <div className="InfiniteScroller">
             <div className="row">
                 {firstHalf.map((item, index) => (
-                    <span key={index} className="item">
+                    <span
+                        key={index}
+                        className="item topic"
+                        style={{
+                            animationDelay: `calc(30s / ${halfwayPoint} * (${
+                                halfwayPoint - 1
+                            }) * -1s`,
+                        }}
+                    >
                         {item}
                     </span>
                 ))}
             </div>
             <div className="row">
                 {secondHalf.map((item, index) => (
-                    <span key={index} className="item">
+                    <span key={index} className="item topic">
                         {item}
                     </span>
                 ))}
