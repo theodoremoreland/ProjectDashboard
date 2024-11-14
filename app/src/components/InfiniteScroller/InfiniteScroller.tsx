@@ -22,14 +22,14 @@ const InfiniteScroller = ({ items, scrollReady }: Props): ReactElement => {
 
     return (
         <div className="InfiniteScroller">
-            <ul className={`row ${scrollReady ? "left" : ""}`}>
+            <ul className={`lane ${scrollReady ? "left" : ""}`}>
                 {firstHalf_Repeated.map((item, index) => (
                     <li key={`${item}-${index}`} className="item topic">
                         {item}
                     </li>
                 ))}
             </ul>
-            <ul className={`row ${scrollReady ? "right" : ""}`}>
+            <ul className={`lane ${scrollReady ? "right" : ""}`}>
                 {secondHalf_Repeated.map((item, index) => (
                     <li key={`${item}-${index}`} className="item topic">
                         {item}
