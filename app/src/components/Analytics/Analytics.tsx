@@ -54,7 +54,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
     );
     const topics = useMemo(() => getTopics(projects), [projects]);
 
-    const smallNumberIntervalRef = useRef<number | undefined>(undefined);
+    const kpiIncrementIntervalRef = useRef<number | undefined>(undefined);
 
     const totalFeaturesRef = useRef<number>(getTotalFeatures(projects));
     const totalDeploymentsRef = useRef<number>(getTotalDeployments(projects));
@@ -120,7 +120,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         }
     }, []);
 
-    const incrementSmallKpis = useCallback(() => {
+    const incrementKpis = useCallback(() => {
         setTotalDeployments((prev) => {
             if (prev < totalDeploymentsRef.current) {
                 return prev + 1;
@@ -147,33 +147,29 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                 return prev + 1;
             }
 
-            // Start the infinite scroller once the unique topics count is reached as it is the largest number thus will end last.
-            setIsScrollReady(true);
-
             return prev;
         });
     }, []);
 
     useEffect(() => {
-        smallNumberIntervalRef.current = window.setInterval(
-            incrementSmallKpis,
-            5
-        );
+        kpiIncrementIntervalRef.current = window.setInterval(incrementKpis, 5);
 
         return () => {
-            window.clearInterval(smallNumberIntervalRef.current);
+            window.clearInterval(kpiIncrementIntervalRef.current);
         };
-    }, [incrementSmallKpis]);
+    }, [incrementKpis]);
 
     useEffect(() => {
-        const areSmallKpiIncrementsComplete =
+        const areKpiIncrementsComplete =
             totalDeployments === totalDeploymentsRef.current &&
             totalFeatures === totalFeaturesRef.current &&
             totalStars === totalStarsRef.current &&
             uniqueTopicsCount === uniqueTopicsCountRef.current;
 
-        if (areSmallKpiIncrementsComplete) {
-            window.clearInterval(smallNumberIntervalRef.current);
+        if (areKpiIncrementsComplete) {
+            window.clearInterval(kpiIncrementIntervalRef.current);
+
+            setIsScrollReady(true);
         }
     }, [totalDeployments, totalFeatures, totalStars, uniqueTopicsCount]);
 
