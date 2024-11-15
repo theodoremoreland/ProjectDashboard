@@ -31,8 +31,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         href="https://docs.github.com/en/rest"
                     >
                         GitHub API
-                    </a>{" "}
-                    and are displayed in semi-random order.
+                    </a>.
                 </p>
                 <p>
                     NOTE:{" "}
