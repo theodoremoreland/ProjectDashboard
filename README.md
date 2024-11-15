@@ -67,7 +67,6 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 -   MUI X Charts
 -   react-intersection-observer
 -   GitHub API
--   AWS
 -   Vite
 
 ## Screenshots
