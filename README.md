@@ -81,10 +81,6 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/1.png" width="650">
 
-#### Default view (scrolled down)
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/11.png" width="650">
-
 #### After clicking a filter: Data Analytics
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/2.png" width="650">
