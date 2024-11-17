@@ -81,11 +81,11 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/11.png" width="650">
 
-#### After clicking a filter
+#### After clicking a filter: Data Analytics
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/2.png" width="650">
 
-#### After stacking filters
+#### After stacking filters: Data Analytics + JavaScript
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/3.png" width="650">
 
@@ -105,7 +105,7 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="650">
 
-#### After clicking on the "Info" button in the nav bar 1
+#### After clicking on the "Overview" button in the nav bar
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/8.png" width="650">
 
@@ -127,11 +127,11 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/13.png" width="250">
 
-#### After selecting filter
+#### After selecting filter: Data Analytics
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/14.png" width="250">
 
-#### Filter result (third project is darkened)
+#### Filter result (third project is darkened i.e. was filtered out)
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/15.png" width="250">
 
