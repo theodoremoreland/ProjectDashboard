@@ -93,14 +93,6 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/3.png" width="650">
 
-#### After hovering over first project's thumbnail
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/4.png" width="650">
-
-#### After clicking on "Learn More" button for project
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="650">
-
 #### Searching for the keyword "responsive" and viewing results
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/6.png" width="650">
@@ -120,6 +112,14 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 #### After clicking on the "Overview" button in the nav bar (scrolled down 2)
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/10.png" width="650">
+
+#### After hovering over first project's thumbnail
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/4.png" width="650">
+
+#### After clicking on "Learn More" button for project
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="650">
 
 ### Mobile
 
