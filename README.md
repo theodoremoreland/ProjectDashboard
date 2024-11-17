@@ -73,9 +73,13 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 ### Desktop
 
+#### Loading screen
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/0.png" width="650">
+
 #### Default view
 
-<img src="/presentation/thumbnail.webp" width="650">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/1.png" width="650">
 
 #### Default view (scrolled down)
 
