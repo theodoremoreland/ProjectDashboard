@@ -42,6 +42,8 @@ Multiple filters can be applied simultaneously. Any project that does not featur
 
 The search bar can be used to search for projects by name or GitHub topic.
 
+Some examples include: `responsive` `mui-x` `tanstack-react-query` `jupyter-notebook` `rest-api`
+
 ### Analyze
 
 Clicking on the analytics icon in the navbar will display aggregate statistics about the projects featured.
