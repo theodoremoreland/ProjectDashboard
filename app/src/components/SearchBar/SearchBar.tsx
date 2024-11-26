@@ -101,67 +101,85 @@ const SearchBar = (): ReactElement => {
                     </span>
                 )}
                 {searchValue && showResults && (
-                    <ul id="search-results">
-                        {searchResults && searchResults?.length > 0 ? (
-                            searchResults.map((searchResult) => {
-                                const repo =
-                                    Object.prototype.hasOwnProperty.call(
-                                        searchResult,
-                                        "item"
-                                    )
-                                        ? (
-                                              searchResult as FuseResult<TaggedRepoData>
-                                          ).item
-                                        : undefined;
+                    // Wrapper is here solely for the purpose of positioning data attribute (i.e. result count) in desired location
+                    <div
+                        className="search-results-wrapper"
+                        data-result-count={`${
+                            searchResults?.length || 0
+                        } results`}
+                    >
+                        <ul id="search-results">
+                            {searchResults && searchResults?.length > 0 ? (
+                                searchResults.map((searchResult) => {
+                                    const repo =
+                                        Object.prototype.hasOwnProperty.call(
+                                            searchResult,
+                                            "item"
+                                        )
+                                            ? (
+                                                  searchResult as FuseResult<TaggedRepoData>
+                                              ).item
+                                            : undefined;
 
-                                if (!repo) {
-                                    return null;
-                                }
+                                    if (!repo) {
+                                        return null;
+                                    }
 
-                                const matchingTopics = new Fuse(repo.topics, {
-                                    threshold: 0.3,
-                                });
-                                const topics =
-                                    matchingTopics.search(searchValue);
-
-                                return (
-                                    <li
-                                        key={repo.name}
-                                        className="search-result"
-                                        onClick={() =>
-                                            handleSearchResultClick(repo)
+                                    const matchingTopics = new Fuse(
+                                        repo.topics,
+                                        {
+                                            threshold: 0.3,
                                         }
-                                    >
-                                        <p className="title">{repo.name}</p>
-                                        <img src={repo.image} alt={repo.name} />
-                                        <div className="topics">
-                                            {topics.length > 0 ? (
-                                                topics.map((topicResult) => {
-                                                    const topic =
-                                                        topicResult.item;
+                                    );
+                                    const topics =
+                                        matchingTopics.search(searchValue);
 
-                                                    return (
-                                                        <span
-                                                            key={topic}
-                                                            className="topic"
-                                                        >
-                                                            {topic}
-                                                        </span>
-                                                    );
-                                                })
-                                            ) : (
-                                                <p className="none">
-                                                    No matching topics
-                                                </p>
-                                            )}
-                                        </div>
-                                    </li>
-                                );
-                            })
-                        ) : (
-                            <li className="search-result">No results found</li>
-                        )}
-                    </ul>
+                                    return (
+                                        <li
+                                            key={repo.name}
+                                            className="search-result"
+                                            onClick={() =>
+                                                handleSearchResultClick(repo)
+                                            }
+                                        >
+                                            <p className="title">{repo.name}</p>
+                                            <img
+                                                src={repo.image}
+                                                alt={repo.name}
+                                            />
+                                            <div className="topics">
+                                                {topics.length > 0 ? (
+                                                    topics.map(
+                                                        (topicResult) => {
+                                                            const topic =
+                                                                topicResult.item;
+
+                                                            return (
+                                                                <span
+                                                                    key={topic}
+                                                                    className="topic"
+                                                                >
+                                                                    {topic}
+                                                                </span>
+                                                            );
+                                                        }
+                                                    )
+                                                ) : (
+                                                    <p className="none">
+                                                        No matching topics
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </li>
+                                    );
+                                })
+                            ) : (
+                                <li className="search-result">
+                                    No results found
+                                </li>
+                            )}
+                        </ul>
+                    </div>
                 )}
             </div>
         </>
