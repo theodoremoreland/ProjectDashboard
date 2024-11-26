@@ -6,12 +6,12 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
     const featuredProjectNames: string[] = [
         "OrderDashboard",
         "EssentialWorkers",
+        "PortfolioExample",
         "ShelfCheck",
         "WeatherDashboard",
         "TypeRace",
         "BellyButtonBiodiversity",
         "JavaScriptQuiz",
-        "PortfolioExample",
         "TopWine",
         "MovieIon",
         "Episodic",
