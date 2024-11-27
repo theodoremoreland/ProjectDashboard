@@ -21,9 +21,8 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                     src={customOctocat}
                     alt=""
                     style={{
-                        width: "200px",
-                        display: "block",
-                        margin: "1rem auto",
+                        width: "175px",
+                        margin: "1rem 0",
                     }}
                 />
                 <p>
