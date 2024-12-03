@@ -68,7 +68,7 @@
         position: absolute;
         top: 5px;
         right: 5px;
-        color: var(--secondary-highlight-color);
+        color: #0072e8;
         font-family: custom-bold;
         text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.12);
         background-color: transparent;
