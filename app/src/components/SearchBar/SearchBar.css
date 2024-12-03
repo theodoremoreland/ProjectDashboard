@@ -68,7 +68,9 @@
         position: absolute;
         top: 5px;
         right: 5px;
-        color: var(--secondary-font-color);
+        color: var(--secondary-highlight-color);
+        font-family: custom-bold;
+        text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.12);
         background-color: transparent;
         padding: 0.1rem 0.3rem;
         pointer-events: none;
