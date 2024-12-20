@@ -7,7 +7,6 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
         "OrderDashboard",
         "EssentialWorkers",
         "PortfolioExample",
-        "ShelfCheck",
         "Blogz",
         "WeatherDashboard",
         "TypeRace",
@@ -25,6 +24,7 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
 
     featuredProjectNames.push(
         "html-me-something",
+        "ShelfCheck",
         "REDB",
         "YelpETL",
         "STLServiceCalls"
