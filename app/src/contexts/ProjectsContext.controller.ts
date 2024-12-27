@@ -7,6 +7,7 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
         "OrderDashboard",
         "EssentialWorkers",
         "PortfolioExample",
+        "WebCaesar",
         "Blogz",
         "WeatherDashboard",
         "TypeRace",
