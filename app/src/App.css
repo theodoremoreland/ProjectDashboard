@@ -65,8 +65,8 @@ body::-webkit-scrollbar,
 ul::-webkit-scrollbar,
 section::-webkit-scrollbar,
 div::-webkit-scrollbar {
-    height: 5px;
-    width: 4px;
+    height: 4px;
+    width: 3px;
 }
 
 body::-webkit-scrollbar-track,
