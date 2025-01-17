@@ -262,13 +262,6 @@ main {
     background-color: var(--primary-color);
 }
 
-@media screen and (min-width: 1150px) {
-    .live-demo,
-    .learn-more-button {
-        font-size: 0.9rem;
-    }
-}
-
 @media screen and (min-width: 1440px) {
     .live-demo,
     .learn-more-button {
