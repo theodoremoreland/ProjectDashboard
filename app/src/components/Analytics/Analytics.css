@@ -1,4 +1,6 @@
 #analytics {
+    --border-radius: 5px;
+
     z-index: 99;
     position: fixed;
     top: 0;
@@ -7,7 +9,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--analytics-gap);
     width: 100vw;
     height: 100vh;
     padding: 1em 1.25em;
@@ -51,7 +53,7 @@
         position: relative;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 0.5em;
+        gap: var(--analytics-gap);
         width: 100%;
 
         @media screen and (min-width: 1150px) {
@@ -68,9 +70,10 @@
             flex-direction: column !important;
             justify-content: center !important;
             align-items: flex-start !important;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
+            gap: var(--analytics-gap);
+            padding: var(--analytics-gap) 1rem;
             border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
 
             @media screen and (min-width: 1150px) {
                 & {
@@ -85,7 +88,7 @@
             flex-direction: row !important;
             justify-content: center !important;
             align-items: center !important;
-            gap: 0.5em;
+            gap: var(--analytics-gap);
         }
 
         .icon {
@@ -99,12 +102,13 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 1em;
+        gap: var(--analytics-gap);
         width: 100%;
         min-height: 1080px;
         flex-grow: 1;
 
         text {
+            font-size: 0.75rem !important;
             user-select: none !important;
             fill: var(--primary-font-color) !important;
         }
@@ -123,7 +127,6 @@
         }
     }
 
-    .pie-chart-title,
     .label {
         font-size: 1rem;
     }
@@ -134,7 +137,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 0.5em;
+        gap: var(--analytics-gap);
         width: 100%;
         min-height: 550px;
         height: 100%;
@@ -148,9 +151,22 @@
             }
         }
 
-        svg {
-            padding: 1em;
+        .pie-chart-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: calc(50% - (var(--analytics-gap) / 2));
+            padding: var(--analytics-gap);
             border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+        }
+
+        .pie-chart-title {
+            font-size: 0.9rem;
+            padding-bottom: var(--analytics-gap);
         }
     }
 
@@ -162,6 +178,7 @@
         padding: 1em;
         padding-bottom: 1.2em;
         border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
 
         @media screen and (min-width: 1150px) {
             & {
