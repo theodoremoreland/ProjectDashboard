@@ -244,49 +244,53 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             <InfiniteScroller items={topics} scrollReady={isScrollReady} />
             <div id="charts" className="row">
                 <div id="pie-charts">
-                    <h2 className="pie-chart-title">Projects by context</h2>
-                    <PieChart
-                        title="Projects by context"
-                        colors={mangoFusionPalette}
-                        slotProps={pieChartSlotProps}
-                        margin={pieChartMargins}
-                        series={[
-                            {
-                                data: contextCounts,
-                                highlightScope: {
-                                    faded: "global",
-                                    highlighted: "item",
+                    <div className="pie-chart-container">
+                        <h2 className="pie-chart-title">Projects by context</h2>
+                        <PieChart
+                            title="Projects by context"
+                            colors={mangoFusionPalette}
+                            slotProps={pieChartSlotProps}
+                            margin={pieChartMargins}
+                            series={[
+                                {
+                                    data: contextCounts,
+                                    highlightScope: {
+                                        faded: "global",
+                                        highlighted: "item",
+                                    },
+                                    faded: {
+                                        innerRadius: 30,
+                                        additionalRadius: -30,
+                                        color: "gray",
+                                    },
                                 },
-                                faded: {
-                                    innerRadius: 30,
-                                    additionalRadius: -30,
-                                    color: "gray",
+                            ]}
+                        />
+                    </div>
+                    <div className="pie-chart-container">
+                        <h2 className="pie-chart-title">
+                            Academic projects by course
+                        </h2>
+                        <PieChart
+                            colors={mangoFusionPalette}
+                            slotProps={pieChartSlotProps}
+                            margin={pieChartMargins}
+                            series={[
+                                {
+                                    data: courseCounts,
+                                    highlightScope: {
+                                        faded: "global",
+                                        highlighted: "item",
+                                    },
+                                    faded: {
+                                        innerRadius: 30,
+                                        additionalRadius: -30,
+                                        color: "gray",
+                                    },
                                 },
-                            },
-                        ]}
-                    />
-                    <h2 className="pie-chart-title">
-                        Academic projects by course
-                    </h2>
-                    <PieChart
-                        colors={mangoFusionPalette}
-                        slotProps={pieChartSlotProps}
-                        margin={pieChartMargins}
-                        series={[
-                            {
-                                data: courseCounts,
-                                highlightScope: {
-                                    faded: "global",
-                                    highlighted: "item",
-                                },
-                                faded: {
-                                    innerRadius: 30,
-                                    additionalRadius: -30,
-                                    color: "gray",
-                                },
-                            },
-                        ]}
-                    />
+                            ]}
+                        />
+                    </div>
                 </div>
                 <div id="bar-chart-container">
                     <BarChart
