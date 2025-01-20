@@ -159,7 +159,7 @@
             align-items: center;
             width: 100%;
             height: calc(50% - (var(--analytics-gap) / 2));
-            padding: var(--analytics-gap);
+            padding: var(--analytics-gap) 20px;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
         }
