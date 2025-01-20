@@ -107,6 +107,10 @@
         min-height: 1080px;
         flex-grow: 1;
 
+        [role="tooltip"] {
+            user-select: none !important;
+        }
+
         text {
             font-size: 0.75rem !important;
             user-select: none !important;
@@ -156,7 +160,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            align-items: center;
+            align-items: flex-start;
             width: 100%;
             height: calc(50% - (var(--analytics-gap) / 2));
             padding: var(--analytics-gap) 20px;
@@ -165,7 +169,7 @@
         }
 
         .pie-chart-title {
-            font-size: 0.9rem;
+            font-size: 1rem;
             padding-bottom: var(--analytics-gap);
         }
     }
@@ -185,6 +189,15 @@
                 width: 60%;
                 padding-bottom: 1em;
             }
+        }
+
+        .bar-chart-title {
+            font-size: 1rem;
+            padding-bottom: var(--analytics-gap);
+        }
+
+        .MuiChartsLegend-root {
+            display: none;
         }
     }
 }

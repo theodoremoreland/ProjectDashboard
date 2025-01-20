@@ -293,6 +293,9 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                     </div>
                 </div>
                 <div id="bar-chart-container">
+                    <h2 className="bar-chart-title">
+                        Top 10 technologies used
+                    </h2>
                     <BarChart
                         colors={mangoFusionPalette}
                         dataset={technologies}
@@ -306,7 +309,6 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                             {
                                 scaleType: "band",
                                 dataKey: "technology",
-                                label: "Top 10 technologies used",
                             },
                         ]}
                     />
