@@ -122,7 +122,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 gap: 0;
-                min-height: 400px;
+                min-height: 450px;
             }
 
             & text {
