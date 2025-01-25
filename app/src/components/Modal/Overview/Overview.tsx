@@ -6,7 +6,6 @@ import Modal from "../Modal";
 import QueryStatsIcon from "../../../images/icons/query_stats.svg?react";
 import preview from "../../../images/preview.gif";
 import filter from "../../../images/filter.gif";
-import customOctocat from "../../../images/custom-octocat.png";
 
 interface Props {
     handleClose: () => void;
@@ -16,15 +15,6 @@ const Overview = ({ handleClose }: Props): ReactElement => {
     return (
         <Modal title="Overview" handleClose={handleClose}>
             <div>
-                <img
-                    id="custom-octocat"
-                    src={customOctocat}
-                    alt=""
-                    style={{
-                        width: "175px",
-                        margin: "1rem 0",
-                    }}
-                />
                 <p>
                     This web application dynamically renders a list of my{" "}
                     <a
