@@ -13,12 +13,12 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
         "TypeRace",
         "BellyButtonBiodiversity",
         "JavaScriptQuiz",
-        "TopWine",
-        "MovieIon",
-        "Episodic",
         "HawaiiClimateDataAPI",
+        "TopWine",
         "MyMovieList",
+        "MovieIon",
         "ScrabbleScorer",
+        "Episodic",
         "NodeJsQuiz",
     ];
     //.sort(() => Math.random() - 0.5); // Randomize order of first set of featured projects
