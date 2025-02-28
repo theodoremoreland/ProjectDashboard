@@ -90,6 +90,7 @@
     transform: skew(-25deg);
     -webkit-animation: shine 6s infinite;
     animation: shine 6s infinite;
+    pointer-events: none;
 }
 
 @media screen and (min-width: 1920px) {
