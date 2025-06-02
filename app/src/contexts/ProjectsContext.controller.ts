@@ -19,15 +19,15 @@ export const defaultOrder = (projects: RepoData[]): RepoData[] => {
     //.sort(() => Math.random() - 0.5); // Randomize order of first set of featured projects
 
     featuredProjectNames.push(
+        "Episodic",
         "html-me-something",
         "MovieIon",
         "ShelfCheck",
         "REDB",
         "YelpETL",
-        "STLServiceCalls"
+        "STLServiceCalls",
         "MyMovieList",
         "ScrabbleScorer",
-        "Episodic",
         "NodeJsQuiz",
     ); // Add remaining featured projects in exact order
 
