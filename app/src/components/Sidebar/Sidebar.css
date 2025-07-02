@@ -42,40 +42,37 @@
         position: relative;
         top: 0;
         height: 100%;
-    }
-
-    #sidebar.open {
         width: 65em;
         max-width: none;
     }
 }
 
 @media screen and (min-width: 900px) {
-    #sidebar.open {
+    #sidebar {
         width: 55em;
     }
 }
 
 @media screen and (min-width: 1150px) {
-    #sidebar.open {
+    #sidebar {
         width: 39em;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    #sidebar.open {
+    #sidebar {
         width: 29em;
     }
 }
 
 @media screen and (min-width: 1920px) {
-    #sidebar.open {
+    #sidebar {
         width: 20em;
     }
 }
 
 @media screen and (min-width: 2560px) {
-    #sidebar.open {
+    #sidebar {
         width: 15em;
     }
 }
