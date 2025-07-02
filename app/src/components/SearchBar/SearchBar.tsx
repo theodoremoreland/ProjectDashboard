@@ -5,26 +5,26 @@ import {
     useEffect,
     useRef,
     ReactElement,
-} from "react";
+} from 'react';
 
 // Third party
-import Fuse, { FuseResult } from "fuse.js";
+import Fuse, { FuseResult } from 'fuse.js';
 
 // Context
-import { ProjectsContext } from "../../contexts/ProjectsContext";
+import { ProjectsContext } from '../../contexts/ProjectsContext';
 
 // Types
-import { TaggedRepoData } from "../../types";
+import { TaggedRepoData } from '../../types';
 
 // Images
-import CancelIcon from "../../images/icons/cancel.svg?react";
+import CancelIcon from '../../images/icons/cancel.svg?react';
 
 // Styles
-import "./SearchBar.css";
+import './SearchBar.css';
 
 const SearchBar = (): ReactElement => {
     const { repos, setSelectedProject } = useContext(ProjectsContext);
-    const [searchValue, setSearchValue] = useState("");
+    const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState<
         FuseResult<TaggedRepoData>[] | TaggedRepoData[] | undefined
     >(repos);
@@ -33,14 +33,14 @@ const SearchBar = (): ReactElement => {
 
     const handleSearchResultClick = useCallback(
         (projectData: TaggedRepoData) => {
-            setSearchValue("");
+            setSearchValue('');
             setSelectedProject(projectData);
         },
         [setSelectedProject]
     );
 
     const handleCancelClick = useCallback(() => {
-        setSearchValue("");
+        setSearchValue('');
         inputRef?.current?.focus();
     }, [inputRef]);
 
@@ -49,12 +49,12 @@ const SearchBar = (): ReactElement => {
         const focusHandler = () => setShowResults(true);
 
         if (input) {
-            input.addEventListener("focus", focusHandler);
+            input.addEventListener('focus', focusHandler);
         }
 
         return () => {
             if (input) {
-                input.removeEventListener("focus", focusHandler);
+                input.removeEventListener('focus', focusHandler);
             }
         };
     }, [inputRef]);
@@ -64,7 +64,7 @@ const SearchBar = (): ReactElement => {
 
         if (hasFocus && searchValue && repos) {
             const fuse = new Fuse(repos, {
-                keys: ["name", "topics"],
+                keys: ['name', 'topics'],
                 threshold: 0.3,
             });
             const results = fuse.search(searchValue);
@@ -114,7 +114,7 @@ const SearchBar = (): ReactElement => {
                                     const repo =
                                         Object.prototype.hasOwnProperty.call(
                                             searchResult,
-                                            "item"
+                                            'item'
                                         )
                                             ? (
                                                   searchResult as FuseResult<TaggedRepoData>

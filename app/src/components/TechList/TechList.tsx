@@ -4,7 +4,7 @@ import {
     useContext,
     useEffect,
     useState,
-} from "react";
+} from 'react';
 
 // Controller
 import {
@@ -12,16 +12,16 @@ import {
     findTopicLabelImageSrc,
     getTopicCounts,
     determineClassName,
-} from "./TechList.controller";
+} from './TechList.controller';
 
 // Context
-import { ProjectsContext } from "../../contexts/ProjectsContext";
+import { ProjectsContext } from '../../contexts/ProjectsContext';
 
 // Types
-import { TopicCounts } from "../../types";
+import { TopicCounts } from '../../types';
 
 // Styles
-import "./TechList.css";
+import './TechList.css';
 
 const TechList = (): ReactElement => {
     const { repos, updateFeaturedTopics, featuredTopics } =
@@ -36,14 +36,14 @@ const TechList = (): ReactElement => {
                         topicCount2 - topicCount1
                 )
                 .map(([topicLabel, topicCount]) => {
-                    const className: "" | "selected" | "filtered-out" =
+                    const className: '' | 'selected' | 'filtered-out' =
                         determineClassName(topicLabel, featuredTopics);
 
                     return (
                         <li
                             key={topicLabel}
                             title={
-                                className !== "selected"
+                                className !== 'selected'
                                     ? `Click to filter projects by ${topicLabel}.`
                                     : `Click to remove ${topicLabel} filter.`
                             }
@@ -74,7 +74,7 @@ const TechList = (): ReactElement => {
                                 </>
                             ) : (
                                 <>
-                                    {" "}
+                                    {' '}
                                     {topicLabel}:
                                     <span className="count">{topicCount}</span>
                                 </>

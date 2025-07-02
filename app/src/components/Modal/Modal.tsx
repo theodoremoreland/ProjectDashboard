@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
 // Styles
-import "./Modal.css";
+import './Modal.css';
 
 interface Props {
     children: ReactElement;
@@ -21,7 +21,7 @@ const Modal = ({ children, title, handleClose }: Props) => {
                 <header className="custom-modal-header">
                     {/* Putting the onClick handler on the div because
                     the padding on the button wasn't triggering to onClick event.
-                    This is a workaround to make the button padding clickable. 
+                    This is a workaround to make the button padding clickable.
                 */}
                     <div onClick={handleClose}>
                         <button

@@ -107,7 +107,7 @@
         min-height: 1080px;
         flex-grow: 1;
 
-        [role="tooltip"] {
+        [role='tooltip'] {
             user-select: none !important;
         }
 

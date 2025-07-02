@@ -1,24 +1,24 @@
 // React
-import { ReactElement, SetStateAction, Dispatch } from "react";
+import { ReactElement, SetStateAction, Dispatch } from 'react';
 
 // Third party
-import { useInView } from "react-intersection-observer";
+import { useInView } from 'react-intersection-observer';
 
 // Types
-import { TaggedRepoData } from "../../../types";
+import { TaggedRepoData } from '../../../types';
 
 // Images
-import alt from "../../../images/under-construction-thumbnail.jpg";
-import htmlIcon from "../../../images/languages/html.png";
-import javascriptIcon from "../../../images/languages/javascript.png";
-import typescriptIcon from "../../../images/languages/typescript.png";
-import pythonIcon from "../../../images/languages/python.png";
-import javaIcon from "../../../images/languages/java.png";
-import vbaIcon from "../../../images/languages/vba.png";
-import sqlIcon from "../../../images/languages/sql.png";
+import alt from '../../../images/under-construction-thumbnail.jpg';
+import htmlIcon from '../../../images/languages/html.png';
+import javascriptIcon from '../../../images/languages/javascript.png';
+import typescriptIcon from '../../../images/languages/typescript.png';
+import pythonIcon from '../../../images/languages/python.png';
+import javaIcon from '../../../images/languages/java.png';
+import vbaIcon from '../../../images/languages/vba.png';
+import sqlIcon from '../../../images/languages/sql.png';
 
 // Custom styles
-import "./Project.css";
+import './Project.css';
 
 interface Props {
     projectData: TaggedRepoData;
@@ -26,18 +26,18 @@ interface Props {
 }
 
 const renderLanguageIcon = (topic: string): ReactElement | null => {
-    const titleTemplate = "This project was written with ";
+    const titleTemplate = 'This project was written with ';
 
     switch (topic) {
-        case "html":
+        case 'html':
             return (
-                <li key={topic} title={titleTemplate + "HTML"}>
+                <li key={topic} title={titleTemplate + 'HTML'}>
                     <img src={htmlIcon} alt="HTML" className="language-icon" />
                 </li>
             );
-        case "javascript":
+        case 'javascript':
             return (
-                <li key={topic} title={titleTemplate + "JavaScript"}>
+                <li key={topic} title={titleTemplate + 'JavaScript'}>
                     <img
                         src={javascriptIcon}
                         alt="JavaScript"
@@ -45,9 +45,9 @@ const renderLanguageIcon = (topic: string): ReactElement | null => {
                     />
                 </li>
             );
-        case "typescript":
+        case 'typescript':
             return (
-                <li key={topic} title={titleTemplate + "TypeScript"}>
+                <li key={topic} title={titleTemplate + 'TypeScript'}>
                     <img
                         src={typescriptIcon}
                         alt="TypeScript"
@@ -55,9 +55,9 @@ const renderLanguageIcon = (topic: string): ReactElement | null => {
                     />
                 </li>
             );
-        case "python":
+        case 'python':
             return (
-                <li key={topic} title={titleTemplate + "Python"}>
+                <li key={topic} title={titleTemplate + 'Python'}>
                     <img
                         src={pythonIcon}
                         alt="Python"
@@ -65,21 +65,21 @@ const renderLanguageIcon = (topic: string): ReactElement | null => {
                     />
                 </li>
             );
-        case "java":
+        case 'java':
             return (
-                <li key={topic} title={titleTemplate + "Java"}>
+                <li key={topic} title={titleTemplate + 'Java'}>
                     <img src={javaIcon} alt="Java" className="language-icon" />
                 </li>
             );
-        case "vba":
+        case 'vba':
             return (
-                <li key={topic} title={titleTemplate + "VBA"}>
+                <li key={topic} title={titleTemplate + 'VBA'}>
                     <img src={vbaIcon} alt="VBA" className="language-icon" />
                 </li>
             );
-        case "sql":
+        case 'sql':
             return (
-                <li key={topic} title={titleTemplate + "SQL"}>
+                <li key={topic} title={titleTemplate + 'SQL'}>
                     <img src={sqlIcon} alt="SQL" className="language-icon" />
                 </li>
             );
@@ -97,7 +97,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
         <div
             ref={ref}
             className={`project-card ${
-                projectData.isFeatured ? "featured" : "not-featured"
+                projectData.isFeatured ? 'featured' : 'not-featured'
             }`}
         >
             <img
@@ -106,7 +106,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                     const target: EventTarget = e.target;
 
                     if (target instanceof HTMLImageElement) {
-                        target.classList.add("loaded");
+                        target.classList.add('loaded');
                     }
                 }}
                 src={projectData.image}
@@ -130,7 +130,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                         <div className="row">
                             <ul>
                                 {projectData.demo_link &&
-                                    projectData.name !== "ProjectList" && (
+                                    projectData.name !== 'ProjectList' && (
                                         // <a> tag needs to wrap the <li> tag to make the entire list item clickable.
                                         <a
                                             href={projectData.demo_link}
@@ -140,7 +140,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                                             className="live-demo-link"
                                         >
                                             <button className="live-demo">
-                                                Live Demo{" "}
+                                                Live Demo{' '}
                                                 <span className="circle"></span>
                                             </button>
                                         </a>

@@ -1,11 +1,11 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import Modal from "../Modal";
+import Modal from '../Modal';
 
 // Images
-import QueryStatsIcon from "../../../images/icons/query_stats.svg?react";
-import preview from "../../../images/preview.gif";
-import filter from "../../../images/filter.gif";
+import QueryStatsIcon from '../../../images/icons/query_stats.svg?react';
+import preview from '../../../images/preview.gif';
+import filter from '../../../images/filter.gif';
 
 interface Props {
     handleClose: () => void;
@@ -16,7 +16,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
         <Modal title="Overview" handleClose={handleClose}>
             <div>
                 <p>
-                    This web application dynamically renders a list of my{" "}
+                    This web application dynamically renders a list of my{' '}
                     <a
                         target="_blank"
                         rel="noreferrer"
@@ -24,7 +24,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                     >
                         GitHub repositories
                     </a>
-                    . Repositories are queried in real-time from the{" "}
+                    . Repositories are queried in real-time from the{' '}
                     <a
                         target="_blank"
                         rel="noreferrer"
@@ -35,7 +35,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                     .
                 </p>
                 <p>
-                    NOTE:{" "}
+                    NOTE:{' '}
                     <i>
                         The terms "project" and "repository" are used
                         interchangeably throughout this application.
@@ -51,22 +51,22 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                     </p>
                     <img className="example" src={preview} alt="preview" />
                     <p>
-                        Additionally, each thumbnail overlay features a{" "}
+                        Additionally, each thumbnail overlay features a{' '}
                         <button
                             title="learn more"
                             type="button"
                             className="learn-more-button"
                         >
                             Learn More
-                        </button>{" "}
+                        </button>{' '}
                         button, that when clicked, will display additional
                         information about the project.
                     </p>
                     <p>
-                        Conditionally, a{" "}
+                        Conditionally, a{' '}
                         <button title="live demo" className="live-demo">
                             Live Demo <span className="circle"></span>
-                        </button>{" "}
+                        </button>{' '}
                         button appears if the project is actively hosted on a
                         live server. Clicking the button will open a new tab
                         featuring the web application.
@@ -91,7 +91,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                     <h3>Search</h3>
                     <p>
                         The search bar can be used to search for projects by
-                        name or{" "}
+                        name or{' '}
                         <a
                             target="_blank"
                             rel="noreferrer"
@@ -103,25 +103,25 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                     </p>
                     <p
                         style={{
-                            lineHeight: "2.2em",
+                            lineHeight: '2.2em',
                         }}
                     >
-                        Some examples include:{" "}
-                        <span className="topic">responsive</span>{" "}
-                        <span className="topic">mui-x</span>{" "}
-                        <span className="topic">tanstack-react-query</span>{" "}
-                        <span className="topic">jupyter-notebook</span>{" "}
+                        Some examples include:{' '}
+                        <span className="topic">responsive</span>{' '}
+                        <span className="topic">mui-x</span>{' '}
+                        <span className="topic">tanstack-react-query</span>{' '}
+                        <span className="topic">jupyter-notebook</span>{' '}
                         <span className="topic">rest-api</span>
                     </p>
                 </article>
                 <article>
                     <h3>Analyze</h3>
                     <p>
-                        Clicking on the{" "}
+                        Clicking on the{' '}
                         <QueryStatsIcon
                             title="analytics icon"
                             className="query_stats icon"
-                        />{" "}
+                        />{' '}
                         icon in the navbar will display aggregate statistics
                         about the projects featured.
                     </p>
