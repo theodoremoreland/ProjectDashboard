@@ -5,13 +5,11 @@
     gap: 10px 10px;
     overflow-y: scroll;
     flex-grow: 1;
-    padding: 10px 10px 10px calc(1em + 15px);
 }
 
 @media screen and (min-width: 769px) {
     #project-grid {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        padding: 10px;
     }
 }
 
