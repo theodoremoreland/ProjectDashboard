@@ -1,5 +1,5 @@
 // Scripts
-import covertDateToISOString from "../../../utils/convertDateToISOString";
+import covertDateToISOString from '../../../utils/convertDateToISOString';
 
 export const getLastUpdatedDateInDaysString = (
     previousDateString: string
@@ -13,10 +13,10 @@ export const getLastUpdatedDateInDaysString = (
     const dayDifference: number = timeDifference / (1000 * 3600 * 24);
     const stringEnd: string =
         dayDifference === 0
-            ? "today"
+            ? 'today'
             : dayDifference === 1
-            ? `yesterday`
-            : `${dayDifference} days ago`;
+              ? `yesterday`
+              : `${dayDifference} days ago`;
 
     return `Last updated ${stringEnd}`;
 };

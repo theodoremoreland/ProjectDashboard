@@ -6,22 +6,22 @@ import {
     useContext,
     useRef,
     ReactElement,
-} from "react";
+} from 'react';
 
 // Context
-import { ProjectsContext } from "./contexts/ProjectsContext";
+import { ProjectsContext } from './contexts/ProjectsContext';
 
 // Custom Components
-import Analytics from "./components/Analytics/Analytics";
-import Sidebar from "./components/Sidebar/Sidebar";
-import NavBar from "./components/NavBar/NavBar";
-import ProjectDetail from "./components/ProjectDetail/ProjectDetail";
-import ProjectGrid from "./components/ProjectGrid/ProjectGrid";
-import Overview from "./components/Modal/Overview/Overview";
-import Error from "./components/Modal/Error/Error";
+import Analytics from './components/Analytics/Analytics';
+import Sidebar from './components/Sidebar/Sidebar';
+import NavBar from './components/NavBar/NavBar';
+import ProjectDetail from './components/ProjectDetail/ProjectDetail';
+import ProjectGrid from './components/ProjectGrid/ProjectGrid';
+import Overview from './components/Modal/Overview/Overview';
+import Error from './components/Modal/Error/Error';
 
 // Custom Styles
-import "./App.css";
+import './App.css';
 
 const App = (): ReactElement => {
     const { repos, isError, selectedProject, setSelectedProject } =
@@ -59,8 +59,8 @@ const App = (): ReactElement => {
 
                 const titleCardStyle = getComputedStyle(titleCard);
 
-                if (titleCardStyle.visibility === "hidden") {
-                    titleCard.style.display = "none"; // All this to help with performance
+                if (titleCardStyle.visibility === 'hidden') {
+                    titleCard.style.display = 'none'; // All this to help with performance
 
                     window.clearInterval(intervalRef.current);
                 }
@@ -75,9 +75,9 @@ const App = (): ReactElement => {
             {showErrorModal && <Error handleClose={handleCloseErrorModal} />}
             <header
                 ref={titleCardRef}
-                className={`title-card ${repos ? "transition" : ""}`}
+                className={`title-card ${repos ? 'transition' : ''}`}
             >
-                <h1 className={`app-title ${repos ? "transition" : ""}`}>
+                <h1 className={`app-title ${repos ? 'transition' : ''}`}>
                     Project List
                 </h1>
                 {repos ? (

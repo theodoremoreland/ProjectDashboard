@@ -1,14 +1,14 @@
 // React
-import { Dispatch, ReactElement, SetStateAction } from "react";
+import { Dispatch, ReactElement, SetStateAction } from 'react';
 
 // Custom Components
-import Project from "./Project/Project";
+import Project from './Project/Project';
 
 // Types
-import { TaggedRepoData } from "../../types";
+import { TaggedRepoData } from '../../types';
 
 // Custom styles
-import "./ProjectGrid.css";
+import './ProjectGrid.css';
 
 interface Props {
     projects: TaggedRepoData[];

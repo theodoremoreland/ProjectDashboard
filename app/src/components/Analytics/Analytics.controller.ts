@@ -1,4 +1,4 @@
-import { TaggedRepoData } from "../../types";
+import { TaggedRepoData } from '../../types';
 
 export const getTopTechnologies = (
     projects: TaggedRepoData[],
@@ -8,21 +8,21 @@ export const getTopTechnologies = (
     count: number;
 }[] => {
     const topicsToIgnore: string[] = [
-        "personal",
-        "professional",
-        "coursework",
-        "exercise",
-        "lc101",
-        "data-analytics-bootcamp",
-        "full-stack-bootcamp",
-        "lindenwood-university",
-        "web-development",
-        "data-engineering",
-        "data-analytics",
-        "mobile-development",
-        "web-scraping",
-        "unit-testing",
-        "rest-api",
+        'personal',
+        'professional',
+        'coursework',
+        'exercise',
+        'lc101',
+        'data-analytics-bootcamp',
+        'full-stack-bootcamp',
+        'lindenwood-university',
+        'web-development',
+        'data-engineering',
+        'data-analytics',
+        'mobile-development',
+        'web-scraping',
+        'unit-testing',
+        'rest-api',
     ];
     const technologies: { [key: string]: number } = {};
 
@@ -58,24 +58,24 @@ export const getProjectFileSizes = (projects: TaggedRepoData[]) => {
 export const getCourseCounts = (
     projects: TaggedRepoData[]
 ): { id: number; value: number; label: string }[] => {
-    const lc101 = { id: 1, value: 0, label: "LC101" };
-    const dataAnalyticsBootCamp = { id: 2, value: 0, label: "Wash U Data" };
-    const fullStackFlex = { id: 3, value: 0, label: "SMU Full Stack" };
-    const lindenwoodUniversity = { id: 4, value: 0, label: "Lindenwood" };
-    const other = { id: 5, value: 0, label: "Other" };
+    const lc101 = { id: 1, value: 0, label: 'LC101' };
+    const dataAnalyticsBootCamp = { id: 2, value: 0, label: 'Wash U Data' };
+    const fullStackFlex = { id: 3, value: 0, label: 'SMU Full Stack' };
+    const lindenwoodUniversity = { id: 4, value: 0, label: 'Lindenwood' };
+    const other = { id: 5, value: 0, label: 'Other' };
 
     projects.forEach((project) => {
-        if (project.topics.includes("lc101")) {
+        if (project.topics.includes('lc101')) {
             lc101.value += 1;
-        } else if (project.topics.includes("data-analytics-bootcamp")) {
+        } else if (project.topics.includes('data-analytics-bootcamp')) {
             dataAnalyticsBootCamp.value += 1;
-        } else if (project.topics.includes("full-stack-bootcamp")) {
+        } else if (project.topics.includes('full-stack-bootcamp')) {
             fullStackFlex.value += 1;
-        } else if (project.topics.includes("lindenwood-university")) {
+        } else if (project.topics.includes('lindenwood-university')) {
             lindenwoodUniversity.value += 1;
         } else if (
-            project.topics.includes("coursework") ||
-            project.topics.includes("exercise")
+            project.topics.includes('coursework') ||
+            project.topics.includes('exercise')
         ) {
             // If the project is not associated with a course, count it as an academic project
             other.value += 1;
@@ -94,18 +94,18 @@ export const getCourseCounts = (
 export const getContextCounts = (
     projects: TaggedRepoData[]
 ): { id: number; value: number; label: string }[] => {
-    const personal = { id: 1, value: 0, label: "Personal" };
-    const professional = { id: 2, value: 0, label: "Professional" };
-    const academic = { id: 3, value: 0, label: "Academic" };
+    const personal = { id: 1, value: 0, label: 'Personal' };
+    const professional = { id: 2, value: 0, label: 'Professional' };
+    const academic = { id: 3, value: 0, label: 'Academic' };
 
     projects.forEach((project) => {
-        if (project.topics.includes("personal")) {
+        if (project.topics.includes('personal')) {
             personal.value += 1;
-        } else if (project.topics.includes("professional")) {
+        } else if (project.topics.includes('professional')) {
             professional.value += 1;
         } else if (
-            project.topics.includes("coursework") ||
-            project.topics.includes("exercise")
+            project.topics.includes('coursework') ||
+            project.topics.includes('exercise')
         ) {
             academic.value += 1;
         }

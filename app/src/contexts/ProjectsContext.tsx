@@ -7,21 +7,21 @@ import {
     useEffect,
     useMemo,
     useState,
-} from "react";
+} from 'react';
 
 // Third party
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
 
 // Controller
-import { defaultOrder } from "./ProjectsContext.controller";
+import { defaultOrder } from './ProjectsContext.controller';
 
 // Custom
-import { getRepoData } from "../http/getRepoData";
-import extractErrorMessage from "../utils/extractErrorMessage";
-import backupData from "../data/backup-data.json";
+import { getRepoData } from '../http/getRepoData';
+import extractErrorMessage from '../utils/extractErrorMessage';
+import backupData from '../data/backup-data.json';
 
 // Types
-import { RepoData, TaggedRepoData } from "../types";
+import { RepoData, TaggedRepoData } from '../types';
 
 interface ProjectsProviderProps {
     children: ReactElement;
@@ -66,7 +66,7 @@ const ProjectsContextProvider = ({
     }, [repos, featuredTopics]);
 
     const { data, isError, error } = useQuery({
-        queryKey: ["repos"],
+        queryKey: ['repos'],
         queryFn: getRepoData,
         staleTime: 240_000,
         retry: false,

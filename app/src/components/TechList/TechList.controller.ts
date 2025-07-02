@@ -1,61 +1,61 @@
 // Types
-import { TaggedRepoData, TopicCounts } from "../../types";
+import { TaggedRepoData, TopicCounts } from '../../types';
 
 // Images
-import javascriptIcon from "../../images/languages/javascript.png";
-import pythonIcon from "../../images/languages/python.png";
-import javaIcon from "../../images/languages/java.png";
-import typescriptIcon from "../../images/languages/typescript.png";
-import sqlIcon from "../../images/languages/sql.png";
-import vbaIcon from "../../images/languages/vba.png";
-import htmlIcon from "../../images/languages/html.png";
-import nodeIcon from "../../images/tools/node.png";
-import pandasIcon from "../../images/tools/pandas.png";
-import dockerIcon from "../../images/tools/docker.png";
-import postgresqlIcon from "../../images/tools/postgresql.png";
-import mysqlIcon from "../../images/tools/mysql.png";
-import mongodbIcon from "../../images/tools/mongodb.png";
-import matplotlibIcon from "../../images/tools/matplotlib.png";
-import expressIcon from "../../images/frameworks/express.png";
-import flaskIcon from "../../images/frameworks/flask.png";
-import reactIcon from "../../images/frameworks/react.png";
-import springBootIcon from "../../images/frameworks/spring-boot.png";
-import junitIcon from "../../images/frameworks/junit.png";
-import jestIcon from "../../images/frameworks/jest.png";
-import dataAnalyticsIcon from "../../images/competencies/data-analytics.png";
-import webDevelopmentIcon from "../../images/competencies/web-development.png";
-import dataEngineeringIcon from "../../images/competencies/data-engineering.png";
+import javascriptIcon from '../../images/languages/javascript.png';
+import pythonIcon from '../../images/languages/python.png';
+import javaIcon from '../../images/languages/java.png';
+import typescriptIcon from '../../images/languages/typescript.png';
+import sqlIcon from '../../images/languages/sql.png';
+import vbaIcon from '../../images/languages/vba.png';
+import htmlIcon from '../../images/languages/html.png';
+import nodeIcon from '../../images/tools/node.png';
+import pandasIcon from '../../images/tools/pandas.png';
+import dockerIcon from '../../images/tools/docker.png';
+import postgresqlIcon from '../../images/tools/postgresql.png';
+import mysqlIcon from '../../images/tools/mysql.png';
+import mongodbIcon from '../../images/tools/mongodb.png';
+import matplotlibIcon from '../../images/tools/matplotlib.png';
+import expressIcon from '../../images/frameworks/express.png';
+import flaskIcon from '../../images/frameworks/flask.png';
+import reactIcon from '../../images/frameworks/react.png';
+import springBootIcon from '../../images/frameworks/spring-boot.png';
+import junitIcon from '../../images/frameworks/junit.png';
+import jestIcon from '../../images/frameworks/jest.png';
+import dataAnalyticsIcon from '../../images/competencies/data-analytics.png';
+import webDevelopmentIcon from '../../images/competencies/web-development.png';
+import dataEngineeringIcon from '../../images/competencies/data-engineering.png';
 
 const frameworks: { [key: string]: string } = {
-    express: "Express",
-    flask: "Flask",
-    react: "React",
-    "spring-boot": "Spring Boot",
-    junit: "jUnit",
-    jest: "Jest",
+    express: 'Express',
+    flask: 'Flask',
+    react: 'React',
+    'spring-boot': 'Spring Boot',
+    junit: 'jUnit',
+    jest: 'Jest',
 };
 const competencies: { [key: string]: string } = {
-    "web-development": "Web development",
-    "data-engineering": "Data engineering",
-    "data-analytics": "Data analytics",
+    'web-development': 'Web development',
+    'data-engineering': 'Data engineering',
+    'data-analytics': 'Data analytics',
 };
 const languages: { [key: string]: string } = {
-    python: "Python",
-    javascript: "JavaScript",
-    java: "Java",
-    typescript: "TypeScript",
-    sql: "SQL",
-    vba: "VBA",
-    html: "HTML",
+    python: 'Python',
+    javascript: 'JavaScript',
+    java: 'Java',
+    typescript: 'TypeScript',
+    sql: 'SQL',
+    vba: 'VBA',
+    html: 'HTML',
 };
 const tools: { [key: string]: string } = {
-    node: "Node",
-    pandas: "Pandas",
-    docker: "Docker",
-    postgresql: "PostgreSQL",
-    mysql: "MySQL",
-    mongodb: "MongoDB",
-    matplotlib: "Matplotlib",
+    node: 'Node',
+    pandas: 'Pandas',
+    docker: 'Docker',
+    postgresql: 'PostgreSQL',
+    mysql: 'MySQL',
+    mongodb: 'MongoDB',
+    matplotlib: 'Matplotlib',
 };
 
 const topicMap: { [key: string]: string } = {
@@ -68,7 +68,7 @@ const topicMap: { [key: string]: string } = {
 export const findTopicLabel = (topicKey: string) => {
     if (topicMap[topicKey]) return topicMap[topicKey];
 
-    throw new Error("Invalid topic key");
+    throw new Error('Invalid topic key');
 };
 
 export const findKeyForTopicLabel = (topicLabel: string) => {
@@ -84,59 +84,59 @@ export const findKeyForTopicLabel = (topicLabel: string) => {
 
     if (topicKey) return topicKey;
 
-    throw new Error("Invalid topic label");
+    throw new Error('Invalid topic label');
 };
 
 export const findTopicLabelImageSrc = (topicLabel: string): string => {
     switch (topicLabel) {
-        case "Python":
+        case 'Python':
             return pythonIcon;
-        case "JavaScript":
+        case 'JavaScript':
             return javascriptIcon;
-        case "Java":
+        case 'Java':
             return javaIcon;
-        case "TypeScript":
+        case 'TypeScript':
             return typescriptIcon;
-        case "SQL":
+        case 'SQL':
             return sqlIcon;
-        case "VBA":
+        case 'VBA':
             return vbaIcon;
-        case "HTML":
+        case 'HTML':
             return htmlIcon;
-        case "Node":
+        case 'Node':
             return nodeIcon;
-        case "Pandas":
+        case 'Pandas':
             return pandasIcon;
-        case "Docker":
+        case 'Docker':
             return dockerIcon;
-        case "PostgreSQL":
+        case 'PostgreSQL':
             return postgresqlIcon;
-        case "MySQL":
+        case 'MySQL':
             return mysqlIcon;
-        case "MongoDB":
+        case 'MongoDB':
             return mongodbIcon;
-        case "Matplotlib":
+        case 'Matplotlib':
             return matplotlibIcon;
-        case "Express":
+        case 'Express':
             return expressIcon;
-        case "Flask":
+        case 'Flask':
             return flaskIcon;
-        case "React":
+        case 'React':
             return reactIcon;
-        case "Spring Boot":
+        case 'Spring Boot':
             return springBootIcon;
-        case "jUnit":
+        case 'jUnit':
             return junitIcon;
-        case "Jest":
+        case 'Jest':
             return jestIcon;
-        case "Data analytics":
+        case 'Data analytics':
             return dataAnalyticsIcon;
-        case "Web development":
+        case 'Web development':
             return webDevelopmentIcon;
-        case "Data engineering":
+        case 'Data engineering':
             return dataEngineeringIcon;
         default:
-            return "";
+            return '';
     }
 };
 
@@ -172,14 +172,14 @@ export const getTopicCounts = (repos: TaggedRepoData[]): TopicCounts => {
 export const determineClassName = (
     topicLabel: string,
     featuredTopics: Set<string>
-): "" | "selected" | "filtered-out" => {
+): '' | 'selected' | 'filtered-out' => {
     if (featuredTopics.size === 0) {
-        return "";
+        return '';
     }
 
     if (featuredTopics.has(findKeyForTopicLabel(topicLabel))) {
-        return "selected";
+        return 'selected';
     }
 
-    return "filtered-out";
+    return 'filtered-out';
 };

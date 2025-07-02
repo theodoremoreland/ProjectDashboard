@@ -5,13 +5,13 @@ import {
     useMemo,
     useRef,
     useState,
-} from "react";
+} from 'react';
 
 // MUI
-import { PieChart } from "@mui/x-charts/PieChart";
-import { BarChart } from "@mui/x-charts/BarChart";
-import { mangoFusionPalette } from "@mui/x-charts/colorPalettes";
-import { PieChartSlotProps } from "@mui/x-charts/PieChart";
+import { PieChart } from '@mui/x-charts/PieChart';
+import { BarChart } from '@mui/x-charts/BarChart';
+import { mangoFusionPalette } from '@mui/x-charts/colorPalettes';
+import { PieChartSlotProps } from '@mui/x-charts/PieChart';
 
 // Controller
 import {
@@ -23,22 +23,22 @@ import {
     getTotalTopics,
     getTopTechnologies,
     getTopics,
-} from "./Analytics.controller";
+} from './Analytics.controller';
 
 // Components
-import InfiniteScroller from "../InfiniteScroller/InfiniteScroller";
+import InfiniteScroller from '../InfiniteScroller/InfiniteScroller';
 
 // Types
-import { TaggedRepoData } from "../../types";
+import { TaggedRepoData } from '../../types';
 
 // Images
-import DeploymentIcon from "../../images/icons/deployed-code.svg?react";
-import StarIcon from "../../images/icons/star.svg?react";
-import TopicIcon from "../../images/icons/topic.svg?react";
-import CodeIcon from "../../images/icons/code.svg?react";
+import DeploymentIcon from '../../images/icons/deployed-code.svg?react';
+import StarIcon from '../../images/icons/star.svg?react';
+import TopicIcon from '../../images/icons/topic.svg?react';
+import CodeIcon from '../../images/icons/code.svg?react';
 
 // Styles
-import "./Analytics.css";
+import './Analytics.css';
 
 interface Props {
     projects: TaggedRepoData[];
@@ -76,8 +76,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         if (window.innerWidth <= 640) {
             const _pieChartSlotProps: PieChartSlotProps = {
                 legend: {
-                    position: { vertical: "bottom", horizontal: "middle" },
-                    direction: "row",
+                    position: { vertical: 'bottom', horizontal: 'middle' },
+                    direction: 'row',
                 },
             };
             const _pieChartMargins = { top: 0, right: 0, bottom: 110, left: 0 };
@@ -87,8 +87,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         } else if (window.innerWidth < 769) {
             const _pieChartSlotProps: PieChartSlotProps = {
                 legend: {
-                    position: { vertical: "bottom", horizontal: "middle" },
-                    direction: "row",
+                    position: { vertical: 'bottom', horizontal: 'middle' },
+                    direction: 'row',
                 },
             };
             const _pieChartMargins = { top: 0, right: 0, bottom: 50, left: 0 };
@@ -98,8 +98,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         } else if (window.innerWidth <= 1150) {
             const _pieChartSlotProps: PieChartSlotProps = {
                 legend: {
-                    position: { vertical: "middle", horizontal: "right" },
-                    direction: "column",
+                    position: { vertical: 'middle', horizontal: 'right' },
+                    direction: 'column',
                 },
             };
             const _pieChartMargins = { top: 0, right: 100, bottom: 0, left: 0 };
@@ -109,8 +109,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         } else {
             const _pieChartSlotProps: PieChartSlotProps = {
                 legend: {
-                    position: { vertical: "middle", horizontal: "right" },
-                    direction: "column",
+                    position: { vertical: 'middle', horizontal: 'right' },
+                    direction: 'column',
                 },
             };
             const _pieChartMargins = { top: 0, right: 200, bottom: 0, left: 0 };
@@ -174,11 +174,11 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
     }, [totalDeployments, totalFeatures, totalStars, uniqueTopicsCount]);
 
     useEffect(() => {
-        window.addEventListener("resize", handleResize);
+        window.addEventListener('resize', handleResize);
 
         handleResize();
 
-        return () => window.removeEventListener("resize", handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, [handleResize]);
 
     return (
@@ -236,7 +236,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                 >
                     <span className="label">Unique topics</span>
                     <span className="value">
-                        <TopicIcon className="icon" />{" "}
+                        <TopicIcon className="icon" />{' '}
                         {uniqueTopicsCount.toLocaleString()}
                     </span>
                 </div>
@@ -255,13 +255,13 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                 {
                                     data: contextCounts,
                                     highlightScope: {
-                                        faded: "global",
-                                        highlighted: "item",
+                                        faded: 'global',
+                                        highlighted: 'item',
                                     },
                                     faded: {
                                         innerRadius: 30,
                                         additionalRadius: -30,
-                                        color: "gray",
+                                        color: 'gray',
                                     },
                                 },
                             ]}
@@ -279,13 +279,13 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                 {
                                     data: courseCounts,
                                     highlightScope: {
-                                        faded: "global",
-                                        highlighted: "item",
+                                        faded: 'global',
+                                        highlighted: 'item',
                                     },
                                     faded: {
                                         innerRadius: 30,
                                         additionalRadius: -30,
-                                        color: "gray",
+                                        color: 'gray',
                                     },
                                 },
                             ]}
@@ -301,14 +301,14 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                         dataset={technologies}
                         series={[
                             {
-                                dataKey: "count",
-                                label: "Count of projects using technology",
+                                dataKey: 'count',
+                                label: 'Count of projects using technology',
                             },
                         ]}
                         xAxis={[
                             {
-                                scaleType: "band",
-                                dataKey: "technology",
+                                scaleType: 'band',
+                                dataKey: 'technology',
                             },
                         ]}
                     />

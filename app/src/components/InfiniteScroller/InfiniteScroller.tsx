@@ -1,8 +1,8 @@
 // React
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
 // Styles
-import "./InfiniteScroller.css";
+import './InfiniteScroller.css';
 
 interface Props {
     items: (string | number)[];
@@ -22,14 +22,14 @@ const InfiniteScroller = ({ items, scrollReady }: Props): ReactElement => {
 
     return (
         <div className="InfiniteScroller">
-            <ul className={`lane ${scrollReady ? "left" : ""}`}>
+            <ul className={`lane ${scrollReady ? 'left' : ''}`}>
                 {firstHalf_Repeated.map((item, index) => (
                     <li key={`${item}-${index}`} className="item topic">
                         {item}
                     </li>
                 ))}
             </ul>
-            <ul className={`lane ${scrollReady ? "right" : ""}`}>
+            <ul className={`lane ${scrollReady ? 'right' : ''}`}>
                 {secondHalf_Repeated.map((item, index) => (
                     <li key={`${item}-${index}`} className="item topic">
                         {item}

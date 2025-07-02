@@ -1,13 +1,13 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from 'react';
 
 // Components
-import TechList from "../TechList/TechList";
+import TechList from '../TechList/TechList';
 
 // Images
-import DoubleArrowIcon from "../../images/icons/double-arrow-right.svg?react";
+import DoubleArrowIcon from '../../images/icons/double-arrow-right.svg?react';
 
 // Styles
-import "./Sidebar.css";
+import './Sidebar.css';
 
 const Sidebar = (): ReactElement => {
     const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -19,12 +19,12 @@ const Sidebar = (): ReactElement => {
     }, []);
 
     return (
-        <aside id="sidebar" className={`${isOpen ? "open" : "closed"}`}>
+        <aside id="sidebar" className={`${isOpen ? 'open' : 'closed'}`}>
             <button
                 type="button"
                 title="Toggle sidebar"
                 onClick={() => setIsOpen(!isOpen)}
-                className={`${isOpen ? "open" : "closed"}`}
+                className={`${isOpen ? 'open' : 'closed'}`}
             >
                 <DoubleArrowIcon className="icon double-arrow" />
             </button>

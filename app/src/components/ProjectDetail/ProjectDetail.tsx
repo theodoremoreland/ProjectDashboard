@@ -1,17 +1,17 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
-import DeployedCodeIcon from "../../images/icons/deployed-code.svg?react";
-import CodeIcon from "../../images/icons/code.svg?react";
-import StarIcon from "../../images/icons/star.svg?react";
-import EventIcon from "../../images/icons/event.svg?react";
-import EventRepeatIcon from "../../images/icons/event_repeat.svg?react";
-import LandscapeIcon from "../../images/icons/landscape.svg?react";
+import DeployedCodeIcon from '../../images/icons/deployed-code.svg?react';
+import CodeIcon from '../../images/icons/code.svg?react';
+import StarIcon from '../../images/icons/star.svg?react';
+import EventIcon from '../../images/icons/event.svg?react';
+import EventRepeatIcon from '../../images/icons/event_repeat.svg?react';
+import LandscapeIcon from '../../images/icons/landscape.svg?react';
 
 // Types
-import { TaggedRepoData } from "../../types";
+import { TaggedRepoData } from '../../types';
 
 // Custom styles
-import "./ProjectDetail.css";
+import './ProjectDetail.css';
 
 interface Props {
     projectData: TaggedRepoData;
@@ -20,17 +20,17 @@ interface Props {
 
 const getProjectContext = (
     projectData: TaggedRepoData
-): "Coursework / Exercise" | "Professional" | "Personal" => {
+): 'Coursework / Exercise' | 'Professional' | 'Personal' => {
     if (
         projectData.topics?.some(
-            (topic) => topic === "coursework" || topic === "exercise"
+            (topic) => topic === 'coursework' || topic === 'exercise'
         )
     ) {
-        return "Coursework / Exercise";
-    } else if (projectData.topics?.some((topic) => topic === "professional")) {
-        return "Professional";
+        return 'Coursework / Exercise';
+    } else if (projectData.topics?.some((topic) => topic === 'professional')) {
+        return 'Professional';
     } else {
-        return "Personal";
+        return 'Personal';
     }
 };
 
@@ -59,7 +59,7 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                 <div id="info-container">
                     <h1>{projectData.name}</h1>
                     <p>
-                        {projectData.name !== "ProjectList"
+                        {projectData.name !== 'ProjectList'
                             ? projectData.desc
                             : `You are currently viewing this project.`}
                     </p>
@@ -137,7 +137,7 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                     </div>
                                 </td>
                             </tr>
-                            {projectData.name !== "ProjectList" && (
+                            {projectData.name !== 'ProjectList' && (
                                 <tr>
                                     <td>
                                         <div>
@@ -155,11 +155,11 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                                     title={`Click to view a live demo of the ${projectData.name} project.`}
                                                     className="deployment-link"
                                                 >
-                                                    View Live Demo{" "}
+                                                    View Live Demo{' '}
                                                     <span className="circle"></span>
                                                 </a>
                                             ) : (
-                                                "None"
+                                                'None'
                                             )}
                                         </div>
                                     </td>

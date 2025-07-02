@@ -3,7 +3,7 @@ const convertDateToISOString = (date: string | Date): string => {
     const UTCDateObject: Date = new Date(
         dateObject.getTime() - dateObject.getTimezoneOffset() * 60000
     );
-    const UTCDateString: string = UTCDateObject.toISOString().split("T")[0];
+    const UTCDateString: string = UTCDateObject.toISOString().split('T')[0];
 
     return UTCDateString;
 };
