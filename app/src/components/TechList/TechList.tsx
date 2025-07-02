@@ -62,31 +62,18 @@ const TechList = (): ReactElement => {
                                 }
                                 readOnly
                             />
-                            {findTopicLabelImageSrc(topicLabel) ? (
-                                <>
-                                    <div className="tech-icon-container">
-                                        <img
-                                            src={findTopicLabelImageSrc(
-                                                topicLabel
-                                            )}
-                                            alt={topicLabel}
-                                            className="tech-icon"
-                                        />
-                                    </div>
-                                    <div className="topic-label-container">
-                                        {topicLabel}:
-                                        <span className="count">
-                                            {topicCount}
-                                        </span>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    {' '}
-                                    {topicLabel}:
-                                    <span className="count">{topicCount}</span>
-                                </>
-                            )}
+
+                            <div className="topic-label-container">
+                                {topicLabel}
+                                {findTopicLabelImageSrc(topicLabel) && (
+                                    <img
+                                        src={findTopicLabelImageSrc(topicLabel)}
+                                        alt={topicLabel}
+                                        className="tech-icon"
+                                    />
+                                )}
+                            </div>
+                            <span className="count">{topicCount}</span>
                         </li>
                     );
                 });
