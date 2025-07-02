@@ -42,12 +42,12 @@
         position: relative;
         top: 0;
         height: 100%;
-        width: 65em;
+        width: auto;
         max-width: none;
     }
 }
 
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
     #sidebar {
         width: 55em;
     }
@@ -75,7 +75,7 @@
     #sidebar {
         width: 15em;
     }
-}
+} */
 
 #sidebar > button {
     z-index: 2;
