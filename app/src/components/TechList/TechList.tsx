@@ -54,6 +54,14 @@ const TechList = (): ReactElement => {
                                 )
                             }
                         >
+                            <input
+                                type="checkbox"
+                                className="checkbox"
+                                checked={
+                                    className === 'selected' ? true : false
+                                }
+                                readOnly
+                            />
                             {findTopicLabelImageSrc(topicLabel) ? (
                                 <>
                                     <div className="tech-icon-container">

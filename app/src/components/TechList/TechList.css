@@ -12,16 +12,6 @@
     overflow-x: hidden;
 }
 
-#tech-list > p#live-demos {
-    display: none;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    cursor: pointer;
-    padding: 0.35em;
-}
-
 #tech-list > h2 {
     margin: 10px 0 0 0;
     font-family: custom-bold;
@@ -50,6 +40,10 @@
     font-size: 0.9em;
     color: var(--primary-font-color);
     transition: all 0.2s ease-in-out;
+
+    & > input {
+        margin: 0;
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -105,7 +99,7 @@
     z-index: 2;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 25px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -127,8 +121,10 @@
 
 #tech-list .topic-label-container {
     z-index: 3;
-    padding-left: 1.3rem;
+    padding-left: 25px;
     transition: all 0.2s ease-in-out;
+    white-space: nowrap; /* Prevent text from wrapping */
+    width: fit-content; /* Adjust width to match the content */
 }
 
 #tech-list .count {
