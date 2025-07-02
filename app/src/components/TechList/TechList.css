@@ -22,6 +22,11 @@
     padding: 0.35em;
 }
 
+#tech-list > h2 {
+    margin: 10px 0 0 0;
+    font-family: custom-bold;
+}
+
 #tech-list .tech-category {
     width: 100%;
     margin: 5px 0 0 0;
