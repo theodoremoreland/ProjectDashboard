@@ -15,6 +15,7 @@ import { ProjectsContext } from './contexts/ProjectsContext';
 import Analytics from './components/Analytics/Analytics';
 import Sidebar from './components/Sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
+import SearchBar from './components/SearchBar/SearchBar';
 import ProjectDetail from './components/ProjectDetail/ProjectDetail';
 import ProjectGrid from './components/ProjectGrid/ProjectGrid';
 import Overview from './components/Modal/Overview/Overview';
@@ -96,30 +97,35 @@ const App = (): ReactElement => {
                     setShowOverviewModal={setShowOverviewModal}
                 />
                 <div id="app-content">
-                    <Sidebar />
-                    {repos && (
-                        <ProjectGrid
-                            projects={repos}
-                            setSelectedProject={setSelectedProject}
-                        />
-                    )}
-                    {selectedProject && (
-                        <ProjectDetail
-                            projectData={selectedProject}
-                            handleClose={() => setSelectedProject(null)}
-                        />
-                    )}
-                    {showAnalytics && repos && (
-                        <Analytics
-                            projects={repos}
-                            handleClose={() => setShowAnalytics(false)}
-                        />
-                    )}
-                    {showOverviewModal && (
-                        <Overview
-                            handleClose={() => setShowOverviewModal(false)}
-                        />
-                    )}
+                    <div className="row">
+                        <SearchBar />
+                    </div>
+                    <div className="row">
+                        <Sidebar />
+                        {repos && (
+                            <ProjectGrid
+                                projects={repos}
+                                setSelectedProject={setSelectedProject}
+                            />
+                        )}
+                        {selectedProject && (
+                            <ProjectDetail
+                                projectData={selectedProject}
+                                handleClose={() => setSelectedProject(null)}
+                            />
+                        )}
+                        {showAnalytics && repos && (
+                            <Analytics
+                                projects={repos}
+                                handleClose={() => setShowAnalytics(false)}
+                            />
+                        )}
+                        {showOverviewModal && (
+                            <Overview
+                                handleClose={() => setShowOverviewModal(false)}
+                            />
+                        )}
+                    </div>
                 </div>
             </main>
         </>

@@ -223,14 +223,24 @@ main {
 }
 
 #app-content {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     height: 100%;
-    padding-top: var(--navbar-height);
+
+    > .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin-top: 35px;
+    }
 }
 
 .close-button {

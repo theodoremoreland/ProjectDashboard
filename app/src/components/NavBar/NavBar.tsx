@@ -3,9 +3,6 @@ import { ReactElement, useState, useCallback } from 'react';
 // MUI
 import { IconButton, Menu, MenuItem } from '@mui/material';
 
-// Components
-import SearchBar from '../SearchBar/SearchBar';
-
 // Images
 import QueryStatsIcon from '../../images/icons/query_stats.svg?react';
 import InfoIcon from '../../images/icons/info.svg?react';
@@ -42,7 +39,6 @@ const NavBar = ({
     return (
         <nav id="app-nav">
             <h1>Project List</h1>
-            <SearchBar />
             <ul id="desktop-menu">
                 <li
                     id="analytics-nav"

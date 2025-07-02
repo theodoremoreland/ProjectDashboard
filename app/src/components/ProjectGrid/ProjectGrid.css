@@ -6,7 +6,6 @@
     overflow-y: scroll;
     flex-grow: 1;
     padding: 10px 10px 10px calc(1em + 15px);
-    background-color: var(--primary-color);
 }
 
 @media screen and (min-width: 769px) {

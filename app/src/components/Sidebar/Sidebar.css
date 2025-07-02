@@ -10,13 +10,9 @@
     height: calc(100% - var(--navbar-height));
     margin: 0;
     padding: 0 10px 10px 10px;
-    border-right: 2px outset var(--border-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
     color: var(--primary-font-color);
-    background: radial-gradient(
-        circle farthest-corner at top left,
-        var(--primary-color) 3%,
-        var(--secondary-color) 70%
-    );
     transition: width 1s linear;
 
     > #tech-list {
