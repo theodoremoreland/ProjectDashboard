@@ -16,5 +16,7 @@
     "webp",
     "Wordcloud",
     "scroller"
-  ]
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
 }
