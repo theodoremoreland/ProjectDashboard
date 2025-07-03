@@ -20,7 +20,7 @@
         align-items: flex-start;
         width: auto;
         max-width: 92%;
-        height: clamp(380px, 72%, 750px);
+        max-height: 72%;
         padding: 15px 30px;
         border: 1px solid var(--border-color);
         border-radius: 5px;
