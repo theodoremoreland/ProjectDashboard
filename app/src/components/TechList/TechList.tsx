@@ -20,6 +20,9 @@ import { ProjectsContext } from '../../contexts/ProjectsContext';
 // Types
 import { TopicCounts } from '../../types';
 
+// Images
+import CheckIcon from '../../images/icons/check.svg?react';
+
 // Styles
 import './TechList.css';
 
@@ -54,15 +57,25 @@ const TechList = (): ReactElement => {
                                 )
                             }
                         >
-                            <input
-                                type="checkbox"
-                                className="checkbox"
-                                checked={
-                                    className === 'selected' ? true : false
-                                }
-                                readOnly
-                            />
-
+                            <label
+                                htmlFor={`${topicLabel}-checkbox`}
+                                className="checkbox-label"
+                            >
+                                {className === 'selected' && (
+                                    <CheckIcon className="checkbox-icon" />
+                                )}
+                                <input
+                                    id={`${topicLabel}-checkbox`}
+                                    aria-label={`Filter projects by ${topicLabel}`}
+                                    name={`${topicLabel}-checkbox`}
+                                    type="checkbox"
+                                    className="checkbox"
+                                    checked={
+                                        className === 'selected' ? true : false
+                                    }
+                                    readOnly
+                                />
+                            </label>
                             <div className="topic-label-container">
                                 {topicLabel}
                                 {findTopicLabelImageSrc(topicLabel) && (
