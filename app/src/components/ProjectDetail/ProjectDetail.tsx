@@ -1,5 +1,7 @@
 import { ReactElement } from 'react';
 
+import getProjectContext from '../../utils/getProjectContext';
+
 import DeployedCodeIcon from '../../images/icons/deployed-code.svg?react';
 import CodeIcon from '../../images/icons/code.svg?react';
 import StarIcon from '../../images/icons/star.svg?react';
@@ -18,29 +20,13 @@ interface Props {
     handleClose: () => void;
 }
 
-const getProjectContext = (
-    projectData: TaggedRepoData
-): 'Coursework / Exercise' | 'Professional' | 'Personal' => {
-    if (
-        projectData.topics?.some(
-            (topic) => topic === 'coursework' || topic === 'exercise'
-        )
-    ) {
-        return 'Coursework / Exercise';
-    } else if (projectData.topics?.some((topic) => topic === 'professional')) {
-        return 'Professional';
-    } else {
-        return 'Personal';
-    }
-};
-
 const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
     return (
         <section id="ProjectDetail">
             <nav id="project-detail-nav">
                 {/* Putting the onClick handler on the div because
                     the padding on the button wasn't triggering to onClick event.
-                    This is a workaround to make the button padding clickable. 
+                    This is a workaround to make the button padding clickable.
                 */}
                 <div onClick={handleClose}>
                     <button
