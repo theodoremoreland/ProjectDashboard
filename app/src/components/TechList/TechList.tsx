@@ -89,7 +89,7 @@ const TechList = (): ReactElement => {
 
     return (
         <ul id="tech-list">
-            <h2>Filter Projects</h2>
+            <h2>Filter projects</h2>
             <p className="tech-category">Competencies</p>
             {topicsCount && generateListItems(topicsCount.competencies)}
             <p className="tech-category">Languages</p>
