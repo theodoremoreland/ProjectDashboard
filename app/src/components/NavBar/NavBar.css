@@ -27,7 +27,7 @@
         rgba(0, 0, 0, 0.21) 0px 10px 15px -3px,
         rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
     color: var(--primary-font-color);
-    background-color: var(--background-color);
+    background-color: var(--experimental-color);
 
     a {
         text-decoration: none;
@@ -39,7 +39,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 0.2em;
+        gap: 5px;
         font-family: custom-regular;
     }
 
