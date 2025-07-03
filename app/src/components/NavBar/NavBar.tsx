@@ -47,6 +47,7 @@ const NavBar = ({
                     onClick={() => setShowAnalytics(true)}
                 >
                     <QueryStatsIcon className="query_stats icon" />
+                    <span>Analytics</span>
                 </li>
                 <a
                     href="https://github.com/theodoremoreland"
@@ -55,6 +56,7 @@ const NavBar = ({
                 >
                     <li id="github-nav" title="My GitHub" role="presentation">
                         <GitHubIcon id="github-icon" className="github icon" />
+                        <span>My GitHub</span>
                     </li>
                 </a>
                 <li
@@ -64,6 +66,7 @@ const NavBar = ({
                     onClick={() => setShowOverviewModal(true)}
                 >
                     <InfoIcon className="info icon" />
+                    <span>Overview</span>
                 </li>
             </ul>
             <IconButton
