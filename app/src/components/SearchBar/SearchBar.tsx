@@ -94,7 +94,7 @@ const SearchBar = (): ReactElement => {
                     ref={inputRef}
                     id="search"
                     type="text"
-                    placeholder="Search by GitHub topic or project name"
+                    placeholder="Find GitHub projects by topic or name (e.g. dashboard, mui, responsive)"
                     autoComplete="off"
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
