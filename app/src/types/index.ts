@@ -1,4 +1,5 @@
 export interface RepoData {
+    id: number;
     name: string;
     url: string;
     desc: string;
