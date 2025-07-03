@@ -2,7 +2,7 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px 10px;
+    gap: 30px 30px;
     overflow-y: scroll;
     flex-grow: 1;
 }
