@@ -1,6 +1,10 @@
 .project-card {
     position: relative;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     width: 100%;
     aspect-ratio: 4/3;
     background-color: #3d485300;
@@ -11,6 +15,7 @@
         rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     border: 1px solid var(--border-color);
     border-radius: 4px !important;
+    padding: 25px;
     color: var(--primary-font-color);
     opacity: 1;
     transition: opacity 0.5s;
@@ -168,11 +173,35 @@
 .project-image {
     width: 100%;
     height: 100%;
+    border-radius: 4px;
     object-fit: fill;
     opacity: 0;
     transition: opacity 0.5s;
 
     &.loaded {
         opacity: 1;
+    }
+}
+
+.project-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+
+    .project-pill {
+        font-family: custom-regular;
+        font-size: 0.8em;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: var(--secondary-font-color);
+        color: var(--primary-font-color);
+    }
+
+    p {
+        font-family: custom-regular;
+        line-height: 1.2;
     }
 }

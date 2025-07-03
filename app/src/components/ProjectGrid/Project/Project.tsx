@@ -4,6 +4,9 @@ import { ReactElement, SetStateAction, Dispatch } from 'react';
 // Third party
 import { useInView } from 'react-intersection-observer';
 
+// Custom
+import getProjectContext from '../../../utils/getProjectContext';
+
 // Types
 import { TaggedRepoData } from '../../../types';
 
@@ -121,6 +124,12 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                     }
                 }}
             />
+            <div className="project-description">
+                <span className="project-pill">
+                    {getProjectContext(projectData)}
+                </span>
+                <p>{projectData.desc.slice(0, 75)}...</p>
+            </div>
             {inView && (
                 <div className="project-overlay">
                     <div id="content">
@@ -147,7 +156,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                                     )}
                                 {/* Putting the onClick handler on the li because
                     the padding on the button wasn't triggering to onClick event.
-                    This is a workaround to make the button padding clickable. 
+                    This is a workaround to make the button padding clickable.
                 */}
                                 <li
                                     onClick={() =>
