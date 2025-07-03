@@ -239,7 +239,7 @@ main {
         justify-content: flex-start;
         align-items: center;
         gap: 30px;
-        width: 85%;
+        width: 90%;
         margin-top: 30px;
     }
 }
@@ -276,6 +276,7 @@ main {
     min-width: 14ch;
     padding: 6px 8px;
     border: 1px solid var(--primary-highlight-color);
+    border-radius: 4px;
     background-color: var(--primary-color);
 }
 
