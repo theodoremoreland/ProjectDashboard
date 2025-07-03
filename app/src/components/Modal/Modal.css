@@ -21,18 +21,13 @@
         width: auto;
         max-width: 92%;
         height: clamp(380px, 72%, 750px);
-        padding: 1em 1.25em;
+        padding: 15px 30px;
         border: 1px solid var(--border-color);
         border-radius: 5px;
         margin-top: 10vh;
         color: var(--primary-font-color);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        background-color: var(--primary-color);
-        background: radial-gradient(
-            circle farthest-corner at top left,
-            var(--primary-color) 3%,
-            var(--secondary-color) 70%
-        );
+        background-color: var(--background-color);
         overflow-x: hidden;
         overflow-y: auto;
 
