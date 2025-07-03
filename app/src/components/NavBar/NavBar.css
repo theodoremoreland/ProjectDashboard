@@ -41,6 +41,7 @@
         align-items: center;
         gap: 5px;
         font-family: custom-regular;
+        font-size: 0.9em;
     }
 
     #github-icon,
