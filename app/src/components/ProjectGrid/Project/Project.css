@@ -93,8 +93,8 @@
     );
     transition: opacity 0.5s;
     transform: skew(-25deg);
-    -webkit-animation: shine 6s infinite;
-    animation: shine 6s infinite;
+    -webkit-animation: shine 15s infinite;
+    animation: shine 15s infinite;
     pointer-events: none;
 }
 
@@ -120,22 +120,24 @@
 
 @-webkit-keyframes shine {
     0%,
-    40% {
+    4% {
         left: -125%;
     }
-
-    60%,
+    20% {
+        left: 125%;
+    }
     100% {
         left: 125%;
     }
 }
 @keyframes shine {
     0%,
-    40% {
+    4% {
         left: -125%;
     }
-
-    60%,
+    20% {
+        left: 125%;
+    }
     100% {
         left: 125%;
     }
