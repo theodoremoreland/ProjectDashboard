@@ -12,7 +12,7 @@
     background-color: rgba(0, 0, 0, 0.7);
 
     .custom-modal {
-        z-index: 200;
+        z-index: 101;
         position: relative;
         display: flex;
         flex-direction: column;
