@@ -6,9 +6,13 @@ import TechList from '../TechList/TechList';
 // Styles
 import './Sidebar.css';
 
-const Sidebar = (): ReactElement => {
+interface SidebarProps {
+    sidebarRef?: (node?: Element | null) => void;
+}
+
+const Sidebar = ({ sidebarRef }: SidebarProps): ReactElement => {
     return (
-        <aside id="sidebar">
+        <aside id="sidebar" ref={sidebarRef}>
             <TechList />
         </aside>
     );
