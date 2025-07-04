@@ -9,6 +9,7 @@
 }
 
 #search-bar {
+    z-index: 6;
     position: relative;
     width: 50%;
 
@@ -120,7 +121,7 @@
         }
 
         img {
-            width: 65%;
+            width: 40%;
             aspect-ratio: 4/3;
         }
 
