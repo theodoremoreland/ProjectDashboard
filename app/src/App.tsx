@@ -8,6 +8,9 @@ import {
     ReactElement,
 } from 'react';
 
+// Third party
+import { useInView } from 'react-intersection-observer';
+
 // Context
 import { ProjectsContext } from './contexts/ProjectsContext';
 
@@ -21,14 +24,21 @@ import ProjectGrid from './components/ProjectGrid/ProjectGrid';
 import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
 
+// Images
+import ArrowUpwardIcon from './images/icons/arrow_upward.svg?react';
+
 // Custom Styles
 import './App.css';
 
 const App = (): ReactElement => {
+    const { ref: sidebarRef, inView: isSidebarInView } = useInView({
+        threshold: 0.3, // 30% of the sidebar must be in view
+    });
     const { repos, isError, selectedProject, setSelectedProject } =
         useContext(ProjectsContext);
     const titleCardRef = useRef<HTMLElement>(null);
     const intervalRef = useRef<number | undefined>(undefined);
+    const appContentContainerRef = useRef<HTMLDivElement>(null);
     const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
     const [showAnalytics, setShowAnalytics] = useState<boolean>(false);
     const [showOverviewModal, setShowOverviewModal] = useState<boolean>(false);
@@ -37,6 +47,17 @@ const App = (): ReactElement => {
         []
     );
     const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
+    const scrollToTopOfAppContent = useCallback(() => {
+        const appContentContainer: HTMLDivElement | null =
+            appContentContainerRef.current;
+
+        if (appContentContainer) {
+            appContentContainer.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+    }, []);
 
     useEffect(() => {
         if (isError) {
@@ -96,12 +117,12 @@ const App = (): ReactElement => {
                     setShowAnalytics={setShowAnalytics}
                     setShowOverviewModal={setShowOverviewModal}
                 />
-                <div id="app-content">
+                <div id="app-content" ref={appContentContainerRef}>
                     <div className="row">
                         <SearchBar />
                     </div>
                     <div className="row">
-                        <Sidebar />
+                        <Sidebar sidebarRef={sidebarRef} />
                         {repos && (
                             <ProjectGrid
                                 projects={repos}
@@ -126,6 +147,19 @@ const App = (): ReactElement => {
                             />
                         )}
                     </div>
+                    {repos && repos.length > 0 && !isSidebarInView && (
+                        <div id="scroll-to-top-container" className="row">
+                            <button
+                                title="Scroll to top"
+                                aria-label="Scroll to top"
+                                type="button"
+                                className="scroll-to-top"
+                                onClick={scrollToTopOfAppContent}
+                            >
+                                <ArrowUpwardIcon className="icon" />
+                            </button>
+                        </div>
+                    )}
                 </div>
             </main>
         </>
