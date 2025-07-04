@@ -45,9 +45,9 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                 <div id="info-container">
                     <h1>{projectData.name}</h1>
                     <p>
-                        {projectData.name !== 'ProjectList'
-                            ? projectData.desc
-                            : `You are currently viewing this project.`}
+                        {projectData.name === 'ProjectList'
+                            ? `${projectData.desc} You are currently viewing this project!`
+                            : projectData.desc}
                     </p>
                     <table id="metadata">
                         <tbody>
