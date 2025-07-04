@@ -94,7 +94,9 @@ const SearchBar = (): ReactElement => {
                     ref={inputRef}
                     id="search"
                     type="text"
-                    placeholder="Find GitHub projects by topic or name (e.g. dashboard, mui, responsive)"
+                    aria-label="Search GitHub projects"
+                    // TODO: consider supporting comma delineated / multiple word search
+                    placeholder="Find GitHub projects by topic or name (e.g. dashboard, mui, or responsive)"
                     autoComplete="off"
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
