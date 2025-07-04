@@ -32,7 +32,7 @@ import './App.css';
 
 const App = (): ReactElement => {
     const { ref: sidebarRef, inView: isSidebarInView } = useInView({
-        threshold: 0.3, // 30% of the sidebar must be in view
+        threshold: 0.35, // 35% of the sidebar must be in view
     });
     const { repos, isError, selectedProject, setSelectedProject } =
         useContext(ProjectsContext);
