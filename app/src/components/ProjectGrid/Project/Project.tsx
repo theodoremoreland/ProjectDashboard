@@ -125,9 +125,12 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                 }}
             />
             <div className="project-description">
-                <span className="project-pill">
-                    {getProjectContext(projectData)}
-                </span>
+                <div className="row">
+                    <span className="project-pill">
+                        {getProjectContext(projectData)}
+                    </span>
+                    <span className="view-count">23k views</span>
+                </div>
                 <p>{projectData.desc.slice(0, 75)}...</p>
             </div>
             {inView && (

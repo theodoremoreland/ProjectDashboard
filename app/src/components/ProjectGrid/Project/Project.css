@@ -192,6 +192,14 @@
     gap: 15px;
     width: 100%;
 
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+    }
+
     .project-pill {
         font-family: custom-regular;
         font-size: 0.8em;
@@ -199,6 +207,13 @@
         border-radius: 10px;
         background-color: var(--secondary-font-color);
         color: var(--primary-font-color);
+    }
+
+    .view-count {
+        font-family: custom-regular;
+        font-size: 0.8em;
+        color: var(--primary-font-color);
+        opacity: 0.7;
     }
 
     p {
