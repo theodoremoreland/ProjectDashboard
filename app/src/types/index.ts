@@ -23,3 +23,10 @@ export interface TopicCounts {
     languages: { [key: string]: number };
     tools: { [key: string]: number };
 }
+
+export interface ViewCount {
+    id: number;
+    name: string;
+    demo: number;
+    github: number;
+}
