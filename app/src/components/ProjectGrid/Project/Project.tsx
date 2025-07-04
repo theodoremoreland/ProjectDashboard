@@ -7,6 +7,9 @@ import { useInView } from 'react-intersection-observer';
 // Custom
 import getProjectContext from '../../../utils/getProjectContext';
 
+// Components
+import DevsChoiceBadge from '../../DevsChoiceBadge/DevsChoiceBadge';
+
 // Types
 import { TaggedRepoData } from '../../../types';
 
@@ -103,6 +106,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                 projectData.isFeatured ? 'featured' : 'not-featured'
             }`}
         >
+            <DevsChoiceBadge />
             <img
                 className="project-image"
                 onLoad={(e) => {
