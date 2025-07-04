@@ -2,7 +2,7 @@
 import { ReactElement } from 'react';
 
 // Images
-import WorkSpacePremiumIcon from '../../images/icons/workspace_premium.svg?react';
+import ThumbUpIcon from '../../images/icons/thumb_up.svg?react';
 
 // Styles
 import './DevsChoiceBadge.css';
@@ -11,7 +11,7 @@ const DevsChoiceBadge = (): ReactElement => {
     return (
         <div className="DevsChoiceBadge">
             <span>Dev's</span>
-            <WorkSpacePremiumIcon className="icon" />
+            <ThumbUpIcon className="icon" />
             <span>Choice</span>
         </div>
     );

@@ -6,7 +6,7 @@
     gap: 5px;
     width: 70px;
     height: 70px;
-    padding: 3px;
+    padding: 5px;
     border-radius: 800%;
     background-color: var(--background-color);
     /* box-shadow:
@@ -20,5 +20,13 @@
 
     span {
         display: block;
+    }
+
+    .icon {
+        height: 30%;
+        float: left;
+        border-radius: 50%;
+        shape-outside: circle();
+        clip-path: circle();
     }
 }
