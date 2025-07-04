@@ -82,5 +82,5 @@ export const getRepoData = async (): Promise<RepoData[]> => {
         []
     );
 
-    return repoDataArray.filter((repo) => repo.name !== 'ProjectList');
+    return repoDataArray;
 };
