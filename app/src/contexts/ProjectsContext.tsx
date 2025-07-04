@@ -18,7 +18,7 @@ import { defaultOrder } from './ProjectsContext.controller';
 // Custom
 import { getRepoData } from '../http/getRepoData';
 import extractErrorMessage from '../utils/extractErrorMessage';
-import backupData from '../data/backup-data.json'; // TODO need to update this file with new data (remove private repos and ensure IDs are present)
+import backupData from '../data/backup-data.json';
 
 // Types
 import { RepoData, TaggedRepoData } from '../types';
@@ -95,7 +95,7 @@ const ProjectsContextProvider = ({
 
     useEffect(() => {
         if (data) {
-            const orderedProjects = defaultOrder(data);
+            const orderedProjects: RepoData[] = defaultOrder(data);
 
             setRepos(orderedProjects);
         }
