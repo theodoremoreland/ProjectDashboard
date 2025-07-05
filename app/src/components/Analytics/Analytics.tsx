@@ -266,6 +266,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                         highlighted: 'item',
                                     },
                                     innerRadius: pieChartInnerRadius,
+                                    paddingAngle: 2,
+                                    cornerRadius: 4,
                                     faded: {
                                         innerRadius: 30,
                                         additionalRadius: -30,
@@ -291,6 +293,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                         highlighted: 'item',
                                     },
                                     innerRadius: pieChartInnerRadius,
+                                    paddingAngle: 2,
+                                    cornerRadius: 4,
                                     faded: {
                                         innerRadius: 30,
                                         additionalRadius: -30,
