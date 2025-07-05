@@ -8,25 +8,19 @@
     height: 70px;
     padding: 5px;
     border-radius: 800%;
-    background-color: var(--background-color);
-    /* box-shadow:
-            rgba(0, 0, 0, 0.4) 0px 2px 4px,
-            rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-            rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+    background-color: var(--tertiary-highlight-color);
     color: var(--primary-font-color);
     transform: rotate(25deg);
     font-family: custom-regular;
-    font-size: 10px;
+    font-size: 11px;
 
     span {
         display: block;
     }
 
     .icon {
-        height: 30%;
-        float: left;
-        border-radius: 50%;
-        shape-outside: circle();
-        clip-path: circle();
+        height: 12px;
+        width: 12px;
+        fill: var(--primary-font-color);
     }
 }
