@@ -8,9 +8,6 @@ import {
     ReactElement,
 } from 'react';
 
-// Third party
-import { useInView } from 'react-intersection-observer';
-
 // Context
 import { ProjectsContext } from './contexts/ProjectsContext';
 
@@ -31,22 +28,30 @@ import ArrowUpwardIcon from './images/icons/arrow_upward.svg?react';
 import './App.css';
 
 const App = (): ReactElement => {
-    const { ref: sidebarRef, inView: isSidebarInView } = useInView({
-        threshold: 0.35, // 35% of the sidebar must be in view
-    });
+    // Context
     const { repos, isError, selectedProject, setSelectedProject } =
         useContext(ProjectsContext);
+
+    // Refs
     const titleCardRef = useRef<HTMLElement>(null);
     const intervalRef = useRef<number | undefined>(undefined);
     const appContentContainerRef = useRef<HTMLDivElement>(null);
+
+    // State (boolean)
+    const [showScrollToTopButton, setShowScrollToTopButton] =
+        useState<boolean>(false);
     const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
     const [showAnalytics, setShowAnalytics] = useState<boolean>(false);
     const [showOverviewModal, setShowOverviewModal] = useState<boolean>(false);
+
+    // Handlers
     const handleCloseErrorModal = useCallback(
         () => setShowErrorModal(false),
         []
     );
     const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
+
+    // Other
     const scrollToTopOfAppContent = useCallback(() => {
         const appContentContainer: HTMLDivElement | null =
             appContentContainerRef.current;
@@ -56,6 +61,25 @@ const App = (): ReactElement => {
                 top: 0,
                 behavior: 'smooth',
             });
+        }
+    }, []);
+
+    const onAppContentContainerScroll = useCallback(() => {
+        const appContentContainer: HTMLDivElement | null =
+            appContentContainerRef.current;
+
+        if (appContentContainer) {
+            const scrollTop = appContentContainer.scrollTop;
+            const scrollHeight =
+                appContentContainer.scrollHeight -
+                appContentContainer.clientHeight;
+            const scrolledRatio = scrollTop / scrollHeight;
+
+            if (scrolledRatio > 0.3) {
+                setShowScrollToTopButton(true);
+            } else {
+                setShowScrollToTopButton(false);
+            }
         }
     }, []);
 
@@ -117,12 +141,16 @@ const App = (): ReactElement => {
                     setShowAnalytics={setShowAnalytics}
                     setShowOverviewModal={setShowOverviewModal}
                 />
-                <div id="app-content" ref={appContentContainerRef}>
+                <div
+                    id="app-content"
+                    ref={appContentContainerRef}
+                    onScroll={onAppContentContainerScroll}
+                >
                     <div className="row">
                         <SearchBar />
                     </div>
                     <div className="row">
-                        <Sidebar sidebarRef={sidebarRef} />
+                        <Sidebar />
                         {repos && (
                             <ProjectGrid
                                 projects={repos}
@@ -153,7 +181,7 @@ const App = (): ReactElement => {
                         button in the area of the project grid and thus potentially obscuring the projects or being hard
                         to see, it would potentially overlap with the sidebar.
                     */}
-                    {repos && repos.length > 0 && !isSidebarInView && (
+                    {showScrollToTopButton && (
                         <div id="scroll-to-top-container" className="row">
                             <button
                                 title="Scroll to top"
