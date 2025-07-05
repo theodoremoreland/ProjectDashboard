@@ -10,7 +10,6 @@ import {
 // MUI
 import { PieChart } from '@mui/x-charts/PieChart';
 import { BarChart } from '@mui/x-charts/BarChart';
-import { mangoFusionPalette } from '@mui/x-charts/colorPalettes';
 import { PieChartSlotProps } from '@mui/x-charts/PieChart';
 
 // Controller
@@ -39,6 +38,21 @@ import CodeIcon from '../../images/icons/code.svg?react';
 
 // Styles
 import './Analytics.css';
+
+const colors: string[] = [
+    'rgb(23, 58, 94)', // deep navy blue
+    'rgb(27, 119, 201)', // vivid azure
+    'rgb(0, 163, 160)', // strong teal
+    'rgb(0, 176, 77)', // vibrant emerald
+
+    'rgb(0, 102, 204)', // cobalt blue
+    'rgb(70, 130, 180)', // steel blue
+    'rgb(0, 191, 255)', // deep sky blue
+    'rgb(100, 149, 237)', // cornflower blue
+    'rgb(65, 105, 225)', // royal blue
+
+    'rgb(60, 179, 113)', // medium sea green
+];
 
 interface Props {
     projects: TaggedRepoData[];
@@ -255,7 +269,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                         <h2 className="pie-chart-title">Projects by context</h2>
                         <PieChart
                             title="Projects by context"
-                            colors={mangoFusionPalette}
+                            colors={colors}
                             slotProps={pieChartSlotProps}
                             margin={pieChartMargins}
                             series={[
@@ -266,7 +280,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                         highlighted: 'item',
                                     },
                                     innerRadius: pieChartInnerRadius,
-                                    paddingAngle: 2,
+                                    paddingAngle: 4,
                                     cornerRadius: 4,
                                     faded: {
                                         innerRadius: 30,
@@ -282,7 +296,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                             Academic projects by course
                         </h2>
                         <PieChart
-                            colors={mangoFusionPalette}
+                            colors={colors}
                             slotProps={pieChartSlotProps}
                             margin={pieChartMargins}
                             series={[
@@ -293,7 +307,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                         highlighted: 'item',
                                     },
                                     innerRadius: pieChartInnerRadius,
-                                    paddingAngle: 2,
+                                    paddingAngle: 4,
                                     cornerRadius: 4,
                                     faded: {
                                         innerRadius: 30,
@@ -318,7 +332,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                     min: technologies[technologies.length - 1]
                                         .count,
                                     max: technologies[0].count,
-                                    color: ['#00403e', '#006dda'],
+                                    color: [colors[2], colors[0]],
                                 },
                             },
                         ]}
