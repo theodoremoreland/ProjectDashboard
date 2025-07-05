@@ -310,7 +310,18 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                         Top 10 technologies used
                     </h2>
                     <BarChart
-                        colors={mangoFusionPalette}
+                        borderRadius={4}
+                        yAxis={[
+                            {
+                                colorMap: {
+                                    type: 'continuous',
+                                    min: technologies[technologies.length - 1]
+                                        .count,
+                                    max: technologies[0].count,
+                                    color: ['#00403e', '#006dda'],
+                                },
+                            },
+                        ]}
                         dataset={technologies}
                         series={[
                             {
