@@ -70,6 +70,9 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
     >(undefined);
     const [pieChartSlotProps, setPieChartSlotProps] =
         useState<PieChartSlotProps>({});
+    const [pieChartInnerRadius, setPieChartInnerRadius] = useState<
+        number | undefined
+    >(undefined);
     const [isScrollReady, setIsScrollReady] = useState<boolean>(false);
 
     const handleResize = useCallback(() => {
@@ -82,6 +85,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 0, bottom: 110, left: 0 };
 
+            setPieChartInnerRadius(25);
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         } else if (window.innerWidth < 769) {
@@ -93,6 +97,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 0, bottom: 50, left: 0 };
 
+            setPieChartInnerRadius(50);
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         } else if (window.innerWidth <= 1150) {
@@ -104,6 +109,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 100, bottom: 0, left: 0 };
 
+            setPieChartInnerRadius(60);
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         } else {
@@ -115,6 +121,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 200, bottom: 0, left: 0 };
 
+            setPieChartInnerRadius(70);
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         }
@@ -186,7 +193,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             <nav id="analytics-nav">
                 {/* Putting the onClick handler on the div because
                     the padding on the button wasn't triggering to onClick event.
-                    This is a workaround to make the button padding clickable. 
+                    This is a workaround to make the button padding clickable.
                 */}
                 <div onClick={handleClose}>
                     <button
@@ -258,6 +265,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                         faded: 'global',
                                         highlighted: 'item',
                                     },
+                                    innerRadius: pieChartInnerRadius,
                                     faded: {
                                         innerRadius: 30,
                                         additionalRadius: -30,
@@ -282,6 +290,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                         faded: 'global',
                                         highlighted: 'item',
                                     },
+                                    innerRadius: pieChartInnerRadius,
                                     faded: {
                                         innerRadius: 30,
                                         additionalRadius: -30,
