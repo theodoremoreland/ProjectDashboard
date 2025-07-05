@@ -75,7 +75,7 @@ const App = (): ReactElement => {
                 appContentContainer.clientHeight;
             const scrolledRatio = scrollTop / scrollHeight;
 
-            if (scrolledRatio > 0.3) {
+            if (scrolledRatio > 0.25) {
                 setShowScrollToTopButton(true);
             } else {
                 setShowScrollToTopButton(false);
