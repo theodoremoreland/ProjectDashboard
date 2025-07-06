@@ -382,9 +382,21 @@ main {
     border-radius: 1em;
     color: var(--primary-font-color);
     text-wrap: nowrap;
-    font-size: 0.85em;
+    font-size: 0.8em;
     background-color: var(--secondary-font-color);
     box-shadow:
         rgba(0, 0, 0, 0.21) 0px 10px 15px -3px,
         rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
+}
+
+@media screen and (min-width: 801px) {
+    .topic {
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .topic {
+        font-size: 0.95em;
+    }
 }
