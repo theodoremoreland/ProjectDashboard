@@ -85,6 +85,16 @@
             justify-content: center !important;
             align-items: center !important;
             gap: var(--analytics-gap);
+            font-family: custom-bold;
+            font-size: 1.2em;
+            background: -webkit-linear-gradient(
+                45deg,
+                rgb(0, 163, 160) 50%,
+                rgb(27, 119, 201)
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .icon {

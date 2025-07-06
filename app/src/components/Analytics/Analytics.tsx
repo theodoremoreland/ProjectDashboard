@@ -40,18 +40,16 @@ import CodeIcon from '../../images/icons/code.svg?react';
 import './Analytics.css';
 
 const colors: string[] = [
-    'rgb(23, 58, 94)', // deep navy blue
-    'rgb(27, 119, 201)', // vivid azure
-    'rgb(0, 163, 160)', // strong teal
-    'rgb(0, 176, 77)', // vibrant emerald
-
-    'rgb(0, 102, 204)', // cobalt blue
-    'rgb(70, 130, 180)', // steel blue
-    'rgb(0, 191, 255)', // deep sky blue
-    'rgb(100, 149, 237)', // cornflower blue
-    'rgb(65, 105, 225)', // royal blue
-
-    'rgb(60, 179, 113)', // medium sea green
+    'rgb(23, 58, 94)',
+    'rgb(27, 119, 201)',
+    'rgb(0, 163, 160)',
+    'rgb(39, 39, 39)',
+    'rgb(55, 65, 75)',
+    'rgb(70, 130, 180)',
+    'rgb(0, 191, 255)',
+    'rgb(100, 149, 237)',
+    'rgb(65, 105, 225)',
+    'rgb(60, 179, 113)',
 ];
 
 interface Props {
