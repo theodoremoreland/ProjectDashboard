@@ -39,7 +39,7 @@ import CodeIcon from '../../images/icons/code.svg?react';
 // Styles
 import './Analytics.css';
 
-const colors: string[] = [
+const COLORS: string[] = [
     'rgb(23, 58, 94)',
     'rgb(27, 119, 201)',
     'rgb(0, 163, 160)',
@@ -58,6 +58,7 @@ interface Props {
 }
 
 const Analytics = ({ projects, handleClose }: Props): ReactElement => {
+    // Get analytics data
     const courseCounts = useMemo(() => getCourseCounts(projects), [projects]);
     const contextCounts = useMemo(() => getContextCounts(projects), [projects]);
     const technologies = useMemo(
@@ -66,17 +67,21 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
     );
     const topics = useMemo(() => getTopics(projects), [projects]);
 
+    // KPI Refs
     const kpiIncrementIntervalRef = useRef<number | undefined>(undefined);
-
     const totalFeaturesRef = useRef<number>(getTotalFeatures(projects));
     const totalDeploymentsRef = useRef<number>(getTotalDeployments(projects));
     const totalStarsRef = useRef<number>(getTotalStars(projects));
     const uniqueTopicsCountRef = useRef<number>(getTotalTopics(projects));
 
+    // KPI States
     const [totalDeployments, setTotalDeployments] = useState<number>(0);
     const [totalFeatures, setTotalFeatures] = useState<number>(0);
     const [totalStars, setTotalStars] = useState<number>(0);
     const [uniqueTopicsCount, setUniqueTopicsCount] = useState<number>(0);
+
+    // Pie chart states
+    // These states are used to dynamically adjust the pie chart's appearance based on screen size
     const [pieChartMargins, setPieChartMargins] = useState<
         { top: number; right: number; bottom: number; left: number } | undefined
     >(undefined);
@@ -85,6 +90,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
     const [pieChartInnerRadius, setPieChartInnerRadius] = useState<
         number | undefined
     >(undefined);
+
+    // State to control when the infinite scroller is ready to scroll
     const [isScrollReady, setIsScrollReady] = useState<boolean>(false);
 
     const handleResize = useCallback(() => {
@@ -277,7 +284,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                         <h2 className="pie-chart-title">Projects by context</h2>
                         <PieChart
                             title="Projects by context"
-                            colors={colors}
+                            colors={COLORS}
                             slotProps={pieChartSlotProps}
                             margin={pieChartMargins}
                             series={[
@@ -304,7 +311,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                             Academic projects by course
                         </h2>
                         <PieChart
-                            colors={colors}
+                            colors={COLORS}
                             slotProps={pieChartSlotProps}
                             margin={pieChartMargins}
                             series={[
@@ -340,7 +347,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                     min: technologies[technologies.length - 1]
                                         .count,
                                     max: technologies[0].count,
-                                    color: [colors[2], colors[0]],
+                                    color: [COLORS[2], COLORS[0]],
                                 },
                             },
                         ]}
