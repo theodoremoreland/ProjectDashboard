@@ -133,7 +133,17 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 200, bottom: 0, left: 0 };
 
-            setPieChartInnerRadius(70);
+            // Quick hack to adjust the inner radius based on screen width
+            // Nesting even more if statements within the else block is not ideal,
+            // but I don't want to separate logic for the inner radius at this moment.
+            if (window.innerWidth >= 1600) {
+                setPieChartInnerRadius(120);
+            } else if (window.innerWidth >= 1300) {
+                setPieChartInnerRadius(90);
+            } else {
+                setPieChartInnerRadius(70);
+            }
+
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         }
