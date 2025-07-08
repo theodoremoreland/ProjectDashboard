@@ -21,6 +21,7 @@ import { ProjectsContext } from '../../contexts/ProjectsContext';
 import { TopicCounts } from '../../types';
 
 // Images
+import KeyboardControlKey from '../../images/icons/keyboard_control_key.svg?react';
 import CheckIcon from '../../images/icons/check.svg?react';
 
 // Styles
@@ -30,6 +31,13 @@ const TechList = (): ReactElement => {
     const { repos, updateFeaturedTopics, featuredTopics } =
         useContext(ProjectsContext);
     const [topicsCount, setTopicsCount] = useState<TopicCounts | null>(null);
+    const [areCompetenciesVisible, setAreCompetenciesVisible] =
+        useState<boolean>(true);
+    const [areLanguagesVisible, setAreLanguagesVisible] =
+        useState<boolean>(true);
+    const [areFrameworksVisible, setAreFrameworksVisible] =
+        useState<boolean>(true);
+    const [areToolsVisible, setAreToolsVisible] = useState<boolean>(true);
 
     const generateListItems = useCallback(
         (topics: { [key: string]: number }) => {
@@ -102,14 +110,70 @@ const TechList = (): ReactElement => {
 
     return (
         <ul id="tech-list">
-            <h2>Filter projects</h2>
-            <p className="tech-category">Competencies</p>
+            <h2 className="header">Filter projects</h2>
+            <div className="tech-category-container">
+                <p className="tech-category">Competencies</p>
+                <button
+                    className="toggle-visibility-button"
+                    onClick={() => setAreCompetenciesVisible((prev) => !prev)}
+                    aria-label={
+                        areCompetenciesVisible
+                            ? 'Hide competencies'
+                            : 'Show competencies'
+                    }
+                >
+                    <KeyboardControlKey
+                        className={`toggle-icon ${areCompetenciesVisible ? '' : 'rotated'}`}
+                    />
+                </button>
+            </div>
             {topicsCount && generateListItems(topicsCount.competencies)}
-            <p className="tech-category">Languages</p>
+            <div className="tech-category-container">
+                <p className="tech-category">Languages</p>
+                <button
+                    className="toggle-visibility-button"
+                    onClick={() => setAreLanguagesVisible((prev) => !prev)}
+                    aria-label={
+                        areLanguagesVisible
+                            ? 'Hide languages'
+                            : 'Show languages'
+                    }
+                >
+                    <KeyboardControlKey
+                        className={`toggle-icon ${areLanguagesVisible ? '' : 'rotated'}`}
+                    />
+                </button>
+            </div>
             {topicsCount && generateListItems(topicsCount.languages)}
-            <p className="tech-category">Frameworks</p>
+            <div className="tech-category-container">
+                <p className="tech-category">Frameworks</p>
+                <button
+                    className="toggle-visibility-button"
+                    onClick={() => setAreFrameworksVisible((prev) => !prev)}
+                    aria-label={
+                        areFrameworksVisible
+                            ? 'Hide frameworks'
+                            : 'Show frameworks'
+                    }
+                >
+                    <KeyboardControlKey
+                        className={`toggle-icon ${areFrameworksVisible ? '' : 'rotated'}`}
+                    />
+                </button>
+            </div>
             {topicsCount && generateListItems(topicsCount.frameworks)}
-            <p className="tech-category">Tools</p>
+            <div className="tech-category-container">
+                <p className="tech-category">Tools</p>
+                <button
+                    className="toggle-visibility-button"
+                    onClick={() => setAreToolsVisible((prev) => !prev)}
+                    aria-label={areToolsVisible ? 'Hide tools' : 'Show tools'}
+                >
+                    <KeyboardControlKey
+                        className={`toggle-icon ${areToolsVisible ? '' : 'rotated'}`}
+                    />
+                </button>
+            </div>
             {topicsCount && generateListItems(topicsCount.tools)}
         </ul>
     );

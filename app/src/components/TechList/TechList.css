@@ -11,22 +11,52 @@
     overflow-y: auto;
     overflow-x: hidden;
     transition: opacity 0.2s linear;
+
+    .header {
+        margin: 10px 0;
+        font-family: custom-bold;
+    }
 }
 
-#tech-list > h2 {
-    margin: 10px 0 0 0;
-    padding-left: 0.3em;
-    font-family: custom-bold;
+#tech-list .tech-category-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0;
+    border-bottom: 1px solid var(--border-color);
+
+    button {
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .toggle-icon {
+        fill: var(--primary-font-color);
+        transition: transform 0.2s ease-in-out;
+
+        &.rotated {
+            transform: rotate(180deg);
+        }
+    }
 }
 
 #tech-list .tech-category {
     width: 100%;
-    margin: 10px 0;
-    padding: 0.35em 0.3em;
+    padding: 0.35em 0;
     color: var(--primary-font-color);
     font-family: custom-bold;
     font-size: 1.1em;
-    border-bottom: 1px solid var(--border-color);
 }
 
 #tech-list > li {
