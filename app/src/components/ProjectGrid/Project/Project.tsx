@@ -8,6 +8,7 @@ import { useInView } from 'react-intersection-observer';
 import getProjectContext from '../../../utils/getProjectContext';
 import { DevsChoiceProjectNames } from '../../../constants/FeaturedProjects';
 import { renderLanguageIcon } from './Project.controller';
+import useProjectViewTracker from '../../../hooks/useProjectViewTracker';
 
 // Context
 import { ViewCountContext } from '../../../contexts/ViewCountContext/ViewCountContext';
@@ -31,7 +32,7 @@ interface Props {
 
 const Project = ({ projectData, setSelectedProject }: Props) => {
     const { viewCounts, isError, isFetched } = useContext(ViewCountContext);
-    const viewCount: number = useMemo(() => {
+    const viewCount: number | null = useMemo(() => {
         if (viewCounts && viewCounts[projectData.id]) {
             return (
                 viewCounts[projectData.id].github_views +
@@ -39,9 +40,11 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
             );
         }
 
-        return 0;
+        return null;
     }, [viewCounts, projectData.id]);
-
+    const handleLiveDemoClick = useProjectViewTracker(projectData, viewCount, {
+        isDemoView: true,
+    });
     const { ref, inView } = useInView({
         threshold: 0,
     });
@@ -83,7 +86,9 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                         {getProjectContext(projectData)}
                     </span>
                     {isFetched && !isError ? (
-                        <span className="view-count">{viewCount} views</span>
+                        <span className="view-count">
+                            {viewCount ?? 0} views
+                        </span>
                     ) : (
                         <span className="view-count loading">
                             Loading views...
@@ -109,6 +114,9 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                                             rel="noreferrer"
                                             title={`Click to view a live demo of the ${projectData.name} project.`}
                                             className="live-demo-link"
+                                            onClick={
+                                                handleLiveDemoClick.debouncedTrackDemoClick
+                                            }
                                         >
                                             <button className="live-demo">
                                                 Live Demo{' '}
