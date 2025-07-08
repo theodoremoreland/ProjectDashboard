@@ -24,9 +24,10 @@ export interface TopicCounts {
     tools: { [key: string]: number };
 }
 
-export interface ViewCount {
-    id: number;
-    name: string;
-    demo: number;
-    github: number;
-}
+export type ViewCounts = {
+    [project_id: string]: {
+        last_updated: Date;
+        github_views: number;
+        demo_views: number;
+    };
+};
