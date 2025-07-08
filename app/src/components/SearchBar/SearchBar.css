@@ -11,7 +11,13 @@
 #search-bar {
     z-index: 6;
     position: relative;
-    width: 50%;
+    width: 100%;
+
+    @media screen and (min-width: 965px) {
+        & {
+            width: 50%;
+        }
+    }
 
     #search {
         outline: transparent;
