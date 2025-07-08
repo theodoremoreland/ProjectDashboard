@@ -10,6 +10,7 @@
     list-style: none;
     overflow-y: auto;
     overflow-x: hidden;
+    transition: opacity 0.2s linear;
 }
 
 #tech-list > h2 {
