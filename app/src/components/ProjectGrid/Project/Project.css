@@ -150,6 +150,30 @@
     }
 }
 
+@-webkit-keyframes fadeLoop {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeLoop {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .project-name {
     font-family: custom-bold;
     font-style: oblique;
@@ -221,6 +245,12 @@
         font-size: 0.8em;
         color: var(--primary-font-color);
         opacity: 0.7;
+        transition: all 0.5s ease-in-out;
+
+        &.loading {
+            font-size: 0.7em;
+            animation: fadeLoop 2.5s ease-in-out infinite;
+        }
     }
 
     .project-description {
