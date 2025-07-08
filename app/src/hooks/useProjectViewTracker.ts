@@ -27,7 +27,7 @@ const useProjectViewTracker = (
         },
     });
 
-    const trackDemoClick = useCallback(async () => {
+    const handleClick = useCallback(async () => {
         if (viewCount === null) {
             await addProjectMutation.mutateAsync({
                 projectId: String(projectData.id),
@@ -49,12 +49,12 @@ const useProjectViewTracker = (
         view,
     ]);
 
-    const debouncedTrackDemoClick = useMemo(() => {
-        return debounce(trackDemoClick, 300);
-    }, [trackDemoClick]);
+    const debouncedHandleClick = useMemo(() => {
+        return debounce(handleClick, 300);
+    }, [handleClick]);
 
     return {
-        debouncedTrackDemoClick,
+        debouncedHandleClick,
     };
 };
 

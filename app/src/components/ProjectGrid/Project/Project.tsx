@@ -31,7 +31,8 @@ interface Props {
 }
 
 const Project = ({ projectData, setSelectedProject }: Props) => {
-    const { viewCounts, isError, isFetched } = useContext(ViewCountContext);
+    const { viewCounts, isFetched } = useContext(ViewCountContext);
+
     const viewCount: number | null = useMemo(() => {
         if (viewCounts && viewCounts[projectData.id]) {
             return (
@@ -42,9 +43,11 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
 
         return null;
     }, [viewCounts, projectData.id]);
+
     const handleLiveDemoClick = useProjectViewTracker(projectData, viewCount, {
         isDemoView: true,
     });
+
     const { ref, inView } = useInView({
         threshold: 0,
     });
@@ -85,7 +88,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                     <span className="project-pill">
                         {getProjectContext(projectData)}
                     </span>
-                    {isFetched && !isError ? (
+                    {isFetched ? (
                         <span className="view-count">
                             {viewCount ?? 0} views
                         </span>
@@ -115,7 +118,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                                             title={`Click to view a live demo of the ${projectData.name} project.`}
                                             className="live-demo-link"
                                             onClick={
-                                                handleLiveDemoClick.debouncedTrackDemoClick
+                                                handleLiveDemoClick.debouncedHandleClick
                                             }
                                         >
                                             <button className="live-demo">

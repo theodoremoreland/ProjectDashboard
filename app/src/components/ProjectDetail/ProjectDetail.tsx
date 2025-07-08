@@ -1,16 +1,23 @@
-import { ReactElement } from 'react';
+// React
+import { ReactElement, useContext, useMemo } from 'react';
 
+// Custom
+import useProjectViewTracker from '../../hooks/useProjectViewTracker';
 import getProjectContext from '../../utils/getProjectContext';
 
+// Context
+import { ViewCountContext } from '../../contexts/ViewCountContext/ViewCountContext';
+
+// Types
+import { TaggedRepoData } from '../../types';
+
+// Images
 import DeployedCodeIcon from '../../images/icons/deployed-code.svg?react';
 import CodeIcon from '../../images/icons/code.svg?react';
 import StarIcon from '../../images/icons/star.svg?react';
 import EventIcon from '../../images/icons/event.svg?react';
 import EventRepeatIcon from '../../images/icons/event_repeat.svg?react';
 import LandscapeIcon from '../../images/icons/landscape.svg?react';
-
-// Types
-import { TaggedRepoData } from '../../types';
 
 // Custom styles
 import './ProjectDetail.css';
@@ -21,6 +28,26 @@ interface Props {
 }
 
 const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
+    const { viewCounts } = useContext(ViewCountContext);
+
+    const viewCount: number | null = useMemo(() => {
+        if (viewCounts && viewCounts[projectData.id]) {
+            return (
+                viewCounts[projectData.id].github_views +
+                viewCounts[projectData.id].demo_views
+            );
+        }
+
+        return null;
+    }, [viewCounts, projectData.id]);
+
+    const handleLiveDemoClick = useProjectViewTracker(projectData, viewCount, {
+        isDemoView: true,
+    });
+    const handleGitHubClick = useProjectViewTracker(projectData, viewCount, {
+        isGitHubView: true,
+    });
+
     return (
         <section id="ProjectDetail">
             <nav id="project-detail-nav">
@@ -117,6 +144,10 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                             target="_blank"
                                             rel="noreferrer"
                                             title={`Click to view the source code for ${projectData.name}.`}
+                                            onClick={
+                                                handleGitHubClick.debouncedHandleClick
+                                            }
+                                            className="github-link"
                                         >
                                             View on GitHub
                                         </a>
@@ -140,6 +171,9 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                                     rel="noreferrer"
                                                     title={`Click to view a live demo of the ${projectData.name} project.`}
                                                     className="deployment-link"
+                                                    onClick={
+                                                        handleLiveDemoClick.debouncedHandleClick
+                                                    }
                                                 >
                                                     View Live Demo{' '}
                                                     <span className="circle"></span>
