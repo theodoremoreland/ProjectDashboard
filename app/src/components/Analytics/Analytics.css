@@ -1,5 +1,5 @@
 #analytics {
-    --border-radius: 5px;
+    --border-radius: 4px;
 
     z-index: 99;
     position: fixed;
@@ -14,12 +14,7 @@
     height: 100vh;
     padding: 1em 1.25em;
     color: var(--primary-font-color);
-    background-color: var(--primary-color);
-    background: radial-gradient(
-        circle farthest-corner at top left,
-        var(--primary-color) 3%,
-        var(--secondary-color) 100%
-    );
+    background-color: var(--background-color);
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -72,6 +67,7 @@
             align-items: flex-start !important;
             gap: var(--analytics-gap);
             padding: var(--analytics-gap) 1rem;
+            background-color: var(--experimental-color);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
 
@@ -89,6 +85,15 @@
             justify-content: center !important;
             align-items: center !important;
             gap: var(--analytics-gap);
+            font-family: custom-bold;
+            background: -webkit-linear-gradient(
+                45deg,
+                rgb(0, 163, 160) 50%,
+                rgb(27, 119, 201)
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .icon {
@@ -171,6 +176,7 @@
             width: 100%;
             height: calc(50% - (var(--analytics-gap) / 2));
             padding: var(--analytics-gap) 20px;
+            background-color: var(--experimental-color);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
         }
@@ -183,6 +189,7 @@
         height: 100%;
         padding: 1em;
         padding-bottom: 1.2em;
+        background-color: var(--experimental-color);
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
 

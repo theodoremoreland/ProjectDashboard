@@ -1,0 +1,26 @@
+.DevsChoiceBadge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 65px;
+    height: 65px;
+    padding: 5px;
+    border-radius: 800%;
+    background-color: var(--tertiary-highlight-color);
+    color: var(--primary-font-color);
+    transform: rotate(25deg);
+    font-family: custom-regular;
+    font-size: 10px;
+
+    span {
+        display: block;
+    }
+
+    .icon {
+        height: 12px;
+        width: 12px;
+        fill: var(--primary-font-color);
+    }
+}

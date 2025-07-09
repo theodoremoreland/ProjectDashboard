@@ -2,17 +2,17 @@
 
 <img src="/presentation/thumbnail.webp" width="650">
 
-[View the application](https://main.d2wyze0voo0sc5.amplifyapp.com/)
+[View the application](https://project-list.theodoremoreland.dev)
 
 ## Table of contents
 
--   [Overview](#overview)
--   [Context for design](#context-for-design)
--   [Technologies Used](#technologies-used)
--   [Screenshots](#screenshots)
-    -   [Desktop](#desktop)
-    -   [Mobile](#mobile)
-    -   [Older versions](#older-versions)
+- [Overview](#overview)
+- [Context for design](#context-for-design)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+  - [Desktop](#desktop)
+  - [Mobile](#mobile)
+  - [Older versions](#older-versions)
 
 ## Overview
 
@@ -24,8 +24,6 @@ _NOTE: The terms "project" and "repository" are used interchangeably throughout 
 
 Each project is displayed as a thumbnail. Upon hovering over a thumbnail, a thumbnail overlay appears featuring the project's name and a list of icons representing the programming languages used.
 
-<img src="app/src/images/preview.gif" width="350">
-
 Additionally, each thumbnail overlay features a `Learn More` button, that when clicked, will display additional information about the project.
 
 Conditionally, a `Live Demo` button appears if the project is actively hosted on a live server. Clicking the button will open a new tab featuring the web application.
@@ -33,8 +31,6 @@ Conditionally, a `Live Demo` button appears if the project is actively hosted on
 ### Filter
 
 Technologies listed on the left panel can be clicked to filter projects by corresponding technology. The numbers displayed next to each technology represent the number of projects that utilize that technology.
-
-<img src="app/src/images/filter.gif" width="350">
 
 Multiple filters can be applied simultaneously. Any project that does not feature any of the selected technologies will be hidden.
 
@@ -60,16 +56,16 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 ### Technologies Used
 
--   React
--   TypeScript
--   JavaScript
--   HTML
--   CSS
--   Tanstack React Query
--   MUI X Charts
--   react-intersection-observer
--   GitHub API
--   Vite
+- React
+- TypeScript
+- JavaScript
+- HTML
+- CSS
+- Tanstack React Query
+- MUI X Charts
+- react-intersection-observer
+- GitHub API
+- Vite
 
 ## Screenshots
 

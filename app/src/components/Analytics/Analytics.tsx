@@ -10,7 +10,6 @@ import {
 // MUI
 import { PieChart } from '@mui/x-charts/PieChart';
 import { BarChart } from '@mui/x-charts/BarChart';
-import { mangoFusionPalette } from '@mui/x-charts/colorPalettes';
 import { PieChartSlotProps } from '@mui/x-charts/PieChart';
 
 // Controller
@@ -40,12 +39,26 @@ import CodeIcon from '../../images/icons/code.svg?react';
 // Styles
 import './Analytics.css';
 
+const COLORS: string[] = [
+    'rgb(23, 58, 94)',
+    'rgb(27, 119, 201)',
+    'rgb(0, 163, 160)',
+    'rgb(39, 39, 39)',
+    'rgb(55, 65, 75)',
+    'rgb(70, 130, 180)',
+    'rgb(0, 191, 255)',
+    'rgb(100, 149, 237)',
+    'rgb(65, 105, 225)',
+    'rgb(60, 179, 113)',
+];
+
 interface Props {
     projects: TaggedRepoData[];
     handleClose: () => void;
 }
 
 const Analytics = ({ projects, handleClose }: Props): ReactElement => {
+    // Get analytics data
     const courseCounts = useMemo(() => getCourseCounts(projects), [projects]);
     const contextCounts = useMemo(() => getContextCounts(projects), [projects]);
     const technologies = useMemo(
@@ -54,22 +67,31 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
     );
     const topics = useMemo(() => getTopics(projects), [projects]);
 
+    // KPI Refs
     const kpiIncrementIntervalRef = useRef<number | undefined>(undefined);
-
     const totalFeaturesRef = useRef<number>(getTotalFeatures(projects));
     const totalDeploymentsRef = useRef<number>(getTotalDeployments(projects));
     const totalStarsRef = useRef<number>(getTotalStars(projects));
     const uniqueTopicsCountRef = useRef<number>(getTotalTopics(projects));
 
+    // KPI States
     const [totalDeployments, setTotalDeployments] = useState<number>(0);
     const [totalFeatures, setTotalFeatures] = useState<number>(0);
     const [totalStars, setTotalStars] = useState<number>(0);
     const [uniqueTopicsCount, setUniqueTopicsCount] = useState<number>(0);
+
+    // Pie chart states
+    // These states are used to dynamically adjust the pie chart's appearance based on screen size
     const [pieChartMargins, setPieChartMargins] = useState<
         { top: number; right: number; bottom: number; left: number } | undefined
     >(undefined);
     const [pieChartSlotProps, setPieChartSlotProps] =
         useState<PieChartSlotProps>({});
+    const [pieChartInnerRadius, setPieChartInnerRadius] = useState<
+        number | undefined
+    >(undefined);
+
+    // State to control when the infinite scroller is ready to scroll
     const [isScrollReady, setIsScrollReady] = useState<boolean>(false);
 
     const handleResize = useCallback(() => {
@@ -82,6 +104,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 0, bottom: 110, left: 0 };
 
+            setPieChartInnerRadius(25);
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         } else if (window.innerWidth < 769) {
@@ -93,6 +116,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 0, bottom: 50, left: 0 };
 
+            setPieChartInnerRadius(50);
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         } else if (window.innerWidth <= 1150) {
@@ -104,6 +128,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 100, bottom: 0, left: 0 };
 
+            setPieChartInnerRadius(60);
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         } else {
@@ -114,6 +139,17 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                 },
             };
             const _pieChartMargins = { top: 0, right: 200, bottom: 0, left: 0 };
+
+            // Quick hack to adjust the inner radius based on screen width
+            // Nesting even more if statements within the else block is not ideal,
+            // but I don't want to separate logic for the inner radius at this moment.
+            if (window.innerWidth >= 1600) {
+                setPieChartInnerRadius(120);
+            } else if (window.innerWidth >= 1300) {
+                setPieChartInnerRadius(90);
+            } else {
+                setPieChartInnerRadius(70);
+            }
 
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
@@ -186,7 +222,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             <nav id="analytics-nav">
                 {/* Putting the onClick handler on the div because
                     the padding on the button wasn't triggering to onClick event.
-                    This is a workaround to make the button padding clickable. 
+                    This is a workaround to make the button padding clickable.
                 */}
                 <div onClick={handleClose}>
                     <button
@@ -248,7 +284,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                         <h2 className="pie-chart-title">Projects by context</h2>
                         <PieChart
                             title="Projects by context"
-                            colors={mangoFusionPalette}
+                            colors={COLORS}
                             slotProps={pieChartSlotProps}
                             margin={pieChartMargins}
                             series={[
@@ -258,6 +294,9 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                         faded: 'global',
                                         highlighted: 'item',
                                     },
+                                    innerRadius: pieChartInnerRadius,
+                                    paddingAngle: 4,
+                                    cornerRadius: 4,
                                     faded: {
                                         innerRadius: 30,
                                         additionalRadius: -30,
@@ -272,7 +311,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                             Academic projects by course
                         </h2>
                         <PieChart
-                            colors={mangoFusionPalette}
+                            colors={COLORS}
                             slotProps={pieChartSlotProps}
                             margin={pieChartMargins}
                             series={[
@@ -282,6 +321,9 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                         faded: 'global',
                                         highlighted: 'item',
                                     },
+                                    innerRadius: pieChartInnerRadius,
+                                    paddingAngle: 4,
+                                    cornerRadius: 4,
                                     faded: {
                                         innerRadius: 30,
                                         additionalRadius: -30,
@@ -297,7 +339,18 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                         Top 10 technologies used
                     </h2>
                     <BarChart
-                        colors={mangoFusionPalette}
+                        borderRadius={4}
+                        yAxis={[
+                            {
+                                colorMap: {
+                                    type: 'continuous',
+                                    min: technologies[technologies.length - 1]
+                                        .count,
+                                    max: technologies[0].count,
+                                    color: [COLORS[2], COLORS[0]],
+                                },
+                            },
+                        ]}
                         dataset={technologies}
                         series={[
                             {

@@ -95,7 +95,7 @@ const ProjectsContextProvider = ({
 
     useEffect(() => {
         if (data) {
-            const orderedProjects = defaultOrder(data);
+            const orderedProjects: RepoData[] = defaultOrder(data);
 
             setRepos(orderedProjects);
         }

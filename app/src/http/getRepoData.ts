@@ -14,6 +14,7 @@ const octokit = new Octokit({ auth: accessToken });
 export const getRepoData = async (): Promise<RepoData[]> => {
     const response: OctokitResponse<
         {
+            id: number;
             name: string;
             html_url: string;
             description: string;
@@ -38,6 +39,7 @@ export const getRepoData = async (): Promise<RepoData[]> => {
     const repoDataArray: RepoData[] = response.data.reduce<RepoData[]>(
         (repos, repo) => {
             const repoData: RepoData = {
+                id: repo.id,
                 name: repo.name,
                 url: repo.html_url,
                 desc: repo.description,
@@ -80,5 +82,5 @@ export const getRepoData = async (): Promise<RepoData[]> => {
         []
     );
 
-    return repoDataArray.filter((repo) => repo.name !== 'ProjectList');
+    return repoDataArray;
 };
