@@ -1,6 +1,11 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+// React
 import { useCallback, useMemo } from 'react';
+
+// Third party
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import debounce from 'lodash.debounce';
+
+// Custom
 import addProject from '../http/addProject';
 import incrementView from '../http/incrementView';
 import { TaggedRepoData } from '../types';
