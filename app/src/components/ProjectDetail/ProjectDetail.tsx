@@ -18,6 +18,7 @@ import StarIcon from '../../images/icons/star.svg?react';
 import EventIcon from '../../images/icons/event.svg?react';
 import EventRepeatIcon from '../../images/icons/event_repeat.svg?react';
 import LandscapeIcon from '../../images/icons/landscape.svg?react';
+import VisibilityIcon from '../../images/icons/visibility.svg?react';
 
 // Custom styles
 import './ProjectDetail.css';
@@ -130,6 +131,19 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                     <div>{projectData.stars}</div>
                                 </td>
                             </tr>
+                            {viewCount !== null && (
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <VisibilityIcon className="visibility icon" />
+                                            <span>Views</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>{viewCount}</div>
+                                    </td>
+                                </tr>
+                            )}
                             <tr>
                                 <td>
                                     <div>
