@@ -4,6 +4,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    flex-shrink: 0;
+    min-width: 270px;
     width: 100%;
     height: auto;
     margin: 0;

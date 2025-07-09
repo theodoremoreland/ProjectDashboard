@@ -28,6 +28,7 @@
     margin: 10px 0;
     padding: 0;
     border-bottom: 1px solid var(--border-color);
+    transition: transform 0.2s ease-in-out;
 
     button {
         padding: 0;
@@ -37,8 +38,12 @@
         cursor: pointer;
 
         &:hover {
-            opacity: 0.8;
+            opacity: 0.5;
         }
+    }
+
+    &.rotated {
+        opacity: 0.6;
     }
 
     .toggle-icon {
