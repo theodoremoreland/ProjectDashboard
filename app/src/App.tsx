@@ -8,6 +8,9 @@ import {
     ReactElement,
 } from 'react';
 
+// Custom Hooks
+import useIncrementAppViewCount from './hooks/useIncrementAppViewCount';
+
 // Context
 import { ProjectsContext } from './contexts/ProjectsContext';
 
@@ -31,6 +34,9 @@ const App = (): ReactElement => {
     // Context
     const { repos, isError, selectedProject, setSelectedProject } =
         useContext(ProjectsContext);
+
+    // Custom Hooks
+    useIncrementAppViewCount();
 
     // Refs
     const titleCardRef = useRef<HTMLElement>(null);
