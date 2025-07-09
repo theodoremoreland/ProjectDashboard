@@ -1,3 +1,4 @@
+// React
 import {
     ReactElement,
     useCallback,
@@ -111,11 +112,14 @@ const TechList = (): ReactElement => {
     return (
         <ul id="tech-list">
             <h2 className="header">Filter projects</h2>
-            <div className="tech-category-container">
+            <div
+                className={`tech-category-container ${areCompetenciesVisible ? '' : 'rotated'}`}
+            >
                 <p className="tech-category">Competencies</p>
                 <button
                     className="toggle-visibility-button"
                     onClick={() => setAreCompetenciesVisible((prev) => !prev)}
+                    title="Toggle competencies visibility"
                     aria-label={
                         areCompetenciesVisible
                             ? 'Hide competencies'
@@ -127,12 +131,17 @@ const TechList = (): ReactElement => {
                     />
                 </button>
             </div>
-            {topicsCount && generateListItems(topicsCount.competencies)}
-            <div className="tech-category-container">
+            {topicsCount &&
+                areCompetenciesVisible &&
+                generateListItems(topicsCount.competencies)}
+            <div
+                className={`tech-category-container ${areLanguagesVisible ? '' : 'rotated'}`}
+            >
                 <p className="tech-category">Languages</p>
                 <button
                     className="toggle-visibility-button"
                     onClick={() => setAreLanguagesVisible((prev) => !prev)}
+                    title="Toggle languages visibility"
                     aria-label={
                         areLanguagesVisible
                             ? 'Hide languages'
@@ -144,12 +153,17 @@ const TechList = (): ReactElement => {
                     />
                 </button>
             </div>
-            {topicsCount && generateListItems(topicsCount.languages)}
-            <div className="tech-category-container">
+            {topicsCount &&
+                areLanguagesVisible &&
+                generateListItems(topicsCount.languages)}
+            <div
+                className={`tech-category-container ${areFrameworksVisible ? '' : 'rotated'}`}
+            >
                 <p className="tech-category">Frameworks</p>
                 <button
                     className="toggle-visibility-button"
                     onClick={() => setAreFrameworksVisible((prev) => !prev)}
+                    title="Toggle frameworks visibility"
                     aria-label={
                         areFrameworksVisible
                             ? 'Hide frameworks'
@@ -161,12 +175,17 @@ const TechList = (): ReactElement => {
                     />
                 </button>
             </div>
-            {topicsCount && generateListItems(topicsCount.frameworks)}
-            <div className="tech-category-container">
+            {topicsCount &&
+                areFrameworksVisible &&
+                generateListItems(topicsCount.frameworks)}
+            <div
+                className={`tech-category-container ${areToolsVisible ? '' : 'rotated'}`}
+            >
                 <p className="tech-category">Tools</p>
                 <button
                     className="toggle-visibility-button"
                     onClick={() => setAreToolsVisible((prev) => !prev)}
+                    title="Toggle tools visibility"
                     aria-label={areToolsVisible ? 'Hide tools' : 'Show tools'}
                 >
                     <KeyboardControlKey
@@ -174,7 +193,9 @@ const TechList = (): ReactElement => {
                     />
                 </button>
             </div>
-            {topicsCount && generateListItems(topicsCount.tools)}
+            {topicsCount &&
+                areToolsVisible &&
+                generateListItems(topicsCount.tools)}
         </ul>
     );
 };
