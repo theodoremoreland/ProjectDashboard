@@ -17,6 +17,7 @@ import { ProjectsContext } from '../../contexts/ProjectsContext';
 import { TaggedRepoData } from '../../types';
 
 // Images
+import SearchIcon from '../../images/icons/search.svg?react';
 import CancelIcon from '../../images/icons/cancel.svg?react';
 
 // Styles
@@ -86,20 +87,23 @@ const SearchBar = (): ReactElement => {
                 ></div>
             )}
             <div id="search-bar">
+                <span id="search-icon-area" onClick={handleCancelClick}>
+                    <SearchIcon className="icon" />
+                </span>
                 <input
                     ref={inputRef}
                     id="search"
                     type="text"
-                    placeholder="Search..."
+                    aria-label="Search GitHub projects"
+                    // TODO: consider supporting comma delineated / multiple word search
+                    placeholder="Find GitHub projects by topic or name (e.g. dashboard, mui, or responsive)"
                     autoComplete="off"
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                 />
-                {searchValue && (
-                    <span id="delete" onClick={handleCancelClick}>
-                        <CancelIcon className="icon" />
-                    </span>
-                )}
+                <span id="delete-icon-area" onClick={handleCancelClick}>
+                    <CancelIcon className="icon" />
+                </span>
                 {searchValue && showResults && (
                     // Wrapper is here solely for the purpose of positioning data attribute (i.e. result count) in desired location
                     <div

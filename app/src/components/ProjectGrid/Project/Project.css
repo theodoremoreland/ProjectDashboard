@@ -1,16 +1,20 @@
 .project-card {
     position: relative;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     width: 100%;
     aspect-ratio: 4/3;
-    background-color: #3d485300;
-    background-image: linear-gradient(360deg, #252b3294, #0b0e12d4 74%);
+    background-color: var(--experimental-color);
     box-shadow:
         rgba(0, 0, 0, 0.4) 0px 2px 4px,
         rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
         rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     border: 1px solid var(--border-color);
-    border-radius: 0 !important;
+    border-radius: 4px !important;
+    padding: 25px;
     color: var(--primary-font-color);
     opacity: 1;
     transition: opacity 0.5s;
@@ -19,10 +23,17 @@
         pointer-events: none;
         opacity: 0.1;
     }
+
+    .DevsChoiceBadge {
+        position: absolute;
+        z-index: 2;
+        top: 10px;
+        right: 10px;
+    }
 }
 
 .project-overlay {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     top: 0;
     left: 0;
@@ -75,7 +86,7 @@
 }
 
 .project-overlay::after {
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     content: '';
     top: 0;
@@ -89,8 +100,8 @@
     );
     transition: opacity 0.5s;
     transform: skew(-25deg);
-    -webkit-animation: shine 6s infinite;
-    animation: shine 6s infinite;
+    -webkit-animation: shine 15s infinite;
+    animation: shine 15s infinite;
     pointer-events: none;
 }
 
@@ -116,24 +127,50 @@
 
 @-webkit-keyframes shine {
     0%,
-    40% {
+    4% {
         left: -125%;
     }
-
-    60%,
+    20% {
+        left: 125%;
+    }
     100% {
         left: 125%;
     }
 }
 @keyframes shine {
     0%,
-    40% {
+    4% {
         left: -125%;
     }
-
-    60%,
+    20% {
+        left: 125%;
+    }
     100% {
         left: 125%;
+    }
+}
+
+@-webkit-keyframes fadeLoop {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeLoop {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -168,11 +205,63 @@
 .project-image {
     width: 100%;
     height: 100%;
+    border-radius: 4px;
     object-fit: fill;
     opacity: 0;
     transition: opacity 0.5s;
 
     &.loaded {
         opacity: 1;
+    }
+}
+
+.project-about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .project-pill {
+        font-family: custom-regular;
+        font-size: 0.8em;
+        padding: 4px 8px;
+        border-radius: 10px;
+        background-color: var(--secondary-font-color);
+        color: var(--primary-font-color);
+    }
+
+    .view-count {
+        font-family: custom-regular;
+        font-size: 0.8em;
+        color: var(--primary-font-color);
+        opacity: 0.7;
+        transition: all 0.5s ease-in-out;
+
+        &.loading {
+            font-size: 0.7em;
+            animation: fadeLoop 2.5s ease-in-out infinite;
+        }
+    }
+
+    .project-description {
+        position: relative;
+        width: 100%;
+        display: -webkit-box;
+        line-clamp: 2; /* Number of lines to show */
+        -webkit-line-clamp: 2; /* Number of lines to show */
+        font-family: custom-regular;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }

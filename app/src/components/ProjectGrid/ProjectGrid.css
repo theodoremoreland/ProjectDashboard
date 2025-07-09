@@ -1,25 +1,10 @@
 #project-grid {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px 30px;
     overflow-y: scroll;
     flex-grow: 1;
-    padding: 10px 10px 10px calc(1em + 15px);
-    background-color: var(--primary-color);
-}
-
-@media screen and (min-width: 769px) {
-    #project-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        padding: 10px;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    #project-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
 }
 
 @media screen and (min-width: 1440px) {

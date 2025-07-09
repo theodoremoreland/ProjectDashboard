@@ -1,4 +1,5 @@
 export interface RepoData {
+    id: number;
     name: string;
     url: string;
     desc: string;
@@ -22,3 +23,11 @@ export interface TopicCounts {
     languages: { [key: string]: number };
     tools: { [key: string]: number };
 }
+
+export type ViewCounts = {
+    [project_id: string]: {
+        last_updated: Date;
+        github_views: number;
+        demo_views: number;
+    };
+};

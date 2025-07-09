@@ -1,21 +1,26 @@
 // React
-import { ReactElement, SetStateAction, Dispatch } from 'react';
+import { SetStateAction, Dispatch, useContext, useMemo } from 'react';
 
 // Third party
 import { useInView } from 'react-intersection-observer';
+
+// Custom
+import getProjectContext from '../../../utils/getProjectContext';
+import { DevsChoiceProjectNames } from '../../../constants/FeaturedProjects';
+import { renderLanguageIcon } from './Project.controller';
+import useProjectViewTracker from '../../../hooks/useProjectViewTracker';
+
+// Context
+import { ViewCountContext } from '../../../contexts/ViewCountContext/ViewCountContext';
+
+// Components
+import DevsChoiceBadge from '../../DevsChoiceBadge/DevsChoiceBadge';
 
 // Types
 import { TaggedRepoData } from '../../../types';
 
 // Images
 import alt from '../../../images/under-construction-thumbnail.jpg';
-import htmlIcon from '../../../images/languages/html.png';
-import javascriptIcon from '../../../images/languages/javascript.png';
-import typescriptIcon from '../../../images/languages/typescript.png';
-import pythonIcon from '../../../images/languages/python.png';
-import javaIcon from '../../../images/languages/java.png';
-import vbaIcon from '../../../images/languages/vba.png';
-import sqlIcon from '../../../images/languages/sql.png';
 
 // Custom styles
 import './Project.css';
@@ -25,70 +30,24 @@ interface Props {
     setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | null>>;
 }
 
-const renderLanguageIcon = (topic: string): ReactElement | null => {
-    const titleTemplate = 'This project was written with ';
-
-    switch (topic) {
-        case 'html':
-            return (
-                <li key={topic} title={titleTemplate + 'HTML'}>
-                    <img src={htmlIcon} alt="HTML" className="language-icon" />
-                </li>
-            );
-        case 'javascript':
-            return (
-                <li key={topic} title={titleTemplate + 'JavaScript'}>
-                    <img
-                        src={javascriptIcon}
-                        alt="JavaScript"
-                        className="language-icon"
-                    />
-                </li>
-            );
-        case 'typescript':
-            return (
-                <li key={topic} title={titleTemplate + 'TypeScript'}>
-                    <img
-                        src={typescriptIcon}
-                        alt="TypeScript"
-                        className="language-icon"
-                    />
-                </li>
-            );
-        case 'python':
-            return (
-                <li key={topic} title={titleTemplate + 'Python'}>
-                    <img
-                        src={pythonIcon}
-                        alt="Python"
-                        className="language-icon"
-                    />
-                </li>
-            );
-        case 'java':
-            return (
-                <li key={topic} title={titleTemplate + 'Java'}>
-                    <img src={javaIcon} alt="Java" className="language-icon" />
-                </li>
-            );
-        case 'vba':
-            return (
-                <li key={topic} title={titleTemplate + 'VBA'}>
-                    <img src={vbaIcon} alt="VBA" className="language-icon" />
-                </li>
-            );
-        case 'sql':
-            return (
-                <li key={topic} title={titleTemplate + 'SQL'}>
-                    <img src={sqlIcon} alt="SQL" className="language-icon" />
-                </li>
-            );
-        default:
-            return null;
-    }
-};
-
 const Project = ({ projectData, setSelectedProject }: Props) => {
+    const { viewCounts, isFetched } = useContext(ViewCountContext);
+
+    const viewCount: number | null = useMemo(() => {
+        if (viewCounts && viewCounts[projectData.id]) {
+            return (
+                viewCounts[projectData.id].github_views +
+                viewCounts[projectData.id].demo_views
+            );
+        }
+
+        return null;
+    }, [viewCounts, projectData.id]);
+
+    const handleLiveDemoClick = useProjectViewTracker(projectData, viewCount, {
+        isDemoView: true,
+    });
+
     const { ref, inView } = useInView({
         threshold: 0,
     });
@@ -100,6 +59,9 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                 projectData.isFeatured ? 'featured' : 'not-featured'
             }`}
         >
+            {DevsChoiceProjectNames.includes(projectData.name) && (
+                <DevsChoiceBadge />
+            )}
             <img
                 className="project-image"
                 onLoad={(e) => {
@@ -121,6 +83,23 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                     }
                 }}
             />
+            <div className="project-about">
+                <div className="row">
+                    <span className="project-pill">
+                        {getProjectContext(projectData)}
+                    </span>
+                    {isFetched ? (
+                        <span className="view-count">
+                            {viewCount ?? 0} views
+                        </span>
+                    ) : (
+                        <span className="view-count loading">
+                            Loading views...
+                        </span>
+                    )}
+                </div>
+                <p className="project-description">{projectData.desc}</p>
+            </div>
             {inView && (
                 <div className="project-overlay">
                     <div id="content">
@@ -138,6 +117,9 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                                             rel="noreferrer"
                                             title={`Click to view a live demo of the ${projectData.name} project.`}
                                             className="live-demo-link"
+                                            onClick={
+                                                handleLiveDemoClick.debouncedHandleClick
+                                            }
                                         >
                                             <button className="live-demo">
                                                 Live Demo{' '}
@@ -147,7 +129,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                                     )}
                                 {/* Putting the onClick handler on the li because
                     the padding on the button wasn't triggering to onClick event.
-                    This is a workaround to make the button padding clickable. 
+                    This is a workaround to make the button padding clickable.
                 */}
                                 <li
                                     onClick={() =>
