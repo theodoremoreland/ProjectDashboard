@@ -6,13 +6,27 @@
 
 ## Table of contents
 
+- [Technologies Used](#technologies-used)
 - [Overview](#overview)
 - [Context for design](#context-for-design)
-- [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
   - [Desktop](#desktop)
   - [Mobile](#mobile)
   - [Older versions](#older-versions)
+ 
+## Technologies Used
+
+- React
+- TypeScript
+- JavaScript
+- HTML
+- CSS
+- Tanstack React Query
+- MUI X Charts
+- react-intersection-observer
+- GitHub API
+- Vite
+- Axios
 
 ## Overview
 
@@ -53,19 +67,6 @@ The main point I wanted to make was that my experience and skill-set aligned mor
 Originally, the design featured a word cloud based filtering interface wherein the user could click on a term to filter projects while incidentally comparing my experience with the term's corresponding skill-set. For example, a filter for "Competency" might show the terms "Web Development" and "Data Engineering" as filtering options, but the term "Web Development" might be visibly larger than the term "Data Engineering". Hovering over a term would then display the exact count of projects corresponding to the term. Said interface was eventually removed in place of a simple list (see [screenshots](#screenshots) below).
 
 The resulting dashboard is similar to that of a portfolio in that it puts my project work on display, but there is a key distinction in that this application was designed to supplement a live conversation with management as opposed to being something that could effectively standalone. The dashboard aims to make a point of comparing skill-sets and relaying a breadth of experience first and foremost, with the option to do a deep dive into whatever project(s) pique the interest of the parties involved. Antithetical to a portfolio, little effort was made to emphasize projects of particular quality (among other things, such as no information about work experience, education, resume, etc).
-
-### Technologies Used
-
-- React
-- TypeScript
-- JavaScript
-- HTML
-- CSS
-- Tanstack React Query
-- MUI X Charts
-- react-intersection-observer
-- GitHub API
-- Vite
 
 ## Screenshots
 
