@@ -32,6 +32,10 @@
     transition: 0.5s;
     overflow-y: auto;
     overflow-x: hidden;
+
+    .loading {
+        animation: fadeLoop 2.5s ease-in-out infinite;
+    }
 }
 
 #ProjectDetail > #project-detail-nav {
