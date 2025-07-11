@@ -10,11 +10,18 @@ interface ErrorResponse {
 
 const VIEW_COUNT_API_URL: string | undefined = import.meta.env
     .VITE_VIEW_COUNT_API_URL;
+const VIEW_COUNT_API_KEY: string | undefined = import.meta.env
+    .VITE_VIEW_COUNT_API_KEY;
 
 const getViewCounts = async (): Promise<ViewCounts> => {
     try {
         const response: AxiosResponse<ViewCounts> = await axios.get(
-            `${VIEW_COUNT_API_URL}`
+            `${VIEW_COUNT_API_URL}`,
+            {
+                headers: {
+                    'x-api-key': VIEW_COUNT_API_KEY,
+                },
+            }
         );
 
         return response.data;

@@ -31,7 +31,6 @@ const useIncrementAppViewCount = () => {
             incrementViewMutation.mutate({
                 projectId: String(737351449),
                 isDemoView: true,
-                isGitHubView: false,
             });
         }
     }, [incrementViewMutation]);

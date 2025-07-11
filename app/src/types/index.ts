@@ -24,6 +24,8 @@ export interface TopicCounts {
     tools: { [key: string]: number };
 }
 
+export type View = { isGitHubView: true } | { isDemoView: true };
+
 export type ViewCounts = {
     [project_id: string]: {
         last_updated: Date;
