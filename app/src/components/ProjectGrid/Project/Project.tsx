@@ -44,7 +44,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
         return null;
     }, [viewCounts, projectData.id]);
 
-    const handleLiveDemoClick = useProjectViewTracker(projectData, viewCount, {
+    const handleLiveDemoClick = useProjectViewTracker(projectData, {
         isDemoView: true,
     });
 

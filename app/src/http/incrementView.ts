@@ -2,17 +2,9 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 // Types
-import { ViewCounts } from '../types';
+import { ViewCounts, View } from '../types';
 
-type IncrementViewRequest =
-    | {
-          projectId: string;
-          isGitHubView: boolean;
-      }
-    | {
-          projectId: string;
-          isDemoView: boolean;
-      };
+type IncrementViewRequest = { projectId: string } & View;
 
 interface ErrorResponse {
     message: string;
@@ -20,6 +12,8 @@ interface ErrorResponse {
 
 const VIEW_COUNT_API_URL: string | undefined = import.meta.env
     .VITE_VIEW_COUNT_API_URL;
+const VIEW_COUNT_API_KEY: string | undefined = import.meta.env
+    .VITE_VIEW_COUNT_API_KEY;
 
 const incrementView = async (
     incrementViewRequest: IncrementViewRequest
@@ -27,7 +21,13 @@ const incrementView = async (
     try {
         const response: AxiosResponse<ViewCounts> = await axios.patch(
             `${VIEW_COUNT_API_URL}`,
-            incrementViewRequest
+            incrementViewRequest,
+            {
+                headers: {
+                    'x-api-key': VIEW_COUNT_API_KEY,
+                    'Content-Type': 'application/json',
+                },
+            }
         );
 
         return response.data;

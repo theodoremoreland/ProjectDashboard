@@ -42,10 +42,10 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
         return null;
     }, [viewCounts, projectData.id]);
 
-    const handleLiveDemoClick = useProjectViewTracker(projectData, viewCount, {
+    const handleLiveDemoClick = useProjectViewTracker(projectData, {
         isDemoView: true,
     });
-    const handleGitHubClick = useProjectViewTracker(projectData, viewCount, {
+    const handleGitHubClick = useProjectViewTracker(projectData, {
         isGitHubView: true,
     });
 
