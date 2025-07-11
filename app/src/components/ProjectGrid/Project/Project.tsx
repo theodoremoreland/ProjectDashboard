@@ -1,5 +1,5 @@
 // React
-import { SetStateAction, Dispatch, useContext, useMemo } from 'react';
+import { SetStateAction, Dispatch, useContext } from 'react';
 
 // Third party
 import { useInView } from 'react-intersection-observer';
@@ -9,6 +9,7 @@ import getProjectContext from '../../../utils/getProjectContext';
 import { DevsChoiceProjectNames } from '../../../constants/FeaturedProjects';
 import { renderLanguageIcon } from './Project.controller';
 import useProjectViewTracker from '../../../hooks/useProjectViewTracker';
+import useViewCount from '../../../hooks/useViewCount';
 
 // Context
 import { ViewCountContext } from '../../../contexts/ViewCountContext/ViewCountContext';
@@ -31,23 +32,16 @@ interface Props {
 }
 
 const Project = ({ projectData, setSelectedProject }: Props) => {
-    const { viewCounts, isFetched } = useContext(ViewCountContext);
+    // Context
+    const { viewCounts, isFetched, isError } = useContext(ViewCountContext);
 
-    const viewCount: number | null = useMemo(() => {
-        if (viewCounts && viewCounts[projectData.id]) {
-            return (
-                viewCounts[projectData.id].github_views +
-                viewCounts[projectData.id].demo_views
-            );
-        }
-
-        return null;
-    }, [viewCounts, projectData.id]);
-
+    // Custom hooks
+    const viewCount = useViewCount(viewCounts, projectData.id, isError);
     const handleLiveDemoClick = useProjectViewTracker(projectData, {
         isDemoView: true,
     });
 
+    // Third party hooks
     const { ref, inView } = useInView({
         threshold: 0,
     });
@@ -89,9 +83,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                         {getProjectContext(projectData)}
                     </span>
                     {isFetched ? (
-                        <span className="view-count">
-                            {viewCount ?? 0} views
-                        </span>
+                        <span className="view-count">{viewCount}</span>
                     ) : (
                         <span className="view-count loading">
                             Loading views...

@@ -125,55 +125,6 @@
     opacity: 0;
 }
 
-@-webkit-keyframes shine {
-    0%,
-    4% {
-        left: -125%;
-    }
-    20% {
-        left: 125%;
-    }
-    100% {
-        left: 125%;
-    }
-}
-@keyframes shine {
-    0%,
-    4% {
-        left: -125%;
-    }
-    20% {
-        left: 125%;
-    }
-    100% {
-        left: 125%;
-    }
-}
-
-@-webkit-keyframes fadeLoop {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeLoop {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
 .project-name {
     font-family: custom-bold;
     font-style: oblique;

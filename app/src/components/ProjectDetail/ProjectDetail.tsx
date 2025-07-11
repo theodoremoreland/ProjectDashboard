@@ -1,7 +1,8 @@
 // React
-import { ReactElement, useContext, useMemo } from 'react';
+import { ReactElement, useContext } from 'react';
 
 // Custom
+import useViewCount from '../../hooks/useViewCount';
 import useProjectViewTracker from '../../hooks/useProjectViewTracker';
 import getProjectContext from '../../utils/getProjectContext';
 
@@ -29,18 +30,9 @@ interface Props {
 }
 
 const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
-    const { viewCounts } = useContext(ViewCountContext);
+    const { viewCounts, isError, isFetched } = useContext(ViewCountContext);
 
-    const viewCount: number | null = useMemo(() => {
-        if (viewCounts && viewCounts[projectData.id]) {
-            return (
-                viewCounts[projectData.id].github_views +
-                viewCounts[projectData.id].demo_views
-            );
-        }
-
-        return null;
-    }, [viewCounts, projectData.id]);
+    const viewCount = useViewCount(viewCounts, projectData.id, isError);
 
     const handleLiveDemoClick = useProjectViewTracker(projectData, {
         isDemoView: true,
@@ -131,19 +123,23 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                     <div>{projectData.stars}</div>
                                 </td>
                             </tr>
-                            {viewCount !== null && (
-                                <tr>
-                                    <td>
-                                        <div>
-                                            <VisibilityIcon className="visibility icon" />
-                                            <span>Views</span>
-                                        </div>
-                                    </td>
-                                    <td>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <VisibilityIcon className="visibility icon" />
+                                        <span>Views</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    {isFetched ? (
                                         <div>{viewCount}</div>
-                                    </td>
-                                </tr>
-                            )}
+                                    ) : (
+                                        <div className="loading">
+                                            Loading...
+                                        </div>
+                                    )}
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <div>
