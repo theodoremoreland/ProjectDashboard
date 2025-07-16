@@ -5,7 +5,6 @@
     justify-content: flex-start;
     align-items: center;
     flex-shrink: 0;
-    min-width: 270px;
     width: 100%;
     height: auto;
     margin: 0;
@@ -19,7 +18,14 @@
 
 @media screen and (min-width: 965px) {
     #sidebar {
+        min-width: 255px;
         width: auto;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #sidebar {
+        min-width: 270px;
     }
 }
 

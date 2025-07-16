@@ -32,9 +32,22 @@
     --border-color: #f5f5f524;
 
     --analytics-gap: 7px;
+    --content-gap: 20px;
 
     --background-color: #141418;
     --experimental-color: #070a0e70;
+}
+
+@media screen and (min-width: 1440px) {
+    :root {
+        --content-gap: 25px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    :root {
+        --content-gap: 30px;
+    }
 }
 
 /* ------------------- GLOBAL ------------------- */
@@ -288,20 +301,26 @@ main {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: 30px;
+        gap: var(--content-gap);
         width: 88%;
         max-width: 1920px;
-        margin-top: 30px;
+        margin-top: var(--content-gap);
 
         @media screen and (min-width: 481px) {
             & {
-                width: 95%;
+                width: 96%;
             }
         }
 
         @media screen and (min-width: 965px) {
             & {
                 flex-direction: row;
+            }
+        }
+
+        @media screen and (min-width: 1440px) {
+            & {
+                width: 95%;
             }
         }
     }
