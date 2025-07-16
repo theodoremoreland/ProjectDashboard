@@ -1,21 +1,21 @@
 #project-grid {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px 30px;
+    grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+    gap: var(--content-gap) var(--content-gap);
     overflow-y: scroll;
     flex-grow: 1;
 }
 
 @media screen and (min-width: 1440px) {
     #project-grid {
-        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
     }
 }
 
-@media screen and (min-width: 2160px) {
+@media screen and (min-width: 1920px) {
     #project-grid {
-        grid-template-columns: repeat(auto-fill, minmax(475px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     }
 }
 
