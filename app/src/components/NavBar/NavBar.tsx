@@ -87,6 +87,7 @@ const NavBar = ({
             >
                 <MenuItem
                     id="analytics-nav"
+                    className="mobile-menu-item"
                     title="Analytics"
                     onClick={() => {
                         setShowAnalytics(true);
@@ -94,18 +95,25 @@ const NavBar = ({
                     }}
                 >
                     <QueryStatsIcon className="query_stats icon" />
+                    <span>Analytics</span>
                 </MenuItem>
-                <MenuItem id="github-nav" title="My GitHub">
+                <MenuItem
+                    id="github-nav"
+                    className="mobile-menu-item"
+                    title="My GitHub"
+                >
                     <a
                         href="https://github.com/theodoremoreland"
                         target="_blank"
                         rel="noreferrer"
                     >
                         <GitHubIcon id="github-icon" className="github icon" />
+                        <span>My GitHub</span>
                     </a>
                 </MenuItem>
                 <MenuItem
                     id="overview-nav"
+                    className="mobile-menu-item"
                     title="Overview"
                     onClick={() => {
                         setShowOverviewModal(true);
@@ -113,6 +121,7 @@ const NavBar = ({
                     }}
                 >
                     <InfoIcon className="overview icon" />
+                    <span>Overview</span>
                 </MenuItem>
             </Menu>
         </nav>
