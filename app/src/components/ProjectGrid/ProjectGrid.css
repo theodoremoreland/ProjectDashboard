@@ -13,7 +13,7 @@
     }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1780px) {
     #project-grid {
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     }
