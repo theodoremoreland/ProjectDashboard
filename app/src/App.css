@@ -303,7 +303,7 @@ main {
         align-items: flex-start;
         gap: var(--content-gap);
         width: 88%;
-        max-width: 1920px;
+        max-width: 2160px;
         margin-top: var(--content-gap);
 
         @media screen and (min-width: 481px) {
