@@ -179,7 +179,7 @@ li {
     gap: 10px;
     height: 100vh;
     width: 100vw;
-    color: aliceblue;
+    color: var(--primary-font-color);
     visibility: visible;
     background: radial-gradient(
         circle farthest-corner at top left,
@@ -207,7 +207,7 @@ li {
 }
 
 .app-title {
-    font-size: 1.13rem;
+    font-size: 2rem;
     font-family: custom-bold;
     font-style: oblique;
     letter-spacing: -1px;
@@ -215,15 +215,9 @@ li {
 }
 
 .app-subtitle {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-style: oblique;
     font-family: custom-thin;
-}
-
-@media screen and (min-width: 481px) {
-    .app-title {
-        font-size: 1.4rem;
-    }
 }
 
 @media screen and (min-width: 769px) {
