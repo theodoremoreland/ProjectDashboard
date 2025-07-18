@@ -4,6 +4,7 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: var(--content-gap) var(--content-gap);
     overflow-y: scroll;
+    overflow-x: hidden;
     flex-grow: 1;
 }
 
