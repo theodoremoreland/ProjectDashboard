@@ -13,7 +13,7 @@
   - [Desktop](#desktop)
   - [Mobile](#mobile)
   - [Older versions](#older-versions)
- 
+
 ## Technologies Used
 
 - React
@@ -74,109 +74,81 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 #### Loading screen
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/0.png" width="650">
-
-#### Default view
-
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/1.png" width="650">
-
-#### After clicking a filter: Data Analytics
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/2.png" width="650">
 
-#### After stacking filters: Data Analytics + JavaScript
-
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/3.png" width="650">
-
-#### Searching for the keyword "responsive" and viewing results
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/6.png" width="650">
-
-#### After clicking on the "Analytics" button in the nav bar
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="650">
-
-#### After clicking on the "Overview" button in the nav bar
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/8.png" width="650">
-
-#### After clicking on the "Overview" button in the nav bar (scrolled down 1)
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/9.png" width="650">
-
-#### After clicking on the "Overview" button in the nav bar (scrolled down 2)
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/10.png" width="650">
-
-#### After hovering over first project's thumbnail
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/4.png" width="650">
 
-#### After clicking on "Learn More" button for project
-
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/6.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/8.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/9.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/10.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/11.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/12.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/13.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/14.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/15.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/16.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/17.png" width="650">
 
 ### Mobile
 
 #### Default view
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/12.png" width="250">
-
-#### Default view with filter panel open
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/13.png" width="250">
-
-#### After selecting filter: Data Analytics
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/14.png" width="250">
-
-#### Filter result (third project is darkened i.e. was filtered out)
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/15.png" width="250">
-
-#### Searching for keyword "responsive" in search bar and viewing results
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/17.png" width="250">
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/18.png" width="250">
 
-#### After opening menu
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/19.png" width="250">
-
-#### After clicking on "Analytics" button in menu
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/20.png" width="250">
-
-#### Analytics (scrolled down 1)
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/21.png" width="250">
-
-#### Analytics (scrolled down 2)
-
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/22.png" width="250">
-
-#### After clicking "Overview" button is menu
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/23.png" width="250">
 
-#### Overview menu (scrolled down 1)
-
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/24.png" width="250">
-
-#### Overview menu (scrolled down 2)
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/25.png" width="250">
 
-#### Overview menu (scrolled down 3)
-
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/26.png" width="250">
 
-#### After hovering (or clicking) over first project's thumbnail
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/27.png" width="250">
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/16.png" width="250">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/28.png" width="250">
 
-#### After clicking "Learn More" button of project thumbnail overlay
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/29.png" width="250">
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/17.png" width="250">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/30.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/31.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/32.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/33.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/34.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/35.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/36.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/37.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/38.png" width="250">
 
 ### Older versions
 
