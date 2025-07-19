@@ -42,21 +42,29 @@ Additionally, each thumbnail overlay features a `Learn More` button, that when c
 
 Conditionally, a `Live Demo` button appears if the project is actively hosted on a live server. Clicking the button will open a new tab featuring the web application.
 
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="500">
+
 ### Filter
 
 Technologies listed on the left panel can be clicked to filter projects by corresponding technology. The numbers displayed next to each technology represent the number of projects that utilize that technology.
 
 Multiple filters can be applied simultaneously. Any project that does not feature any of the selected technologies will be hidden.
 
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="500">
+
 ### Search
 
 The search bar can be used to search for projects by name or GitHub topic.
 
-Some examples include: `responsive` `mui-x` `tanstack-react-query` `jupyter-notebook` `rest-api`
+Some examples include: `dashboard` `responsive` `mui-x` `tanstack-react-query` `jupyter-notebook` `rest-api`
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/9.png" width="500">
 
 ### Analyze
 
 Clicking on the analytics icon in the navbar will display aggregate statistics about the projects featured.
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/13.png" width="500">
 
 ## Context for design
 
@@ -71,8 +79,6 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 ## Screenshots
 
 ### Desktop
-
-#### Loading screen
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/1.png" width="650">
 
@@ -106,11 +112,7 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/16.png" width="650">
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/17.png" width="650">
-
 ### Mobile
-
-#### Default view
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/17.png" width="250">
 
@@ -145,10 +147,6 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/35.png" width="250">
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/36.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/37.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/38.png" width="250">
 
 ### Older versions
 
