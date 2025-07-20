@@ -1,6 +1,6 @@
 # Project List
 
-<img src="/presentation/thumbnail.webp" width="650">
+<img src="/presentation/thumbnail.webp" width="700">
 
 [View the application](https://project-list.theodoremoreland.dev)
 
@@ -42,7 +42,7 @@ Additionally, each thumbnail overlay features a `Learn More` button, that when c
 
 Conditionally, a `Live Demo` button appears if the project is actively hosted on a live server. Clicking the button will open a new tab featuring the web application.
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="500">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="700">
 
 ### Filter
 
@@ -50,7 +50,7 @@ Technologies listed on the left panel can be clicked to filter projects by corre
 
 Multiple filters can be applied simultaneously. Any project that does not feature any of the selected technologies will be hidden.
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="500">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="700">
 
 ### Search
 
@@ -58,13 +58,13 @@ The search bar can be used to search for projects by name or GitHub topic.
 
 Some examples include: `dashboard` `responsive` `mui-x` `tanstack-react-query` `jupyter-notebook` `rest-api`
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/9.png" width="500">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/9.png" width="700">
 
 ### Analyze
 
 Clicking on the analytics icon in the navbar will display aggregate statistics about the projects featured.
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/13.png" width="500">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/13.png" width="700">
 
 ## Context for design
 
