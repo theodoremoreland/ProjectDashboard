@@ -375,7 +375,7 @@ main {
     color: var(--primary-font-color);
     font-style: custom-bold;
     font-size: 1em;
-    background-color: #173a5e;
+    background-color: var(--primary-highlight-color);
 }
 
 .close-button:hover,
