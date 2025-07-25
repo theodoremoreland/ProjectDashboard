@@ -12,15 +12,6 @@ import { ViewCountContext } from '../../contexts/ViewCountContext/ViewCountConte
 // Types
 import { TaggedRepoData } from '../../types';
 
-// Images
-import DeployedCodeIcon from '../../images/icons/deployed-code.svg?react';
-import CodeIcon from '../../images/icons/code.svg?react';
-import StarIcon from '../../images/icons/star.svg?react';
-import EventIcon from '../../images/icons/event.svg?react';
-import EventRepeatIcon from '../../images/icons/event_repeat.svg?react';
-import LandscapeIcon from '../../images/icons/landscape.svg?react';
-import VisibilityIcon from '../../images/icons/visibility.svg?react';
-
 // Custom styles
 import './ProjectDetail.css';
 
@@ -28,6 +19,21 @@ interface Props {
     projectData: TaggedRepoData;
     handleClose: () => void;
 }
+
+const generateContextString = (
+    context: 'Coursework / Exercise' | 'Professional' | 'Personal'
+): string | null => {
+    switch (context) {
+        case 'Coursework / Exercise':
+            return 'This project was originally created as coursework or an exercise, but has since been expanded upon.';
+        case 'Professional':
+            return 'This project was created for a client.';
+        case 'Personal':
+            return 'This project was created to solve a personal problem.';
+        default:
+            return null;
+    }
+};
 
 const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
     const { viewCounts, isError, isFetched } = useContext(ViewCountContext);
@@ -40,6 +46,8 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
     const handleGitHubClick = useProjectViewTracker(projectData, {
         isGitHubView: true,
     });
+
+    const contextString = generateContextString(getProjectContext(projectData));
 
     return (
         <section id="ProjectDetail">
@@ -64,149 +72,57 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                 </div>
                 <div id="info-container">
                     <h1>{projectData.name}</h1>
-                    <p>
-                        {projectData.name === 'ProjectList'
-                            ? `${projectData.desc} You are currently viewing this project!`
-                            : projectData.desc}
-                    </p>
-                    <table id="metadata">
-                        <tbody>
-                            <tr title="The context in which this project was created. Can be either Coursework / Exercise, Professional, or Personal.">
-                                <td>
-                                    <div>
-                                        <LandscapeIcon className="landscape icon" />
-                                        <span>Context</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>{getProjectContext(projectData)}</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <EventIcon className="event icon" />
-                                        <span>Created</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        {new Date(
-                                            projectData.date_created
-                                        ).toLocaleDateString()}
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <EventRepeatIcon className="event-repeat icon" />
-                                        <span>Last modified</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        {new Date(
-                                            projectData.date_updated
-                                        ).toLocaleDateString()}
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <StarIcon className="star icon" />
-                                        <span>Stars</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>{projectData.stars}</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <VisibilityIcon className="visibility icon" />
-                                        <span>Views</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    {isFetched ? (
-                                        <div>{viewCount}</div>
-                                    ) : (
-                                        <div className="loading">
-                                            Loading...
-                                        </div>
-                                    )}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>
-                                        <CodeIcon className="code icon" />
-                                        <span>Source code</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>
-                                        <a
-                                            href={projectData.url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            title={`Click to view the source code for ${projectData.name}.`}
-                                            onClick={
-                                                handleGitHubClick.debouncedHandleClick
-                                            }
-                                            className="github-link"
-                                        >
-                                            View on GitHub
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            {projectData.name !== 'ProjectList' && (
-                                <tr>
-                                    <td>
-                                        <div>
-                                            <DeployedCodeIcon className="deployment icon" />
-                                            <span>Deployment</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            {projectData.demo_link ? (
-                                                <a
-                                                    href={projectData.demo_link}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                    title={`Click to view a live demo of the ${projectData.name} project.`}
-                                                    className="deployment-link"
-                                                    onClick={
-                                                        handleLiveDemoClick.debouncedHandleClick
-                                                    }
-                                                >
-                                                    View Live Demo{' '}
-                                                    <span className="circle"></span>
-                                                </a>
-                                            ) : (
-                                                'None'
-                                            )}
-                                        </div>
-                                    </td>
-                                </tr>
+                    <div className="meta">
+                        <div>
+                            {isFetched ? (
+                                <span>{viewCount}</span>
+                            ) : (
+                                <span className="loading">Loading...</span>
                             )}
-                        </tbody>
-                    </table>
-                    <ul
-                        id="topics"
-                        title="GitHub topic associated with this project."
+                        </div>
+                        <span>•</span>
+                        <div>
+                            {new Date(
+                                projectData.date_created
+                            ).toLocaleDateString()}
+                        </div>
+                    </div>
+                    <p>{projectData.desc}</p>
+                    <p
+                        className="context"
+                        title="The context in which this project was created. Can be either Coursework / Exercise, Professional, or Personal."
                     >
-                        {projectData.topics.map((topic) => (
-                            <li key={topic} className="topic">
-                                {topic}
-                            </li>
-                        ))}
-                    </ul>
+                        {contextString}
+                    </p>
+                    <div className="button-container">
+                        {projectData.demo_link &&
+                            projectData.name !== 'ProjectList' && (
+                                <a
+                                    href={projectData.demo_link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    title={`Click to view a live demo of the ${projectData.name} project.`}
+                                    onClick={
+                                        handleLiveDemoClick.debouncedHandleClick
+                                    }
+                                    className="demo-link"
+                                >
+                                    <button type="button">
+                                        View Live Demo
+                                    </button>
+                                </a>
+                            )}
+                        <a
+                            href={projectData.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            title={`Click to view the source code for ${projectData.name}.`}
+                            onClick={handleGitHubClick.debouncedHandleClick}
+                            className="github-link"
+                        >
+                            <button type="button">View on GitHub</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
