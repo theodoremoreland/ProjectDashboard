@@ -6,16 +6,12 @@ import { useInView } from 'react-intersection-observer';
 
 // Custom
 import getProjectContext from '../../../utils/getProjectContext';
-import { DevsChoiceProjectNames } from '../../../constants/FeaturedProjects';
 import { renderLanguageIcon } from './Project.controller';
 import useProjectViewTracker from '../../../hooks/useProjectViewTracker';
 import useViewCount from '../../../hooks/useViewCount';
 
 // Context
 import { ViewCountContext } from '../../../contexts/ViewCountContext/ViewCountContext';
-
-// Components
-import FeaturedRibbon from '../../FeaturedRibbon/FeaturedRibbon';
 
 // Types
 import { TaggedRepoData } from '../../../types';
@@ -53,9 +49,6 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                 projectData.isFeatured ? 'featured' : 'not-featured'
             }`}
         >
-            {DevsChoiceProjectNames.includes(projectData.name) && (
-                <FeaturedRibbon />
-            )}
             <img
                 className="project-image"
                 onLoad={(e) => {
