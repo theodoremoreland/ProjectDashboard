@@ -33,14 +33,23 @@
 
     --analytics-gap: 7px;
     --content-gap: 20px;
+    --content-width: 88%;
+    --content-max-width: 2160px;
 
     --background-color: #141418;
     --experimental-color: #070a0e70;
 }
 
+@media screen and (min-width: 481px) {
+    :root {
+        --content-width: 96%;
+    }
+}
+
 @media screen and (min-width: 1440px) {
     :root {
         --content-gap: 25px;
+        --content-width: 95%;
     }
 }
 
@@ -296,8 +305,8 @@ main {
         justify-content: flex-start;
         align-items: flex-start;
         gap: var(--content-gap);
-        width: 88%;
-        max-width: 2160px;
+        width: var(--content-width);
+        max-width: var(--content-max-width);
         margin-top: var(--content-gap);
 
         @media screen and (min-width: 481px) {
