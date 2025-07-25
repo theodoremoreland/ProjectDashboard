@@ -69,13 +69,13 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                 <article>
                     <h3>Source Code</h3>
                     <p>
+                        Learn more about this project by visiting the {''}
                         <a
                             target="_blank"
                             rel="noreferrer"
                             href="https://github.com/theodoremoreland/ProjectList"
                         >
-                            The source code for this web application is
-                            available on GitHub
+                            repository on GitHub
                         </a>
                         .
                     </p>
