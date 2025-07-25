@@ -38,92 +38,104 @@ const NavBar = ({
 
     return (
         <nav id="app-nav">
-            <h1>Project List</h1>
-            <ul id="desktop-menu">
-                <li
-                    id="analytics-nav"
-                    title="Analytics"
-                    role="presentation"
-                    onClick={() => setShowAnalytics(true)}
-                >
-                    <QueryStatsIcon className="query_stats icon" />
-                    <span>Analytics</span>
-                </li>
-                <a
-                    href="https://github.com/theodoremoreland"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <li id="github-nav" title="My GitHub" role="presentation">
-                        <GitHubIcon id="github-icon" className="github icon" />
-                        <span>My GitHub</span>
+            <div id="nav-content">
+                <h1>Project List</h1>
+                <ul id="desktop-menu">
+                    <li
+                        id="analytics-nav"
+                        title="Analytics"
+                        role="presentation"
+                        onClick={() => setShowAnalytics(true)}
+                    >
+                        <QueryStatsIcon className="query_stats icon" />
+                        <span>Analytics</span>
                     </li>
-                </a>
-                <li
-                    id="nav-overview"
-                    title="Overview"
-                    role="presentation"
-                    onClick={() => setShowOverviewModal(true)}
-                >
-                    <InfoIcon className="info icon" />
-                    <span>Overview</span>
-                </li>
-            </ul>
-            <IconButton
-                id="mobile-menu-icon"
-                aria-label="menu"
-                aria-controls={isMobileMenuOpen ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={isMobileMenuOpen ? 'true' : undefined}
-                onClick={handleMobileMenuOpen}
-            >
-                <MenuIcon />
-            </IconButton>
-            <Menu
-                id="mobile-menu"
-                anchorEl={mobileMenuAnchorEl}
-                open={isMobileMenuOpen}
-                onClose={handleMobileMenuClose}
-            >
-                <MenuItem
-                    id="analytics-nav"
-                    className="mobile-menu-item"
-                    title="Analytics"
-                    onClick={() => {
-                        setShowAnalytics(true);
-                        handleMobileMenuClose();
-                    }}
-                >
-                    <QueryStatsIcon className="query_stats icon" />
-                    <span>Analytics</span>
-                </MenuItem>
-                <MenuItem
-                    id="github-nav"
-                    className="mobile-menu-item"
-                    title="My GitHub"
-                >
                     <a
                         href="https://github.com/theodoremoreland"
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <GitHubIcon id="github-icon" className="github icon" />
-                        <span>My GitHub</span>
+                        <li
+                            id="github-nav"
+                            title="My GitHub"
+                            role="presentation"
+                        >
+                            <GitHubIcon
+                                id="github-icon"
+                                className="github icon"
+                            />
+                            <span>My GitHub</span>
+                        </li>
                     </a>
-                </MenuItem>
-                <MenuItem
-                    id="overview-nav"
-                    className="mobile-menu-item"
-                    title="Overview"
-                    onClick={() => {
-                        setShowOverviewModal(true);
-                        handleMobileMenuClose();
-                    }}
+                    <li
+                        id="nav-overview"
+                        title="Overview"
+                        role="presentation"
+                        onClick={() => setShowOverviewModal(true)}
+                    >
+                        <InfoIcon className="info icon" />
+                        <span>Overview</span>
+                    </li>
+                </ul>
+                <IconButton
+                    id="mobile-menu-icon"
+                    aria-label="menu"
+                    aria-controls={isMobileMenuOpen ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={isMobileMenuOpen ? 'true' : undefined}
+                    onClick={handleMobileMenuOpen}
                 >
-                    <InfoIcon className="overview icon" />
-                    <span>Overview</span>
-                </MenuItem>
-            </Menu>
+                    <MenuIcon />
+                </IconButton>
+                <Menu
+                    id="mobile-menu"
+                    anchorEl={mobileMenuAnchorEl}
+                    open={isMobileMenuOpen}
+                    onClose={handleMobileMenuClose}
+                >
+                    <MenuItem
+                        id="analytics-nav"
+                        className="mobile-menu-item"
+                        title="Analytics"
+                        onClick={() => {
+                            setShowAnalytics(true);
+                            handleMobileMenuClose();
+                        }}
+                    >
+                        <QueryStatsIcon className="query_stats icon" />
+                        <span>Analytics</span>
+                    </MenuItem>
+                    <MenuItem
+                        id="github-nav"
+                        className="mobile-menu-item"
+                        title="My GitHub"
+                    >
+                        <a
+                            href="https://github.com/theodoremoreland"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <GitHubIcon
+                                id="github-icon"
+                                className="github icon"
+                            />
+                            <span>My GitHub</span>
+                        </a>
+                    </MenuItem>
+                    <MenuItem
+                        id="overview-nav"
+                        className="mobile-menu-item"
+                        title="Overview"
+                        onClick={() => {
+                            setShowOverviewModal(true);
+                            handleMobileMenuClose();
+                        }}
+                    >
+                        <InfoIcon className="overview icon" />
+                        <span>Overview</span>
+                    </MenuItem>
+                </Menu>
+            </div>
         </nav>
     );
 };
