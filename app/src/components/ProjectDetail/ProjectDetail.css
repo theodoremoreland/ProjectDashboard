@@ -56,9 +56,9 @@
 
     .button-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         gap: 10px;
         width: 100%;
 
@@ -69,6 +69,7 @@
             line-height: 1;
             text-align: center;
             min-width: 14ch;
+            width: 100%;
             padding: 6px 8px;
             border: 1px solid var(--primary-highlight-color);
             border-radius: 4px;
@@ -84,6 +85,25 @@
 
         button:active {
             scale: 0.95;
+        }
+
+        .demo-link,
+        .github-link {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 481px) {
+            & {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            .demo-link,
+            .github-link,
+            button {
+                width: auto;
+            }
         }
     }
 }
