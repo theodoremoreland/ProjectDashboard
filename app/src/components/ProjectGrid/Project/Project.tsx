@@ -15,7 +15,7 @@ import useViewCount from '../../../hooks/useViewCount';
 import { ViewCountContext } from '../../../contexts/ViewCountContext/ViewCountContext';
 
 // Components
-import DevsChoiceBadge from '../../DevsChoiceBadge/DevsChoiceBadge';
+import FeaturedRibbon from '../../FeaturedRibbon/FeaturedRibbon';
 
 // Types
 import { TaggedRepoData } from '../../../types';
@@ -54,7 +54,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
             }`}
         >
             {DevsChoiceProjectNames.includes(projectData.name) && (
-                <DevsChoiceBadge />
+                <FeaturedRibbon />
             )}
             <img
                 className="project-image"

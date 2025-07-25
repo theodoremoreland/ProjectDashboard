@@ -26,7 +26,7 @@ const FeaturedProjectNames: string[] = [
 
 export const DevsChoiceProjectNames: string[] = FeaturedProjectNames.slice(
     0,
-    4
+    6
 );
 
 export default FeaturedProjectNames;
