@@ -30,11 +30,11 @@
         opacity: 0.1;
     }
 
-    .DevsChoiceBadge {
+    .FeaturedRibbon {
         position: absolute;
         z-index: 2;
-        top: 10px;
-        right: 10px;
+        top: 0;
+        left: 0;
     }
 }
 
