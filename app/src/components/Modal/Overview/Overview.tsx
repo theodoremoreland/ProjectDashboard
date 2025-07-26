@@ -61,9 +61,10 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         This application features many active web apps that can
                         be visited by hovering over its corresponding thumbnail
                         and clicking the "Live Demo" button. Each active
-                        deployment is responsive and deployed via CI/CD
-                        pipeline. Everything else features a link to detailed
-                        READMEs on GitHub upon clicking the "Learn More" button.
+                        deployment is responsive and deployed via CI/CD pipeline
+                        or scripted deployment. Everything else features a link
+                        to detailed READMEs on GitHub upon clicking the "Learn
+                        More" button.
                     </p>
                 </article>
                 <article>

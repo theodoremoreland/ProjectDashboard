@@ -27,6 +27,7 @@ const useIncrementAppViewCount = () => {
         // Increment app view count only once
         if (!hasIncrementAppViewCountRef.current) {
             hasIncrementAppViewCountRef.current = true;
+
             // Call the function to increment the app view count
             incrementViewMutation.mutate({
                 projectId: String(737351449),
@@ -35,7 +36,7 @@ const useIncrementAppViewCount = () => {
         }
     }, [incrementViewMutation]);
 
-    return null; // This hook does not return anything
+    return null;
 };
 
 export default useIncrementAppViewCount;

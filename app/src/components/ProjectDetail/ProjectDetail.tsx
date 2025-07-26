@@ -3,8 +3,11 @@ import { ReactElement, useContext } from 'react';
 
 // Custom
 import useViewCount from '../../hooks/useViewCount';
+import useExploredCount from '../../hooks/useExploredCount';
 import useProjectViewTracker from '../../hooks/useProjectViewTracker';
+import useIncrementExploredViewCount from '../../hooks/useIncrementExploredViewCount';
 import getProjectContext from '../../utils/getProjectContext';
+import { generateContextString } from './ProjectDetail.utils';
 
 // Context
 import { ViewCountContext } from '../../contexts/ViewCountContext/ViewCountContext';
@@ -20,25 +23,22 @@ interface Props {
     handleClose: () => void;
 }
 
-const generateContextString = (
-    context: 'Coursework / Exercise' | 'Professional' | 'Personal'
-): string | null => {
-    switch (context) {
-        case 'Coursework / Exercise':
-            return 'This project was originally created as coursework or an exercise, but has since been expanded upon.';
-        case 'Professional':
-            return 'This project was created for a client.';
-        case 'Personal':
-            return 'This project was created to solve a personal problem.';
-        default:
-            return null;
-    }
-};
-
 const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
-    const { viewCounts, isError, isFetched } = useContext(ViewCountContext);
+    useIncrementExploredViewCount({
+        projectId: projectData.id,
+    });
 
-    const viewCount = useViewCount(viewCounts, projectData.id, isError);
+    const { viewCounts, isError, isFetched } = useContext(ViewCountContext);
+    const viewCount: string | null = useViewCount(
+        viewCounts,
+        projectData.id,
+        isError
+    );
+    const exploredCount: string | null = useExploredCount(
+        viewCounts,
+        projectData.id,
+        isError
+    );
 
     const handleLiveDemoClick = useProjectViewTracker(projectData, {
         isDemoView: true,
@@ -80,11 +80,9 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                                 <span className="loading">Loading...</span>
                             )}
                         </div>
-                        <span>•</span>
+                        {isFetched && <span>•</span>}
                         <div>
-                            {new Date(
-                                projectData.date_created
-                            ).toLocaleDateString()}
+                            {isFetched ? <span>{exploredCount}</span> : null}
                         </div>
                     </div>
                     <p>{projectData.desc}</p>
