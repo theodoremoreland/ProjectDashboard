@@ -397,7 +397,7 @@ main {
     text-align: center;
     min-width: 14ch;
     padding: 6px 8px;
-    border: 1px solid var(--primary-highlight-color);
+    border: 2px solid var(--primary-highlight-color);
     border-radius: 4px;
     background-color: var(--primary-color);
 }
