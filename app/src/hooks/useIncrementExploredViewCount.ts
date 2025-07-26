@@ -35,7 +35,7 @@ const useIncrementExploredViewCount = ({
             // Call the function to increment the explored view count
             incrementViewMutation.mutate({
                 projectId: String(projectId),
-                isLearnMoreView: true,
+                isExploreView: true,
             });
         }
     }, [incrementViewMutation, projectId]);

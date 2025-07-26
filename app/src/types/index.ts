@@ -27,14 +27,14 @@ export interface TopicCounts {
 export type View =
     | { isGitHubView: true }
     | { isDemoView: true }
-    | { isLearnMoreView: true };
+    | { isExploreView: true };
 
 export type ViewCounts = {
     [project_id: string]: {
         last_updated: Date;
         github_views: number;
         demo_views: number;
-        learn_more_views: number;
+        explore_views: number;
     };
 };
 
