@@ -24,12 +24,21 @@ export interface TopicCounts {
     tools: { [key: string]: number };
 }
 
-export type View = { isGitHubView: true } | { isDemoView: true };
+export type View =
+    | { isGitHubView: true }
+    | { isDemoView: true }
+    | { isLearnMoreView: true };
 
 export type ViewCounts = {
     [project_id: string]: {
         last_updated: Date;
         github_views: number;
         demo_views: number;
+        learn_more_views: number;
     };
 };
+
+export enum LocalStorageKeys {
+    DONT_SHOW_INTRO = 'dontShowIntro',
+    INTRO_MODAL_LAST_SHOWN_DATE = 'introModalLastShownDate',
+}
