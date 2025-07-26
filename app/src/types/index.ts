@@ -37,8 +37,3 @@ export type ViewCounts = {
         explore_views: number;
     };
 };
-
-export enum LocalStorageKeys {
-    DONT_SHOW_INTRO = 'dontShowIntro',
-    INTRO_MODAL_LAST_SHOWN_DATE = 'introModalLastShownDate',
-}
