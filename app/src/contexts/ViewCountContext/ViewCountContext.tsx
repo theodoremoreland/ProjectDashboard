@@ -18,6 +18,7 @@ export const ViewCountContext = createContext({
     viewCounts: undefined as ViewCounts | undefined,
     isError: false,
     isFetched: false,
+    isFetching: false,
 });
 
 const ViewCountProvider = ({
@@ -27,7 +28,7 @@ const ViewCountProvider = ({
         undefined
     );
 
-    const { data, isError, error, isFetched } = useQuery({
+    const { data, isError, error, isFetched, isFetching } = useQuery({
         queryKey: ['view-counts'],
         queryFn: getViewCounts,
         staleTime: 240_000,
@@ -52,6 +53,7 @@ const ViewCountProvider = ({
                 viewCounts,
                 isError,
                 isFetched,
+                isFetching,
             }}
         >
             {children}

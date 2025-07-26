@@ -1,11 +1,12 @@
 // React
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 
 // Third party
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 // Custom
 import incrementView from '../http/incrementView';
+import getExploreProjectSessionStorageKey from '../utils/getExploreProjectSessionStorageKey';
 
 /**
  * @returns null
@@ -18,8 +19,6 @@ const useIncrementExploredViewCount = ({
 }) => {
     const queryClient = useQueryClient();
 
-    const hasIncrementExploredViewCountRef = useRef<boolean>(false);
-
     const incrementViewMutation = useMutation({
         mutationFn: incrementView,
         onSuccess: () => {
@@ -28,9 +27,12 @@ const useIncrementExploredViewCount = ({
     });
 
     useEffect(() => {
-        // Increment explored view count only once
-        if (!hasIncrementExploredViewCountRef.current) {
-            hasIncrementExploredViewCountRef.current = true;
+        const storageKey = getExploreProjectSessionStorageKey(projectId);
+        const hasExplored = sessionStorage.getItem(storageKey);
+
+        // Increment explored view count only if not already explored
+        if (!hasExplored) {
+            sessionStorage.setItem(storageKey, 'true');
 
             // Call the function to increment the explored view count
             incrementViewMutation.mutate({

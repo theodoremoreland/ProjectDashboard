@@ -28,7 +28,8 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
         projectId: projectData.id,
     });
 
-    const { viewCounts, isError, isFetched } = useContext(ViewCountContext);
+    const { viewCounts, isError, isFetched, isFetching } =
+        useContext(ViewCountContext);
     const viewCount: string | null = useViewCount(
         viewCounts,
         projectData.id,
@@ -74,15 +75,13 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                     <h1>{projectData.name}</h1>
                     <div className="meta">
                         <div>
-                            {isFetched ? (
-                                <span>{viewCount}</span>
-                            ) : (
-                                <span className="loading">Loading...</span>
-                            )}
+                            {isFetched && <span>{viewCount}</span>}
+                            {isFetching && <span className="loading">...</span>}
                         </div>
                         {isFetched && <span>•</span>}
                         <div>
-                            {isFetched ? <span>{exploredCount}</span> : null}
+                            {isFetched && <span>{exploredCount}</span>}
+                            {isFetching && <span className="loading">...</span>}
                         </div>
                     </div>
                     <p>{projectData.desc}</p>
