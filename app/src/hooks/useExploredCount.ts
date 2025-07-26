@@ -22,7 +22,7 @@ const useExploredCount = (
         }
 
         if (viewCounts && viewCounts[projectId]) {
-            return viewCounts[projectId].learn_more_views || '';
+            return viewCounts[projectId].explore_views || '';
         }
 
         return '';
