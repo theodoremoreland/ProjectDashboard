@@ -195,17 +195,13 @@ li {
         var(--primary-color) 3%,
         var(--secondary-color) 70%
     );
-    transition:
-        left 2s linear,
-        visibility 2s linear;
+    transition: all 2s linear;
     transition-delay: 1s;
 }
 
 @media screen and (min-width: 2160px) {
     .title-card {
-        transition:
-            left 2.5s linear,
-            visibility 2.5s linear;
+        transition: all 2.5s linear;
         transition-delay: 1s;
     }
 }
@@ -213,6 +209,14 @@ li {
 .title-card.transition {
     left: -115vw;
     visibility: hidden;
+}
+
+/* Reduced motion preference: fade instead */
+@media (prefers-reduced-motion: reduce) {
+    .title-card.transition {
+        left: 0; /* Keep it in view */
+        opacity: 0;
+    }
 }
 
 .app-title {
