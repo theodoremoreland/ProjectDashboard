@@ -9,7 +9,7 @@ import incrementView from '../http/incrementView';
 
 /**
  * @returns null
- * This hook increments this app's (Project List's) view count when the App component mounts.
+ * This hook increments this app's (Project Dashboard's) view count when the App component mounts.
  */
 const useIncrementAppViewCount = () => {
     const queryClient = useQueryClient();

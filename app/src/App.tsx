@@ -130,7 +130,7 @@ const App = (): ReactElement => {
                 className={`title-card ${repos ? 'transition' : ''}`}
             >
                 <h1 className={`app-title ${repos ? 'transition' : ''}`}>
-                    Project List
+                    Project Dashboard
                 </h1>
                 {repos ? (
                     <p className="app-subtitle">

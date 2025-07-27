@@ -74,7 +74,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         <a
                             target="_blank"
                             rel="noreferrer"
-                            href="https://github.com/theodoremoreland/ProjectList"
+                            href="https://github.com/theodoremoreland/ProjectDashboard"
                         >
                             repository on GitHub
                         </a>

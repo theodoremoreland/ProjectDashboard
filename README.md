@@ -1,4 +1,4 @@
-# Project List
+# Project Dashboard
 
 <img src="/presentation/thumbnail.webp" width="700">
 
@@ -30,7 +30,7 @@
 
 ## Overview
 
-This web application dynamically renders a list of my GitHub repositories. Repositories are queried in real-time from the GitHub API.
+A dashboard for quantifying and previewing my GitHub projects. This web application dynamically renders a list of my GitHub repositories. Repositories are queried in real-time from the GitHub API.
 
 _NOTE: The terms "project" and "repository" are used interchangeably throughout this document._
 
