@@ -22,8 +22,8 @@ import { ProjectsContext } from '../../contexts/ProjectsContext';
 import { TopicCounts } from '../../types';
 
 // Images
-import KeyboardControlKey from '../../images/icons/keyboard_control_key.svg?react';
-import CheckIcon from '../../images/icons/check.svg?react';
+import KeyboardControlKey from '../../assets/images/icons/keyboard_control_key.svg?react';
+import CheckIcon from '../../assets/images/icons/check.svg?react';
 
 // Styles
 import './TechList.css';

@@ -17,8 +17,8 @@ import { ProjectsContext } from '../../contexts/ProjectsContext';
 import { TaggedRepoData } from '../../types';
 
 // Images
-import SearchIcon from '../../images/icons/search.svg?react';
-import CancelIcon from '../../images/icons/cancel.svg?react';
+import SearchIcon from '../../assets/images/icons/search.svg?react';
+import CancelIcon from '../../assets/images/icons/cancel.svg?react';
 
 // Styles
 import './SearchBar.css';

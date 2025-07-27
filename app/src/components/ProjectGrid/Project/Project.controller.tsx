@@ -2,13 +2,13 @@
 import { ReactElement } from 'react';
 
 // Images
-import htmlIcon from '../../../images/languages/html.png';
-import javascriptIcon from '../../../images/languages/javascript.png';
-import typescriptIcon from '../../../images/languages/typescript.png';
-import pythonIcon from '../../../images/languages/python.png';
-import javaIcon from '../../../images/languages/java.png';
-import vbaIcon from '../../../images/languages/vba.png';
-import sqlIcon from '../../../images/languages/sql.png';
+import htmlIcon from '../../../assets/images/languages/html.png';
+import javascriptIcon from '../../../assets/images/languages/javascript.png';
+import typescriptIcon from '../../../assets/images/languages/typescript.png';
+import pythonIcon from '../../../assets/images/languages/python.png';
+import javaIcon from '../../../assets/images/languages/java.png';
+import vbaIcon from '../../../assets/images/languages/vba.png';
+import sqlIcon from '../../../assets/images/languages/sql.png';
 
 export const renderLanguageIcon = (topic: string): ReactElement | null => {
     const titleTemplate = 'This project was written with ';

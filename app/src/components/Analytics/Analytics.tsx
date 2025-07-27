@@ -31,10 +31,10 @@ import InfiniteScroller from '../InfiniteScroller/InfiniteScroller';
 import { TaggedRepoData } from '../../types';
 
 // Images
-import DeploymentIcon from '../../images/icons/deployed-code.svg?react';
-import StarIcon from '../../images/icons/star.svg?react';
-import TopicIcon from '../../images/icons/topic.svg?react';
-import CodeIcon from '../../images/icons/code.svg?react';
+import DeploymentIcon from '../../assets/images/icons/deployed-code.svg?react';
+import StarIcon from '../../assets/images/icons/star.svg?react';
+import TopicIcon from '../../assets/images/icons/topic.svg?react';
+import CodeIcon from '../../assets/images/icons/code.svg?react';
 
 // Styles
 import './Analytics.css';

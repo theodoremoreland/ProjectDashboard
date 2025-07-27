@@ -25,7 +25,7 @@ import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
 
 // Images
-import ArrowUpwardIcon from './images/icons/arrow_upward.svg?react';
+import ArrowUpwardIcon from './assets/images/icons/arrow_upward.svg?react';
 
 // Custom Styles
 import './App.css';

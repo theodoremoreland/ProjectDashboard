@@ -4,10 +4,10 @@ import { ReactElement, useState, useCallback } from 'react';
 import { IconButton, Menu, MenuItem } from '@mui/material';
 
 // Images
-import QueryStatsIcon from '../../images/icons/query_stats.svg?react';
-import InfoIcon from '../../images/icons/info.svg?react';
-import MenuIcon from '../../images/icons/menu.svg?react';
-import GitHubIcon from '../../images/icons/github.svg?react';
+import QueryStatsIcon from '../../assets/images/icons/query_stats.svg?react';
+import InfoIcon from '../../assets/images/icons/info.svg?react';
+import MenuIcon from '../../assets/images/icons/menu.svg?react';
+import GitHubIcon from '../../assets/images/icons/github.svg?react';
 
 // Styles
 import './NavBar.css';

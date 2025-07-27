@@ -2,7 +2,7 @@
 import { ReactElement } from 'react';
 
 // Images
-import Ribbon from '../../images/icons/ribbon.png';
+import Ribbon from '../../assets/images/icons/ribbon.png';
 
 // Styles
 import './FeaturedRibbon.css';

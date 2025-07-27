@@ -2,29 +2,29 @@
 import { TaggedRepoData, TopicCounts } from '../../types';
 
 // Images
-import javascriptIcon from '../../images/languages/javascript.png';
-import pythonIcon from '../../images/languages/python.png';
-import javaIcon from '../../images/languages/java.png';
-import typescriptIcon from '../../images/languages/typescript.png';
-import sqlIcon from '../../images/languages/sql.png';
-import vbaIcon from '../../images/languages/vba.png';
-import htmlIcon from '../../images/languages/html.png';
-import nodeIcon from '../../images/tools/node.png';
-import pandasIcon from '../../images/tools/pandas.png';
-import dockerIcon from '../../images/tools/docker.png';
-import postgresqlIcon from '../../images/tools/postgresql.png';
-import mysqlIcon from '../../images/tools/mysql.png';
-import mongodbIcon from '../../images/tools/mongodb.png';
-import matplotlibIcon from '../../images/tools/matplotlib.png';
-import expressIcon from '../../images/frameworks/express.png';
-import flaskIcon from '../../images/frameworks/flask.png';
-import reactIcon from '../../images/frameworks/react.png';
-import springBootIcon from '../../images/frameworks/spring-boot.png';
-import junitIcon from '../../images/frameworks/junit.png';
-import jestIcon from '../../images/frameworks/jest.png';
-import dataAnalyticsIcon from '../../images/competencies/data-analytics.png';
-import webDevelopmentIcon from '../../images/competencies/web-development.png';
-import dataEngineeringIcon from '../../images/competencies/data-engineering.png';
+import javascriptIcon from '../../assets/images/languages/javascript.png';
+import pythonIcon from '../../assets/images/languages/python.png';
+import javaIcon from '../../assets/images/languages/java.png';
+import typescriptIcon from '../../assets/images/languages/typescript.png';
+import sqlIcon from '../../assets/images/languages/sql.png';
+import vbaIcon from '../../assets/images/languages/vba.png';
+import htmlIcon from '../../assets/images/languages/html.png';
+import nodeIcon from '../../assets/images/tools/node.png';
+import pandasIcon from '../../assets/images/tools/pandas.png';
+import dockerIcon from '../../assets/images/tools/docker.png';
+import postgresqlIcon from '../../assets/images/tools/postgresql.png';
+import mysqlIcon from '../../assets/images/tools/mysql.png';
+import mongodbIcon from '../../assets/images/tools/mongodb.png';
+import matplotlibIcon from '../../assets/images/tools/matplotlib.png';
+import expressIcon from '../../assets/images/frameworks/express.png';
+import flaskIcon from '../../assets/images/frameworks/flask.png';
+import reactIcon from '../../assets/images/frameworks/react.png';
+import springBootIcon from '../../assets/images/frameworks/spring-boot.png';
+import junitIcon from '../../assets/images/frameworks/junit.png';
+import jestIcon from '../../assets/images/frameworks/jest.png';
+import dataAnalyticsIcon from '../../assets/images/competencies/data-analytics.png';
+import webDevelopmentIcon from '../../assets/images/competencies/web-development.png';
+import dataEngineeringIcon from '../../assets/images/competencies/data-engineering.png';
 
 const frameworks: { [key: string]: string } = {
     express: 'Express',

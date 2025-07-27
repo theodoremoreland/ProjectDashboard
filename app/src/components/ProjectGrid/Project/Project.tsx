@@ -17,7 +17,7 @@ import { ViewCountContext } from '../../../contexts/ViewCountContext/ViewCountCo
 import { TaggedRepoData } from '../../../types';
 
 // Images
-import alt from '../../../images/under-construction-thumbnail.jpg';
+import alt from '../../../assets/images/under-construction-thumbnail.jpg';
 
 // Custom styles
 import './Project.css';
