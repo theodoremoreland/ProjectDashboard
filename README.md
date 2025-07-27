@@ -6,7 +6,7 @@ _NOTE: The terms "project" and "repository" are used interchangeably throughout 
 
 <img src="/presentation/thumbnail.webp" width="700">
 
-[View the application](https://project-list.theodoremoreland.dev)
+[View the application](https://project-dashboard.theodoremoreland.dev/)
 
 ## Table of contents
 
