@@ -18,7 +18,7 @@ import { defaultOrder } from './ProjectsContext.controller';
 // Custom
 import { getRepoData } from '../http/getRepoData';
 import extractErrorMessage from '../utils/extractErrorMessage';
-import backupData from '../data/backup-data.json';
+import backupData from '../assets/data/backup-data.json';
 
 // Types
 import { RepoData, TaggedRepoData } from '../types';

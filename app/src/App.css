@@ -2,17 +2,17 @@
 
 @font-face {
     font-family: custom-bold;
-    src: url('./fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf');
+    src: url('./assets/fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf');
 }
 
 @font-face {
     font-family: custom-regular;
-    src: url('./fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf');
+    src: url('./assets/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf');
 }
 
 @font-face {
     font-family: custom-thin;
-    src: url('./fonts/IBM_Plex_Sans/IBMPlexSans-Thin.ttf');
+    src: url('./assets/fonts/IBM_Plex_Sans/IBMPlexSans-Thin.ttf');
 }
 
 /* ------------------- VARIABLES ------------------- */
