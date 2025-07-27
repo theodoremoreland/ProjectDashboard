@@ -76,12 +76,16 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                     <div className="meta">
                         <div>
                             {isFetched && <span>{viewCount}</span>}
-                            {isFetching && <span className="loading">...</span>}
+                            {isFetching && viewCount === null && (
+                                <span className="loading">...</span>
+                            )}
                         </div>
                         {isFetched && <span>•</span>}
                         <div>
                             {isFetched && <span>{exploredCount}</span>}
-                            {isFetching && <span className="loading">...</span>}
+                            {isFetching && exploredCount === null && (
+                                <span className="loading">...</span>
+                            )}
                         </div>
                     </div>
                     <p>{projectData.desc}</p>
