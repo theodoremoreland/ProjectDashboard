@@ -16,7 +16,6 @@ _NOTE: The terms "project" and "repository" are used interchangeably throughout 
 - [Screenshots](#screenshots)
   - [Desktop](#desktop)
   - [Mobile](#mobile)
-  - [Older versions](#older-versions)
 
 ## Technologies Used
 
