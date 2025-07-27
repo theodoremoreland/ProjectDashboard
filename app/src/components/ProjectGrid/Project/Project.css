@@ -131,6 +131,12 @@
     opacity: 0;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .project-overlay::after {
+        display: none;
+    }
+}
+
 .project-name {
     font-family: custom-bold;
     font-style: oblique;
