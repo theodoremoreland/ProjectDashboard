@@ -97,7 +97,7 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                     </p>
                     <div className="button-container">
                         {projectData.demo_link &&
-                            projectData.name !== 'ProjectList' && (
+                            projectData.name !== 'ProjectDashboard' && (
                                 <a
                                     href={projectData.demo_link}
                                     target="_blank"

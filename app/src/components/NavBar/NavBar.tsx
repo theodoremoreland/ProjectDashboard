@@ -39,7 +39,7 @@ const NavBar = ({
     return (
         <nav id="app-nav">
             <div id="nav-content">
-                <h1>Project List</h1>
+                <h1>Project Dashboard</h1>
                 <ul id="desktop-menu">
                     <li
                         id="analytics-nav"

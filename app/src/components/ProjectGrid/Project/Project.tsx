@@ -94,7 +94,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                         <div className="row">
                             <ul>
                                 {projectData.demo_link &&
-                                    projectData.name !== 'ProjectList' && (
+                                    projectData.name !== 'ProjectDashboard' && (
                                         // <a> tag needs to wrap the <li> tag to make the entire list item clickable.
                                         <a
                                             href={projectData.demo_link}

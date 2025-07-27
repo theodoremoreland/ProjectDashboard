@@ -52,8 +52,8 @@
     },
     {
         "id": 737351449,
-        "name": "ProjectList",
-        "url": "https://github.com/theodoremoreland/ProjectList",
+        "name": "ProjectDashboard",
+        "url": "https://github.com/theodoremoreland/ProjectDashboard",
         "desc": "A dashboard for reviewing my GitHub content. Made with React, TypeScript, MUI X Charts, Tanstack React Query, and GitHub API.",
         "date_created": "2023-12-30",
         "date_updated": "2025-07-04",
@@ -75,9 +75,9 @@
             "vite",
             "web-development"
         ],
-        "image": "https://raw.githubusercontent.com/theodoremoreland/ProjectList/master/presentation/thumbnail.webp",
+        "image": "https://raw.githubusercontent.com/theodoremoreland/ProjectDashboard/master/presentation/thumbnail.webp",
         "demo_link": "https://main.d2wyze0voo0sc5.amplifyapp.com/",
-        "readme": "https://raw.githubusercontent.com/theodoremoreland/ProjectList/master/README.md",
+        "readme": "https://raw.githubusercontent.com/theodoremoreland/ProjectDashboard/master/README.md",
         "size": 12737,
         "stars": 0
     },
