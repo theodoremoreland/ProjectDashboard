@@ -12,8 +12,7 @@
         max-width: 100%;
     }
 
-    button.left,
-    button.right {
+    > button {
         position: absolute;
         display: flex;
         flex-direction: row;
@@ -63,13 +62,17 @@
     .circles {
         position: absolute;
         top: 102%;
-        display: flex;
+        display: none;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         gap: 8px;
         width: 90%;
+
+        @media screen and (min-width: 768px) {
+            display: flex;
+        }
 
         button {
             height: 1em;
