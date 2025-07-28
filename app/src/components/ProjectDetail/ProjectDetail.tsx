@@ -11,7 +11,7 @@ import { generateContextString } from './ProjectDetail.utils';
 import { useReadmeImages } from './ProjectDetail.hooks';
 
 // Components
-import ImageCarousel from './ImageCarousel';
+import ImageCarousel from '../ImageCarousel/ImageCarousel';
 
 // Context
 import { ViewCountContext } from '../../contexts/ViewCountContext/ViewCountContext';
