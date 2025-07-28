@@ -128,7 +128,7 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                                         type="button"
                                         className="learn-more-button"
                                     >
-                                        Learn More
+                                        Explore
                                     </button>
                                 </li>
                             </ul>

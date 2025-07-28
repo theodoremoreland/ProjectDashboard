@@ -1,0 +1,84 @@
+.ImageCarousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        object-fit: contain;
+    }
+
+    button.left,
+    button.right {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        margin: 0;
+        background-color: var(--primary-highlight-color);
+        border-radius: 100%;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+
+        .icon {
+            height: 2em;
+            fill: var(--primary-font-color);
+        }
+
+        &.left {
+            left: 2.5em;
+            transform: rotate(270deg);
+        }
+
+        &.right {
+            right: 2.5em;
+            transform: rotate(90deg);
+        }
+    }
+
+    .circles {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 80%;
+        padding-top: 10px;
+
+        button {
+            height: 1.5em;
+            width: 1.5em;
+            margin: 0;
+            background-color: var(--primary-highlight-color);
+            border-radius: 100%;
+            border: none;
+            cursor: pointer;
+
+            &.selected {
+                background-color: var(--secondary-highlight-color);
+            }
+
+            &:hover {
+                opacity: 0.7;
+            }
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+    }
+}

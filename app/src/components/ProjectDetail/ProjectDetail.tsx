@@ -8,6 +8,10 @@ import useProjectViewTracker from '../../hooks/useProjectViewTracker';
 import useIncrementExploredViewCount from '../../hooks/useIncrementExploredViewCount';
 import getProjectContext from '../../utils/getProjectContext';
 import { generateContextString } from './ProjectDetail.utils';
+import { useReadmeImages } from './ProjectDetail.hooks';
+
+// Components
+import ImageCarousel from './ImageCarousel';
 
 // Context
 import { ViewCountContext } from '../../contexts/ViewCountContext/ViewCountContext';
@@ -27,6 +31,8 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
     useIncrementExploredViewCount({
         projectId: projectData.id,
     });
+
+    const { images } = useReadmeImages(projectData.name);
 
     const { viewCounts, isError, isFetched, isFetching } =
         useContext(ViewCountContext);
@@ -69,7 +75,11 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
             </nav>
             <div id="project-detail-content" className="row">
                 <div id="image-container">
-                    <img src={projectData.image} alt={projectData.name} />
+                    {images && images.length > 0 ? (
+                        <ImageCarousel images={images} />
+                    ) : (
+                        <img src={projectData.image} alt={projectData.name} />
+                    )}
                 </div>
                 <div id="info-container">
                     <h1>{projectData.name}</h1>
