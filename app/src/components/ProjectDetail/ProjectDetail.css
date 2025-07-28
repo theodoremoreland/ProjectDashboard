@@ -167,8 +167,9 @@
     align-items: center;
 }
 
-#image-container img {
-    width: var(--project-detail-content-width);
+#image-container > img,
+#image-container > .ImageCarousel {
+    width: 100%;
     aspect-ratio: 4/3;
     border: 1px solid var(--border-color);
     box-shadow:
@@ -178,7 +179,8 @@
 }
 
 @media screen and (min-width: 768px) {
-    #image-container img {
+    #image-container > img,
+    #image-container > .ImageCarousel {
         width: 85%;
     }
 }
