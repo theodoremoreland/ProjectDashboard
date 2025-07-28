@@ -1,7 +1,5 @@
 .ImageCarousel {
     position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +7,7 @@
 
     img {
         object-fit: contain;
+        height: 100%;
     }
 
     button.left,
@@ -39,29 +38,31 @@
         }
 
         &.left {
-            left: 2.5em;
+            left: -2em;
             transform: rotate(270deg);
         }
 
         &.right {
-            right: 2.5em;
+            right: -2em;
             transform: rotate(90deg);
         }
     }
 
     .circles {
+        position: absolute;
+        bottom: -3.1em;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         gap: 10px;
-        width: 80%;
+        width: 90%;
         padding-top: 10px;
 
         button {
-            height: 1.5em;
-            width: 1.5em;
+            height: 1.25em;
+            width: 1.25em;
             margin: 0;
             background-color: var(--primary-highlight-color);
             border-radius: 100%;
