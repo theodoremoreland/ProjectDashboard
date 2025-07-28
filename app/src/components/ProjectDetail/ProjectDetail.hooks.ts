@@ -20,7 +20,7 @@ export const useReadmeImages = (projectName: string) => {
     });
 
     // Extract images from the README
-    const images: string[] = getImagesFromReadme(readme || '');
+    const images: string[] = getImagesFromReadme(readme || '', projectName);
 
     // Effect to handle errors
     useEffect(() => {
