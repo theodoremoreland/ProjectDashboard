@@ -1,30 +1,3 @@
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInLowOpacity {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0.3;
-    }
-}
-
 #tech-list {
     display: flex;
     flex-direction: column;

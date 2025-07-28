@@ -32,7 +32,11 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
         projectId: projectData.id,
     });
 
-    const { images } = useReadmeImages(projectData.name);
+    const { images, isFetching: isFetchingImages } = useReadmeImages(
+        projectData.name
+    );
+    const shouldShowImages = !isFetchingImages && images && images.length > 0;
+    const shouldShowThumbnail = !isFetchingImages && !shouldShowImages;
 
     const { viewCounts, isError, isFetched, isFetching } =
         useContext(ViewCountContext);
@@ -75,9 +79,11 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
             </nav>
             <div id="project-detail-content" className="row">
                 <div id="image-container">
-                    {images && images.length > 0 ? (
-                        <ImageCarousel images={images} />
-                    ) : (
+                    {isFetchingImages && (
+                        <span className="loading">Loading images...</span>
+                    )}
+                    {shouldShowImages && <ImageCarousel images={images} />}
+                    {shouldShowThumbnail && (
                         <img src={projectData.image} alt={projectData.name} />
                     )}
                 </div>
