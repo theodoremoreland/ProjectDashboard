@@ -40,13 +40,23 @@
         }
 
         &.left {
-            left: -1.5em;
+            left: -0.5em;
             transform: rotate(270deg);
         }
 
         &.right {
-            right: -1.5em;
+            right: -0.5em;
             transform: rotate(90deg);
+        }
+
+        @media screen and (min-width: 768px) {
+            &.left {
+                left: -1.5em;
+            }
+
+            &.right {
+                right: -1.5em;
+            }
         }
     }
 
