@@ -3,7 +3,7 @@
     --project-detail-content-padding: 16px;
 }
 
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 768px) {
     :root {
         --project-detail-content-width: 80%;
         --project-detail-content-padding: 1.25em;
@@ -135,7 +135,7 @@
         padding: var(--project-detail-content-padding);
     }
 
-    @media screen and (min-width: 660px) {
+    @media screen and (min-width: 768px) {
         #project-detail-content {
             flex-direction: row;
             justify-content: center;
@@ -151,13 +151,12 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        min-height: 30%;
+        aspect-ratio: 4/3;
     }
 
-    @media screen and (min-width: 660px) {
+    @media screen and (min-width: 768px) {
         #image-container {
             width: 50%;
-            height: 100%;
         }
     }
 
@@ -172,7 +171,7 @@
             rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     }
 
-    @media screen and (min-width: 660px) {
+    @media screen and (min-width: 768px) {
         #image-container > img,
         #image-container > .ImageCarousel {
             width: 85%;
@@ -188,7 +187,7 @@
         width: 100%;
         height: auto;
 
-        @media screen and (min-width: 660px) {
+        @media screen and (min-width: 768px) {
             & {
                 align-items: flex-start;
                 width: 50%;
@@ -212,7 +211,7 @@
             margin-left: -2px;
         }
 
-        @media screen and (min-width: 660px) {
+        @media screen and (min-width: 768px) {
             > h1 {
                 width: auto;
                 font-size: 2em;
