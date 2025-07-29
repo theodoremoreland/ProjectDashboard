@@ -144,27 +144,21 @@
         }
     }
 
-    #image-container,
-    #info-container {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
-
-    @media screen and (min-width: 768px) {
-        #image-container,
-        #info-container {
-            width: 50%;
-            height: 100%;
-        }
-    }
-
     #image-container {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
         min-height: 30%;
+    }
+
+    @media screen and (min-width: 768px) {
+        #image-container {
+            width: 50%;
+            height: 100%;
+        }
     }
 
     #image-container > img,
@@ -191,10 +185,14 @@
         justify-content: center;
         align-items: center;
         gap: 16px;
+        width: 100%;
+        height: auto;
 
         @media screen and (min-width: 768px) {
             & {
                 align-items: flex-start;
+                width: 50%;
+                height: 100%;
             }
         }
 

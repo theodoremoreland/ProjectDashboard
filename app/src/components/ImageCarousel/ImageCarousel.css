@@ -10,6 +10,7 @@
         object-fit: contain;
         height: 100%;
         max-width: 100%;
+        aspect-ratio: 4/3;
     }
 
     > button {
