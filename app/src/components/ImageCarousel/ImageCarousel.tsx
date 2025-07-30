@@ -30,10 +30,18 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
 
     const currentImage: string = images[currentIndex];
 
+    const stopAutoPlay = useCallback((): void => {
+        if (shouldAutoPlay.current === true) {
+            shouldAutoPlay.current = false;
+        }
+
+        if (shouldResumeAutoPlayOnMouseLeave.current === true) {
+            shouldResumeAutoPlayOnMouseLeave.current = false;
+        }
+    }, []);
+
     const handleLeftClick = () => {
-        // Once the user clicks the left or right button, stop auto-playing completely.
-        shouldResumeAutoPlayOnMouseLeave.current = false;
-        shouldAutoPlay.current = false;
+        stopAutoPlay();
 
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? images.length - 1 : prevIndex - 1
@@ -41,9 +49,7 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
     };
 
     const handleRightClick = () => {
-        // Once the user clicks the left or right button, stop auto-playing completely.
-        shouldResumeAutoPlayOnMouseLeave.current = false;
-        shouldAutoPlay.current = false;
+        stopAutoPlay();
 
         setCurrentIndex((prevIndex) =>
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -51,7 +57,9 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
     };
 
     const handleMouseEnter = useCallback(() => {
-        shouldAutoPlay.current = false;
+        if (shouldAutoPlay.current === true) {
+            shouldAutoPlay.current = false;
+        }
     }, []);
 
     const handleMouseLeave = useCallback(() => {
@@ -59,6 +67,15 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
             shouldAutoPlay.current = true;
         }
     }, []);
+
+    const handleCircleClick = useCallback(
+        (index: number) => {
+            stopAutoPlay();
+
+            setCurrentIndex(index);
+        },
+        [stopAutoPlay]
+    );
 
     useEffect(() => {
         const _selfRef = selfRef.current;
@@ -113,7 +130,7 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
                     <button
                         key={index}
                         className={`index ${currentIndex === index ? 'selected' : ''}`}
-                        onClick={() => setCurrentIndex(index)}
+                        onClick={() => handleCircleClick(index)}
                     ></button>
                 ))}
             </div>
