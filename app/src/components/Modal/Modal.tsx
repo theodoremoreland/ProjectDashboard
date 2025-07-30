@@ -5,7 +5,7 @@ import './Modal.css';
 
 interface Props {
     children: ReactElement;
-    title: string;
+    title?: string;
     handleClose: () => void;
 }
 
@@ -33,7 +33,7 @@ const Modal = ({ children, title, handleClose }: Props) => {
                         </button>
                     </div>
                 </header>
-                <h2 className="custom-modal-title">{title}</h2>
+                {title && <h2 className="custom-modal-title">{title}</h2>}
                 <div className="custom-modal-content">{children}</div>
             </div>
         </div>
