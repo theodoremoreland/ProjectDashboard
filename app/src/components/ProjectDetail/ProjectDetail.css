@@ -160,6 +160,12 @@
         }
     }
 
+    @media screen and (min-width: 2160px) {
+        #image-container {
+            width: 45%;
+        }
+    }
+
     #image-container > img,
     #image-container > .ImageCarousel {
         width: 100%;
@@ -192,6 +198,12 @@
                 align-items: flex-start;
                 width: 50%;
                 height: 100%;
+            }
+        }
+
+        @media screen and (min-width: 2160px) {
+            & {
+                width: 45%;
             }
         }
 
