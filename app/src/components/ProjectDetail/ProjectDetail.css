@@ -184,6 +184,15 @@
         }
     }
 
+    #image-container > img {
+        opacity: 0;
+        transition: opacity 2s;
+
+        &.loaded {
+            opacity: 1;
+        }
+    }
+
     #info-container {
         display: flex;
         flex-direction: column;

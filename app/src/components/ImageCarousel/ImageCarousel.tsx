@@ -95,6 +95,13 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
             <img
                 src={currentImage}
                 alt={`Carousel image ${currentIndex + 1}`}
+                onLoad={(e) => {
+                    const target: EventTarget = e.target;
+
+                    if (target instanceof HTMLImageElement) {
+                        target.classList.add('loaded');
+                    }
+                }}
             />
             <button className="right" onClick={handleRightClick}>
                 <ArrowUpwardIcon className="icon" />

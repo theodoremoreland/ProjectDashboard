@@ -11,9 +11,16 @@
         height: 100%;
         max-width: 100%;
         aspect-ratio: 4/3;
+        opacity: 0;
+        transition: opacity 2s;
+
+        &.loaded {
+            opacity: 1;
+        }
     }
 
     > button {
+        z-index: 2;
         position: absolute;
         display: flex;
         flex-direction: row;

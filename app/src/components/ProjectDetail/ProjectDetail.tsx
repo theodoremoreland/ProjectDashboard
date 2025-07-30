@@ -84,7 +84,17 @@ const ProjectDetail = ({ projectData, handleClose }: Props): ReactElement => {
                     )}
                     {shouldShowImages && <ImageCarousel images={images} />}
                     {shouldShowThumbnail && (
-                        <img src={projectData.image} alt={projectData.name} />
+                        <img
+                            src={projectData.image}
+                            alt={projectData.name}
+                            onLoad={(e) => {
+                                const target: EventTarget = e.target;
+
+                                if (target instanceof HTMLImageElement) {
+                                    target.classList.add('loaded');
+                                }
+                            }}
+                        />
                     )}
                 </div>
                 <div id="info-container">
