@@ -23,6 +23,7 @@ const AUTO_PLAY_INTERVAL_TIME: number = 4_000;
 const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
     const selfRef = useRef<HTMLDivElement>(null);
     const shouldAutoPlay = useRef(true);
+    const shouldResumeAutoPlayOnMouseLeave = useRef(true);
     const setAutoPlayIntervalId = useRef<number | undefined>(undefined);
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,6 +31,8 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
     const currentImage: string = images[currentIndex];
 
     const handleLeftClick = () => {
+        // Once the user clicks the left or right button, stop auto-playing completely.
+        shouldResumeAutoPlayOnMouseLeave.current = false;
         shouldAutoPlay.current = false;
 
         setCurrentIndex((prevIndex) =>
@@ -38,6 +41,8 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
     };
 
     const handleRightClick = () => {
+        // Once the user clicks the left or right button, stop auto-playing completely.
+        shouldResumeAutoPlayOnMouseLeave.current = false;
         shouldAutoPlay.current = false;
 
         setCurrentIndex((prevIndex) =>
@@ -49,6 +54,12 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
         shouldAutoPlay.current = false;
     }, []);
 
+    const handleMouseLeave = useCallback(() => {
+        if (shouldResumeAutoPlayOnMouseLeave.current) {
+            shouldAutoPlay.current = true;
+        }
+    }, []);
+
     useEffect(() => {
         if (images.length < 2) return;
 
@@ -56,13 +67,14 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
 
         if (shouldAutoPlay.current) {
             _selfRef?.addEventListener('mouseenter', handleMouseEnter);
+            _selfRef?.addEventListener('mouseleave', handleMouseLeave);
 
             setAutoPlayIntervalId.current = window.setInterval(() => {
                 if (shouldAutoPlay.current) {
                     setCurrentIndex((prevIndex) =>
                         prevIndex === images.length - 1 ? 0 : prevIndex + 1
                     );
-                } else {
+                } else if (shouldResumeAutoPlayOnMouseLeave.current === false) {
                     window.clearInterval(setAutoPlayIntervalId.current);
                 }
             }, AUTO_PLAY_INTERVAL_TIME);
@@ -71,8 +83,9 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
         return () => {
             window.clearInterval(setAutoPlayIntervalId.current);
             _selfRef?.removeEventListener('mouseenter', handleMouseEnter);
+            _selfRef?.removeEventListener('mouseleave', handleMouseLeave);
         };
-    }, [images.length, handleMouseEnter]);
+    }, [images.length, handleMouseEnter, handleMouseLeave]);
 
     return (
         <div className="ImageCarousel" ref={selfRef}>
