@@ -61,11 +61,13 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
     }, []);
 
     useEffect(() => {
-        if (images.length < 2) return;
-
         const _selfRef = selfRef.current;
 
+        if (images.length < 2) return;
+
         if (shouldAutoPlay.current) {
+            window.clearInterval(setAutoPlayIntervalId.current); // Always clear before setting
+
             _selfRef?.addEventListener('mouseenter', handleMouseEnter);
             _selfRef?.addEventListener('mouseleave', handleMouseLeave);
 
@@ -85,7 +87,7 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
             _selfRef?.removeEventListener('mouseenter', handleMouseEnter);
             _selfRef?.removeEventListener('mouseleave', handleMouseLeave);
         };
-    }, [images.length, handleMouseEnter, handleMouseLeave]);
+    }, [images, handleMouseEnter, handleMouseLeave]);
 
     return (
         <div className="ImageCarousel" ref={selfRef}>
