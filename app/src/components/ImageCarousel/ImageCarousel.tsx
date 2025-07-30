@@ -1,5 +1,12 @@
 // React
-import { FC, ReactElement, useState } from 'react';
+import {
+    FC,
+    ReactElement,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 
 // Images
 import ArrowUpwardIcon from '../../assets/images/icons/arrow_upward.svg?react';
@@ -11,26 +18,64 @@ interface Props {
     images: string[];
 }
 
+const AUTO_PLAY_INTERVAL_TIME: number = 4_000;
+
 const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
+    const selfRef = useRef<HTMLDivElement>(null);
+    const shouldAutoPlay = useRef(true);
+    const setAutoPlayIntervalId = useRef<number | undefined>(undefined);
+
     const [currentIndex, setCurrentIndex] = useState(0);
+
     const currentImage: string = images[currentIndex];
 
-    console.log('Current Image:', currentImage);
-
     const handleLeftClick = () => {
+        shouldAutoPlay.current = false;
+
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? images.length - 1 : prevIndex - 1
         );
     };
 
     const handleRightClick = () => {
+        shouldAutoPlay.current = false;
+
         setCurrentIndex((prevIndex) =>
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
         );
     };
 
+    const handleMouseEnter = useCallback(() => {
+        shouldAutoPlay.current = false;
+    }, []);
+
+    useEffect(() => {
+        if (images.length < 2) return;
+
+        const _selfRef = selfRef.current;
+
+        if (shouldAutoPlay.current) {
+            _selfRef?.addEventListener('mouseenter', handleMouseEnter);
+
+            setAutoPlayIntervalId.current = window.setInterval(() => {
+                if (shouldAutoPlay.current) {
+                    setCurrentIndex((prevIndex) =>
+                        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+                    );
+                } else {
+                    window.clearInterval(setAutoPlayIntervalId.current);
+                }
+            }, AUTO_PLAY_INTERVAL_TIME);
+        }
+
+        return () => {
+            window.clearInterval(setAutoPlayIntervalId.current);
+            _selfRef?.removeEventListener('mouseenter', handleMouseEnter);
+        };
+    }, [images.length, handleMouseEnter]);
+
     return (
-        <div className="ImageCarousel">
+        <div className="ImageCarousel" ref={selfRef}>
             <button className="left" onClick={handleLeftClick}>
                 <ArrowUpwardIcon className="icon" />
             </button>
