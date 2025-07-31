@@ -5,7 +5,7 @@
 
 @media screen and (min-width: 768px) {
     :root {
-        --project-detail-content-width: 80%;
+        --project-detail-content-width: 90%;
         --project-detail-content-padding: 1.25em;
     }
 }
@@ -129,14 +129,14 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        width: 100%;
+        width: var(--project-detail-content-width);
         max-width: 500px;
         gap: 16px;
         flex-grow: 1;
         padding: var(--project-detail-content-padding);
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1048px) {
         #project-detail-content {
             flex-direction: row;
             justify-content: center;
@@ -156,7 +156,7 @@
         aspect-ratio: 4/3;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1048px) {
         #image-container {
             width: 50%;
         }
@@ -179,7 +179,7 @@
             rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1048px) {
         #image-container > img,
         #image-container > .ImageCarousel {
             width: 85%;
@@ -204,7 +204,7 @@
         width: 100%;
         height: auto;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 1048px) {
             & {
                 align-items: flex-start;
                 width: 50%;
@@ -234,7 +234,7 @@
             margin-left: -2px;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 1048px) {
             > h1 {
                 width: auto;
                 font-size: 2em;
@@ -243,7 +243,7 @@
 
         p {
             font-size: 1em;
-            width: var(--project-detail-content-width);
+            width: 100%;
             max-width: 75ch;
         }
 

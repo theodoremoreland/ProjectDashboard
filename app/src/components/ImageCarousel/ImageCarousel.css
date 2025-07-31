@@ -78,7 +78,7 @@
         gap: 8px;
         width: 90%;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 1048px) {
             display: flex;
         }
 
