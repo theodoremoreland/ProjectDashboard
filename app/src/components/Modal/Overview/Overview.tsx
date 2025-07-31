@@ -33,20 +33,19 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         >
                             GitHub API
                         </a>
-                        . It features search, filtering, and analytics related
-                        to my public GitHub repositories, providing the facts
-                        and figures needed to support my case.
+                        . It features search, filtering, and analytics thus
+                        providing the facts and figures needed to support my
+                        case.
                     </p>
                     <p>
-                        My argument ultimately succeeded after a series of
-                        discussions, one of which involved a detailed
-                        walkthrough of this project. I've since iterated on this
-                        project and have occasionally positioned it as an
-                        interim portfolio (i.e. a substitute for my "real"
-                        portfolio while I work on completing it). Naturally,
-                        given its original purpose, it lacks the resources and
-                        workflow of a typical portfolio project. There is no
-                        resume, head-shot, contact information, nor professional
+                        My argument succeeded after a series of discussions and
+                        a detailed walkthrough of this project. I've since
+                        iterated on this project and have occasionally
+                        positioned it as an interim portfolio (i.e. a substitute
+                        for my "real" portfolio while I work on completing it).
+                        Given its original purpose, it lacks the resources and
+                        workflow of an actual portfolio. There is no resume,
+                        head-shot, contact information, nor professional
                         summary, and it makes little effort to highlight
                         specific projects or skills.
                     </p>
