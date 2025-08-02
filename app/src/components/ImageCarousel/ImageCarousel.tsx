@@ -23,7 +23,7 @@ const AUTO_PLAY_INTERVAL_TIME: number = 4_000;
 const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
     const selfRef = useRef<HTMLDivElement>(null);
     const shouldAutoPlay = useRef(true);
-    const shouldResumeAutoPlayOnMouseLeave = useRef(true);
+    const isAutoPlayPaused = useRef(false);
     const setAutoPlayIntervalId = useRef<number | undefined>(undefined);
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,8 +35,8 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
             shouldAutoPlay.current = false;
         }
 
-        if (shouldResumeAutoPlayOnMouseLeave.current === true) {
-            shouldResumeAutoPlayOnMouseLeave.current = false;
+        if (isAutoPlayPaused.current === true) {
+            isAutoPlayPaused.current = false;
         }
     }, []);
 
@@ -58,13 +58,13 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
 
     const handleMouseEnter = useCallback(() => {
         if (shouldAutoPlay.current === true) {
-            shouldAutoPlay.current = false;
+            isAutoPlayPaused.current = true;
         }
     }, []);
 
     const handleMouseLeave = useCallback(() => {
-        if (shouldResumeAutoPlayOnMouseLeave.current) {
-            shouldAutoPlay.current = true;
+        if (isAutoPlayPaused.current) {
+            isAutoPlayPaused.current = false;
         }
     }, []);
 
@@ -89,11 +89,14 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
             _selfRef?.addEventListener('mouseleave', handleMouseLeave);
 
             setAutoPlayIntervalId.current = window.setInterval(() => {
-                if (shouldAutoPlay.current) {
+                if (
+                    shouldAutoPlay.current === true &&
+                    isAutoPlayPaused.current === false
+                ) {
                     setCurrentIndex((prevIndex) =>
                         prevIndex === images.length - 1 ? 0 : prevIndex + 1
                     );
-                } else if (shouldResumeAutoPlayOnMouseLeave.current === false) {
+                } else if (shouldAutoPlay.current === false) {
                     window.clearInterval(setAutoPlayIntervalId.current);
                 }
             }, AUTO_PLAY_INTERVAL_TIME);
