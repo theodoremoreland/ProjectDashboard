@@ -33,8 +33,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         >
                             GitHub API
                         </a>
-                        . It features search, filtering, and analytics thus
-                        providing the facts and figures needed to support my
+                        . This project features search, filtering, and analytics to support my
                         case.
                     </p>
                     <p>
