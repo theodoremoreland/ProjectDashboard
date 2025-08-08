@@ -33,12 +33,25 @@ const TechList = (): ReactElement => {
         useContext(ProjectsContext);
     const [topicsCount, setTopicsCount] = useState<TopicCounts | null>(null);
     const [areCompetenciesVisible, setAreCompetenciesVisible] =
-        useState<boolean>(false);
+        useState<boolean>(true);
     const [areLanguagesVisible, setAreLanguagesVisible] =
-        useState<boolean>(false);
+        useState<boolean>(true);
     const [areFrameworksVisible, setAreFrameworksVisible] =
-        useState<boolean>(false);
-    const [areToolsVisible, setAreToolsVisible] = useState<boolean>(false);
+        useState<boolean>(true);
+    const [areToolsVisible, setAreToolsVisible] = useState<boolean>(true);
+
+    const closeAllCategories = useCallback(() => {
+        setAreCompetenciesVisible(false);
+        setAreLanguagesVisible(false);
+        setAreFrameworksVisible(false);
+        setAreToolsVisible(false);
+    }, []);
+
+    const handleResize = useCallback((): void => {
+        if (window.innerWidth < 965) {
+            closeAllCategories();
+        }
+    }, [closeAllCategories]);
 
     const generateListItems = useCallback(
         (topics: { [key: string]: number }) => {
@@ -119,6 +132,16 @@ const TechList = (): ReactElement => {
             setTopicsCount(getTopicCounts(repos));
         }
     }, [repos]);
+
+    useEffect(() => {
+        handleResize(); // Initial check on mount
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [handleResize]);
 
     return (
         <ul id="tech-list">
