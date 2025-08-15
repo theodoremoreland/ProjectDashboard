@@ -4,7 +4,7 @@ const FeaturedProjectNames: string[] = [
     'EssentialWorkers',
     'WebCaesar',
     'PortfolioExample',
-    'TypeRace',
+    'TypePractice',
     'BellyButtonBiodiversity',
     'Blogz',
     'ShelfCheck',
