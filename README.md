@@ -1,6 +1,6 @@
 # Project Dashboard
 
-What began as a case study to demonstrate role alignment now functions as a project dashboard - mapping out skills, technologies, and hosted applications in an exploratory, user-friendly format.
+What began as a case study to demonstrate role alignment now functions as a project dashboard.
 
 _NOTE: The terms "project" and "repository" are used interchangeably throughout this document._
 
