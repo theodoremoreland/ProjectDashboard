@@ -15,6 +15,7 @@ const FeaturedProjectNames: string[] = [
     'WeatherDashboard',
     'JavaScriptQuiz',
     'html-me-something',
+    'CheeseCatalog',
     'Episodic',
     'MovieIon',
     'YelpETL',
