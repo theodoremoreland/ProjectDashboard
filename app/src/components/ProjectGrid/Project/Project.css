@@ -29,13 +29,6 @@
         pointer-events: none;
         opacity: 0.1;
     }
-
-    .FeaturedRibbon {
-        position: absolute;
-        z-index: 2;
-        top: 0;
-        left: 0;
-    }
 }
 
 .project-overlay {
@@ -91,7 +84,7 @@
     }
 }
 
-.project-overlay::after {
+.devs-choice .project-overlay::after {
     z-index: 3;
     position: absolute;
     content: '';
