@@ -1,5 +1,5 @@
 // React
-import { SetStateAction, Dispatch, useContext } from 'react';
+import { SetStateAction, Dispatch, useContext, useMemo } from 'react';
 
 // Third party
 import { useInView } from 'react-intersection-observer';
@@ -9,6 +9,7 @@ import getProjectContext from '../../../utils/getProjectContext';
 import { renderLanguageIcon } from './Project.controller';
 import useProjectViewTracker from '../../../hooks/useProjectViewTracker';
 import useViewCount from '../../../hooks/useViewCount';
+import { DevsChoiceProjectNames } from '../../../constants/FeaturedProjects';
 
 // Context
 import { ViewCountContext } from '../../../contexts/ViewCountContext/ViewCountContext';
@@ -42,12 +43,17 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
         threshold: 0,
     });
 
+    const isDevsChoice: boolean = useMemo(
+        () => DevsChoiceProjectNames.includes(projectData.name),
+        [projectData.name]
+    );
+
     return (
         <div
             ref={ref}
             className={`project-card ${
                 projectData.isFeatured ? 'featured' : 'not-featured'
-            }`}
+            }${isDevsChoice ? ' devs-choice' : ''}`}
         >
             <img
                 className="project-image"
