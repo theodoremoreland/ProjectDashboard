@@ -8,6 +8,7 @@ import javaIcon from '../../assets/images/languages/java.png';
 import typescriptIcon from '../../assets/images/languages/typescript.png';
 import sqlIcon from '../../assets/images/languages/sql.png';
 import vbaIcon from '../../assets/images/languages/vba.png';
+import rubyIcon from '../../assets/images/languages/ruby.png';
 import htmlIcon from '../../assets/images/languages/html.png';
 import nodeIcon from '../../assets/images/tools/node.png';
 import pandasIcon from '../../assets/images/tools/pandas.png';
@@ -20,6 +21,7 @@ import expressIcon from '../../assets/images/frameworks/express.png';
 import flaskIcon from '../../assets/images/frameworks/flask.png';
 import reactIcon from '../../assets/images/frameworks/react.png';
 import springBootIcon from '../../assets/images/frameworks/spring-boot.png';
+import rubyOnRailsIcon from '../../assets/images/frameworks/rails.png';
 import junitIcon from '../../assets/images/frameworks/junit.png';
 import jestIcon from '../../assets/images/frameworks/jest.png';
 import dataAnalyticsIcon from '../../assets/images/competencies/data-analytics.png';
@@ -33,6 +35,7 @@ const frameworks: { [key: string]: string } = {
     'spring-boot': 'Spring Boot',
     junit: 'jUnit',
     jest: 'Jest',
+    'ruby-on-rails': 'Ruby on Rails',
 };
 const competencies: { [key: string]: string } = {
     'web-development': 'Web development',
@@ -47,6 +50,7 @@ const languages: { [key: string]: string } = {
     sql: 'SQL',
     vba: 'VBA',
     html: 'HTML',
+    ruby: 'Ruby',
 };
 const tools: { [key: string]: string } = {
     node: 'Node',
@@ -135,6 +139,10 @@ export const findTopicLabelImageSrc = (topicLabel: string): string => {
             return webDevelopmentIcon;
         case 'Data engineering':
             return dataEngineeringIcon;
+        case 'Ruby':
+            return rubyIcon;
+        case 'Ruby on Rails':
+            return rubyOnRailsIcon;
         default:
             return '';
     }
