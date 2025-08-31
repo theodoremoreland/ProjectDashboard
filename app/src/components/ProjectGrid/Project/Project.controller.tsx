@@ -9,6 +9,7 @@ import pythonIcon from '../../../assets/images/languages/python.png';
 import javaIcon from '../../../assets/images/languages/java.png';
 import vbaIcon from '../../../assets/images/languages/vba.png';
 import sqlIcon from '../../../assets/images/languages/sql.png';
+import rubyIcon from '../../../assets/images/languages/ruby.png';
 
 export const renderLanguageIcon = (topic: string): ReactElement | null => {
     const titleTemplate = 'This project was written with ';
@@ -66,6 +67,12 @@ export const renderLanguageIcon = (topic: string): ReactElement | null => {
             return (
                 <li key={topic} title={titleTemplate + 'SQL'}>
                     <img src={sqlIcon} alt="SQL" className="language-icon" />
+                </li>
+            );
+        case 'ruby':
+            return (
+                <li key={topic} title={titleTemplate + 'Ruby'}>
+                    <img src={rubyIcon} alt="Ruby" className="language-icon" />
                 </li>
             );
         default:
