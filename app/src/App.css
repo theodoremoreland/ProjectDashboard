@@ -22,14 +22,13 @@
     --secondary-color: #000001;
     --overlay-color: #28313b9a;
 
-    --primary-highlight-color: #173a5e;
-    --secondary-highlight-color: #04b8ff;
-    --tertiary-highlight-color: #00403ef0;
+    --primary-highlight-color: #006e88;
+    --secondary-highlight-color: #26ff04;
 
     --primary-font-color: #fafafa;
     --secondary-font-color: #333;
 
-    --border-color: #f5f5f524;
+    --border-color: #f5f5f514;
 
     --analytics-gap: 7px;
     --content-gap: 20px;
@@ -37,7 +36,7 @@
     --content-max-width: 2160px;
 
     --background-color: #141418;
-    --experimental-color: #070a0e70;
+    --experimental-color: #d4d4d405;
 }
 
 @media screen and (min-width: 481px) {
@@ -71,6 +70,23 @@ html {
     background-color: var(--background-color);
     overflow-x: hidden;
     font-family: custom-regular;
+
+    &::before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('assets/images/bg.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+        opacity: 0.4;
+        filter: blur(16px);
+    }
 }
 
 body,
@@ -224,6 +240,23 @@ li {
     );
     transition: all 2s linear;
     transition-delay: 1s;
+
+    &::before {
+        content: '';
+        pointer-events: none;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('assets/images/bg.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        opacity: 0.4;
+        filter: blur(16px);
+    }
 }
 
 @media screen and (min-width: 2160px) {
@@ -234,16 +267,9 @@ li {
 }
 
 .title-card.transition {
-    left: -115vw;
+    left: 0; /* Keep it in view */
+    opacity: 0;
     visibility: hidden;
-}
-
-/* Reduced motion preference: fade instead */
-@media (prefers-reduced-motion: reduce) {
-    .title-card.transition {
-        left: 0; /* Keep it in view */
-        opacity: 0;
-    }
 }
 
 .app-title {
