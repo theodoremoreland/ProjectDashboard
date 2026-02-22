@@ -1,9 +1,6 @@
 // React
 import { SetStateAction, Dispatch, useContext, useMemo } from 'react';
 
-// Third party
-import { useInView } from 'react-intersection-observer';
-
 // Custom
 import getProjectContext from '../../../utils/getProjectContext';
 import { renderLanguageIcon } from './Project.controller';
@@ -38,11 +35,6 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
         isDemoView: true,
     });
 
-    // Third party hooks
-    const { ref, inView } = useInView({
-        threshold: 0,
-    });
-
     const isDevsChoice: boolean = useMemo(
         () => DevsChoiceProjectNames.includes(projectData.name),
         [projectData.name]
@@ -50,7 +42,6 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
 
     return (
         <div
-            ref={ref}
             className={`project-card ${
                 projectData.isFeatured ? 'featured' : 'not-featured'
             }${isDevsChoice ? ' devs-choice' : ''}`}
@@ -91,64 +82,61 @@ const Project = ({ projectData, setSelectedProject }: Props) => {
                 </div>
                 <p className="project-description">{projectData.desc}</p>
             </div>
-            {inView && (
-                <div className="project-overlay">
-                    <div id="content">
-                        <div className="row">
-                            <h2 className="project-name">{projectData.name}</h2>
-                        </div>
-                        <div className="row">
-                            <ul>
-                                {projectData.demo_link &&
-                                    projectData.name !== 'ProjectDashboard' && (
-                                        // <a> tag needs to wrap the <li> tag to make the entire list item clickable.
-                                        <a
-                                            href={projectData.demo_link}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            title={`Click to view a live demo of the ${projectData.name} project.`}
-                                            className="live-demo-link"
-                                            onClick={
-                                                handleLiveDemoClick.debouncedHandleClick
-                                            }
-                                        >
-                                            <button className="live-demo">
-                                                Live Demo{' '}
-                                                <span className="circle"></span>
-                                            </button>
-                                        </a>
-                                    )}
-                                {/* Putting the onClick handler on the li because
+
+            <div className="project-overlay">
+                <div id="content">
+                    <div className="row">
+                        <h2 className="project-name">{projectData.name}</h2>
+                    </div>
+                    <div className="row">
+                        <ul>
+                            {projectData.demo_link &&
+                                projectData.name !== 'ProjectDashboard' && (
+                                    // <a> tag needs to wrap the <li> tag to make the entire list item clickable.
+                                    <a
+                                        href={projectData.demo_link}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        title={`Click to view a live demo of the ${projectData.name} project.`}
+                                        className="live-demo-link"
+                                        onClick={
+                                            handleLiveDemoClick.debouncedHandleClick
+                                        }
+                                    >
+                                        <button className="live-demo">
+                                            Live Demo{' '}
+                                            <span className="circle"></span>
+                                        </button>
+                                    </a>
+                                )}
+                            {/* Putting the onClick handler on the li because
                     the padding on the button wasn't triggering to onClick event.
                     This is a workaround to make the button padding clickable.
                 */}
-                                <li
-                                    onClick={() =>
-                                        setSelectedProject(projectData)
-                                    }
-                                    role="presentation"
-                                    className="learn-more"
-                                    title={`Click to learn more about the ${projectData.name} project.`}
+                            <li
+                                onClick={() => setSelectedProject(projectData)}
+                                role="presentation"
+                                className="learn-more"
+                                title={`Click to learn more about the ${projectData.name} project.`}
+                            >
+                                <button
+                                    type="button"
+                                    className="learn-more-button"
                                 >
-                                    <button
-                                        type="button"
-                                        className="learn-more-button"
-                                    >
-                                        Explore
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="row">
-                            <ul className="language-icons">
-                                {projectData.topics.map((topic) =>
-                                    renderLanguageIcon(topic)
-                                )}
-                            </ul>
-                        </div>
+                                    Explore
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="row">
+                        <ul className="language-icons">
+                            {projectData.topics.map((topic) =>
+                                renderLanguageIcon(topic)
+                            )}
+                        </ul>
                     </div>
                 </div>
-            )}
+            </div>
         </div>
     );
 };
