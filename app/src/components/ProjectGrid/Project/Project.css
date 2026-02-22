@@ -118,8 +118,8 @@
     );
     transition: opacity 0.5s;
     transform: skew(-25deg);
-    /* -webkit-animation: shine 15s infinite;
-    animation: shine 15s infinite; */
+    -webkit-animation: shine 15s infinite;
+    animation: shine 15s infinite;
     pointer-events: none;
 }
 
