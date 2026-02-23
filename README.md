@@ -27,7 +27,6 @@ _NOTE: The terms "project" and "repository" are used interchangeably throughout 
 - CSS
 - Tanstack React Query
 - MUI X Charts
-- react-intersection-observer
 - GitHub API
 - Vite
 - Axios
