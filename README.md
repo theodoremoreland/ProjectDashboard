@@ -13,7 +13,6 @@ _NOTE: The terms "project" and "repository" are used interchangeably throughout 
 - [Technologies Used](#technologies-used)
 - [Context for design](#context-for-design)
 - [Features](#features)
-- [Known bugs](#known-bugs)
 - [Screenshots](#screenshots)
   - [Desktop](#desktop)
   - [Mobile](#mobile)
@@ -74,10 +73,6 @@ Some examples include: `dashboard` `responsive` `mui-x` `tanstack-react-query` `
 Clicking on the analytics icon in the navbar will display aggregate statistics about the projects featured.
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/13.png" width="700">
-
-## Known bugs
-
-- Effects like backdrop-filter and filter cause artifacting and visual glitches on Firefox. In laymen's terms that means shadows or random edges appear in random places on the app. It may be possible to correct by toggling off Hardware Acceleration.
 
 ## Screenshots
 
