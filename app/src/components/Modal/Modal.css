@@ -27,7 +27,8 @@
         margin-top: 10vh;
         color: var(--primary-font-color);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        background-color: var(--background-color);
+        background-color: var(--experimental-color);
+        backdrop-filter: blur(22px);
         overflow-x: hidden;
         overflow-y: auto;
 
