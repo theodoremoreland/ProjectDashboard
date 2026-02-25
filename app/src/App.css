@@ -243,7 +243,7 @@ li {
 
     &::before {
         content: '';
-        z-index: 0;
+        z-index: -1;
         position: absolute;
         pointer-events: none;
         top: 0;
@@ -266,7 +266,6 @@ li {
 }
 
 .title-card.transition {
-    left: 0; /* Keep it in view */
     opacity: 0;
     visibility: hidden;
 }
@@ -282,7 +281,7 @@ li {
 .app-subtitle {
     font-size: 1rem;
     font-style: oblique;
-    font-family: custom-thin;
+    font-family: custom-regular;
 }
 
 @media screen and (min-width: 769px) {
