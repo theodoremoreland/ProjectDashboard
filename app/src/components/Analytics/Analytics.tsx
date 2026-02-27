@@ -91,9 +91,6 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         number | undefined
     >(undefined);
 
-    // State to control when the infinite scroller is ready to scroll
-    const [isScrollReady, setIsScrollReady] = useState<boolean>(false);
-
     const handleResize = useCallback(() => {
         if (window.innerWidth <= 640) {
             const _pieChartSlotProps: PieChartSlotProps = {
@@ -204,8 +201,6 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
 
         if (areKpiIncrementsComplete) {
             window.clearInterval(kpiIncrementIntervalRef.current);
-
-            setIsScrollReady(true);
         }
     }, [totalDeployments, totalFeatures, totalStars, uniqueTopicsCount]);
 
@@ -277,7 +272,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                     </span>
                 </div>
             </div>
-            <InfiniteScroller items={topics} scrollReady={isScrollReady} />
+            <InfiniteScroller items={topics} />
             <div id="charts" className="row">
                 <div id="pie-charts">
                     <div className="pie-chart-container">

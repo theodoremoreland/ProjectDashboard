@@ -22,6 +22,34 @@
         rgba(0, 0, 0, 0)
     );
 
+    .hover-indicator-container {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        height: 100%;
+        filter: brightness(1.7);
+        opacity: 1;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            opacity: 0;
+        }
+
+        .hover-indicator {
+            width: 2.6rem;
+            height: 2.6rem;
+            fill: var(--primary-highlight-color);
+            pointer-events: none;
+        }
+    }
+
     > ul.lane {
         display: flex;
         flex-direction: row;
@@ -30,11 +58,10 @@
         flex-wrap: nowrap;
         gap: var(--analytics-gap);
         width: fit-content;
-
-        &.left,
-        &.right {
-            animation: scroll 70s linear infinite;
-        }
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        animation: scroll 70s linear infinite;
+        animation-play-state: paused;
 
         &.left {
             animation-direction: normal;
@@ -44,8 +71,18 @@
             animation-direction: reverse;
         }
 
-        &:hover {
-            animation-play-state: paused;
+        &.active {
+            opacity: 1;
+            animation-play-state: running;
         }
+    }
+
+    .topic {
+        border: 1px solid var(--border-color);
+        background-color: color-mix(
+            in srgb,
+            var(--experimental-color) 90%,
+            #adadad 5%
+        );
     }
 }
