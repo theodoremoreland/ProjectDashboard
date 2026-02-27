@@ -144,7 +144,7 @@
 #tech-list > li:hover .tech-icon,
 #tech-list > li.active .tech-icon {
     height: 125%;
-    opacity: 0.8;
+    opacity: 1;
     transform: rotate(15deg);
 }
 
