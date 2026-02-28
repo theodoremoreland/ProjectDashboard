@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: var(--analytics-gap);
+    gap: var(--analytics-layout-gap);
     width: 100vw;
     height: 100vh;
     padding: 1em 1.25em;
@@ -30,12 +30,6 @@
         }
     }
 
-    @media screen and (min-width: 1440px) {
-        & {
-            gap: 1rem;
-        }
-    }
-
     > #analytics-nav {
         display: flex;
         flex-direction: row;
@@ -48,7 +42,7 @@
         position: relative;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--analytics-gap);
+        gap: var(--analytics-layout-gap);
         width: 100%;
 
         @media screen and (min-width: 1150px) {
@@ -65,8 +59,8 @@
             flex-direction: column !important;
             justify-content: center !important;
             align-items: flex-start !important;
-            gap: var(--analytics-gap);
-            padding: var(--analytics-gap) 1rem;
+            gap: var(--analytics-content-gap);
+            padding: var(--analytics-content-gap) 1rem;
             background-color: var(--experimental-color);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
@@ -84,7 +78,7 @@
             flex-direction: row !important;
             justify-content: center !important;
             align-items: center !important;
-            gap: var(--analytics-gap);
+            gap: var(--analytics-content-gap);
             font-family: custom-bold;
             background: -webkit-linear-gradient(
                 45deg,
@@ -107,7 +101,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: var(--analytics-gap);
+        gap: var(--analytics-layout-gap);
         width: 100%;
         min-height: 1080px;
         flex-grow: 1;
@@ -126,7 +120,6 @@
             & {
                 flex-direction: row;
                 justify-content: space-between;
-                gap: 0;
                 min-height: 450px;
             }
 
@@ -140,7 +133,7 @@
     .bar-chart-title {
         font-size: 1rem;
         user-select: none;
-        padding-bottom: var(--analytics-gap);
+        padding-bottom: var(--analytics-content-gap);
     }
 
     .label {
@@ -153,7 +146,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: var(--analytics-gap);
+        gap: var(--analytics-layout-gap);
         width: 100%;
         min-height: 550px;
         height: 100%;
@@ -163,7 +156,6 @@
             & {
                 width: 40%;
                 min-height: 300px;
-                padding-right: 1em;
             }
         }
 
@@ -174,8 +166,8 @@
             justify-content: flex-start;
             align-items: flex-start;
             width: 100%;
-            height: calc(50% - (var(--analytics-gap) / 2));
-            padding: var(--analytics-gap) 20px;
+            height: calc(50% - (var(--analytics-layout-gap) / 2));
+            padding: 1em;
             background-color: var(--experimental-color);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
@@ -186,9 +178,8 @@
         position: relative;
         width: 100%;
         min-height: 375px;
-        height: 100%;
+        height: auto;
         padding: 1em;
-        padding-bottom: 1.2em;
         background-color: var(--experimental-color);
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
@@ -196,7 +187,7 @@
         @media screen and (min-width: 1150px) {
             & {
                 width: 60%;
-                padding-bottom: 1em;
+                height: 100%;
             }
         }
 
