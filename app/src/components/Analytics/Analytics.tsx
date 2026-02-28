@@ -11,6 +11,7 @@ import {
 import { PieChart } from '@mui/x-charts/PieChart';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { PieChartSlotProps } from '@mui/x-charts/PieChart';
+import { axisClasses } from '@mui/x-charts/ChartsAxis';
 
 // Controller
 import {
@@ -334,6 +335,18 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                         Top 10 technologies used
                     </h2>
                     <BarChart
+                        sx={() => ({
+                            [`.${axisClasses.root}`]: {
+                                [`.${axisClasses.tick}, .${axisClasses.line}`]:
+                                    {
+                                        stroke: 'white',
+                                        strokeWidth: 1,
+                                    },
+                                [`.${axisClasses.tickLabel}`]: {
+                                    fill: 'white',
+                                },
+                            },
+                        })}
                         borderRadius={4}
                         yAxis={[
                             {
