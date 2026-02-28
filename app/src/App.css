@@ -30,7 +30,8 @@
 
     --border-color: #f5f5f514;
 
-    --analytics-gap: 7px;
+    --analytics-layout-gap: 1.25rem;
+    --analytics-content-gap: 10px;
     --content-gap: 20px;
     --content-width: 88%;
     --content-max-width: 2160px;
@@ -42,6 +43,12 @@
 @media screen and (min-width: 481px) {
     :root {
         --content-width: 96%;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    :root {
+        --analytics-content-gap: 7px;
     }
 }
 
