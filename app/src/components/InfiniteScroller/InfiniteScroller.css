@@ -38,7 +38,7 @@
         opacity: 1;
         transition: opacity 0.3s ease;
 
-        &:hover {
+        &.active {
             opacity: 0;
         }
 

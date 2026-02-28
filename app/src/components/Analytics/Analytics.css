@@ -12,7 +12,7 @@
     gap: var(--analytics-layout-gap);
     width: 100vw;
     height: 100vh;
-    padding: 1em 1.25em;
+    padding: 1.25em;
     color: var(--primary-font-color);
     background-color: var(--background-color);
     overflow-y: auto;

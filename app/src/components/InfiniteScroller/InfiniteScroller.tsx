@@ -22,10 +22,14 @@ const InfiniteScroller = ({ items }: Props): ReactElement => {
         ...items.slice(halfwayPoint),
     ];
 
+    const hoverIndicatorContainer = useRef<HTMLDivElement>(null);
     const leftLane = useRef<HTMLUListElement>(null);
     const rightLane = useRef<HTMLUListElement>(null);
 
     const activateLanes = (): void => {
+        if (hoverIndicatorContainer.current) {
+            hoverIndicatorContainer.current.classList.add('active');
+        }
         if (leftLane.current) {
             leftLane.current.classList.add('active');
         }
@@ -35,6 +39,9 @@ const InfiniteScroller = ({ items }: Props): ReactElement => {
     };
 
     const deactivateLanes = (): void => {
+        if (hoverIndicatorContainer.current) {
+            hoverIndicatorContainer.current.classList.remove('active');
+        }
         if (leftLane.current) {
             leftLane.current.classList.remove('active');
         }
@@ -46,6 +53,7 @@ const InfiniteScroller = ({ items }: Props): ReactElement => {
     return (
         <div className="InfiniteScroller">
             <div
+                ref={hoverIndicatorContainer}
                 className="hover-indicator-container"
                 onMouseEnter={activateLanes}
                 onMouseLeave={deactivateLanes}
