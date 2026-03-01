@@ -17,17 +17,16 @@ const CommitHistory = ({ handleClose, commits }: Props): ReactElement => {
         <Modal handleClose={handleClose}>
             <div>
                 <article>
-                    <h3>Recent Commits</h3>
+                    <h3>Recent Activity</h3>
                     <ul className="commits">
                         {commits?.map((commitData: CommitData) => (
                             <li key={commitData.sha} className="commit">
-                                <h4>{commitData.repository.name}</h4>
-                                <p>{commitData.commit.message}</p>
+                                <h4>{commitData.commit.message}</h4>
                                 <p>
-                                    {commitData.commit.author.name} committed on{' '}
                                     {new Date(
                                         commitData.commit.author.date
-                                    ).toLocaleDateString()}
+                                    ).toLocaleDateString()}{' '}
+                                    in {commitData.repository.name}
                                 </p>
                                 <a
                                     target="_blank"
