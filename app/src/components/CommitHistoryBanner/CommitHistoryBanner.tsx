@@ -23,8 +23,9 @@ const CommitHistoryBanner = (): ReactElement => {
             <button
                 onClick={handleOpen}
                 className="commit-history-banner-button"
+                title="View recent commit history"
             >
-                <h2 className="commit-history-banner-title">Recent</h2>
+                <h2 className="commit-history-banner-title">Recent commits</h2>
             </button>
             <p className="commit-history-preview">
                 {hasRecentActivity
