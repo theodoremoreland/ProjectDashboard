@@ -29,6 +29,7 @@
     color: var(--primary-font-color);
     background-color: var(--experimental-color);
     backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 
     &::before {
         content: '';
