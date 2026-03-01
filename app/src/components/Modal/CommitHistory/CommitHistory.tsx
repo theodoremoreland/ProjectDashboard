@@ -25,7 +25,7 @@ const CommitHistory = ({ handleClose, commits }: Props): ReactElement => {
                                 <p>
                                     {new Date(
                                         commitData.commit.author.date
-                                    ).toLocaleDateString()}{' '}
+                                    ).toLocaleString()}{' '}
                                     in {commitData.repository.name}
                                 </p>
                                 <a
