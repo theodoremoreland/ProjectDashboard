@@ -37,3 +37,25 @@ export type ViewCounts = {
         explore_views: number;
     };
 };
+
+export interface CommitData {
+    sha: string;
+    html_url: string;
+    commit: {
+        message: string;
+        author: {
+            name: string;
+            date: string;
+        };
+    };
+    repository: {
+        id: number;
+        name: string;
+    };
+}
+
+export interface CommitResponse {
+    total_count: number;
+    incomplete_results: boolean;
+    items: CommitData[];
+}
