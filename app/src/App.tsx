@@ -19,6 +19,7 @@ import Analytics from './components/Analytics/Analytics';
 import Sidebar from './components/Sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
+import CommitHistoryBanner from './components/CommitHistoryBanner/CommitHistoryBanner';
 import ProjectDetail from './components/ProjectDetail/ProjectDetail';
 import ProjectGrid from './components/ProjectGrid/ProjectGrid';
 import Overview from './components/Modal/Overview/Overview';
@@ -154,6 +155,7 @@ const App = (): ReactElement => {
                 >
                     <div className="row">
                         <SearchBar />
+                        <CommitHistoryBanner />
                     </div>
                     <div className="row">
                         <Sidebar />
