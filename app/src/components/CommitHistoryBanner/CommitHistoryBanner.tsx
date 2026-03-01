@@ -28,7 +28,7 @@ const CommitHistoryBanner = (): ReactElement => {
             </button>
             <p className="commit-history-preview">
                 {hasRecentActivity
-                    ? `@${commits![0].commit.author.name} - ${commits![0].commit.message}`
+                    ? `@${commits![0].repository.name} - ${commits![0].commit.message}`
                     : 'No recent activity found.'}
             </p>
             {showCommitHistory && (
