@@ -51,7 +51,7 @@ Additionally, each thumbnail overlay features a `Learn More` button, that when c
 
 Conditionally, a `Live Demo` button appears if the project is actively hosted on a live server. Clicking the button will open a new tab featuring the web application.
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/5.png" width="700">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/3.png" width="700">
 
 ### Filter
 
@@ -59,7 +59,7 @@ Technologies listed on the left panel can be clicked to filter projects by corre
 
 Multiple filters can be applied simultaneously. Any project that does not feature any of the selected technologies will be hidden.
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/7.png" width="700">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/6.png" width="700">
 
 ### Search
 
@@ -67,17 +67,24 @@ The search bar can be used to search for projects by name or GitHub topic.
 
 Some examples include: `dashboard` `responsive` `mui-x` `tanstack-react-query` `jupyter-notebook` `rest-api`
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/9.png" width="700">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/15.png" width="700">
+
+### Recent commits
+
+Clicking on "Recent commits" will open a modal that previews the 10 most recent commits on my GitHub profile.
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/20.png" width="700">
 
 ### Analyze
 
 Clicking on the analytics icon in the navbar will display aggregate statistics about the projects featured.
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/13.png" width="700">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/23.png" width="700">
 
-## Knowns bugs
+## Known bugs
 
 - CSS properties like `backdrop-filter` and `filter` cause visual artifacts and visual glitches on Firefox. In laymen's terms that means shadows or random edges appear in random places on the app. It may be possible to circumvent by toggling off Hardware Acceleration in the Firefox settings.
+- Blur effects don't render properly when taking screenshots via Firefox screenshot feature.
 
 ## Screenshots
 
@@ -115,23 +122,29 @@ Clicking on the analytics icon in the navbar will display aggregate statistics a
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/16.png" width="650">
 
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/17.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/18.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/19.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/20.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/21.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/22.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/23.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/24.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/25.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/26.png" width="650">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/27.png" width="650">
+
 ### Mobile
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/17.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/18.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/22.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/23.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/24.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/25.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/26.png" width="250">
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/27.png" width="250">
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/28.png" width="250">
 
@@ -150,3 +163,31 @@ Clicking on the analytics icon in the navbar will display aggregate statistics a
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/35.png" width="250">
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/36.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/37.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/38.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/39.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/40.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/41.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/42.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/43.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/44.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/45.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/46.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/47.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/48.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/49.png" width="250">
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-list/50.png" width="250">
