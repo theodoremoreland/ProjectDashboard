@@ -117,6 +117,7 @@
         border: 1px solid var(--border-color);
         color: var(--primary-font-color);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
 
         .search-result {
             display: flex;

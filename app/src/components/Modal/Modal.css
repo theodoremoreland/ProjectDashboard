@@ -29,6 +29,7 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         background-color: var(--experimental-color);
         backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
         overflow-x: hidden;
         overflow-y: auto;
 

@@ -14,6 +14,7 @@
     color: var(--primary-font-color);
     transition: width 1s linear;
     backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 }
 
 @media screen and (min-width: 965px) {
