@@ -58,13 +58,20 @@
         height: 100%;
         cursor: pointer;
         color: var(--primary-color);
-        padding: 0.25em 0.5em 0.25em 0.25em;
+        padding: 0;
         border-top-right-radius: 1em;
         border-bottom-right-radius: 1em;
         background-color: transparent;
 
         .icon {
             fill: var(--primary-font-color);
+        }
+    }
+
+    @media screen and (min-width: 965px) {
+        #delete-icon-area,
+        #search-icon-area {
+            padding: 0.25em 0.5em 0.25em 0.25em;
         }
     }
 
