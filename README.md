@@ -51,7 +51,13 @@ Additionally, each thumbnail overlay features a `Learn More` button, that when c
 
 Conditionally, a `Live Demo` button appears if the project is actively hosted on a live server. Clicking the button will open a new tab featuring the web application.
 
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-dashboard/3.png" width="700">
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-dashboard/12.png" width="700">
+
+#### README
+
+GitHub READMEs are parsed for their images and are displayed upon clicking "Explore". The images automatically cycle, but can be cycled manually as well.
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-dashboard/14.png" width="700">
 
 ### Filter
 
