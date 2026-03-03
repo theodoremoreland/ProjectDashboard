@@ -43,6 +43,14 @@ The resulting dashboard is similar to that of a portfolio in that it puts my pro
 
 ## Features
 
+### Filter
+
+Technologies listed on the left panel can be clicked to filter projects by corresponding technology. The numbers displayed next to each technology represent the number of projects that utilize that technology.
+
+Multiple filters can be applied simultaneously. Any project that does not feature any of the selected technologies will be hidden.
+
+<img src="https://dj8eg5xs13hf6.cloudfront.net/project-dashboard/6.png" width="700">
+
 ### Preview
 
 Each project is displayed as a thumbnail. Upon hovering over a thumbnail, a thumbnail overlay appears featuring the project's name and a list of icons representing the programming languages used.
@@ -58,14 +66,6 @@ Conditionally, a `Live Demo` button appears if the project is actively hosted on
 GitHub READMEs are parsed for their images and are displayed upon clicking "Explore". The images automatically cycle, but can be cycled manually as well.
 
 <img src="https://dj8eg5xs13hf6.cloudfront.net/project-dashboard/14.png" width="700">
-
-### Filter
-
-Technologies listed on the left panel can be clicked to filter projects by corresponding technology. The numbers displayed next to each technology represent the number of projects that utilize that technology.
-
-Multiple filters can be applied simultaneously. Any project that does not feature any of the selected technologies will be hidden.
-
-<img src="https://dj8eg5xs13hf6.cloudfront.net/project-dashboard/6.png" width="700">
 
 ### Search
 
