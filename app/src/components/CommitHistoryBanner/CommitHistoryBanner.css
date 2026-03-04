@@ -46,6 +46,10 @@
             & .more-icon {
                 fill: var(--secondary-highlight-color);
             }
+
+            & .commit-history-preview {
+                opacity: 1;
+            }
         }
 
         .commit-history-banner-title {
@@ -55,7 +59,15 @@
         .more-icon {
             position: relative;
             fill: var(--primary-font-color);
-            left: -0.5rem;
+            bottom: 0;
+            left: 0;
+
+            @media screen and (min-width: 965px) {
+                & {
+                    bottom: -0.25em;
+                    left: -0.75rem;
+                }
+            }
         }
     }
 
