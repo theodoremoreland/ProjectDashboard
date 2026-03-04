@@ -6,6 +6,9 @@ import { CommitContext } from '../../contexts/CommitContext/CommitContext';
 // Custom
 import CommitHistory from '../Modal/CommitHistory/CommitHistory';
 
+// Images
+import MoreIcon from '../../assets/images/icons/more_horiz.svg?react';
+
 // Styles
 import './CommitHistoryBanner.css';
 
@@ -25,13 +28,14 @@ const CommitHistoryBanner = (): ReactElement => {
                 className="commit-history-banner-button"
                 title="View recent commit history"
             >
-                <h2 className="commit-history-banner-title">Recent commits</h2>
+                <h3 className="commit-history-banner-title">Recent commits</h3>
+                <p className="commit-history-preview">
+                    {hasRecentActivity
+                        ? `@${commits![0].repository.name} - ${commits![0].commit.message}`
+                        : 'No recent activity found.'}
+                </p>
+                <MoreIcon className="more-icon" />
             </button>
-            <p className="commit-history-preview">
-                {hasRecentActivity
-                    ? `@${commits![0].repository.name} - ${commits![0].commit.message}`
-                    : 'No recent activity found.'}
-            </p>
             {showCommitHistory && (
                 <CommitHistory handleClose={handleClose} commits={commits} />
             )}

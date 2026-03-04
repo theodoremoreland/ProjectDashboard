@@ -1,12 +1,5 @@
 .commit-history-banner {
     position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5em;
-    color: var(--primary-font-color);
     width: 100%;
     height: 100%;
     padding: 0.25em 2.5em 0.25em 2.5em;
@@ -18,13 +11,19 @@
 
     @media screen and (min-width: 965px) {
         & {
-            flex-wrap: nowrap;
-            gap: 1em;
             width: 50%;
         }
     }
 
     .commit-history-banner-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        width: 100%;
+        height: 100%;
         font-family: custom-bold;
         font-size: 1em;
         color: var(--primary-font-color);
@@ -34,28 +33,45 @@
         background-color: transparent;
         outline: none;
         cursor: pointer;
-        text-decoration: underline;
+
+        @media screen and (min-width: 965px) {
+            & {
+                flex-wrap: nowrap;
+            }
+        }
 
         &:hover {
             color: var(--secondary-highlight-color);
+
+            & .more-icon {
+                fill: var(--secondary-highlight-color);
+            }
         }
 
         .commit-history-banner-title {
             white-space: nowrap;
         }
+
+        .more-icon {
+            position: relative;
+            fill: var(--primary-font-color);
+            left: -0.5rem;
+        }
     }
 
     .commit-history-preview {
+        text-align: left;
         font-family: custom-regular;
         color: var(--primary-font-color);
+        opacity: 0.8;
         margin: 0;
         padding: 0;
 
         @media screen and (min-width: 965px) {
             & {
-                overflow: hidden; /* Hide the overflowing content */
-                white-space: nowrap; /* Prevent the text from wrapping to the next line */
-                text-overflow: ellipsis; /* Add ellipsis (...) to indicate that the text is truncated */
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: '';
             }
         }
     }

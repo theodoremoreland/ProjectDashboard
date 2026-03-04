@@ -17,7 +17,7 @@ const CommitHistory = ({ handleClose, commits }: Props): ReactElement => {
         <Modal handleClose={handleClose}>
             <div>
                 <article>
-                    <h3>Recent Commits</h3>
+                    <h3>Recent commits</h3>
                     <ul className="commits">
                         {commits?.map((commitData: CommitData) => (
                             <li key={commitData.sha} className="commit">
