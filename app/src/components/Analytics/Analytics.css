@@ -106,6 +106,10 @@
         min-height: 1080px;
         flex-grow: 1;
 
+        [role='tooltip'] {
+            user-select: none !important;
+        }
+
         text {
             font-size: 0.75rem !important;
             user-select: none !important;
