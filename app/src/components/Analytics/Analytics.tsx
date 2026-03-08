@@ -126,7 +126,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             };
             const _pieChartMargins = { top: 0, right: 100, bottom: 0, left: 0 };
 
-            setPieChartInnerRadius(60);
+            setPieChartInnerRadius(55);
             setPieChartSlotProps(_pieChartSlotProps);
             setPieChartMargins(_pieChartMargins);
         } else {
@@ -142,11 +142,9 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
             // Nesting even more if statements within the else block is not ideal,
             // but I don't want to separate logic for the inner radius at this moment.
             if (window.innerWidth >= 1600) {
-                setPieChartInnerRadius(120);
-            } else if (window.innerWidth >= 1300) {
-                setPieChartInnerRadius(90);
+                setPieChartInnerRadius(88);
             } else {
-                setPieChartInnerRadius(70);
+                setPieChartInnerRadius(58);
             }
 
             setPieChartSlotProps(_pieChartSlotProps);

@@ -172,6 +172,11 @@
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
         }
+
+        .MuiChartsLegend-mark {
+            width: 15px;
+            height: 15px;
+        }
     }
 
     #bar-chart-container {

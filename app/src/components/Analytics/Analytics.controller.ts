@@ -61,8 +61,8 @@ export const getCourseCounts = (
     const lc101 = { id: 1, value: 0, label: 'LC101' };
     const dataAnalyticsBootCamp = { id: 2, value: 0, label: 'Wash U Data' };
     const fullStackFlex = { id: 3, value: 0, label: 'SMU Full Stack' };
-    const lindenwoodUniversity = { id: 4, value: 0, label: 'Lindenwood' };
-    const other = { id: 5, value: 0, label: 'Other' };
+    // const lindenwoodUniversity = { id: 4, value: 0, label: 'Lindenwood' };
+    const other = { id: 4, value: 0, label: 'Other' };
 
     projects.forEach((project) => {
         if (project.topics.includes('lc101')) {
@@ -71,8 +71,6 @@ export const getCourseCounts = (
             dataAnalyticsBootCamp.value += 1;
         } else if (project.topics.includes('full-stack-bootcamp')) {
             fullStackFlex.value += 1;
-        } else if (project.topics.includes('lindenwood-university')) {
-            lindenwoodUniversity.value += 1;
         } else if (
             project.topics.includes('coursework') ||
             project.topics.includes('exercise')
@@ -82,13 +80,7 @@ export const getCourseCounts = (
         }
     });
 
-    return [
-        lc101,
-        dataAnalyticsBootCamp,
-        fullStackFlex,
-        lindenwoodUniversity,
-        other,
-    ];
+    return [lc101, dataAnalyticsBootCamp, fullStackFlex, other];
 };
 
 export const getContextCounts = (
