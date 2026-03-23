@@ -1,6 +1,6 @@
 # Project Dashboard
 
-What began as a case study to demonstrate role alignment now functions as a project dashboard.
+A web app for viewing my GitHub projects.
 
 _NOTE: The terms "project" and "repository" are used interchangeably throughout this document._
 
