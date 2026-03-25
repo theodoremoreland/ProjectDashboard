@@ -65,6 +65,7 @@
     .commit-history-preview {
         text-align: left;
         font-family: custom-regular;
+        overflow-wrap: break-word;
         color: var(--primary-font-color);
         opacity: 0.8;
         margin: 0;
