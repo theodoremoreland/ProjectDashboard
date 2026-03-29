@@ -61,7 +61,7 @@ Multiple filters can be applied simultaneously. Any project that does not featur
 
 Each project is displayed as a thumbnail. Upon hovering over a thumbnail, a thumbnail overlay appears featuring the project's name and a list of icons representing the programming languages used.
 
-Additionally, each thumbnail overlay features a `Learn More` button, that when clicked, will display additional information about the project.
+Additionally, each thumbnail overlay features an `Explore` button, that when clicked, will display additional information about the project.
 
 Conditionally, a `Live Demo` button appears if the project is actively hosted on a live server. Clicking the button will open a new tab featuring the web application.
 
