@@ -1,6 +1,15 @@
 # Project Dashboard
 
-A web app for viewing my GitHub projects.
+At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer". I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to strengthen my argument by summarizing my GitHub content.
+
+The main point I wanted to make was that my experience and skill-set aligned more with the role of Software Engineer than that of Data Engineer. To that end, this dashboard was originally designed to compare quantities of work related to each role. For example, the dashboard displays the number of projects relating to web development or the number of projects using JavaScript, etc.
+
+```
+NOTE: This project queries the GitHub API to automatically update the dashboard with content.
+None of the dashboard's GitHub data is hardcoded.
+```
+
+The resulting dashboard is similar to that of a portfolio in that it puts my project work on display, the distinction being that this application was designed to supplement a live conversation with management as opposed to being something that could effectively standalone. The dashboard aims to make a point of comparing skill-sets and relaying a breadth of experience first and foremost. Little effort was made to emphasize projects of particular quality or share professional details.
 
 _NOTE: The terms "project" and "repository" are used interchangeably throughout this document._
 
@@ -11,7 +20,6 @@ _NOTE: The terms "project" and "repository" are used interchangeably throughout 
 ## Table of contents
 
 - [Technologies Used](#technologies-used)
-- [Context for design](#context-for-design)
 - [Features](#features)
   - [Filter](#filter)
   - [Preview](#preview)
@@ -36,16 +44,6 @@ _NOTE: The terms "project" and "repository" are used interchangeably throughout 
 - GitHub API
 - Vite
 - Axios
-
-## Context for design
-
-At my first tech job, I wanted to move laterally within the company from "Data Engineer" to "Software Engineer". I had to convince upper management I was qualified for the change. Given I had related work on my GitHub, I saw an opportunity to strengthen my argument by summarizing my GitHub content.
-
-The main point I wanted to make was that my experience and skill-set aligned more with the role of Software Engineer than that of Data Engineer. To that end, this dashboard was originally designed to compare quantities of work related to each role. For example, the dashboard displays the number of projects relating to web development or the number of projects using JavaScript, etc.
-
-Originally, the design featured a word cloud based filtering interface wherein the user could click on a term to filter projects while incidentally comparing my experience with the term's corresponding skill-set. For example, a filter for "Competency" might show the terms "Web Development" and "Data Engineering" as filtering options, but the term "Web Development" might be visibly larger than the term "Data Engineering". Hovering over a term would then display the exact count of projects corresponding to the term. Said interface was eventually removed in place of a simple list, which then became a grid.
-
-The resulting dashboard is similar to that of a portfolio in that it puts my project work on display, but there is a key distinction in that this application was designed to supplement a live conversation with management as opposed to being something that could effectively standalone. The dashboard aims to make a point of comparing skill-sets and relaying a breadth of experience first and foremost, with the option to do a deep dive into whatever project(s) pique the interest of the parties involved. Different from a portfolio, little effort was made to emphasize projects of particular quality, detail information about work experience, education, skills or interests, nor provide contact information.
 
 ## Features
 
