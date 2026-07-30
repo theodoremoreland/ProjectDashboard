@@ -18,8 +18,6 @@ import { ProjectsContext } from './contexts/ProjectsContext';
 import Analytics from './components/Analytics/Analytics';
 import Sidebar from './components/Sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
-import SearchBar from './components/SearchBar/SearchBar';
-import CommitHistoryBanner from './components/CommitHistoryBanner/CommitHistoryBanner';
 import ProjectGrid from './components/ProjectGrid/ProjectGrid';
 import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
@@ -151,10 +149,6 @@ const App = (): ReactElement => {
                     ref={appContentContainerRef}
                     onScroll={onAppContentContainerScroll}
                 >
-                    <div className="row">
-                        <SearchBar />
-                        <CommitHistoryBanner />
-                    </div>
                     <div className="row">
                         <Sidebar />
                         {repos && (
