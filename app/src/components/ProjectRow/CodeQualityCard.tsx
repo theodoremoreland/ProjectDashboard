@@ -2,7 +2,7 @@
 import { ReactElement } from 'react';
 
 // Types
-import { TaggedRepoData } from '../../../types';
+import { TaggedRepoData } from '../../types';
 
 interface Props {
     project: TaggedRepoData;
