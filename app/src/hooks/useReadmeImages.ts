@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 // Custom
-import { getProjectReadme, getImagesFromReadme } from '../../modules/readme';
+import { getProjectReadme, getImagesFromReadme } from '../modules/readme';
 
 export const useReadmeImages = (projectName: string) => {
     // Query to fetch the project README

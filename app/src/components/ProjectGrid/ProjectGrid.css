@@ -1,24 +1,14 @@
 #project-grid {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     gap: var(--content-gap) var(--content-gap);
     overflow-y: auto;
     overflow-x: hidden;
     flex-grow: 1;
     padding-bottom: 0.5rem;
-}
-
-@media screen and (min-width: 1440px) {
-    #project-grid {
-        grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
-    }
-}
-
-@media screen and (min-width: 1780px) {
-    #project-grid {
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    }
 }
 
 #project-grid-overlay {
