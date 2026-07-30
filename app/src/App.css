@@ -38,6 +38,12 @@
 
     --background-color: #141418;
     --experimental-color: #d4d4d405;
+
+    --temp-gray: #131217;
+    --temp-gray-2: #27282f;
+    --temp-silver: #a1a5b5;
+    --temp-white: #d6d6d8;
+    --temp-green: #02df7b;
 }
 
 @media screen and (min-width: 481px) {

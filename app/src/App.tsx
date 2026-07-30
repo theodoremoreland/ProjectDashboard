@@ -18,7 +18,7 @@ import { ProjectsContext } from './contexts/ProjectsContext';
 import Analytics from './components/Analytics/Analytics';
 import Sidebar from './components/Sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
-import ProjectGrid from './components/ProjectGrid/ProjectGrid';
+import ProjectsSection from './components/ProjectGrid/ProjectsSection';
 import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
 
@@ -152,7 +152,7 @@ const App = (): ReactElement => {
                     <div className="row">
                         <Sidebar />
                         {repos && (
-                            <ProjectGrid
+                            <ProjectsSection
                                 projects={repos}
                                 setSelectedProject={setSelectedProject}
                             />

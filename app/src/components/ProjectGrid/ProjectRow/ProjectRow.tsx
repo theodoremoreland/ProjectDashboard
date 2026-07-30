@@ -8,14 +8,14 @@ import { TaggedRepoData } from '../../../types';
 import alt from '../../../assets/images/under-construction-thumbnail.jpg';
 
 // Custom styles
-import './Project.css';
+import './ProjectRow.css';
 
 interface Props {
     projectData: TaggedRepoData;
     setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | null>>;
 }
 
-const Project = ({ projectData }: Props) => {
+const ProjectRow = ({ projectData }: Props) => {
     return (
         <div
             className={`project-card ${
@@ -62,4 +62,4 @@ const Project = ({ projectData }: Props) => {
     );
 };
 
-export default Project;
+export default ProjectRow;

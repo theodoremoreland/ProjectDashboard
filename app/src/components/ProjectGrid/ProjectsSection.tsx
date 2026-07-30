@@ -2,22 +2,25 @@
 import { Dispatch, ReactElement, SetStateAction } from 'react';
 
 // Custom Components
-import Project from './Project/Project';
+import Project from './ProjectRow/ProjectRow';
 
 // Types
 import { TaggedRepoData } from '../../types';
 
 // Custom styles
-import './ProjectGrid.css';
+import './ProjectsSection.css';
 
 interface Props {
     projects: TaggedRepoData[];
     setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | null>>;
 }
 
-const ProjectGrid = ({ projects, setSelectedProject }: Props): ReactElement => {
+const ProjectsSection = ({
+    projects,
+    setSelectedProject,
+}: Props): ReactElement => {
     return (
-        <section id="project-grid">
+        <section id="projects">
             {projects &&
                 projects.map((project) => {
                     return (
@@ -28,9 +31,8 @@ const ProjectGrid = ({ projects, setSelectedProject }: Props): ReactElement => {
                         />
                     );
                 })}
-            <div id="project-grid-overlay"></div>
         </section>
     );
 };
 
-export default ProjectGrid;
+export default ProjectsSection;
