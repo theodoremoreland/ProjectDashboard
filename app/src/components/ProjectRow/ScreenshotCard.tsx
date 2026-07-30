@@ -2,7 +2,7 @@
 import { SetStateAction, Dispatch, ReactElement } from 'react';
 
 // Types
-import { TaggedRepoData } from '../../../types';
+import { TaggedRepoData } from '../../types';
 
 // Images
 import alt from '../../../assets/images/under-construction-thumbnail.jpg';
