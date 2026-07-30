@@ -28,8 +28,6 @@
         rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
     color: var(--primary-font-color);
     background-color: var(--experimental-color);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
 
     &::before {
         content: '';
