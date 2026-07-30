@@ -123,8 +123,6 @@
             rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
         border: 1px solid var(--border-color);
         color: var(--primary-font-color);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
 
         .search-result {
             display: flex;

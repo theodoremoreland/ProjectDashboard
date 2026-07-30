@@ -17,8 +17,6 @@
     color: var(--primary-font-color);
     opacity: 1;
     transition: opacity 0.5s;
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
 
     @media screen and (min-width: 1440px) {
         & {
