@@ -20,7 +20,6 @@ import Sidebar from './components/Sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar';
 import CommitHistoryBanner from './components/CommitHistoryBanner/CommitHistoryBanner';
-import ProjectDetail from './components/ProjectDetail/ProjectDetail';
 import ProjectGrid from './components/ProjectGrid/ProjectGrid';
 import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
@@ -33,8 +32,7 @@ import './App.css';
 
 const App = (): ReactElement => {
     // Context
-    const { repos, isError, selectedProject, setSelectedProject } =
-        useContext(ProjectsContext);
+    const { repos, isError, setSelectedProject } = useContext(ProjectsContext);
 
     // Custom Hooks
     useIncrementAppViewCount();
@@ -163,12 +161,6 @@ const App = (): ReactElement => {
                             <ProjectGrid
                                 projects={repos}
                                 setSelectedProject={setSelectedProject}
-                            />
-                        )}
-                        {selectedProject && (
-                            <ProjectDetail
-                                projectData={selectedProject}
-                                handleClose={() => setSelectedProject(null)}
                             />
                         )}
                         {showAnalytics && repos && (
