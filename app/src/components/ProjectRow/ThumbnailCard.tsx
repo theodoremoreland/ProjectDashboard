@@ -1,20 +1,20 @@
 // React
-import { SetStateAction, Dispatch, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 // Types
 import { TaggedRepoData } from '../../types';
 
 // Images
-import alt from '../../../assets/images/under-construction-thumbnail.jpg';
+import alt from '../../assets/images/under-construction-thumbnail.jpg';
 
 interface Props {
     projectData: TaggedRepoData;
 }
 
-const ScreenshotCard = ({ projectData }: Props): ReactElement => {
+const ThumbnailCard = ({ projectData }: Props): ReactElement => {
     return (
-        <div
-            className={`project-card ${
+        <li
+            className={`project-card thumbnail ${
                 projectData.isFeatured ? 'featured' : 'not-featured'
             }`}
         >
@@ -44,7 +44,7 @@ const ScreenshotCard = ({ projectData }: Props): ReactElement => {
                 <p className="project-description">{projectData.desc}</p>
             </div>
             <ul className="project-screenshots">
-                {[1, 2, 3, 4, 5].map((_, index) => (
+                {[].map((_, index) => (
                     <li key={index}>
                         <img
                             className="project-screenshot"
@@ -54,8 +54,8 @@ const ScreenshotCard = ({ projectData }: Props): ReactElement => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </li>
     );
 };
 
-export default ScreenshotCard;
+export default ThumbnailCard;
