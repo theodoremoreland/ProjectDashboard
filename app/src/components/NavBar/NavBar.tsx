@@ -67,15 +67,6 @@ const NavBar = ({
                             <span>My GitHub</span>
                         </li>
                     </a>
-                    <li
-                        id="nav-overview"
-                        title="Overview"
-                        role="presentation"
-                        onClick={() => setShowOverviewModal(true)}
-                    >
-                        <InfoIcon className="info icon" />
-                        <span>Overview</span>
-                    </li>
                 </ul>
                 <IconButton
                     id="mobile-menu-icon"

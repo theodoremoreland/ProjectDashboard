@@ -18,6 +18,8 @@ import { ProjectsContext } from './contexts/ProjectsContext';
 import Analytics from './components/Analytics/Analytics';
 import Sidebar from './components/Sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
+import ProjectRow from './components/ProjectRow/ProjectRow';
+import ToolBar from './components/ToolBar/ToolBar';
 import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
 
@@ -26,7 +28,6 @@ import ArrowUpwardIcon from './assets/images/icons/arrow_upward.svg?react';
 
 // Custom Styles
 import './App.css';
-import ProjectRow from './components/ProjectRow/ProjectRow';
 
 const App = (): ReactElement => {
     // Context
@@ -199,6 +200,7 @@ const App = (): ReactElement => {
                         </div>
                     )}
                 </div>
+                <ToolBar setShowOverviewModal={setShowOverviewModal} />
             </main>
         </>
     );
