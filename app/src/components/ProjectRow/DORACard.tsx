@@ -7,7 +7,7 @@ import { TaggedRepoData } from '../../types';
 const DORACard = ({ project }: { project: TaggedRepoData }): ReactElement => {
     return (
         <li className="project-card dora-metrics">
-            <h3>DORA Metrics</h3>
+            <h2>DORA Metrics</h2>
             <ul>
                 <li>Deployment Frequency</li>
                 <li>Lead Time for Changes</li>

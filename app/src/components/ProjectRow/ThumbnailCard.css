@@ -1,0 +1,25 @@
+.ThumbnailCard {
+    background-color: black !important;
+
+    .project-image {
+        display: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        object-fit: fill;
+        opacity: 0;
+        transition: opacity 0.5s;
+
+        &.loaded {
+            opacity: 1;
+        }
+    }
+
+    .project-description {
+        position: relative;
+        width: 100%;
+        display: -webkit-box;
+        font-family: custom-regular;
+        font-size: 0.9em;
+    }
+}

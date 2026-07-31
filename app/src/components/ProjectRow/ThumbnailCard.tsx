@@ -7,6 +7,9 @@ import { TaggedRepoData } from '../../types';
 // Images
 import alt from '../../assets/images/under-construction-thumbnail.jpg';
 
+// Styles
+import './ThumbnailCard.css';
+
 interface Props {
     projectData: TaggedRepoData;
 }
@@ -14,7 +17,7 @@ interface Props {
 const ThumbnailCard = ({ projectData }: Props): ReactElement => {
     return (
         <li
-            className={`project-card thumbnail ${
+            className={`project-card ThumbnailCard ${
                 projectData.isFeatured ? 'featured' : 'not-featured'
             }`}
         >
