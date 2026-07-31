@@ -2,7 +2,7 @@
 import { SetStateAction, Dispatch } from 'react';
 
 // Components
-import ScreenshotCard from './ScreenshotCard';
+import ThumbnailCard from './ThumbnailCard';
 import DORACard from './DORACard';
 import CodeQualityCard from './CodeQualityCard';
 
@@ -23,15 +23,9 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
             className="project-row"
             onMouseEnter={() => setSelectedProject(projectData)}
         >
-            <li>
-                <ScreenshotCard projectData={projectData} />
-            </li>
-            <li>
-                <DORACard project={projectData} />
-            </li>
-            <li>
-                <CodeQualityCard project={projectData} />
-            </li>
+            <ThumbnailCard projectData={projectData} />
+            <DORACard project={projectData} />
+            <CodeQualityCard project={projectData} />
         </ul>
     );
 };
