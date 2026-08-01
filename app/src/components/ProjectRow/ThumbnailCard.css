@@ -20,6 +20,23 @@
         }
     }
 
+    .project-screenshots-title {
+        text-align: center;
+        position: relative;
+        width: 100%;
+        padding: 0.5em 0;
+        border-bottom: 2px solid var(--temp-gray-2);
+    }
+
+    .project-screenshots-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+    }
+
     .project-screenshots {
         display: grid;
         grid-template-columns: repeat(
@@ -28,6 +45,7 @@
         ); /* Creates 3 equal-width columns */
         grid-template-rows: repeat(2, 1fr); /* Creates 2 equal-height rows */
         gap: 10px;
+        width: 60%;
 
         li {
             position: relative;

@@ -48,17 +48,20 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
             <div className="project-about">
                 <p className="project-description">{projectData.desc}</p>
             </div>
-            <ul className="project-screenshots">
-                {[1, 2, 3, 4].map((_, index) => (
-                    <li key={index}>
-                        <img
-                            className="project-screenshot"
-                            src={projectData.image}
-                            alt={`${projectData.name} screenshot ${index + 1}`}
-                        />
-                    </li>
-                ))}
-            </ul>
+            <h4 className="project-screenshots-title">Project Screenshots</h4>
+            <div className="project-screenshots-container">
+                <ul className="project-screenshots">
+                    {[1, 2, 3, 4].map((_, index) => (
+                        <li key={index}>
+                            <img
+                                className="project-screenshot"
+                                src={projectData.image}
+                                alt={`${projectData.name} screenshot ${index + 1}`}
+                            />
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </li>
     );
 };
