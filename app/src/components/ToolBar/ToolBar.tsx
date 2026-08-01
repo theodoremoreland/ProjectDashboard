@@ -22,7 +22,6 @@ const ToolBar = ({ setShowOverviewModal }: Props): ReactElement => {
                         onClick={() => setShowOverviewModal(true)}
                     >
                         <InfoIcon className="info icon" />
-                        <span>Overview</span>
                     </li>
                 </ul>
             </div>

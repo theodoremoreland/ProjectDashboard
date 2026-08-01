@@ -11,7 +11,6 @@ interface Props {
 const CodeQualityCard = ({ project }: Props): ReactElement => {
     return (
         <li className="project-card code-quality">
-            <h2>Code Quality</h2>
             <ul>
                 <li>Security</li>
                 <li>Maintainability</li>
