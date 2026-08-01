@@ -16,7 +16,7 @@
     align-items: flex-start;
     gap: 15px;
     width: 33%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 3/4.5;
     background-color: var(--temp-gray-2);
     box-shadow:
         rgba(0, 0, 0, 0.4) 0px 2px 4px,
