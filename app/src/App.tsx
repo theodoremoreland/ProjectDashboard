@@ -150,56 +150,55 @@ const App = (): ReactElement => {
                     ref={appContentContainerRef}
                     onScroll={onAppContentContainerScroll}
                 >
-                    <div className="row">
-                        <Sidebar />
-                        {repos && (
-                            <section id="projects">
-                                {repos &&
-                                    repos.map((repo) => {
-                                        return (
-                                            <ProjectRow
-                                                key={repo.name}
-                                                projectData={repo}
-                                                setSelectedProject={
-                                                    setSelectedProject
-                                                }
-                                            />
-                                        );
-                                    })}
-                            </section>
-                        )}
-                        {showAnalytics && repos && (
-                            <Analytics
-                                projects={repos}
-                                handleClose={() => setShowAnalytics(false)}
-                            />
-                        )}
-                        {showOverviewModal && (
-                            <Overview
-                                handleClose={() => setShowOverviewModal(false)}
-                            />
-                        )}
-                    </div>
-                    {/* ! This logic assumes the sidebar, repo count, and limited vertical real estate are enough
+                    <Sidebar />
+                    {repos && (
+                        <section id="projects">
+                            {repos &&
+                                repos.map((repo) => {
+                                    return (
+                                        <ProjectRow
+                                            key={repo.name}
+                                            projectData={repo}
+                                            setSelectedProject={
+                                                setSelectedProject
+                                            }
+                                        />
+                                    );
+                                })}
+                        </section>
+                    )}
+                    {showAnalytics && repos && (
+                        <Analytics
+                            projects={repos}
+                            handleClose={() => setShowAnalytics(false)}
+                        />
+                    )}
+                    {showOverviewModal && (
+                        <Overview
+                            handleClose={() => setShowOverviewModal(false)}
+                        />
+                    )}
+                </div>
+                {/* ! This logic assumes the sidebar, repo count, and limited vertical real estate are enough
                         to warrant a scroll to top button fixed beneath the sidebar. I didn't want to base the
                         logic on the actual scroll position of the app content container because unless I placed the
                         button in the area of the project grid and thus potentially obscuring the projects or being hard
                         to see, it would potentially overlap with the sidebar.
                     */}
-                    {showScrollToTopButton && (
-                        <div id="scroll-to-top-container" className="row">
-                            <button
-                                title="Scroll to top"
-                                aria-label="Scroll to top"
-                                type="button"
-                                className="scroll-to-top"
-                                onClick={scrollToTopOfAppContent}
-                            >
-                                <ArrowUpwardIcon className="icon" />
-                            </button>
-                        </div>
-                    )}
-                </div>
+                {showScrollToTopButton && (
+                    <div id="scroll-to-top-container" className="row">
+                        <button
+                            title="Scroll to top"
+                            aria-label="Scroll to top"
+                            type="button"
+                            className="scroll-to-top"
+                            onClick={scrollToTopOfAppContent}
+                        >
+                            <ArrowUpwardIcon className="icon" />
+                        </button>
+                    </div>
+                )}
+
                 <ToolBar setShowOverviewModal={setShowOverviewModal} />
             </main>
         </>

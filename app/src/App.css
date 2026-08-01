@@ -43,6 +43,8 @@
     --background-color: #141418;
     --experimental-color: #d4d4d405;
 
+    --sidebar-width: 15%;
+
     --temp-gray: #131217;
     --temp-gray-2: #27282f;
     --temp-silver: #a1a5b5;
@@ -358,7 +360,7 @@ main {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
     width: 100%;
     height: calc(100% - var(--navbar-height) * 2);
@@ -401,9 +403,9 @@ main {
         justify-content: flex-start;
         align-items: center;
         gap: var(--content-gap) var(--content-gap);
+        width: calc(100% - var(--sidebar-width));
         overflow-y: auto;
         overflow-x: hidden;
-        flex-grow: 1;
         padding-bottom: 0.5rem;
     }
 
