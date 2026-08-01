@@ -22,32 +22,34 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
             }`}
         >
             <h2>{projectData.name}</h2>
-            <img
-                className="project-image"
-                onLoad={(e) => {
-                    const target: EventTarget = e.target;
+            <div className="project-image-container">
+                <img
+                    className="project-image"
+                    onLoad={(e) => {
+                        const target: EventTarget = e.target;
 
-                    if (target instanceof HTMLImageElement) {
-                        target.classList.add('loaded');
-                    }
-                }}
-                src={projectData.image}
-                alt={projectData.name}
-                onError={(e) => {
-                    const target: EventTarget = e.target;
-
-                    if (target instanceof HTMLImageElement) {
-                        if (target.src !== alt) {
-                            target.src = alt;
+                        if (target instanceof HTMLImageElement) {
+                            target.classList.add('loaded');
                         }
-                    }
-                }}
-            />
+                    }}
+                    src={projectData.image}
+                    alt={projectData.name}
+                    onError={(e) => {
+                        const target: EventTarget = e.target;
+
+                        if (target instanceof HTMLImageElement) {
+                            if (target.src !== alt) {
+                                target.src = alt;
+                            }
+                        }
+                    }}
+                />
+            </div>
             <div className="project-about">
                 <p className="project-description">{projectData.desc}</p>
             </div>
             <ul className="project-screenshots">
-                {[].map((_, index) => (
+                {[1, 2, 3, 4].map((_, index) => (
                     <li key={index}>
                         <img
                             className="project-screenshot"

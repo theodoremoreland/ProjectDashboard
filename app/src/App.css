@@ -94,22 +94,6 @@ html {
     background-color: var(--background-color);
     overflow-x: hidden;
     font-family: custom-regular;
-
-    &::before {
-        content: '';
-        z-index: 0;
-        position: absolute;
-        pointer-events: none;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('assets/images/bg.webp');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        opacity: 0.6;
-    }
 }
 
 body,
@@ -372,15 +356,13 @@ main {
 
 #app-content {
     position: relative;
-    top: 0;
-    left: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    height: 100%;
-    padding-bottom: var(--navbar-height);
+    height: calc(100% - var(--navbar-height) * 2);
+    padding: var(--content-gap) 0;
     overflow-y: auto;
 
     > .row {

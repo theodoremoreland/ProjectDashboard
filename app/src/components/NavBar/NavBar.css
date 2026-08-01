@@ -1,6 +1,5 @@
 #app-nav {
-    z-index: 3;
-    position: sticky;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;

@@ -1,12 +1,17 @@
 .ThumbnailCard {
     background-color: black !important;
 
+    .project-image-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 19/9;
+    }
+
     .project-image {
-        display: none;
         width: 100%;
         height: 100%;
         border-radius: 0;
-        object-fit: fill;
+        object-fit: cover;
         opacity: 0;
         transition: opacity 0.5s;
 
@@ -15,11 +20,31 @@
         }
     }
 
+    .project-screenshots {
+        display: grid;
+        grid-template-columns: repeat(
+            2,
+            1fr
+        ); /* Creates 3 equal-width columns */
+        grid-template-rows: repeat(2, 1fr); /* Creates 2 equal-height rows */
+        gap: 10px;
+
+        li {
+            position: relative;
+            aspect-ratio: 16/9;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
     .project-description {
         position: relative;
         width: 100%;
-        display: -webkit-box;
         font-family: custom-regular;
-        font-size: 0.9em;
+        font-size: 1rem;
     }
 }
