@@ -72,7 +72,6 @@
 
 @media screen and (min-width: 1440px) {
     :root {
-        --content-gap: 25px;
         --content-width: 95%;
     }
 }
@@ -360,7 +359,7 @@ main {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-start;
     width: 100%;
     height: calc(100% - var(--navbar-height) * 2);
@@ -369,31 +368,13 @@ main {
 
     > .row {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
         gap: var(--content-gap);
         width: var(--content-width);
         max-width: var(--content-max-width);
         margin-top: var(--content-gap);
-
-        @media screen and (min-width: 481px) {
-            & {
-                width: 96%;
-            }
-        }
-
-        @media screen and (min-width: 965px) {
-            & {
-                flex-direction: row;
-            }
-        }
-
-        @media screen and (min-width: 1440px) {
-            & {
-                width: 95%;
-            }
-        }
     }
 
     #projects {
