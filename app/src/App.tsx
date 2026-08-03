@@ -16,7 +16,6 @@ import { ProjectsContext } from './contexts/ProjectsContext';
 
 // Custom Components
 import Analytics from './components/Analytics/Analytics';
-import Sidebar from './components/Sidebar/Sidebar';
 import NavBar from './components/NavBar/NavBar';
 import ProjectRow from './components/ProjectRow/ProjectRow';
 import ToolBar from './components/ToolBar/ToolBar';
@@ -151,7 +150,6 @@ const App = (): ReactElement => {
                     onScroll={onAppContentContainerScroll}
                 >
                     <div className="row">
-                        <Sidebar />
                         {repos && (
                             <section id="projects">
                                 {repos &&

@@ -14,7 +14,7 @@ const Sidebar = (): ReactElement => {
                     </li>
                 ))}
             </ul>
-            <div id="sidebar-video"></div>
+            <div id="project-video-preview"></div>
         </aside>
     );
 };

@@ -2,11 +2,15 @@
 import { ReactElement } from 'react';
 
 // Types
-import { TaggedRepoData } from '../../types';
+import { TaggedRepoData } from '../../../types';
 
-const DORACard = ({ project }: { project: TaggedRepoData }): ReactElement => {
+const MetricsCard = ({
+    projectData,
+}: {
+    projectData: TaggedRepoData;
+}): ReactElement => {
     return (
-        <li className="project-card dora-metrics">
+        <li className="project-card metrics">
             <ul>
                 <li>Deployment Frequency</li>
                 <li>Lead Time for Changes</li>
@@ -14,8 +18,9 @@ const DORACard = ({ project }: { project: TaggedRepoData }): ReactElement => {
                 <li>Failed Deployment Recovery Time</li>
                 <li>Time to Restore Service</li>
             </ul>
+            <p>{projectData.name}</p>
         </li>
     );
 };
 
-export default DORACard;
+export default MetricsCard;
