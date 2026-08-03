@@ -2,9 +2,10 @@
 import { SetStateAction, Dispatch } from 'react';
 
 // Components
-import ThumbnailCard from './ThumbnailCard';
-import DORACard from './DORACard';
-import CodeQualityCard from './CodeQualityCard';
+import Sidebar from './Sidebar/Sidebar';
+import ThumbnailCard from './Cards/ThumbnailCard';
+import MetricsCard from './Cards/MetricsCard';
+import ActivityCard from './Cards/ActivityCard';
 
 // Types
 import { TaggedRepoData } from '../../types';
@@ -19,14 +20,17 @@ interface Props {
 
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     return (
-        <ul
-            className="project-row"
-            onMouseEnter={() => setSelectedProject(projectData)}
-        >
-            <ThumbnailCard projectData={projectData} />
-            <DORACard project={projectData} />
-            <CodeQualityCard project={projectData} />
-        </ul>
+        <div>
+            <Sidebar />
+            <ul
+                className="project-row"
+                onMouseEnter={() => setSelectedProject(projectData)}
+            >
+                <ThumbnailCard projectData={projectData} />
+                <MetricsCard projectData={projectData} />
+                <ActivityCard projectData={projectData} />
+            </ul>
+        </div>
     );
 };
 

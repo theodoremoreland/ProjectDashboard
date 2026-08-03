@@ -374,7 +374,15 @@ main {
         gap: var(--content-gap);
         width: var(--content-width);
         max-width: var(--content-max-width);
-        margin-top: var(--content-gap);
+        margin: 0;
+    }
+
+    > .row.two {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        height: 100%;
     }
 
     #projects {

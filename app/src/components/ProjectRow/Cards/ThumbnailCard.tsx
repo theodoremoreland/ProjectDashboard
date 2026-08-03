@@ -2,7 +2,7 @@
 import { ReactElement } from 'react';
 
 // Types
-import { TaggedRepoData } from '../../types';
+import { TaggedRepoData } from '../../../types';
 
 // Images
 import alt from '../../assets/images/under-construction-thumbnail.jpg';
@@ -48,7 +48,7 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
             <div className="project-about">
                 <p className="project-description">{projectData.desc}</p>
             </div>
-            <h4 className="project-screenshots-title">Project Screenshots</h4>
+            <h4 className="project-screenshots-title">Screenshots</h4>
             <div className="project-screenshots-container">
                 <ul className="project-screenshots">
                     {[1, 2, 3, 4].map((_, index) => (
