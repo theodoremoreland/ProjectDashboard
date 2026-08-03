@@ -5,7 +5,7 @@ import { ReactElement } from 'react';
 import { TaggedRepoData } from '../../../types';
 
 // Images
-import alt from '../../assets/images/under-construction-thumbnail.jpg';
+import alt from '../../../assets/images/under-construction-thumbnail.jpg';
 
 // Styles
 import './ThumbnailCard.css';
