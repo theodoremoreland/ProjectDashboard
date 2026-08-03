@@ -20,16 +20,20 @@ interface Props {
 
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     return (
-        <div>
-            <Sidebar />
-            <ul
-                className="project-row"
-                onMouseEnter={() => setSelectedProject(projectData)}
-            >
-                <ThumbnailCard projectData={projectData} />
-                <MetricsCard projectData={projectData} />
-                <ActivityCard projectData={projectData} />
-            </ul>
+        <div
+            className="project-row"
+            onMouseEnter={() => setSelectedProject(projectData)}
+        >
+            <div className="move-arrows"></div>
+            <div className="project-row-content">
+                <Sidebar />
+                <ul className="project-cards">
+                    <ThumbnailCard projectData={projectData} />
+                    <MetricsCard projectData={projectData} />
+                    <ActivityCard projectData={projectData} />
+                </ul>
+            </div>
+            <div className="move-arrows"></div>
         </div>
     );
 };

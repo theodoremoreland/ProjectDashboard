@@ -363,7 +363,8 @@ main {
     align-items: flex-start;
     width: 100%;
     height: calc(100% - var(--navbar-height) * 2);
-    padding: var(--content-gap) 0;
+    padding: 0;
+    margin: 0;
     overflow-y: auto;
 
     > .row {
