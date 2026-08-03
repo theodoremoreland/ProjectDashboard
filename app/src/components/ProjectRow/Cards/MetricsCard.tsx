@@ -11,6 +11,7 @@ const MetricsCard = ({
 }): ReactElement => {
     return (
         <li className="project-card metrics">
+            <h3>Metrics</h3>
             <ul>
                 <li>Deployment Frequency</li>
                 <li>Lead Time for Changes</li>
