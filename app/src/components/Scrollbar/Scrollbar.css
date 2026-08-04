@@ -1,0 +1,8 @@
+#Scrollbar {
+    position: sticky;
+    top: 0;
+    right: 0;
+    height: calc(100vh);
+    width: 3px;
+    background-color: var(--temp-green);
+}

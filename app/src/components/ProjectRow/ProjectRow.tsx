@@ -21,6 +21,7 @@ interface Props {
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     return (
         <div
+            id={`${projectData.name}`}
             className="project-row"
             onMouseEnter={() => setSelectedProject(projectData)}
         >

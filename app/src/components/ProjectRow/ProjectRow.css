@@ -6,7 +6,9 @@
     align-items: center;
     gap: 0;
     width: 100%;
-    height: calc(100vh - var(--navbar-height) * 2);
+    height: calc(
+        100vh - var(--navbar-height) * 2 - var(--move-arrows-height) * 2
+    );
 }
 
 .project-row-content {
