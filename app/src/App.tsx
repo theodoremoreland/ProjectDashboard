@@ -21,13 +21,13 @@ import ProjectRow from './components/ProjectRow/ProjectRow';
 import ToolBar from './components/ToolBar/ToolBar';
 import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
+import Scrollbar from './components/Scrollbar/Scrollbar';
 
 // Images
 import ArrowUpwardIcon from './assets/images/icons/arrow_upward.svg?react';
 
 // Custom Styles
 import './App.css';
-import Scrollbar from './components/Scrollbar/Scrollbar';
 
 const App = (): ReactElement => {
     // Context
@@ -39,6 +39,8 @@ const App = (): ReactElement => {
     // Refs
     const titleCardRef = useRef<HTMLElement>(null);
     const intervalRef = useRef<number | undefined>(undefined);
+    const trackRef = useRef<HTMLDivElement>(null);
+    const thumbRef = useRef<HTMLDivElement>(null);
     const appContentContainerRef = useRef<HTMLDivElement>(null);
 
     // State (boolean)
@@ -78,6 +80,22 @@ const App = (): ReactElement => {
                 appContentContainer.scrollHeight -
                 appContentContainer.clientHeight;
             const scrolledRatio = scrollTop / scrollHeight;
+
+            const content = appContentContainer;
+            const track = trackRef.current;
+            const thumb = thumbRef.current;
+
+            if (!content || !track || !thumb) return;
+
+            const scrollableHeight =
+                content.scrollHeight - content.clientHeight;
+            const trackRemainingHeight =
+                track.clientHeight - thumb.clientHeight;
+
+            if (scrollableHeight > 0) {
+                const scrollPercentage = content.scrollTop / scrollableHeight;
+                thumb.style.top = `${scrollPercentage * trackRemainingHeight}px`;
+            }
 
             if (scrolledRatio > 0.25) {
                 setShowScrollToTopButton(true);
@@ -146,14 +164,14 @@ const App = (): ReactElement => {
                     setShowOverviewModal={setShowOverviewModal}
                 />
                 <div className="move-arrows"></div>
-                <div
-                    id="app-content"
-                    ref={appContentContainerRef}
-                    onScroll={onAppContentContainerScroll}
-                >
+                <div id="app-content">
                     <div className="row">
                         {repos && (
-                            <section id="projects">
+                            <section
+                                id="projects"
+                                ref={appContentContainerRef}
+                                onScroll={onAppContentContainerScroll}
+                            >
                                 {repos &&
                                     repos.map((repo) => {
                                         return (
@@ -179,7 +197,11 @@ const App = (): ReactElement => {
                                 handleClose={() => setShowOverviewModal(false)}
                             />
                         )}
-                        <Scrollbar projects={repos} />
+                        <Scrollbar
+                            projects={repos}
+                            trackRef={trackRef}
+                            thumbRef={thumbRef}
+                        />
                     </div>
                     {/* ! This logic assumes the sidebar, repo count, and limited vertical real estate are enough
                         to warrant a scroll to top button fixed beneath the sidebar. I didn't want to base the
