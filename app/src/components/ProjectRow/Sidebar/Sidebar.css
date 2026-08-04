@@ -30,7 +30,6 @@
         height: auto;
         aspect-ratio: 3 / 3.5;
         background-color: var(--temp-gray-2);
-        border-radius: 8px;
     }
 }
 

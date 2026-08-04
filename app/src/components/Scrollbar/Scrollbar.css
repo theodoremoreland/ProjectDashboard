@@ -20,6 +20,7 @@
         background-color: var(--temp-green);
 
         #thumb {
+            position: relative;
             height: 4px; /* This should be used as a fallback and overridden with computed value in React component based on number of projects */
             width: 10px;
             background-color: var(--temp-white);

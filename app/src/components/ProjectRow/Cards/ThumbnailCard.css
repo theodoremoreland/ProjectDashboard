@@ -42,10 +42,11 @@
         grid-template-columns: repeat(
             2,
             1fr
-        ); /* Creates 3 equal-width columns */
+        ); /* Creates 2 equal-width columns */
         grid-template-rows: repeat(2, 1fr); /* Creates 2 equal-height rows */
         gap: 10px;
         width: 60%;
+        cursor: pointer;
 
         li {
             position: relative;
