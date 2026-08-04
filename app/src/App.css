@@ -365,14 +365,16 @@ main {
 #app-content {
     position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    height: calc(100% - var(--navbar-height) * 2);
+    height: calc(
+        100% - var(--navbar-height) * 2 - var(--move-arrows-height) * 2
+    );
     padding: 0;
     margin: 0;
-    overflow-y: auto;
+    overflow-y: hidden;
 
     > .row {
         display: flex;
@@ -382,6 +384,7 @@ main {
         gap: var(--content-gap);
         width: var(--content-width);
         max-width: var(--content-max-width);
+        height: 100%;
         margin: 0;
     }
 
@@ -393,9 +396,13 @@ main {
         align-items: center;
         gap: 0;
         width: 100%;
-        overflow-y: auto;
+        height: 100%;
         overflow-x: hidden;
-        padding-bottom: 0.5rem;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
     }
 
     #scroll-to-top-container {
