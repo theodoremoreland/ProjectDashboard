@@ -179,7 +179,7 @@ const App = (): ReactElement => {
                                 handleClose={() => setShowOverviewModal(false)}
                             />
                         )}
-                        <Scrollbar />
+                        <Scrollbar projects={repos} />
                     </div>
                     {/* ! This logic assumes the sidebar, repo count, and limited vertical real estate are enough
                         to warrant a scroll to top button fixed beneath the sidebar. I didn't want to base the
