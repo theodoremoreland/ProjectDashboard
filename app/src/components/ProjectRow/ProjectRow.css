@@ -9,12 +9,6 @@
     height: calc(100vh - var(--navbar-height) * 2);
 }
 
-.move-arrows {
-    width: 100%;
-    height: 2rem;
-    background-color: var(--temp-green);
-}
-
 .project-row-content {
     position: relative;
     display: flex;
