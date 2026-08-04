@@ -24,7 +24,6 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
             className="project-row"
             onMouseEnter={() => setSelectedProject(projectData)}
         >
-            <div className="move-arrows"></div>
             <div className="project-row-content">
                 <Sidebar />
                 <ul className="project-cards">
@@ -33,7 +32,6 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                     <ActivityCard projectData={projectData} />
                 </ul>
             </div>
-            <div className="move-arrows"></div>
         </div>
     );
 };
