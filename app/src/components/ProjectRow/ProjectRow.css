@@ -5,10 +5,10 @@
     justify-content: center;
     align-items: center;
     gap: 0;
+    flex-shrink: 0;
     width: 100%;
-    height: calc(
-        100vh - var(--navbar-height) * 2 - var(--move-arrows-height) * 2
-    );
+    height: 100%;
+    scroll-snap-align: start;
 }
 
 .project-row-content {
