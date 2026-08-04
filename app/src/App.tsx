@@ -27,6 +27,7 @@ import ArrowUpwardIcon from './assets/images/icons/arrow_upward.svg?react';
 
 // Custom Styles
 import './App.css';
+import Scrollbar from './components/Scrollbar/Scrollbar';
 
 const App = (): ReactElement => {
     // Context
@@ -178,6 +179,7 @@ const App = (): ReactElement => {
                                 handleClose={() => setShowOverviewModal(false)}
                             />
                         )}
+                        <Scrollbar />
                     </div>
                     {/* ! This logic assumes the sidebar, repo count, and limited vertical real estate are enough
                         to warrant a scroll to top button fixed beneath the sidebar. I didn't want to base the
@@ -199,6 +201,7 @@ const App = (): ReactElement => {
                         </div>
                     )}
                 </div>
+
                 <div className="move-arrows"></div>
                 <ToolBar setShowOverviewModal={setShowOverviewModal} />
             </main>
