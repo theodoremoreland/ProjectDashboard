@@ -39,18 +39,17 @@ export type ViewCounts = {
 };
 
 export interface CommitData {
+    url: string;
     sha: string;
     html_url: string;
     commit: {
-        message: string;
-        author: {
+        url: string;
+        committer: {
             name: string;
+            email: string;
             date: string;
         };
-    };
-    repository: {
-        id: number;
-        name: string;
+        message: string;
     };
 }
 

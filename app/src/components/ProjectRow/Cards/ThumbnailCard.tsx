@@ -21,7 +21,7 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
                 projectData.isFeatured ? 'featured' : 'not-featured'
             }`}
         >
-            <h2>{projectData.name}</h2>
+            <h2 className="project-name">{projectData.name}</h2>
             <div className="project-image-container">
                 <img
                     className="project-image"
