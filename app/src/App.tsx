@@ -230,7 +230,6 @@ const App = (): ReactElement => {
                     setShowAnalytics={setShowAnalytics}
                     setShowOverviewModal={setShowOverviewModal}
                 />
-                <div className="move-arrows"></div>
                 <div id="app-content">
                     <div className="row">
                         {repos && (
@@ -291,8 +290,6 @@ const App = (): ReactElement => {
                         </div>
                     )}
                 </div>
-
-                <div className="move-arrows"></div>
                 <ToolBar setShowOverviewModal={setShowOverviewModal} />
             </main>
         </>

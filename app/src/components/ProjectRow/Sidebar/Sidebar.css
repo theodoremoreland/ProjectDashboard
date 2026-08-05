@@ -5,10 +5,11 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-shrink: 0;
+    font-family: custom-thin;
     width: var(--sidebar-width);
     height: 100%;
     margin: 0;
-    padding: 0 20px;
+    padding-right: 20px;
     border-radius: 4px;
     background-color: transparent;
     color: var(--primary-font-color);
