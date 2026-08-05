@@ -42,7 +42,7 @@
         width: 100%;
         height: auto;
         aspect-ratio: 3 / 3.5;
-        background-color: var(--temp-gray-2);
+        background-color: var(--temp-gray-3);
         border-radius: 8px;
     }
 }

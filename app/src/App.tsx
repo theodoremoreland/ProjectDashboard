@@ -22,6 +22,7 @@ import ToolBar from './components/ToolBar/ToolBar';
 import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
 import Scrollbar from './components/Scrollbar/Scrollbar';
+import Cursor from './components/Cursor/Cursor';
 
 // Images
 import ArrowUpwardIcon from './assets/images/icons/arrow_upward.svg?react';
@@ -137,7 +138,6 @@ const App = (): ReactElement => {
             newTop = Math.max(0, Math.min(newTop, trackRemainingHeight));
 
             thumb.style.top = `${newTop}px`;
-            projectsSectionRef.current.style.scrollSnapType = 'none'; // Disable scroll snapping while dragging
 
             // Translate thumb position back to hidden scroll layout
             if (trackRemainingHeight > 0) {
@@ -152,11 +152,6 @@ const App = (): ReactElement => {
             if (dragState.isDragging) {
                 setDragState((prev) => ({ ...prev, isDragging: false }));
                 document.body.style.userSelect = 'auto';
-
-                if (projectsSectionRef.current) {
-                    projectsSectionRef.current.style.scrollSnapType =
-                        'y mandatory'; // Re-enable scroll snapping after dragging
-                }
             }
         };
 
@@ -207,6 +202,7 @@ const App = (): ReactElement => {
 
     return (
         <>
+            <Cursor />
             {showErrorModal && <Error handleClose={handleCloseErrorModal} />}
             <header
                 ref={titleCardRef}
