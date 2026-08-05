@@ -41,7 +41,7 @@ const App = (): ReactElement => {
     const intervalRef = useRef<number | undefined>(undefined);
     const trackRef = useRef<HTMLDivElement>(null);
     const thumbRef = useRef<HTMLDivElement>(null);
-    const appContentContainerRef = useRef<HTMLDivElement>(null);
+    const projectsSectionRef = useRef<HTMLDivElement>(null);
 
     // State (boolean)
     const [showScrollToTopButton, setShowScrollToTopButton] =
@@ -58,50 +58,45 @@ const App = (): ReactElement => {
     const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
 
     // Other
-    const scrollToTopOfAppContent = useCallback(() => {
-        const appContentContainer: HTMLDivElement | null =
-            appContentContainerRef.current;
+    const scrollToTopOfProjectsSection = useCallback(() => {
+        const projectsSection: HTMLDivElement | null =
+            projectsSectionRef.current;
 
-        if (appContentContainer) {
-            appContentContainer.scrollTo({
+        if (projectsSection) {
+            projectsSection.scrollTo({
                 top: 0,
                 behavior: 'smooth',
             });
         }
     }, []);
 
-    const onAppContentContainerScroll = useCallback(() => {
-        const appContentContainer: HTMLDivElement | null =
-            appContentContainerRef.current;
+    const onProjectsSectionScroll = useCallback(() => {
+        const projectsSection: HTMLDivElement | null =
+            projectsSectionRef.current;
+        const track: HTMLDivElement | null = trackRef.current;
+        const thumb: HTMLDivElement | null = thumbRef.current;
 
-        if (appContentContainer) {
-            const scrollTop = appContentContainer.scrollTop;
-            const scrollHeight =
-                appContentContainer.scrollHeight -
-                appContentContainer.clientHeight;
-            const scrolledRatio = scrollTop / scrollHeight;
+        if (!projectsSection || !track || !thumb) {
+            return;
+        }
 
-            const content = appContentContainer;
-            const track = trackRef.current;
-            const thumb = thumbRef.current;
+        const scrollTop: number = projectsSection.scrollTop;
+        const scrollHeight: number =
+            projectsSection.scrollHeight - projectsSection.clientHeight;
+        const scrolledRatio: number = scrollTop / scrollHeight;
+        const trackRemainingHeight: number =
+            track.clientHeight - thumb.clientHeight;
 
-            if (!content || !track || !thumb) return;
+        if (scrollHeight > 0) {
+            const scrollPercentage = scrollTop / scrollHeight;
 
-            const scrollableHeight =
-                content.scrollHeight - content.clientHeight;
-            const trackRemainingHeight =
-                track.clientHeight - thumb.clientHeight;
+            thumb.style.top = `${scrollPercentage * trackRemainingHeight}px`;
+        }
 
-            if (scrollableHeight > 0) {
-                const scrollPercentage = content.scrollTop / scrollableHeight;
-                thumb.style.top = `${scrollPercentage * trackRemainingHeight}px`;
-            }
-
-            if (scrolledRatio > 0.25) {
-                setShowScrollToTopButton(true);
-            } else {
-                setShowScrollToTopButton(false);
-            }
+        if (scrolledRatio > 0.25) {
+            setShowScrollToTopButton(true);
+        } else {
+            setShowScrollToTopButton(false);
         }
     }, []);
 
@@ -169,8 +164,8 @@ const App = (): ReactElement => {
                         {repos && (
                             <section
                                 id="projects"
-                                ref={appContentContainerRef}
-                                onScroll={onAppContentContainerScroll}
+                                ref={projectsSectionRef}
+                                onScroll={onProjectsSectionScroll}
                             >
                                 {repos &&
                                     repos.map((repo) => {
@@ -216,7 +211,7 @@ const App = (): ReactElement => {
                                 aria-label="Scroll to top"
                                 type="button"
                                 className="scroll-to-top"
-                                onClick={scrollToTopOfAppContent}
+                                onClick={scrollToTopOfProjectsSection}
                             >
                                 <ArrowUpwardIcon className="icon" />
                             </button>
