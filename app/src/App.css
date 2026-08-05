@@ -49,7 +49,6 @@
     --experimental-color: #d4d4d405;
 
     --sidebar-width: 15%;
-    --move-arrows-height: 2rem;
 
     --temp-gray: #131217;
     --temp-gray-2: #27282f;
@@ -361,12 +360,6 @@ main {
     overflow-y: hidden;
 }
 
-.move-arrows {
-    width: 100%;
-    height: var(--move-arrows-height);
-    background-color: var(--temp-green);
-}
-
 #app-content {
     position: relative;
     display: flex;
@@ -374,9 +367,7 @@ main {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: calc(
-        100% - var(--navbar-height) * 2 - var(--move-arrows-height) * 2
-    );
+    height: calc(100% - var(--navbar-height) * 2);
     padding: 0;
     margin: 0;
     overflow-y: hidden;

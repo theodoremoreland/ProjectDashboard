@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 
 // Images
 import InfoIcon from '../../assets/images/icons/info.svg?react';
+import PersonIcon from '../../assets/images/icons/person.svg?react';
 
 // Styles
 import './ToolBar.css';
@@ -14,7 +15,10 @@ const ToolBar = ({ setShowOverviewModal }: Props): ReactElement => {
     return (
         <footer id="app-toolbar">
             <div id="app-toolbar-content">
-                <ul>
+                <ul id="toolbar-right">
+                    <li>
+                        <PersonIcon className="person icon" />
+                    </li>
                     <li
                         id="nav-overview"
                         title="Overview"
