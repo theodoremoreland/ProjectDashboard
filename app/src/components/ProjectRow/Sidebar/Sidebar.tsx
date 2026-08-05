@@ -10,7 +10,7 @@ const Sidebar = (): ReactElement => {
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
                     <li key={item}>
                         <h3>Technology {item}</h3>
-                        <div></div>
+                        <span className="technology-level"></span>
                     </li>
                 ))}
             </ul>

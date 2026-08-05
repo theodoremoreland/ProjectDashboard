@@ -11,6 +11,9 @@ import extractErrorMessage from '../../../utils/extractErrorMessage';
 // Types
 import { CommitData, TaggedRepoData } from '../../../types';
 
+// Styles
+import './ActivityCard.css';
+
 interface Props {
     projectData: TaggedRepoData;
 }
@@ -38,7 +41,7 @@ const ActivityCard = ({ projectData }: Props): ReactElement => {
         }
     }, [isError, error]);
     return (
-        <li className="project-card activity">
+        <li className="project-card ActivityCard">
             <div>
                 <article>
                     <h3>Recent commits</h3>
