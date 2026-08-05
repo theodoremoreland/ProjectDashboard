@@ -43,6 +43,13 @@ const App = (): ReactElement => {
     const thumbRef = useRef<HTMLDivElement>(null);
     const projectsSectionRef = useRef<HTMLDivElement>(null);
 
+    // State (data)
+    const [dragState, setDragState] = useState({
+        isDragging: false,
+        startY: 0,
+        startTop: 0,
+    });
+
     // State (boolean)
     const [showScrollToTopButton, setShowScrollToTopButton] =
         useState<boolean>(false);
@@ -69,6 +76,19 @@ const App = (): ReactElement => {
             });
         }
     }, []);
+
+    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+        const thumb = thumbRef.current;
+        if (!thumb) return;
+
+        setDragState({
+            isDragging: true,
+            startY: e.clientY,
+            startTop: thumb.offsetTop,
+        });
+
+        document.body.style.userSelect = 'none'; // Prevent text highlighting
+    };
 
     const onProjectsSectionScroll = useCallback(() => {
         const projectsSection: HTMLDivElement | null =
@@ -99,6 +119,58 @@ const App = (): ReactElement => {
             setShowScrollToTopButton(false);
         }
     }, []);
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!dragState.isDragging) return;
+
+            const content = projectsSectionRef.current;
+            const track = trackRef.current;
+            const thumb = thumbRef.current;
+            if (!content || !track || !thumb) return;
+
+            const deltaY = e.clientY - dragState.startY;
+            const trackRemainingHeight =
+                track.clientHeight - thumb.clientHeight;
+
+            let newTop = dragState.startTop + deltaY;
+            newTop = Math.max(0, Math.min(newTop, trackRemainingHeight));
+
+            thumb.style.top = `${newTop}px`;
+            projectsSectionRef.current.style.scrollSnapType = 'none'; // Disable scroll snapping while dragging
+
+            // Translate thumb position back to hidden scroll layout
+            if (trackRemainingHeight > 0) {
+                const scrollPercentage = newTop / trackRemainingHeight;
+                const scrollableHeight =
+                    content.scrollHeight - content.clientHeight;
+                content.scrollTop = scrollPercentage * scrollableHeight;
+            }
+        };
+
+        const handleMouseUp = () => {
+            if (dragState.isDragging) {
+                setDragState((prev) => ({ ...prev, isDragging: false }));
+                document.body.style.userSelect = 'auto';
+
+                if (projectsSectionRef.current) {
+                    projectsSectionRef.current.style.scrollSnapType =
+                        'y mandatory'; // Re-enable scroll snapping after dragging
+                }
+            }
+        };
+
+        // Attach global listeners for dragging outside the component track boundary
+        if (dragState.isDragging) {
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+        }
+
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, [dragState]);
 
     useEffect(() => {
         if (isError) {
@@ -196,6 +268,7 @@ const App = (): ReactElement => {
                             projects={repos}
                             trackRef={trackRef}
                             thumbRef={thumbRef}
+                            handleMouseDown={handleMouseDown}
                         />
                     </div>
                     {/* ! This logic assumes the sidebar, repo count, and limited vertical real estate are enough
@@ -205,7 +278,7 @@ const App = (): ReactElement => {
                         to see, it would potentially overlap with the sidebar.
                     */}
                     {showScrollToTopButton && (
-                        <div id="scroll-to-top-container" className="row">
+                        <div id="scroll-to-top-container">
                             <button
                                 title="Scroll to top"
                                 aria-label="Scroll to top"

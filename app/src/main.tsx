@@ -8,7 +8,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 // Custom contexts
 import ProjectsContextProvider from './contexts/ProjectsContext';
 import ViewCountContextProvider from './contexts/ViewCountContext/ViewCountContext';
-import CommitContextProvider from './contexts/CommitContext/CommitContext';
 
 // Components
 import App from './App.tsx';
@@ -22,9 +21,7 @@ createRoot(document.getElementById('root')!).render(
         <QueryClientProvider client={queryClient}>
             <ProjectsContextProvider>
                 <ViewCountContextProvider>
-                    <CommitContextProvider>
-                        <App />
-                    </CommitContextProvider>
+                    <App />
                 </ViewCountContextProvider>
             </ProjectsContextProvider>
         </QueryClientProvider>

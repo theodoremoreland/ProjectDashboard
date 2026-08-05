@@ -20,6 +20,10 @@
         }
     }
 
+    .project-name {
+        color: var(--temp-green);
+    }
+
     .project-screenshots-title {
         text-align: center;
         position: relative;
@@ -63,7 +67,8 @@
     .project-description {
         position: relative;
         width: 100%;
-        font-family: custom-regular;
+        color: var(--temp-green);
+        font-family: custom-semibold;
         font-size: 1rem;
     }
 }

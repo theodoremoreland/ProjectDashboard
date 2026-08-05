@@ -11,9 +11,15 @@ interface Props {
     projects: TaggedRepoData[] | undefined;
     trackRef?: React.RefObject<HTMLDivElement>;
     thumbRef?: React.RefObject<HTMLDivElement>;
+    handleMouseDown?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const Scrollbar = ({ projects, trackRef, thumbRef }: Props): ReactElement => {
+const Scrollbar = ({
+    projects,
+    trackRef,
+    thumbRef,
+    handleMouseDown,
+}: Props): ReactElement => {
     const projectCount: number = projects ? projects.length : 1;
 
     return (
@@ -23,6 +29,7 @@ const Scrollbar = ({ projects, trackRef, thumbRef }: Props): ReactElement => {
                     id="thumb"
                     style={{ height: `${projectCount / 10}%` }}
                     ref={thumbRef}
+                    onMouseDown={handleMouseDown}
                 />
             </div>
         </div>

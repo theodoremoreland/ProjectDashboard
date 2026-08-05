@@ -3,21 +3,23 @@ import { Octokit } from '@octokit/core';
 import { OctokitResponse } from '@octokit/types';
 
 // Types
-import { CommitResponse, CommitData } from '../types';
+import { CommitData } from '../types';
 
 const accessToken = import.meta.env.VITE_GITHUB_API_ACCESS_TOKEN;
 const octokit = new Octokit({ auth: accessToken });
 
-export const getRecentCommits = async (): Promise<CommitData[]> => {
-    const response: OctokitResponse<CommitResponse> = await octokit.request(
-        'GET /search/commits',
+export const getRecentCommits = async (repo: string): Promise<CommitData[]> => {
+    const response: OctokitResponse<CommitData[]> = await octokit.request(
+        `GET /repos/{owner}/{repo}/commits`,
         {
-            q: 'author:theodoremoreland',
-            sort: 'committer-date',
-            order: 'desc',
-            per_page: 10,
+            owner: 'theodoremoreland',
+            repo,
+            per_page: 5,
+            headers: {
+                'X-GitHub-Api-Version': '2026-03-10',
+            },
         }
     );
 
-    return response.data.items;
+    return response.data;
 };

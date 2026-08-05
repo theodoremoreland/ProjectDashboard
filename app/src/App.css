@@ -6,6 +6,11 @@
 }
 
 @font-face {
+    font-family: custom-semibold;
+    src: url('./assets/fonts/Jura/Jura-SemiBold.ttf');
+}
+
+@font-face {
     font-family: custom-regular;
     src: url('./assets/fonts/Jura/Jura-Regular.ttf');
 }
@@ -406,10 +411,10 @@ main {
     }
 
     #scroll-to-top-container {
+        display: none;
         z-index: 2;
         position: fixed;
-        bottom: calc(var(--navbar-height) + 10px);
-        display: flex;
+        bottom: 10px;
         flex-direction: row;
         justify-content: center;
         align-items: center;
