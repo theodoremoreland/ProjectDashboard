@@ -52,6 +52,7 @@
 
     --temp-gray: #131217;
     --temp-gray-2: #27282f;
+    --temp-gray-3: #1e1f24;
     --temp-silver: #a1a5b5;
     --temp-white: #d6d6d8;
     --temp-green: #02df7b;
@@ -100,6 +101,7 @@ html {
     background-color: var(--background-color);
     overflow-x: hidden;
     font-family: custom-regular;
+    cursor: none;
 }
 
 body,

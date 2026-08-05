@@ -39,7 +39,7 @@
     flex-direction: column;
     width: 33%;
     height: 100%;
-    background-color: var(--temp-gray-2);
+    background-color: var(--temp-gray-3);
     box-shadow:
         rgba(0, 0, 0, 0.4) 0px 2px 4px,
         rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;

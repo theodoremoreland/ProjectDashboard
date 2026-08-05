@@ -1,0 +1,6 @@
+.Cursor {
+    z-index: 9999;
+    position: absolute;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+}
