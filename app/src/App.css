@@ -158,6 +158,10 @@ li {
     margin: 0;
 }
 
+a {
+    cursor: none;
+}
+
 @-webkit-keyframes shine {
     0%,
     4% {

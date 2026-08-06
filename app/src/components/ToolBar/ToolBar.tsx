@@ -16,11 +16,12 @@ const ToolBar = ({ setShowOverviewModal }: Props): ReactElement => {
         <footer id="app-toolbar">
             <div id="app-toolbar-content">
                 <ul id="toolbar-right">
-                    <li>
+                    <li className="interactive">
                         <PersonIcon className="person icon" />
                     </li>
                     <li
                         id="nav-overview"
+                        className="interactive"
                         title="Overview"
                         role="presentation"
                         onClick={() => setShowOverviewModal(true)}
