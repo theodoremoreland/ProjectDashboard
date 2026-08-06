@@ -469,7 +469,7 @@ main {
 .live-demo,
 .learn-more-button {
     color: var(--primary-font-color);
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-family: custom-regular;
     line-height: 1;
     text-align: center;
@@ -478,13 +478,6 @@ main {
     border: 2px solid var(--temp-green);
     border-radius: 4px;
     background-color: var(--primary-color);
-}
-
-@media screen and (min-width: 1440px) {
-    .live-demo,
-    .learn-more-button {
-        font-size: 1rem;
-    }
 }
 
 .live-demo-link,
