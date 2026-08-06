@@ -1,6 +1,7 @@
 .Cursor {
     z-index: 9999;
     position: absolute;
+    top: 10px;
     pointer-events: none;
 
     .pointer {
@@ -15,5 +16,9 @@
         .pointer {
             display: block;
         }
+    }
+
+    svg {
+        fill: var(--primary-font-color);
     }
 }
