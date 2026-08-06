@@ -81,7 +81,6 @@
         grid-template-rows: repeat(2, 1fr); /* Creates 2 equal-height rows */
         gap: 10px;
         width: 60%;
-        cursor: pointer;
 
         li {
             position: relative;

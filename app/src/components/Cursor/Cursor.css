@@ -3,4 +3,18 @@
     position: absolute;
     pointer-events: none;
     transition: transform 0.1s ease-out;
+
+    .pointer {
+        display: none;
+    }
+
+    &.pointer {
+        .default {
+            display: none;
+        }
+
+        .pointer {
+            display: block;
+        }
+    }
 }

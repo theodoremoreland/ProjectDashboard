@@ -3,7 +3,7 @@ import { ReactElement, useCallback, useEffect, useRef } from 'react';
 
 // Images
 import DefaultCursorIcon from '../../assets/images/icons/arrow_selector_tool.svg?react';
-// import PointerCursorIcon from '../../assets/images/icons/pan_tool_alt.svg?react';
+import PointerCursorIcon from '../../assets/images/icons/pan_tool_alt.svg?react';
 
 // Styles
 import './Cursor.css';
@@ -15,6 +15,14 @@ const Cursor = (): ReactElement => {
         if (!cursorRef.current) return;
 
         cursorRef.current.style.transform = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
+
+        if (event.target instanceof Element) {
+            if (event.target.closest('.interactive')) {
+                cursorRef.current.classList.add('pointer');
+            } else {
+                cursorRef.current.classList.remove('pointer');
+            }
+        }
     }, []);
 
     useEffect(() => {
@@ -28,6 +36,7 @@ const Cursor = (): ReactElement => {
     return (
         <div className="Cursor" ref={cursorRef}>
             <DefaultCursorIcon className="default" />
+            <PointerCursorIcon className="pointer" />
         </div>
     );
 };

@@ -60,7 +60,6 @@
     border-radius: 0;
 
     &:hover {
-        cursor: pointer;
         filter: brightness(1.3);
     }
 

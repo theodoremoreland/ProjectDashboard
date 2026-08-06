@@ -27,6 +27,7 @@ const Scrollbar = ({
             <div id="track" ref={trackRef}>
                 <div
                     id="thumb"
+                    className="interactive"
                     style={{ height: `${projectCount / 10}%` }}
                     ref={thumbRef}
                     onMouseDown={handleMouseDown}

@@ -55,6 +55,7 @@ const ActivityCard = ({ projectData }: Props): ReactElement => {
                                     ).toLocaleString()}{' '}
                                 </p>
                                 <a
+                                    className="interactive"
                                     target="_blank"
                                     rel="noreferrer"
                                     href={commit.url}

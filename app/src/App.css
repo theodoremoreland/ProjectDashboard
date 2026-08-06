@@ -423,7 +423,6 @@ main {
         background-color: var(--primary-highlight-color);
         border-radius: 100%;
         border: none;
-        cursor: pointer;
         color: var(--primary-font-color);
 
         &:hover {
@@ -442,7 +441,6 @@ main {
 }
 
 .close-button {
-    cursor: pointer;
     padding: 0.5em 1em;
     border: none;
     border-radius: 1em;
@@ -498,7 +496,6 @@ main {
 .learn-more-button:hover,
 .live-demo:focus,
 .learn-more-button:focus {
-    cursor: pointer;
     border-color: var(--primary-font-color);
     transition: border-color 0.3s ease-in-out;
 }

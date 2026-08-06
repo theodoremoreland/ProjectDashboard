@@ -57,7 +57,7 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
                         {[1, 2, 3, 4].map((_, index) => (
                             <li key={index}>
                                 <img
-                                    className="project-screenshot"
+                                    className="project-screenshot interactive"
                                     src={projectData.image}
                                     alt={`${projectData.name} screenshot ${index + 1}`}
                                 />
