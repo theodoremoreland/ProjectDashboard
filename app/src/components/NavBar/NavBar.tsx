@@ -43,6 +43,7 @@ const NavBar = ({
                 <ul id="desktop-menu">
                     <li
                         id="analytics-nav"
+                        className="interactive"
                         title="Analytics"
                         role="presentation"
                         onClick={() => setShowAnalytics(true)}
@@ -51,6 +52,7 @@ const NavBar = ({
                         <span>Analytics</span>
                     </li>
                     <a
+                        className="interactive"
                         href="https://github.com/theodoremoreland"
                         target="_blank"
                         rel="noreferrer"
