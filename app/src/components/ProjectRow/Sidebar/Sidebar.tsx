@@ -14,7 +14,13 @@ const Sidebar = (): ReactElement => {
                     </li>
                 ))}
             </ul>
-            <div id="project-video-preview"></div>
+            <div id="project-video-preview">
+                <h3>Project Preview</h3>
+                <img
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/source/d20511205038723.66b3a6fe1a294.gif"
+                    alt="Project preview"
+                />
+            </div>
         </aside>
     );
 };
