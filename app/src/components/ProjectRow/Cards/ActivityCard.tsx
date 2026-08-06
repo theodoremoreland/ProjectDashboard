@@ -41,8 +41,8 @@ const ActivityCard = ({ projectData }: Props): ReactElement => {
         }
     }, [isError, error]);
     return (
-        <li className="project-card ActivityCard">
-            <div>
+        <li className="project-card-container">
+            <div className="project-card ActivityCard">
                 <article>
                     <h3>Recent commits</h3>
                     <ul className="commits">
@@ -67,7 +67,10 @@ const ActivityCard = ({ projectData }: Props): ReactElement => {
                     </ul>
                 </article>
             </div>
-            <p>{projectData.name}</p>
+            <div className="trailing-text">
+                <p>Activity</p>
+                <p>{projectData.id}</p>
+            </div>
         </li>
     );
 };
