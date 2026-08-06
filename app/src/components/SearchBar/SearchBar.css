@@ -56,7 +56,6 @@
         align-items: center;
         width: 2.5em;
         height: 100%;
-        cursor: pointer;
         color: var(--primary-color);
         padding: 0;
         border-top-right-radius: 1em;
@@ -133,7 +132,6 @@
             width: 100%;
             padding: 0.5em;
             border-bottom: solid 1px var(--border-color);
-            cursor: pointer;
             transition: background-color 0.3s;
             list-style: none;
 
