@@ -39,11 +39,9 @@ export type ViewCounts = {
 };
 
 export interface CommitData {
-    url: string;
     sha: string;
     html_url: string;
     commit: {
-        url: string;
         committer: {
             name: string;
             email: string;

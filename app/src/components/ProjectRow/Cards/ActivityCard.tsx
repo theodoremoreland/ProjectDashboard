@@ -58,7 +58,7 @@ const ActivityCard = ({ projectData }: Props): ReactElement => {
                                     className="interactive"
                                     target="_blank"
                                     rel="noreferrer"
-                                    href={commit.url}
+                                    href={commit.html_url}
                                 >
                                     View code diff on GitHub
                                 </a>
