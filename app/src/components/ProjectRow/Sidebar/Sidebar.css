@@ -6,6 +6,7 @@
     align-items: flex-start;
     flex-shrink: 0;
     font-family: custom-thin;
+    font-size: 0.9rem;
     width: var(--sidebar-width);
     height: 100%;
     margin: 0;
