@@ -27,11 +27,15 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         >
             <div className="project-row-content">
                 <Sidebar />
-                <ul className="project-cards">
-                    <ThumbnailCard projectData={projectData} />
-                    <MetricsCard projectData={projectData} />
-                    <ActivityCard projectData={projectData} />
-                </ul>
+                <div className="project-row-main">
+                    <h2 className="project-name">{projectData.name}</h2>
+                    <ul className="project-cards">
+                        <ThumbnailCard projectData={projectData} />
+                        <MetricsCard projectData={projectData} />
+                        <ActivityCard projectData={projectData} />
+                    </ul>
+                    <div className="project-row-footer">{}</div>
+                </div>
             </div>
         </div>
     );
