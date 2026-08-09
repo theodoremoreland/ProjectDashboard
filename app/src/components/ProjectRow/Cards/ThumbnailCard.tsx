@@ -23,7 +23,6 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
         >
             <div className="project-card ThumbnailCard">
                 <div className="top-half">
-                    <h2 className="project-name">{projectData.name}</h2>
                     <div className="project-image-container">
                         <img
                             className="project-image"
