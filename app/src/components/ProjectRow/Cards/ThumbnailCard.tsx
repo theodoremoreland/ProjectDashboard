@@ -9,6 +9,7 @@ import alt from '../../../assets/images/under-construction-thumbnail.jpg';
 
 // Styles
 import './ThumbnailCard.css';
+import Barcode from '../../Barcode/Barcode';
 
 interface Props {
     projectData: TaggedRepoData;
@@ -47,6 +48,7 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
                         />
                     </div>
                     <div className="project-about">
+                        <Barcode value={projectData.name} />
                         <p className="project-description">
                             {projectData.desc}
                         </p>
