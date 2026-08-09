@@ -3,7 +3,13 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: black !important;
+    background: #000000;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 1) 83%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    border: 1px dashed var(--temp-green);
 
     .top-half {
         display: flex;
@@ -23,17 +29,14 @@
         width: 100%;
     }
 
-    .project-name {
-        width: 100%;
-        padding-bottom: 0.5em;
-        border-bottom: 1px solid var(--temp-white);
-    }
-
     .project-description {
         position: relative;
         width: 100%;
         font-family: custom-semibold;
         font-size: 1rem;
+        padding: 1em 0;
+        border-top: 1px solid var(--temp-green);
+        border-bottom: 1px solid var(--temp-green);
     }
 
     .project-image-container {
