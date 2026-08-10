@@ -12,6 +12,7 @@ import { TaggedRepoData } from '../../types';
 
 // Custom styles
 import './ProjectRow.css';
+import Corner from '../Corner/Corner';
 
 interface Props {
     projectData: TaggedRepoData;
@@ -28,7 +29,13 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
             <div className="project-row-content">
                 <Sidebar />
                 <div className="project-row-main">
-                    <h2 className="project-name">{projectData.name}</h2>
+                    <h2 className="project-name">
+                        <Corner position="top-left" />
+                        <Corner position="top-right" />
+                        {projectData.name}
+                        <Corner position="bottom-left" />
+                        <Corner position="bottom-right" />
+                    </h2>
                     <ul className="project-cards">
                         <ThumbnailCard projectData={projectData} />
                         <MetricsCard projectData={projectData} />
