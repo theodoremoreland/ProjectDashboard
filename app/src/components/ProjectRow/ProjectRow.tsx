@@ -6,13 +6,13 @@ import Sidebar from './Sidebar/Sidebar';
 import ThumbnailCard from './Cards/ThumbnailCard';
 import MetricsCard from './Cards/MetricsCard';
 import ActivityCard from './Cards/ActivityCard';
+import Corner from '../Corner/Corner';
 
 // Types
 import { TaggedRepoData } from '../../types';
 
 // Custom styles
 import './ProjectRow.css';
-import Corner from '../Corner/Corner';
 
 interface Props {
     projectData: TaggedRepoData;
