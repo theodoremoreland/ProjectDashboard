@@ -5,6 +5,7 @@
     align-items: flex-start;
     width: 100%;
     height: 100%;
+    background-color: var(--temp-gray-3);
 
     .top-half {
         display: flex;

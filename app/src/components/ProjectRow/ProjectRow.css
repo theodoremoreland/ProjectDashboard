@@ -28,8 +28,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 12px;
     width: 100%;
     height: 100%;
 }
@@ -45,8 +45,7 @@
     font-size: 3rem;
     letter-spacing: 1rem;
     color: var(--primary-font-color);
-    width: 100%;
-    padding: 10px 0;
+    padding: 15px;
     margin-top: -1.5rem;
 }
 
@@ -89,7 +88,6 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: var(--temp-gray-3);
     box-shadow:
         rgba(0, 0, 0, 0.4) 0px 2px 4px,
         rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
