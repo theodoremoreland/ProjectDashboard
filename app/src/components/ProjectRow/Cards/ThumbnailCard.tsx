@@ -1,6 +1,9 @@
 // React
 import { ReactElement } from 'react';
 
+// Components
+import Barcode from '../../Barcode/Barcode';
+
 // Types
 import { TaggedRepoData } from '../../../types';
 
@@ -9,7 +12,6 @@ import alt from '../../../assets/images/under-construction-thumbnail.jpg';
 
 // Styles
 import './ThumbnailCard.css';
-import Barcode from '../../Barcode/Barcode';
 
 interface Props {
     projectData: TaggedRepoData;

@@ -9,7 +9,6 @@
         rgba(0, 0, 0, 1) 83%,
         rgba(0, 0, 0, 0) 100%
     );
-    border: 1px dashed var(--temp-green);
 
     .top-half {
         display: flex;
