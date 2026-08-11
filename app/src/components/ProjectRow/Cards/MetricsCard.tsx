@@ -36,13 +36,13 @@ const MetricsCard = ({
                     {projectData.demo_link &&
                         projectData.name !== 'ProjectDashboard' && (
                             <a
-                                className="live-demo-link interactive"
+                                className="view-deployment-link interactive"
                                 href={projectData.demo_link}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 title={`Click to view a live deployment of the ${projectData.name} project.`}
                             >
-                                <button className="live-demo">
+                                <button className="view-deployment">
                                     View Deployment{' '}
                                     <span className="circle"></span>
                                 </button>
