@@ -1,4 +1,4 @@
-#sidebar {
+.sidebar {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
     background-color: transparent;
     color: var(--primary-font-color);
 
-    #sidebar-list {
+    .sidebar-list {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -38,31 +38,9 @@
         height: 4px;
         background-color: var(--temp-white);
     }
-
-    #project-video-preview {
-        width: 100%;
-        height: auto;
-        border-radius: 4px;
-
-        h3 {
-            font-family: custom-thin;
-            font-size: 1.25rem;
-            color: var(--temp-gray-3);
-            width: 100%;
-            padding: 10px;
-            background-color: var(--secondary-color);
-        }
-
-        img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 3 / 3.5;
-            object-fit: cover;
-        }
-    }
 }
 
-#sidebar > button {
+.sidebar > button {
     z-index: 2;
     position: absolute;
     top: 1em;

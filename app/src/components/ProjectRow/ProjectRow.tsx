@@ -27,8 +27,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
             onMouseEnter={() => setSelectedProject(projectData)}
         >
             <div className="project-row-content">
-                <Sidebar />
-                <div className="project-row-main">
+                <div className="project-row-header">
                     <h2 className="project-name">
                         <Corner position="top-left" />
                         <Corner position="top-right" />
@@ -36,12 +35,23 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         <Corner position="bottom-left" />
                         <Corner position="bottom-right" />
                     </h2>
+                </div>
+                <div className="project-row-main">
+                    <Sidebar />
                     <ul className="project-cards">
                         <ThumbnailCard projectData={projectData} />
                         <MetricsCard projectData={projectData} />
                         <ActivityCard projectData={projectData} />
                     </ul>
-                    <div className="project-row-footer">{}</div>
+                </div>
+                <div className="project-row-footer">
+                    <div className="project-video-preview">
+                        <h3>Project Preview</h3>
+                        <img
+                            src="https://mir-s3-cdn-cf.behance.net/project_modules/source/d20511205038723.66b3a6fe1a294.gif"
+                            alt="Project preview"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
