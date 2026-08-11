@@ -34,8 +34,8 @@
         font-family: custom-semibold;
         font-size: 1rem;
         padding: 1em 0;
-        border-top: 1px solid var(--temp-green);
-        border-bottom: 1px solid var(--temp-green);
+        border-top: 1px solid var(--secondary-color);
+        border-bottom: 1px solid var(--secondary-color);
     }
 
     .project-image-container {

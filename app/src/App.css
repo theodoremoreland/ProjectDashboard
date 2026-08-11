@@ -24,8 +24,10 @@
 
 :root {
     --primary-color: #101217;
-    --secondary-color: #000001;
-    --overlay-color: #28313b9a;
+    --secondary-color: #c0fe04;
+    --tertiary-color: #0ea5e9fc;
+    --quaternary-color: #5404fd;
+    --quinary-color: #ff00f7;
 
     --primary-highlight-color: #006e88;
     --secondary-highlight-color: #26ff04;
@@ -55,7 +57,6 @@
     --temp-gray-3: #1e1f24;
     --temp-silver: #a1a5b5;
     --temp-white: #d6d6d8;
-    --temp-green: #02df7b;
 }
 
 @media screen and (min-width: 481px) {
