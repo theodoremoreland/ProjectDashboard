@@ -35,6 +35,20 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         <Corner position="bottom-left" />
                         <Corner position="bottom-right" />
                     </h2>
+                    <div className="meta">
+                        <p className="project-date">
+                            C:{' '}
+                            {new Date(
+                                projectData.date_created
+                            ).toLocaleDateString()}
+                        </p>
+                        <p className="project-date">
+                            U:{' '}
+                            {new Date(
+                                projectData.date_updated
+                            ).toLocaleDateString()}
+                        </p>
+                    </div>
                 </div>
                 <div className="project-row-main">
                     <Sidebar />
