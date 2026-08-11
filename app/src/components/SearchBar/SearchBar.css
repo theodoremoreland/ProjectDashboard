@@ -12,12 +12,7 @@
     z-index: 6;
     position: relative;
     width: 100%;
-
-    @media screen and (min-width: 965px) {
-        & {
-            width: 50%;
-        }
-    }
+    min-width: 45rem;
 
     #search {
         outline: transparent;

@@ -1,4 +1,8 @@
+// React
 import { ReactElement } from 'react';
+
+// Components
+import SearchBar from '../SearchBar/SearchBar';
 
 // Images
 import InfoIcon from '../../assets/images/icons/info.svg?react';
@@ -15,6 +19,9 @@ const ToolBar = ({ setShowOverviewModal }: Props): ReactElement => {
     return (
         <footer id="app-toolbar">
             <div id="app-toolbar-content">
+                <div id="toolbar-left">
+                    <SearchBar />
+                </div>
                 <ul id="toolbar-right">
                     <li className="interactive">
                         <PersonIcon className="person icon" />
