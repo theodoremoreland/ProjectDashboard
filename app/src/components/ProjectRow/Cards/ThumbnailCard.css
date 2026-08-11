@@ -4,11 +4,6 @@
     justify-content: space-between;
     align-items: center;
     background: #000000;
-    background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 1) 83%,
-        rgba(0, 0, 0, 0) 100%
-    );
 
     .top-half {
         display: flex;

@@ -14,7 +14,7 @@
     a:visited,
     a:hover,
     a:active {
-        color: var(--secondary-highlight-color);
+        color: var(--secondary-color);
         text-decoration: none;
     }
 
