@@ -23,6 +23,12 @@
         width: 100%;
     }
 
+    .Barcode {
+        g {
+            fill: var(--secondary-color) !important;
+        }
+    }
+
     .project-description {
         position: relative;
         width: 100%;
