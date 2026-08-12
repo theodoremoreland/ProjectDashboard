@@ -119,6 +119,7 @@
     opacity: 1;
     transition: opacity 0.5s;
     overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%);
 
     &.not-featured {
         pointer-events: none;
