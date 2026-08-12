@@ -51,6 +51,7 @@ const ActivityCard = ({ projectData }: Props): ReactElement => {
                 <article>
                     <SparkLineChart
                         data={[1, 4, 2, 5, 7, 2, 4, 6]}
+                        colors={['#c0fe04']}
                         height={20}
                     />
                     <h3>Recent commits</h3>

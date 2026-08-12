@@ -47,19 +47,19 @@ const MetricsCard = ({
                     <ul className="metrics-list">
                         <li>
                             <p>Maintainability</p>
-                            <p>A</p>
+                            <p className="grade">A</p>
                         </li>
                         <li>
                             <p>Test Coverage</p>
-                            <p>85%</p>
+                            <p className="grade">85%</p>
                         </li>
                         <li>
                             <p>Reliability</p>
-                            <p>B</p>
+                            <p className="grade">B</p>
                         </li>
                         <li>
                             <p>Security</p>
-                            <p>A</p>
+                            <p className="grade">A</p>
                         </li>
                     </ul>
                 </div>
