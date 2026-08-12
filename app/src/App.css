@@ -20,6 +20,26 @@
     src: url('./assets/fonts/Jura/Jura-Light.ttf');
 }
 
+@font-face {
+    font-family: bit-bold;
+    src: url('./assets/fonts/Bitcount/BitcountSingle_Cursive-Bold.ttf');
+}
+
+@font-face {
+    font-family: bit-semibold;
+    src: url('./assets/fonts/Bitcount/BitcountSingle_Cursive-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: bit-regular;
+    src: url('./assets/fonts/Bitcount/BitcountSingle_Cursive-Regular.ttf');
+}
+
+@font-face {
+    font-family: bit-thin;
+    src: url('./assets/fonts/Bitcount/BitcountSingle_Cursive-Thin.ttf');
+}
+
 /* ------------------- VARIABLES ------------------- */
 
 :root {

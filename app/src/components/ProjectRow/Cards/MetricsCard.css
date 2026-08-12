@@ -40,12 +40,16 @@
             align-items: center;
             width: 100%;
         }
+
+        .grade {
+            font-family: bit-regular;
+        }
     }
 
     .view-deployment {
         color: var(--primary-font-color);
         font-size: 1rem;
-        font-family: custom-thin;
+        font-family: bit-regular;
         line-height: 1;
         text-align: center;
         min-width: 14ch;
