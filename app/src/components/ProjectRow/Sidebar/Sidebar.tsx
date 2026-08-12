@@ -9,9 +9,12 @@ const Sidebar = (): ReactElement => {
         <aside className="sidebar">
             <h3 className="sidebar-title">Languages //</h3>
             <ul className="sidebar-list">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+                {[1, 2, 3, 4, 5, 6].map((item) => (
                     <li key={item}>
-                        <h3>Language {item}</h3>
+                        <span className="language-label">
+                            <h3>Language {item}</h3>
+                            <p>100%</p>
+                        </span>
                         <span className="language-level"></span>
                     </li>
                 ))}
