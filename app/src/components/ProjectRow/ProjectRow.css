@@ -67,9 +67,9 @@
 }
 
 .project-date {
-    color: var(--temp-silver);
-    font-size: 0.8rem;
-    font-family: custom-thin;
+    color: var(--primary-font-color);
+    font-size: 1rem;
+    font-family: custom-semibold;
 }
 
 .project-cards {

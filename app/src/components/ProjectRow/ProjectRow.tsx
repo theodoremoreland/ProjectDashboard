@@ -38,15 +38,11 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                     <div className="meta">
                         <p className="project-date">
                             C:{' '}
-                            {new Date(
-                                projectData.date_created
-                            ).toLocaleDateString()}
+                            {new Date(projectData.date_created).toISOString()}
                         </p>
                         <p className="project-date">
                             U:{' '}
-                            {new Date(
-                                projectData.date_updated
-                            ).toLocaleDateString()}
+                            {new Date(projectData.date_updated).toISOString()}
                         </p>
                     </div>
                 </div>
