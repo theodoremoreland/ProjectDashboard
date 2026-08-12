@@ -21,7 +21,7 @@ interface Props {
 
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     return (
-        <div
+        <article
             id={`${projectData.name}`}
             className="project-row"
             onMouseEnter={() => setSelectedProject(projectData)}
@@ -64,7 +64,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 

@@ -2,6 +2,7 @@
 import { ReactElement } from 'react';
 
 // Components
+import Corner from '../../Corner/Corner';
 import Barcode from '../../Barcode/Barcode';
 
 // Types
@@ -25,6 +26,7 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
             }`}
         >
             <div className="project-card ThumbnailCard">
+                <Corner position="top-left" />
                 <div className="top-half">
                     <div className="project-image-container">
                         <img

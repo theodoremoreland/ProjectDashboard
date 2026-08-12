@@ -3,6 +3,10 @@ import { ReactElement, useEffect, useState } from 'react';
 
 // Third party
 import { useQuery } from '@tanstack/react-query';
+import { SparkLineChart } from '@mui/x-charts';
+
+// Components
+import Corner from '../../Corner/Corner';
 
 // Custom
 import { getRecentCommits } from '../../../http/getRecentCommits';
@@ -43,7 +47,12 @@ const ActivityCard = ({ projectData }: Props): ReactElement => {
     return (
         <li className="project-card-container">
             <div className="project-card ActivityCard">
+                <Corner position="top-left" />
                 <article>
+                    <SparkLineChart
+                        data={[1, 4, 2, 5, 7, 2, 4, 6]}
+                        height={20}
+                    />
                     <h3>Recent commits</h3>
                     <ul className="commits">
                         {commits?.map((commit, index) => (

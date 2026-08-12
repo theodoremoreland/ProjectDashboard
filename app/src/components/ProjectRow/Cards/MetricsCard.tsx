@@ -1,6 +1,9 @@
 // React
 import { ReactElement } from 'react';
 
+// Components
+import Corner from '../../Corner/Corner';
+
 // Types
 import { TaggedRepoData } from '../../../types';
 
@@ -15,6 +18,7 @@ const MetricsCard = ({
     return (
         <li className="project-card-container">
             <div className="project-card MetricsCard">
+                <Corner position="top-left" />
                 <div className="top-half">
                     <h3>DORA Metrics</h3>
                     <ul className="metrics-list">
