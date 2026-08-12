@@ -17,19 +17,46 @@ const MetricsCard = ({
             <div className="project-card MetricsCard">
                 <div className="top-half">
                     <h3>DORA Metrics</h3>
-                    <ul>
-                        <li>Deployment Frequency</li>
-                        <li>Lead Time for Changes</li>
-                        <li>Change Failure Rate</li>
-                        <li>Failed Deployment Recovery Time</li>
-                        <li>Time to Restore Service</li>
+                    <ul className="metrics-list">
+                        <li>
+                            <p>Deployment Frequency</p>
+                            <p>2 per week</p>
+                        </li>
+                        <li>
+                            <p>Lead Time for Changes</p>
+                            <p>1 week</p>
+                        </li>
+                        <li>
+                            <p>Change Failure Rate</p>
+                            <p>5%</p>
+                        </li>
+                        <li>
+                            <p>Failed Deployment Recovery Time</p>
+                            <p>2 hours</p>
+                        </li>
+                        <li>
+                            <p>Time to Restore Service</p>
+                            <p>30 minutes</p>
+                        </li>
                     </ul>
                     <h3>Code Quality</h3>
-                    <ul>
-                        <li>Maintainability</li>
-                        <li>Test Coverage</li>
-                        <li>Reliability</li>
-                        <li>Security</li>
+                    <ul className="metrics-list">
+                        <li>
+                            <p>Maintainability</p>
+                            <p>A</p>
+                        </li>
+                        <li>
+                            <p>Test Coverage</p>
+                            <p>85%</p>
+                        </li>
+                        <li>
+                            <p>Reliability</p>
+                            <p>B</p>
+                        </li>
+                        <li>
+                            <p>Security</p>
+                            <p>A</p>
+                        </li>
                     </ul>
                 </div>
                 <div className="bottom-half">

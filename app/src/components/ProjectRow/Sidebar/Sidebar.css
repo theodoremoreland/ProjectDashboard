@@ -38,6 +38,15 @@
         }
     }
 
+    .language-label {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 0.5em;
+    }
+
     .language-level {
         display: inline-block;
         width: 100%;
