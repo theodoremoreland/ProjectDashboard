@@ -1,16 +1,11 @@
 // React
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement } from 'react';
 
 // Third party
-import { useQuery } from '@tanstack/react-query';
 import { SparkLineChart } from '@mui/x-charts';
 
 // Components
 import Corner from '../../Corner/Corner';
-
-// Custom
-import { getRecentCommits } from '../../../http/getRecentCommits';
-import extractErrorMessage from '../../../utils/extractErrorMessage';
 
 // Types
 import { CommitData, TaggedRepoData } from '../../../types';
@@ -20,30 +15,15 @@ import './ActivityCard.css';
 
 interface Props {
     projectData: TaggedRepoData;
+    commits: CommitData[] | undefined;
+    isFetching?: boolean;
 }
 
-const ActivityCard = ({ projectData }: Props): ReactElement => {
-    const [commits, setCommits] = useState<CommitData[] | undefined>(undefined);
-    const { data, isError, error } = useQuery({
-        queryKey: ['commits', projectData.name],
-        queryFn: () => getRecentCommits(projectData.name),
-        staleTime: 240_000,
-        retry: false,
-    });
-
-    useEffect(() => {
-        if (data) {
-            setCommits(data);
-        }
-    }, [data]);
-
-    useEffect(() => {
-        if (isError) {
-            setCommits([]);
-
-            console.error(extractErrorMessage(error));
-        }
-    }, [isError, error]);
+const ActivityCard = ({
+    projectData,
+    commits,
+    isFetching,
+}: Props): ReactElement => {
     return (
         <li className="project-card-container">
             <div className="project-card ActivityCard">
@@ -56,6 +36,7 @@ const ActivityCard = ({ projectData }: Props): ReactElement => {
                     />
                     <h3>Recent commits</h3>
                     <ul className="commits">
+                        {isFetching && <p>Loading commits...</p>}
                         {commits?.map((commit, index) => (
                             <li key={index} className="commit">
                                 <h4>{commit.commit.message}</h4>
