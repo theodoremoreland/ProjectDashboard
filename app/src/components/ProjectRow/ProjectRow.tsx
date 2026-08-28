@@ -16,6 +16,7 @@ import ThumbnailCard from './Cards/ThumbnailCard';
 import MetricsCard from './Cards/MetricsCard';
 import ActivityCard from './Cards/ActivityCard';
 import Corner from '../Corner/Corner';
+import Garganta from '../Garganta/Garganta';
 
 // Types
 import { TaggedRepoData, CommitData } from '../../types';
@@ -104,6 +105,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                             alt="Project preview"
                         />
                     </div>
+                    <Garganta />
                 </div>
             </div>
         </article>
