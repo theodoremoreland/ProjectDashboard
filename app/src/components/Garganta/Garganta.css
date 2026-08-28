@@ -1,2 +1,13 @@
 .Garganta {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    max-width: 85%;
+
+    .Garganta__line {
+        background-color: black;
+    }
 }
