@@ -2,7 +2,8 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(18, 1fr);
-    width: 50rem;
+    align-items: center;
+    width: 60rem;
     max-width: 80%;
     height: 100%;
 
@@ -17,23 +18,27 @@
         }
 
         &:nth-child(2) {
-            top: 5%;
-            height: 95%;
+            top: 2%;
+            height: 50%;
+        }
+
+        &:nth-child(17) {
+            height: 50%;
         }
 
         &:nth-child(3) {
-            top: 10%;
+            top: -5%;
             height: 90%;
         }
 
         &:nth-child(4) {
             top: 10%;
-            height: 95%;
+            height: 80%;
         }
 
         &:nth-child(5) {
-            top: 12%;
-            height: 80%;
+            top: -12%;
+            height: 93%;
         }
 
         &:nth-child(6) {
@@ -42,13 +47,13 @@
         }
 
         &:nth-child(7) {
-            top: 3%;
-            height: 70%;
+            top: -3%;
+            height: 77%;
         }
 
         &:nth-child(8) {
-            top: 3%;
-            height: 65%;
+            top: 13%;
+            height: 75%;
         }
 
         &:nth-child(9) {
@@ -57,43 +62,37 @@
         }
 
         &:nth-child(10) {
-            top: 5%;
-            height: 75%;
+            top: -5%;
+            height: 100%;
         }
 
         &:nth-child(11) {
-            top: 0%;
+            top: 7%;
             height: 90%;
         }
 
         &:nth-child(12) {
             top: 5%;
-            height: 65%;
+            height: 95%;
         }
 
         &:nth-child(13) {
             top: 6%;
-            height: 40%;
+            height: 80%;
         }
 
         &:nth-child(14) {
-            top: 5%;
-            height: 85%;
+            top: -7%;
+            height: 95%;
         }
 
         &:nth-child(15) {
-            top: 7%;
-            height: 90%;
+            height: 70%;
         }
 
         &:nth-child(16) {
             top: 5%;
             height: 75%;
-        }
-
-        &:nth-child(17) {
-            top: 10%;
-            height: 60%;
         }
     }
 }
