@@ -3,12 +3,12 @@
     display: grid;
     grid-template-columns: repeat(18, 1fr);
     align-items: center;
-    width: 80%;
+    width: 65%;
     height: 100%;
 
     .Garganta__line {
         position: relative;
-        height: 85%;
+        height: 90%;
         background-color: black;
 
         &:nth-child(1),
@@ -40,14 +40,10 @@
             height: 93%;
         }
 
-        &:nth-child(6) {
+        &:nth-child(6),
+        &:nth-child(7) {
             top: 2%;
             height: 75%;
-        }
-
-        &:nth-child(7) {
-            top: -3%;
-            height: 77%;
         }
 
         &:nth-child(8) {
@@ -90,7 +86,7 @@
         }
 
         &:nth-child(16) {
-            top: 5%;
+            top: 2.5%;
             height: 75%;
         }
     }
