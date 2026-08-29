@@ -6,7 +6,6 @@ import { useQuery } from '@tanstack/react-query';
 import { useInView } from 'react-intersection-observer';
 
 // Custom
-// Custom
 import { getRecentCommits } from '../../http/getRecentCommits';
 import extractErrorMessage from '../../utils/extractErrorMessage';
 
@@ -21,7 +20,7 @@ import Garganta from '../Garganta/Garganta';
 // Types
 import { TaggedRepoData, CommitData } from '../../types';
 
-// Custom styles
+// Styles
 import './ProjectRow.css';
 
 interface Props {
@@ -105,7 +104,9 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                             alt="Project preview"
                         />
                     </div>
-                    <Garganta />
+                    <div className="topics-container">
+                        <Garganta />
+                    </div>
                 </div>
             </div>
         </article>
