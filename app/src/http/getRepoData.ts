@@ -1,15 +1,12 @@
 // GitHub
-import { Octokit } from '@octokit/core';
 import { OctokitResponse } from '@octokit/types';
 
-// Scripts
+// Custom
+import { octokit } from '../constants/octokit';
 import covertDateToISOString from '../utils/convertDateToISOString';
 
 // Types
 import { RepoData } from '../types';
-
-const accessToken = import.meta.env.VITE_GITHUB_API_ACCESS_TOKEN;
-const octokit = new Octokit({ auth: accessToken });
 
 export const getRepoData = async (): Promise<RepoData[]> => {
     const response: OctokitResponse<

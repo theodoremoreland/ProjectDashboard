@@ -56,3 +56,9 @@ export interface CommitResponse {
     incomplete_results: boolean;
     items: CommitData[];
 }
+
+export interface CommitActivity {
+    total: number;
+    week: number;
+    days: number[];
+}
