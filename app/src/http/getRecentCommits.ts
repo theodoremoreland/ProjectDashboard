@@ -1,18 +1,23 @@
 // GitHub
-import { Octokit } from '@octokit/core';
-import { OctokitResponse } from '@octokit/types';
+import { Endpoints } from '@octokit/types';
 
-// Types
-import { CommitData } from '../types';
+// Custom
+import { octokit } from '../constants/octokit';
+import { REPO_OWNER } from '../constants/RepoOwner';
 
-const accessToken = import.meta.env.VITE_GITHUB_API_ACCESS_TOKEN;
-const octokit = new Octokit({ auth: accessToken });
+type RecentCommitsResponse =
+    Endpoints['GET /repos/{owner}/{repo}/commits']['response'];
 
-export const getRecentCommits = async (repo: string): Promise<CommitData[]> => {
-    const response: OctokitResponse<CommitData[]> = await octokit.request(
+type RecentCommitsData =
+    Endpoints['GET /repos/{owner}/{repo}/commits']['response']['data'];
+
+export const getRecentCommits = async (
+    repo: string
+): Promise<RecentCommitsData> => {
+    const response: RecentCommitsResponse = await octokit.request(
         `GET /repos/{owner}/{repo}/commits`,
         {
-            owner: 'theodoremoreland',
+            owner: REPO_OWNER,
             repo,
             per_page: 5,
             headers: {
