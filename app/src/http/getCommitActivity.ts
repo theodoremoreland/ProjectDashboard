@@ -1,18 +1,24 @@
 // GitHub
-import { OctokitResponse } from '@octokit/types';
+import { Endpoints } from '@octokit/types';
 
 // Custom
 import { octokit } from '../constants/octokit';
+import { REPO_OWNER } from '../constants/RepoOwner';
 
-// Types
-import { CommitActivity } from '../types';
+type CommitActivityResponse =
+    Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response'];
 
-export const getCommitActivity = async (): Promise<CommitActivity[]> => {
-    const response: OctokitResponse<CommitActivity[]> = await octokit.request(
+type CommitActivityData =
+    Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response']['data'];
+
+export const getCommitActivity = async (
+    repo: string
+): Promise<CommitActivityData> => {
+    const response: CommitActivityResponse = await octokit.request(
         'GET /repos/{owner}/{repo}/stats/commit_activity',
         {
-            owner: 'octocat',
-            repo: 'hello-world',
+            owner: REPO_OWNER,
+            repo,
         }
     );
 
