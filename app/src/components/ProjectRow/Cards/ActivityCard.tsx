@@ -8,42 +8,59 @@ import { SparkLineChart } from '@mui/x-charts';
 import Corner from '../../Corner/Corner';
 
 // Types
-import { CommitData, TaggedRepoData } from '../../../types';
+import {
+    CommitActivityData,
+    RecentCommitsData,
+    TaggedRepoData,
+} from '../../../types';
 
 // Styles
 import './ActivityCard.css';
 
 interface Props {
     projectData: TaggedRepoData;
-    commits: CommitData[] | undefined;
-    isFetching?: boolean;
+    commits: RecentCommitsData | undefined;
+    commitActivity: CommitActivityData | undefined;
+    isRecentCommitsFetching?: boolean;
+    isCommitActivityFetching?: boolean;
 }
 
 const ActivityCard = ({
     projectData,
     commits,
-    isFetching,
+    commitActivity,
+    isRecentCommitsFetching,
+    isCommitActivityFetching,
 }: Props): ReactElement => {
     return (
         <li className="project-card-container">
             <div className="project-card ActivityCard">
                 <Corner position="top-left" />
                 <article>
-                    <SparkLineChart
-                        data={[1, 4, 2, 5, 7, 2, 4, 6]}
-                        colors={['#c0fe04']}
-                        height={20}
-                    />
+                    {isCommitActivityFetching && commitActivity ? (
+                        <p>Loading commit activity...</p>
+                    ) : (
+                        <SparkLineChart
+                            data={
+                                commitActivity?.map((week) => week.total) || []
+                            }
+                            colors={['#c0fe04']}
+                            width={300}
+                            height={20}
+                        />
+                    )}
                     <h3>Recent commits</h3>
                     <ul className="commits">
-                        {isFetching && <p>Loading commits...</p>}
+                        {isRecentCommitsFetching && <p>Loading commits...</p>}
                         {commits?.map((commit, index) => (
                             <li key={index} className="commit">
                                 <h4>{commit.commit.message}</h4>
                                 <p>
-                                    {new Date(
-                                        commit.commit.committer.date
-                                    ).toLocaleString()}{' '}
+                                    {commit.commit.committer?.date
+                                        ? new Date(
+                                              commit.commit.committer.date
+                                          ).toLocaleString()
+                                        : 'Unknown date'}
                                 </p>
                                 <a
                                     className="interactive"

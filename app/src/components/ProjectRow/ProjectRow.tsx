@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer';
 
 // Custom
 import { getRecentCommits } from '../../http/getRecentCommits';
+import { getCommitActivity } from '../../http/getCommitActivity';
 import extractErrorMessage from '../../utils/extractErrorMessage';
 
 // Components
@@ -18,7 +19,11 @@ import Corner from '../Corner/Corner';
 import Garganta from '../Garganta/Garganta';
 
 // Types
-import { TaggedRepoData, CommitData } from '../../types';
+import {
+    TaggedRepoData,
+    CommitActivityData,
+    RecentCommitsData,
+} from '../../types';
 
 // Styles
 import './ProjectRow.css';
@@ -29,33 +34,68 @@ interface Props {
 }
 
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
-    const [commits, setCommits] = useState<CommitData[] | undefined>(undefined);
+    const [commits, setCommits] = useState<RecentCommitsData | undefined>(
+        undefined
+    );
+    const [commitActivity, setCommitActivity] = useState<
+        CommitActivityData | undefined
+    >(undefined);
 
     const { ref, inView } = useInView({
         /* Optional options */
         threshold: 0,
     });
-    const { data, isError, isFetching, error } = useQuery({
+    const {
+        data: recentCommitsData,
+        isError: isRecentCommitsError,
+        isFetching: isRecentCommitsFetching,
+        error: recentCommitsError,
+    } = useQuery({
         enabled: inView,
         queryKey: ['commits', projectData.name],
         queryFn: () => getRecentCommits(projectData.name),
-        staleTime: 240_000,
+        staleTime: Infinity,
         retry: false,
+    });
+    const {
+        data: commitActivityData,
+        isError: isCommitActivityError,
+        isFetching: isCommitActivityFetching,
+        error: commitActivityError,
+    } = useQuery({
+        enabled: inView,
+        queryKey: ['commitActivity', projectData.name],
+        queryFn: () => getCommitActivity(projectData.name),
+        staleTime: Infinity,
+        retry: 4,
+        retryDelay: 1500,
     });
 
     useEffect(() => {
-        if (data) {
-            setCommits(data);
+        if (recentCommitsData) {
+            setCommits(recentCommitsData);
         }
-    }, [data]);
+    }, [recentCommitsData]);
 
     useEffect(() => {
-        if (isError) {
+        if (isRecentCommitsError) {
             setCommits([]);
 
-            console.error(extractErrorMessage(error));
+            console.error(extractErrorMessage(recentCommitsError));
         }
-    }, [isError, error]);
+    }, [isRecentCommitsError, recentCommitsError]);
+
+    useEffect(() => {
+        if (commitActivityData) {
+            setCommitActivity(commitActivityData);
+        }
+    }, [commitActivityData]);
+
+    useEffect(() => {
+        if (isCommitActivityError) {
+            setCommitActivity([]);
+        }
+    }, [isCommitActivityError, commitActivityError]);
 
     return (
         <article
@@ -90,9 +130,11 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         <ThumbnailCard projectData={projectData} />
                         <MetricsCard projectData={projectData} />
                         <ActivityCard
-                            isFetching={isFetching}
+                            isRecentCommitsFetching={isRecentCommitsFetching}
+                            isCommitActivityFetching={isCommitActivityFetching}
                             projectData={projectData}
                             commits={commits}
+                            commitActivity={commitActivity}
                         />
                     </ul>
                 </div>
