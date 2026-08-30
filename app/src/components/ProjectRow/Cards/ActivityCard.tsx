@@ -45,7 +45,6 @@ const ActivityCard = ({
                                 commitActivity?.map((week) => week.total) || []
                             }
                             colors={['#c0fe04']}
-                            width={300}
                             height={20}
                         />
                     )}
