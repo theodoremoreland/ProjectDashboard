@@ -47,11 +47,22 @@
         padding-bottom: 0.5em;
     }
 
-    .language-level {
-        display: inline-block;
+    .language-level-container {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
         width: 100%;
+        height: 8px;
+        background-color: black;
+    }
+
+    .language-level {
+        transition: width 0.5s ease-in-out;
+        display: inline-block;
+        width: 0%;
         height: 4px;
-        background-color: var(--temp-white);
+        background-color: var(--secondary-color);
     }
 }
 
