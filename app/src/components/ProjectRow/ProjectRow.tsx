@@ -8,6 +8,7 @@ import { useInView } from 'react-intersection-observer';
 // Custom
 import { getRecentCommits } from '../../http/getRecentCommits';
 import { getCommitActivity } from '../../http/getCommitActivity';
+import { getTopLanguages } from '../../http/getTopLanguages';
 import extractErrorMessage from '../../utils/extractErrorMessage';
 
 // Components
@@ -23,6 +24,7 @@ import {
     TaggedRepoData,
     CommitActivityData,
     RecentCommitsData,
+    TopLanguagesData,
 } from '../../types';
 
 // Styles
@@ -39,6 +41,9 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     );
     const [commitActivity, setCommitActivity] = useState<
         CommitActivityData | undefined
+    >(undefined);
+    const [topLanguages, setTopLanguages] = useState<
+        TopLanguagesData | undefined
     >(undefined);
 
     const { ref, inView } = useInView({
@@ -70,6 +75,20 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         retry: 4,
         retryDelay: 1500,
     });
+    const {
+        data: topLanguagesData,
+        isFetching: isTopLanguagesFetching,
+        isError: isTopLanguagesError,
+        error: topLanguagesError,
+    } = useQuery({
+        enabled: inView,
+        queryKey: ['topLanguages', projectData.name],
+        queryFn: () => getTopLanguages(projectData.name),
+        staleTime: Infinity,
+        retry: false,
+    });
+
+    // ---- Recent commits ---
 
     useEffect(() => {
         if (recentCommitsData) {
@@ -85,6 +104,8 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         }
     }, [isRecentCommitsError, recentCommitsError]);
 
+    // ---- Commit activity ---
+
     useEffect(() => {
         if (commitActivityData) {
             setCommitActivity(commitActivityData);
@@ -96,6 +117,20 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
             setCommitActivity([]);
         }
     }, [isCommitActivityError, commitActivityError]);
+
+    // ---- Top languages ---
+
+    useEffect(() => {
+        if (topLanguagesData) {
+            setTopLanguages(topLanguagesData);
+        }
+    }, [topLanguagesData]);
+
+    useEffect(() => {
+        if (isTopLanguagesError) {
+            console.error(extractErrorMessage(topLanguagesError));
+        }
+    }, [isTopLanguagesError, topLanguagesError]);
 
     return (
         <article
@@ -125,7 +160,10 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                     </div>
                 </div>
                 <div className="project-row-main">
-                    <Sidebar />
+                    <Sidebar
+                        languages={topLanguages}
+                        isTopLanguagesFetching={isTopLanguagesFetching}
+                    />
                     <ul className="project-cards">
                         <ThumbnailCard projectData={projectData} />
                         <MetricsCard projectData={projectData} />

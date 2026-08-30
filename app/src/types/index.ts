@@ -51,3 +51,9 @@ export type CommitActivityResponse =
 
 export type CommitActivityData =
     Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response']['data'];
+
+export type TopLanguagesResponse =
+    Endpoints['GET /repos/{owner}/{repo}/languages']['response'];
+
+export type TopLanguagesData =
+    Endpoints['GET /repos/{owner}/{repo}/languages']['response']['data'];
