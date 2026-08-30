@@ -1,3 +1,5 @@
+import { Endpoints } from '@octokit/types';
+
 export interface RepoData {
     id: number;
     name: string;
@@ -37,3 +39,15 @@ export type ViewCounts = {
         explore_views: number;
     };
 };
+
+export type RecentCommitsResponse =
+    Endpoints['GET /repos/{owner}/{repo}/commits']['response'];
+
+export type RecentCommitsData =
+    Endpoints['GET /repos/{owner}/{repo}/commits']['response']['data'];
+
+export type CommitActivityResponse =
+    Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response'];
+
+export type CommitActivityData =
+    Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response']['data'];

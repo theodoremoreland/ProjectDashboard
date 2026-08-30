@@ -1,15 +1,7 @@
-// GitHub
-import { Endpoints } from '@octokit/types';
-
 // Custom
 import { octokit } from '../constants/octokit';
 import { REPO_OWNER } from '../constants/RepoOwner';
-
-type CommitActivityResponse =
-    Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response'];
-
-type CommitActivityData =
-    Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response']['data'];
+import { CommitActivityResponse, CommitActivityData } from '../types';
 
 export const getCommitActivity = async (
     repo: string
@@ -21,6 +13,12 @@ export const getCommitActivity = async (
             repo,
         }
     );
+
+    if (response.status === 202) {
+        throw new Error(
+            `GitHub is still calculating commit activity for ${repo}. Please try again later.`
+        );
+    }
 
     return response.data;
 };

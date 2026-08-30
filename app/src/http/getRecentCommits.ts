@@ -1,15 +1,7 @@
-// GitHub
-import { Endpoints } from '@octokit/types';
-
 // Custom
 import { octokit } from '../constants/octokit';
+import { RecentCommitsResponse, RecentCommitsData } from '../types';
 import { REPO_OWNER } from '../constants/RepoOwner';
-
-type RecentCommitsResponse =
-    Endpoints['GET /repos/{owner}/{repo}/commits']['response'];
-
-type RecentCommitsData =
-    Endpoints['GET /repos/{owner}/{repo}/commits']['response']['data'];
 
 export const getRecentCommits = async (
     repo: string
