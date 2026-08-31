@@ -152,6 +152,7 @@
     }
 
     .project-video-preview {
+        flex-shrink: 0;
         width: var(--sidebar-width);
         height: 110%;
         margin-top: -10%;
