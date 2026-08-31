@@ -29,12 +29,22 @@
         }
     }
 
+    .project-context {
+        position: relative;
+        color: black;
+        font-size: 0.8em;
+        padding: 0.2em 0.35em;
+        margin-left: 20px;
+        background-color: var(--secondary-color);
+        border-radius: 4px;
+    }
+
     .project-description {
         position: relative;
         width: 100%;
         font-family: custom-semibold;
         font-size: 1rem;
-        padding: 1em 0;
+        padding: 1em 20px;
         border-top: 1px solid var(--secondary-color);
         border-bottom: 1px solid var(--secondary-color);
     }

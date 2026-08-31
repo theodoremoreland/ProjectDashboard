@@ -13,6 +13,7 @@ import alt from '../../../assets/images/under-construction-thumbnail.jpg';
 
 // Styles
 import './ThumbnailCard.css';
+import getProjectContext from '../../../utils/getProjectContext';
 
 interface Props {
     projectData: TaggedRepoData;
@@ -28,6 +29,9 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
             <div className="project-card ThumbnailCard">
                 <Corner position="top-left" />
                 <div className="top-half">
+                    <span className="project-context">
+                        {getProjectContext(projectData)}
+                    </span>
                     <div className="project-image-container">
                         <img
                             className="project-image"
