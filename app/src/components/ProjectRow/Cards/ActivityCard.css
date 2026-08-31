@@ -18,6 +18,7 @@
         align-items: flex-start;
         gap: 16px;
         width: 100%;
+        padding: 0 20px;
     }
 
     a:link,
