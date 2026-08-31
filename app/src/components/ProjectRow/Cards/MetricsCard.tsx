@@ -1,19 +1,26 @@
 // React
 import { ReactElement } from 'react';
 
+// Custom
+import { convertToSonarGrade } from '../../../utils/convertToSonarGrade';
+
 // Components
 import Corner from '../../Corner/Corner';
 
 // Types
-import { TaggedRepoData } from '../../../types';
+import { SonarMeasures, TaggedRepoData } from '../../../types';
 
 // Styles
 import './MetricsCard.css';
 
 const MetricsCard = ({
     projectData,
+    sonarMeasures,
+    isSonarMeasuresFetching,
 }: {
     projectData: TaggedRepoData;
+    sonarMeasures: SonarMeasures | undefined;
+    isSonarMeasuresFetching: boolean;
 }): ReactElement => {
     return (
         <li className="project-card-container">
@@ -47,19 +54,52 @@ const MetricsCard = ({
                     <ul className="metrics-list">
                         <li>
                             <p>Maintainability</p>
-                            <p className="grade">A</p>
+                            {isSonarMeasuresFetching ? (
+                                <p className="grade">Fetching...</p>
+                            ) : (
+                                <p className="grade">
+                                    {convertToSonarGrade(
+                                        sonarMeasures?.metrics.sqale_rating
+                                    )}
+                                </p>
+                            )}
                         </li>
                         <li>
                             <p>Test Coverage</p>
-                            <p className="grade">85%</p>
+                            {isSonarMeasuresFetching ? (
+                                <p className="grade">Fetching...</p>
+                            ) : (
+                                <p className="grade">
+                                    {convertToSonarGrade(
+                                        sonarMeasures?.metrics.coverage
+                                    )}
+                                </p>
+                            )}
                         </li>
                         <li>
                             <p>Reliability</p>
-                            <p className="grade">B</p>
+                            {isSonarMeasuresFetching ? (
+                                <p className="grade">Fetching...</p>
+                            ) : (
+                                <p className="grade">
+                                    {convertToSonarGrade(
+                                        sonarMeasures?.metrics
+                                            .reliability_rating
+                                    )}
+                                </p>
+                            )}
                         </li>
                         <li>
                             <p>Security</p>
-                            <p className="grade">A</p>
+                            {isSonarMeasuresFetching ? (
+                                <p className="grade">Fetching...</p>
+                            ) : (
+                                <p className="grade">
+                                    {convertToSonarGrade(
+                                        sonarMeasures?.metrics.security_rating
+                                    )}
+                                </p>
+                            )}
                         </li>
                     </ul>
                 </div>

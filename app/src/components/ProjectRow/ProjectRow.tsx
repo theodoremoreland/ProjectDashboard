@@ -9,6 +9,7 @@ import { useInView } from 'react-intersection-observer';
 import { getRecentCommits } from '../../http/getRecentCommits';
 import { getCommitActivity } from '../../http/getCommitActivity';
 import { getTopLanguages } from '../../http/getTopLanguages';
+import { getSonarMeasures } from '../../http/getSonarMeasures';
 import extractErrorMessage from '../../utils/extractErrorMessage';
 
 // Components
@@ -22,6 +23,7 @@ import Garganta from '../Garganta/Garganta';
 // Types
 import {
     TaggedRepoData,
+    SonarMeasures,
     CommitActivityData,
     RecentCommitsData,
     TopLanguagesData,
@@ -44,6 +46,9 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     >(undefined);
     const [topLanguages, setTopLanguages] = useState<
         TopLanguagesData | undefined
+    >(undefined);
+    const [sonarMeasures, setSonarMeasures] = useState<
+        SonarMeasures | undefined
     >(undefined);
 
     const { ref, inView } = useInView({
@@ -84,6 +89,18 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         enabled: inView,
         queryKey: ['topLanguages', projectData.name],
         queryFn: () => getTopLanguages(projectData.name),
+        staleTime: Infinity,
+        retry: false,
+    });
+    const {
+        data: sonarMeasuresData,
+        error: sonarMeasuresError,
+        isError: isSonarMeasuresError,
+        isFetching: isSonarMeasuresFetching,
+    } = useQuery({
+        enabled: inView,
+        queryKey: ['sonarMeasures', projectData.name],
+        queryFn: () => getSonarMeasures(projectData.name),
         staleTime: Infinity,
         retry: false,
     });
@@ -132,6 +149,20 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         }
     }, [isTopLanguagesError, topLanguagesError]);
 
+    // ---- Sonar measures ---
+
+    useEffect(() => {
+        if (sonarMeasuresData) {
+            setSonarMeasures(sonarMeasuresData);
+        }
+    }, [sonarMeasuresData]);
+
+    useEffect(() => {
+        if (isSonarMeasuresError) {
+            console.error('Failed to fetch Sonar measures');
+        }
+    }, [isSonarMeasuresError, sonarMeasuresError]);
+
     return (
         <article
             id={`${projectData.name}`}
@@ -166,7 +197,11 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                     />
                     <ul className="project-cards">
                         <ThumbnailCard projectData={projectData} />
-                        <MetricsCard projectData={projectData} />
+                        <MetricsCard
+                            projectData={projectData}
+                            sonarMeasures={sonarMeasures}
+                            isSonarMeasuresFetching={isSonarMeasuresFetching}
+                        />
                         <ActivityCard
                             isRecentCommitsFetching={isRecentCommitsFetching}
                             isCommitActivityFetching={isCommitActivityFetching}
