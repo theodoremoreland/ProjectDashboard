@@ -52,8 +52,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     >(undefined);
 
     const { ref, inView } = useInView({
-        /* Optional options */
-        threshold: 0,
+        threshold: 0.25,
     });
     const {
         data: recentCommitsData,

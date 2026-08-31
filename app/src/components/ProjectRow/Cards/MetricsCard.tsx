@@ -51,7 +51,7 @@ const MetricsCard = ({
                     </ul>
                 </div>
                 <div className="metrics-label-container">
-                    <h3>DORA Metrics</h3>/<h3>Code Quality</h3>
+                    <h3>DORA Metrics</h3>x<h3>Code Quality</h3>
                 </div>
                 <div className="code-quality-container">
                     <ul className="metrics-list">
