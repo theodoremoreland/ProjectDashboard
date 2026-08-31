@@ -40,6 +40,16 @@ export type ViewCounts = {
     };
 };
 
+export type SonarMeasures = {
+    project_name: string;
+    metrics: {
+        reliability_rating: number;
+        security_rating: number;
+        sqale_rating: number;
+        coverage: number | undefined;
+    };
+};
+
 export type RecentCommitsResponse =
     Endpoints['GET /repos/{owner}/{repo}/commits']['response'];
 
