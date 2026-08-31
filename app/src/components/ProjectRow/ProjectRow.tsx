@@ -180,6 +180,9 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         <Corner position="bottom-right" />
                     </h2>
                     <div className="meta">
+                        <p className="project-date-label">
+                            <span>Created</span> x <span>Updated</span>
+                        </p>
                         <p className="project-date">
                             C:{' '}
                             {new Date(projectData.date_created).toISOString()}
