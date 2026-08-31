@@ -30,23 +30,23 @@ const MetricsCard = ({
                     <ul className="metrics-list">
                         <li>
                             <p>Deployment Frequency</p>
-                            <p>2 per week</p>
+                            <p className="grade">2pw</p>
                         </li>
                         <li>
                             <p>Lead Time for Changes</p>
-                            <p>1 week</p>
+                            <p className="grade">1w</p>
                         </li>
                         <li>
                             <p>Change Failure Rate</p>
-                            <p>5%</p>
+                            <p className="grade">5%</p>
                         </li>
                         <li>
                             <p>Failed Deployment Recovery Time</p>
-                            <p>2 hours</p>
+                            <p className="grade">2h</p>
                         </li>
                         <li>
                             <p>Time to Restore Service</p>
-                            <p>30 minutes</p>
+                            <p className="grade">30m</p>
                         </li>
                     </ul>
                 </div>
