@@ -166,7 +166,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     return (
         <article
             id={`${projectData.name}`}
-            className="project-row"
+            className="ProjectRow"
             ref={ref}
             onMouseEnter={() => setSelectedProject(projectData)}
         >

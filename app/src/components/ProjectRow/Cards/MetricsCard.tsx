@@ -26,8 +26,7 @@ const MetricsCard = ({
         <li className="project-card-container">
             <div className="project-card MetricsCard">
                 <Corner position="top-left" />
-                <div className="top-half">
-                    <h3>DORA Metrics</h3>
+                <div className="dora-container">
                     <ul className="metrics-list">
                         <li>
                             <p>Deployment Frequency</p>
@@ -50,7 +49,11 @@ const MetricsCard = ({
                             <p>30 minutes</p>
                         </li>
                     </ul>
-                    <h3>Code Quality</h3>
+                </div>
+                <div className="metrics-label-container">
+                    <h3>DORA Metrics</h3>/<h3>Code Quality</h3>
+                </div>
+                <div className="code-quality-container">
                     <ul className="metrics-list">
                         <li>
                             <p>Maintainability</p>
@@ -103,7 +106,7 @@ const MetricsCard = ({
                         </li>
                     </ul>
                 </div>
-                <div className="bottom-half">
+                <div className="deployment-button-container">
                     {projectData.demo_link &&
                         projectData.name !== 'ProjectDashboard' && (
                             <a
