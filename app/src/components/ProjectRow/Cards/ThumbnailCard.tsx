@@ -28,6 +28,7 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
         >
             <div className="project-card ThumbnailCard">
                 <Corner position="top-left" />
+                <Corner position="bottom-right" />
                 <div className="top">
                     <span className="project-context">
                         {getProjectContext(projectData)}
