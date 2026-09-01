@@ -28,7 +28,7 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
         >
             <div className="project-card ThumbnailCard">
                 <Corner position="top-left" />
-                <div className="top-half">
+                <div className="top">
                     <span className="project-context">
                         {getProjectContext(projectData)}
                     </span>
@@ -55,14 +55,12 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
                             }}
                         />
                     </div>
-                    <div className="project-about">
-                        <Barcode value={projectData.name} />
-                        <p className="project-description">
-                            {projectData.desc}
-                        </p>
-                    </div>
                 </div>
-                <div className="bottom-half">
+                <div className="middle">
+                    <Barcode value={projectData.name} />
+                    <p className="project-description">{projectData.desc}</p>
+                </div>
+                <div className="bottom">
                     <h4 className="project-screenshots-title">Screenshots</h4>
                     <div className="project-screenshots-container">
                         <ul className="project-screenshots">

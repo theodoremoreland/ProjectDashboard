@@ -36,21 +36,21 @@ const ActivityCard = ({
         <li className="project-card-container">
             <div className="project-card ActivityCard">
                 <Corner position="top-left" />
-                <article>
-                    <div className="sparkline-container">
-                        {isCommitActivityFetching && commitActivity ? (
-                            <p>Loading commit activity...</p>
-                        ) : (
-                            <SparkLineChart
-                                data={
-                                    commitActivity?.map((week) => week.total) ||
-                                    []
-                                }
-                                colors={['#c0fe04']}
-                                height={20}
-                            />
-                        )}
-                    </div>
+                <div className="top"></div>
+                <div className="middle sparkline-container">
+                    {isCommitActivityFetching && commitActivity ? (
+                        <p>Loading commit activity...</p>
+                    ) : (
+                        <SparkLineChart
+                            data={
+                                commitActivity?.map((week) => week.total) || []
+                            }
+                            colors={['#c0fe04']}
+                            height={20}
+                        />
+                    )}
+                </div>
+                <div className="bottom commits-container">
                     <h3>Recent commits</h3>
                     <ul className="commits">
                         {isRecentCommitsFetching && <p>Loading commits...</p>}
@@ -75,7 +75,7 @@ const ActivityCard = ({
                             </li>
                         ))}
                     </ul>
-                </article>
+                </div>
             </div>
             <div className="trailing-text">
                 <p>Activity</p>
