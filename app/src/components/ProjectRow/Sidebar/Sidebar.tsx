@@ -53,14 +53,15 @@ const Sidebar = ({
                 {languagesByPosition &&
                     Object.entries(languagesByPosition).map(
                         ([position, { label, percentage }]) => (
-                            <li key={position}>
-                                <span
-                                    className={`language-label ${label === 'Null' ? 'redacted' : ''}`}
-                                >
-                                    <h3>
+                            <li
+                                key={position}
+                                className={`language-item ${label === 'Null' ? 'redacted' : ''}`}
+                            >
+                                <span className={`language-label-container`}>
+                                    <h3 className={`language-label`}>
                                         {label === 'Null' ? 'Nulll' : label}
                                     </h3>
-                                    <p>
+                                    <p className={`language-percentage`}>
                                         {percentage === 0
                                             ? '0'
                                             : percentage.toFixed(2)}
