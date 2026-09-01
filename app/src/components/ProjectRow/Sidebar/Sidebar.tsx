@@ -1,8 +1,9 @@
 // React
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 
 // Custom
-import { getPercentages } from '../../../utils/getPercentages';
+import { generateLanguagesByPositionObject } from './Sidebar.utils';
+import { convertBytesToPercentages } from '../../../utils/convertBytesToPercentages';
 
 // Styles
 import './Sidebar.css';
@@ -16,19 +17,47 @@ const Sidebar = ({
     languages,
     isTopLanguagesFetching,
 }: Props): ReactElement => {
-    const percentages = getPercentages(languages || {});
+    const [languagesByPosition, setLanguagesByPosition] = useState(
+        generateLanguagesByPositionObject()
+    );
+
+    useEffect(() => {
+        if (languages) {
+            const percentages = convertBytesToPercentages(languages);
+            const updatedLanguagesByPosition =
+                generateLanguagesByPositionObject();
+
+            Object.entries(percentages)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([language, percentage], index) => {
+                    if (index < 9) {
+                        updatedLanguagesByPosition[index] = {
+                            label: language,
+                            percentage,
+                        };
+                    }
+                });
+
+            setLanguagesByPosition(updatedLanguagesByPosition);
+        }
+    }, [languages]);
 
     return (
         <aside className="sidebar">
             <h3 className="sidebar-title">Languages //</h3>
-            <ul className="sidebar-list">
-                {isTopLanguagesFetching && <p>Loading top languages...</p>}
-                {percentages &&
-                    Object.entries(percentages).map(
-                        ([language, percentage]) => (
-                            <li key={language}>
-                                <span className="language-label">
-                                    <h3>{language}</h3>
+            <ul
+                className={`sidebar-list ${isTopLanguagesFetching ? 'fetching' : ''}`}
+            >
+                {languagesByPosition &&
+                    Object.entries(languagesByPosition).map(
+                        ([position, { label, percentage }]) => (
+                            <li key={position}>
+                                <span
+                                    className={`language-label ${label === 'Null' ? 'redacted' : ''}`}
+                                >
+                                    <h3>
+                                        {label === 'Null' ? 'Nulll' : label}
+                                    </h3>
                                     <p>{percentage.toFixed(2)}%</p>
                                 </span>
                                 <div className="language-level-container">

@@ -1,4 +1,4 @@
-interface RawData {
+interface Bytes {
     [key: string]: number;
 }
 
@@ -6,7 +6,7 @@ interface Percentages {
     [key: string]: number;
 }
 
-export const getPercentages = (data: RawData): Percentages => {
+export const convertBytesToPercentages = (data: Bytes): Percentages => {
     const total = Object.values(data).reduce((acc, value) => acc + value, 0);
     const percentages: Percentages = {};
 
