@@ -26,6 +26,7 @@ const MetricsCard = ({
         <li className="project-card-container">
             <div className="project-card MetricsCard">
                 <Corner position="top-left" />
+                <Corner position="bottom-right" />
                 <div className="dora-container">
                     <ul className="metrics-list">
                         <li>

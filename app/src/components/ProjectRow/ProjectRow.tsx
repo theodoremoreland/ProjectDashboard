@@ -29,6 +29,11 @@ import {
     TopLanguagesData,
 } from '../../types';
 
+// Icons
+import ForkRightIcon from '../../assets/images/icons/fork_right.svg?react';
+import HotelClassIcon from '../../assets/images/icons/hotel_class.svg?react';
+import WeightIcon from '../../assets/images/icons/weight.svg?react';
+
 // Styles
 import './ProjectRow.css';
 
@@ -180,9 +185,20 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                     </h2>
                     <div className="project-counts">
                         <span className="plus">+</span>
-                        <span>{projectData.size}</span>
+                        <span title="Project size in bytes">
+                            <WeightIcon className="weight icon" />
+                            {projectData.size}
+                        </span>
                         <span className="plus">+</span>
-                        <span>{projectData.stars}</span>
+                        <span title="Number of stars">
+                            <HotelClassIcon className="query_stats icon" />
+                            {projectData.stars}
+                        </span>
+                        <span className="plus">+</span>
+                        <span title="Number of forks">
+                            <ForkRightIcon className="fork_right icon" />
+                            {projectData.forks_count}
+                        </span>
                         <span className="plus">+</span>
                     </div>
                     <div className="meta">

@@ -21,6 +21,7 @@ export const getRepoData = async (): Promise<RepoData[]> => {
             stargazers_count: number;
             size: number;
             homepage: string;
+            forks_count: number;
         }[]
     > = await octokit.request(
         'GET /user/repos?per_page=100&affiliation=owner&visibility=public&sort=created',
@@ -68,6 +69,7 @@ export const getRepoData = async (): Promise<RepoData[]> => {
                 readme: `https://raw.githubusercontent.com/theodoremoreland/${repo.name}/master/README.md`,
                 size: Number(repo.size),
                 stars: Number(repo.stargazers_count) || 0,
+                forks_count: Number(repo.forks_count) || 0,
             };
 
             if (repoData.topics.length > 0) {

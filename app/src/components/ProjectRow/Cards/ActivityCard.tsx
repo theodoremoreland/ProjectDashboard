@@ -35,6 +35,7 @@ const ActivityCard = ({
         <li className="project-card-container">
             <div className="project-card ActivityCard">
                 <Corner position="top-left" />
+                <Corner position="bottom-right" />
                 <div className="top"></div>
                 <div className="middle sparkline-container">
                     <SparkLineChart

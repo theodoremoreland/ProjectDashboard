@@ -13,6 +13,7 @@ export interface RepoData {
     readme: string;
     size: number;
     stars: number;
+    forks_count: number;
 }
 
 export interface TaggedRepoData extends RepoData {
