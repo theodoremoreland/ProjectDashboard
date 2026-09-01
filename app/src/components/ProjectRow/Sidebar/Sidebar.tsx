@@ -2,7 +2,10 @@
 import { ReactElement, useEffect, useState } from 'react';
 
 // Custom
-import { generateLanguagesByPositionObject } from './Sidebar.utils';
+import {
+    generateLanguagesByPositionObject,
+    LanguagesByPosition,
+} from './Sidebar.utils';
 import { convertBytesToPercentages } from '../../../utils/convertBytesToPercentages';
 
 // Styles
@@ -17,9 +20,8 @@ const Sidebar = ({
     languages,
     isTopLanguagesFetching,
 }: Props): ReactElement => {
-    const [languagesByPosition, setLanguagesByPosition] = useState(
-        generateLanguagesByPositionObject()
-    );
+    const [languagesByPosition, setLanguagesByPosition] =
+        useState<LanguagesByPosition>(generateLanguagesByPositionObject());
 
     useEffect(() => {
         if (languages) {
@@ -58,7 +60,12 @@ const Sidebar = ({
                                     <h3>
                                         {label === 'Null' ? 'Nulll' : label}
                                     </h3>
-                                    <p>{percentage.toFixed(2)}%</p>
+                                    <p>
+                                        {percentage === 0
+                                            ? '0'
+                                            : percentage.toFixed(2)}
+                                        %
+                                    </p>
                                 </span>
                                 <div className="language-level-container">
                                     <span
