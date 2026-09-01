@@ -30,7 +30,6 @@ const ActivityCard = ({
     commits,
     commitActivity,
     isRecentCommitsFetching,
-    isCommitActivityFetching,
 }: Props): ReactElement => {
     return (
         <li className="project-card-container">
@@ -38,17 +37,11 @@ const ActivityCard = ({
                 <Corner position="top-left" />
                 <div className="top"></div>
                 <div className="middle sparkline-container">
-                    {isCommitActivityFetching && commitActivity ? (
-                        <p>Loading commit activity...</p>
-                    ) : (
-                        <SparkLineChart
-                            data={
-                                commitActivity?.map((week) => week.total) || []
-                            }
-                            colors={['#c0fe04']}
-                            height={20}
-                        />
-                    )}
+                    <SparkLineChart
+                        data={commitActivity?.map((week) => week.total) || []}
+                        colors={['#c0fe04']}
+                        height={20}
+                    />
                 </div>
                 <div className="bottom commits-container">
                     <h3>Recent commits</h3>
