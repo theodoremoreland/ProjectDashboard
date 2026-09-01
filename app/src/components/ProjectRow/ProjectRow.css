@@ -40,6 +40,23 @@
         justify-content: space-between;
         align-items: center;
         height: 10%;
+
+        .project-counts {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 1rem;
+            font-family: custom-semibold;
+            font-size: 0.8rem;
+            color: var(--temp-silver);
+            width: 100%;
+
+            .plus {
+                font-family: custom-regular;
+                font-size: 0.8rem;
+            }
+        }
     }
 
     .project-row-main {
@@ -72,6 +89,7 @@
         align-items: flex-end;
         height: 60%;
         color: var(--temp-silver);
+        flex-shrink: 0;
     }
 
     .project-date-label {

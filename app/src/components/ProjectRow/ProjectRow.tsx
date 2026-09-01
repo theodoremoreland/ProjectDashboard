@@ -178,6 +178,13 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         <Corner position="bottom-left" />
                         <Corner position="bottom-right" />
                     </h2>
+                    <div className="project-counts">
+                        <span className="plus">+</span>
+                        <span>{projectData.size}</span>
+                        <span className="plus">+</span>
+                        <span>{projectData.stars}</span>
+                        <span className="plus">+</span>
+                    </div>
                     <div className="meta">
                         <p className="project-date-label">
                             <span>Created</span> x <span>Updated</span>
