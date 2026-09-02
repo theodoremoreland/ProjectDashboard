@@ -101,7 +101,7 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
-        height: 60%;
+        height: 55%;
         color: var(--temp-silver);
         flex-shrink: 0;
     }
