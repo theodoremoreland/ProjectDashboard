@@ -213,5 +213,38 @@
         align-items: center;
         width: 100%;
         height: 85%;
+
+        .topics-label,
+        .topics-label__layer2 {
+            position: absolute;
+            top: -10%;
+            left: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-family: custom-semibold;
+            font-size: 9.5rem;
+            text-align: center;
+            color: var(--temp-silver);
+            padding: 0;
+
+            > * {
+                position: relative;
+                text-align: center;
+                height: 100%;
+            }
+        }
+
+        .topics-label {
+            z-index: 1;
+        }
+
+        .topics-label__layer2 {
+            color: var(--temp-silver);
+            z-index: 2;
+        }
     }
 }

@@ -1,4 +1,5 @@
 .Garganta {
+    z-index: 3;
     position: relative;
     display: grid;
     grid-template-columns: repeat(18, 1fr);
