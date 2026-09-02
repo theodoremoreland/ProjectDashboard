@@ -63,9 +63,8 @@ const Sidebar = ({
                                     </h3>
                                     <p className={`language-percentage`}>
                                         {percentage === 0
-                                            ? '0'
-                                            : percentage.toFixed(2)}
-                                        %
+                                            ? '-'
+                                            : `${percentage.toFixed(2)}%`}
                                     </p>
                                 </span>
                                 <div className="language-level-container">
