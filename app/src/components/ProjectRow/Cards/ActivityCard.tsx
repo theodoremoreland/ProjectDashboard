@@ -4,6 +4,9 @@ import { ReactElement } from 'react';
 // Third party
 import { SparkLineChart } from '@mui/x-charts';
 
+// Custom
+import { getCommitsPerWeek } from './ActivityCard.util';
+
 // Components
 import Corner from '../../Corner/Corner';
 
@@ -24,27 +27,6 @@ interface Props {
     isRecentCommitsFetching?: boolean;
     isCommitActivityFetching?: boolean;
 }
-
-const getCommitsPerWeek = (
-    commitActivity: CommitActivityData | undefined
-): number[] => {
-    if (!commitActivity) {
-        return [];
-    }
-
-    const allWeeks = commitActivity.flatMap((contributor) => contributor.weeks);
-    const commitsPerWeek: { [weekStart: number]: number } = {};
-
-    allWeeks.forEach((week) => {
-        if (!week.w || !week.c) {
-            return;
-        }
-
-        commitsPerWeek[week.w] = (commitsPerWeek[week.w] || 0) + week.c;
-    });
-
-    return Object.values(commitsPerWeek);
-};
 
 const ActivityCard = ({
     projectData,
