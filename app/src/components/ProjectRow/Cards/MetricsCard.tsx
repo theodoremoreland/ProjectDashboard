@@ -64,7 +64,11 @@ const MetricsCard = ({
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
-                                <p className="grade">
+                                <p
+                                    className={`grade ${convertToSonarGrade(
+                                        sonarMeasures?.metrics.sqale_rating
+                                    )}`}
+                                >
                                     {convertToSonarGrade(
                                         sonarMeasures?.metrics.sqale_rating
                                     )}
@@ -76,7 +80,11 @@ const MetricsCard = ({
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
-                                <p className="grade">
+                                <p
+                                    className={`grade ${convertToSonarGrade(
+                                        sonarMeasures?.metrics.coverage
+                                    )}`}
+                                >
                                     {convertToSonarGrade(
                                         sonarMeasures?.metrics.coverage
                                     )}
@@ -88,7 +96,12 @@ const MetricsCard = ({
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
-                                <p className="grade">
+                                <p
+                                    className={`grade ${convertToSonarGrade(
+                                        sonarMeasures?.metrics
+                                            .reliability_rating
+                                    )}`}
+                                >
                                     {convertToSonarGrade(
                                         sonarMeasures?.metrics
                                             .reliability_rating
@@ -101,7 +114,9 @@ const MetricsCard = ({
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
-                                <p className="grade">
+                                <p
+                                    className={`grade ${convertToSonarGrade(sonarMeasures?.metrics.security_rating)}`}
+                                >
                                     {convertToSonarGrade(
                                         sonarMeasures?.metrics.security_rating
                                     )}
@@ -125,7 +140,7 @@ const MetricsCard = ({
                         }
                     >
                         <button
-                            className="view-deployment"
+                            className={`view-deployment ${hasValidDemoLink ? 'interactive' : 'disabled'}`}
                             disabled={!hasValidDemoLink}
                         >
                             <span>View Deployment</span>{' '}
