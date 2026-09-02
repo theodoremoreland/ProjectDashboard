@@ -58,10 +58,10 @@ export type RecentCommitsData =
     Endpoints['GET /repos/{owner}/{repo}/commits']['response']['data'];
 
 export type CommitActivityResponse =
-    Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response'];
+    Endpoints['GET /repos/{owner}/{repo}/stats/contributors']['response'];
 
 export type CommitActivityData =
-    Endpoints['GET /repos/{owner}/{repo}/stats/commit_activity']['response']['data'];
+    Endpoints['GET /repos/{owner}/{repo}/stats/contributors']['response']['data'];
 
 export type TopLanguagesResponse =
     Endpoints['GET /repos/{owner}/{repo}/languages']['response'];

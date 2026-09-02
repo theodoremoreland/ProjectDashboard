@@ -277,11 +277,6 @@ button {
     width: 100vw;
     color: var(--primary-font-color);
     visibility: visible;
-    background: radial-gradient(
-        circle farthest-corner at top left,
-        var(--primary-color) 3%,
-        var(--secondary-color) 70%
-    );
     transition:
         opacity 2s linear,
         visibility 2s linear;
