@@ -22,6 +22,9 @@ const MetricsCard = ({
     sonarMeasures: SonarMeasures | undefined;
     isSonarMeasuresFetching: boolean;
 }): ReactElement => {
+    const hasValidDemoLink: boolean =
+        projectData.name !== 'ProjectDashboard' && projectData.demo_link !== '';
+
     return (
         <li className="project-card-container">
             <div className="project-card MetricsCard">
@@ -108,21 +111,29 @@ const MetricsCard = ({
                     </ul>
                 </div>
                 <div className="deployment-button-container">
-                    {projectData.demo_link &&
-                        projectData.name !== 'ProjectDashboard' && (
-                            <a
-                                className="view-deployment-link interactive"
-                                href={projectData.demo_link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title={`Click to view a live deployment of the ${projectData.name} project.`}
-                            >
-                                <button className="view-deployment">
-                                    View Deployment{' '}
-                                    <span className="circle"></span>
-                                </button>
-                            </a>
-                        )}
+                    <a
+                        className={`view-deployment-link ${hasValidDemoLink ? 'interactive' : ''}`}
+                        href={
+                            hasValidDemoLink ? projectData.demo_link : undefined
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={
+                            hasValidDemoLink
+                                ? `Click to view a live deployment of the ${projectData.name} project.`
+                                : undefined
+                        }
+                    >
+                        <button
+                            className="view-deployment"
+                            disabled={!hasValidDemoLink}
+                        >
+                            <span>View Deployment</span>{' '}
+                            {hasValidDemoLink && (
+                                <span className="circle"></span>
+                            )}
+                        </button>
+                    </a>
                 </div>
             </div>
             <div className="trailing-text">

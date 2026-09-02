@@ -253,14 +253,6 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                             <span>C</span>
                             <span>S</span>
                         </p>
-                        <p className="topics-label__layer2">
-                            <span>T</span>
-                            <span>O</span>
-                            <span>P</span>
-                            <span>I</span>
-                            <span>C</span>
-                            <span>S</span>
-                        </p>
                         <Garganta />
                     </div>
                 </div>
