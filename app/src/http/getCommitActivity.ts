@@ -8,7 +8,7 @@ export const getCommitActivity = async (
     repo: string
 ): Promise<CommitActivityData> => {
     const response: CommitActivityResponse = await octokit.request(
-        'GET /repos/{owner}/{repo}/stats/commit_activity',
+        'GET /repos/{owner}/{repo}/stats/contributors',
         {
             owner: REPO_OWNER,
             repo,

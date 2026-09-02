@@ -25,12 +25,35 @@ interface Props {
     isCommitActivityFetching?: boolean;
 }
 
+const getCommitsPerWeek = (
+    commitActivity: CommitActivityData | undefined
+): number[] => {
+    if (!commitActivity) {
+        return [];
+    }
+
+    const allWeeks = commitActivity.flatMap((contributor) => contributor.weeks);
+    const commitsPerWeek: { [weekStart: number]: number } = {};
+
+    allWeeks.forEach((week) => {
+        if (!week.w || !week.c) {
+            return;
+        }
+
+        commitsPerWeek[week.w] = (commitsPerWeek[week.w] || 0) + week.c;
+    });
+
+    return Object.values(commitsPerWeek);
+};
+
 const ActivityCard = ({
     projectData,
     commits,
     commitActivity,
     isRecentCommitsFetching,
 }: Props): ReactElement => {
+    const commitsPerWeek = getCommitsPerWeek(commitActivity);
+
     return (
         <li className="project-card-container">
             <div className="project-card ActivityCard">
@@ -39,9 +62,11 @@ const ActivityCard = ({
                 <div className="top"></div>
                 <div className="middle sparkline-container">
                     <SparkLineChart
-                        data={commitActivity?.map((week) => week.total) || []}
+                        data={commitsPerWeek}
                         colors={['#c0fe04']}
                         height={20}
+                        showTooltip
+                        showHighlight
                     />
                 </div>
                 <div className="bottom commits-container">
