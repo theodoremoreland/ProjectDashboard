@@ -68,7 +68,17 @@ const MetricsCard = ({
                 <div className="software-quality-container">
                     <ul className="metrics-list">
                         <li>
-                            <p>Maintainability</p>
+                            <div>
+                                <p>Maintainability</p>
+                                <div className="level-container">
+                                    <span
+                                        className="level"
+                                        style={{
+                                            width: `100%`,
+                                        }}
+                                    ></span>
+                                </div>
+                            </div>
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
@@ -92,23 +102,17 @@ const MetricsCard = ({
                             )}
                         </li>
                         <li>
-                            <p>Test Coverage</p>
-                            {isSonarMeasuresFetching ? (
-                                <p className="grade">Fetching...</p>
-                            ) : (
-                                <p
-                                    className={`grade ${convertToSonarGrade(
-                                        sonarMeasures?.metrics.coverage
-                                    )}`}
-                                >
-                                    {convertToSonarGrade(
-                                        sonarMeasures?.metrics.coverage
-                                    )}
-                                </p>
-                            )}
-                        </li>
-                        <li>
-                            <p>Reliability</p>
+                            <div>
+                                <p>Reliability</p>
+                                <div className="level-container">
+                                    <span
+                                        className="level"
+                                        style={{
+                                            width: `100%`,
+                                        }}
+                                    ></span>
+                                </div>
+                            </div>
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
@@ -134,7 +138,17 @@ const MetricsCard = ({
                             )}
                         </li>
                         <li>
-                            <p>Security</p>
+                            <div>
+                                <p>Security</p>
+                                <div className="level-container">
+                                    <span
+                                        className="level"
+                                        style={{
+                                            width: `100%`,
+                                        }}
+                                    ></span>
+                                </div>
+                            </div>
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
@@ -154,6 +168,32 @@ const MetricsCard = ({
                                         )}
                                     </p>
                                 </a>
+                            )}
+                        </li>
+                        <li>
+                            <div>
+                                <p>Test Coverage</p>
+                                <div className="level-container">
+                                    <span
+                                        className="level"
+                                        style={{
+                                            width: `100%`,
+                                        }}
+                                    ></span>
+                                </div>
+                            </div>
+                            {isSonarMeasuresFetching ? (
+                                <p className="grade">Fetching...</p>
+                            ) : (
+                                <p
+                                    className={`grade ${convertToSonarGrade(
+                                        sonarMeasures?.metrics.coverage
+                                    )}`}
+                                >
+                                    {convertToSonarGrade(
+                                        sonarMeasures?.metrics.coverage
+                                    )}
+                                </p>
                             )}
                         </li>
                     </ul>
