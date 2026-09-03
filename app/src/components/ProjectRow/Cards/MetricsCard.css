@@ -7,6 +7,13 @@
     height: 100%;
     background-color: var(--temp-gray-3);
 
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        text-decoration: none;
+    }
+
     .dora-container,
     .software-quality-container {
         display: flex;
@@ -56,9 +63,52 @@
             width: 100%;
         }
 
+        .label-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-bottom: 0.5em;
+        }
+
+        .level-container {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 8px;
+            background-color: black;
+        }
+
+        .level {
+            position: relative;
+            transition: width 0.5s ease-in-out;
+            display: inline-block;
+            width: 100%;
+            height: 4px;
+            background-color: transparent;
+
+            &::after {
+                z-index: 2;
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: inline-block;
+                width: 4px;
+                height: 4px;
+                background-color: var(--secondary-color);
+                border-radius: 50%;
+            }
+        }
+
         .grade {
+            text-align: center;
             font-size: 1.5rem;
             font-family: bit-regular;
+            padding: 2px 6px;
 
             &.A {
                 color: green;
