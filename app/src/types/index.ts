@@ -48,6 +48,7 @@ export type SonarMeasures = {
         security_rating: number;
         sqale_rating: number;
         coverage: number | undefined;
+        ncloc: number;
     };
 };
 
