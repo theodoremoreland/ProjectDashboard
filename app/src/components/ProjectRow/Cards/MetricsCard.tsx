@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 
 // Custom
 import { convertToSonarGrade } from '../../../utils/convertToSonarGrade';
+import { REPO_OWNER } from '../../../constants/RepoOwner';
 
 // Components
 import Corner from '../../Corner/Corner';
@@ -12,6 +13,8 @@ import { SonarMeasures, TaggedRepoData } from '../../../types';
 
 // Styles
 import './MetricsCard.css';
+
+const SonarCloudBaseUrl: string = `https://sonarcloud.io/project/issues?id=${REPO_OWNER}_`;
 
 const MetricsCard = ({
     projectData,
@@ -24,6 +27,11 @@ const MetricsCard = ({
 }): ReactElement => {
     const hasValidDemoLink: boolean =
         projectData.name !== 'ProjectDashboard' && projectData.demo_link !== '';
+    const SoftwareQualityLink: Record<string, string> = {
+        security: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=SECURITY&s=IMPACT_RANK`,
+        maintainability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=MAINTAINABILITY&s=IMPACT_RANK`,
+        reliability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=RELIABILITY&s=IMPACT_RANK`,
+    };
 
     return (
         <li className="project-card-container">
@@ -55,24 +63,32 @@ const MetricsCard = ({
                     </ul>
                 </div>
                 <div className="metrics-label-container">
-                    <h3>DORA Metrics</h3>x<h3>Code Quality</h3>
+                    <h3>DORA Metrics</h3>x<h3>Software Quality</h3>
                 </div>
-                <div className="code-quality-container">
+                <div className="software-quality-container">
                     <ul className="metrics-list">
                         <li>
                             <p>Maintainability</p>
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
-                                <p
-                                    className={`grade ${convertToSonarGrade(
-                                        sonarMeasures?.metrics.sqale_rating
-                                    )}`}
+                                <a
+                                    className="grade-link interactive"
+                                    href={SoftwareQualityLink.maintainability}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title={`Click to view the maintainability rating for the ${projectData.name} project on SonarCloud.`}
                                 >
-                                    {convertToSonarGrade(
-                                        sonarMeasures?.metrics.sqale_rating
-                                    )}
-                                </p>
+                                    <p
+                                        className={`grade ${convertToSonarGrade(
+                                            sonarMeasures?.metrics.sqale_rating
+                                        )}`}
+                                    >
+                                        {convertToSonarGrade(
+                                            sonarMeasures?.metrics.sqale_rating
+                                        )}
+                                    </p>
+                                </a>
                             )}
                         </li>
                         <li>
@@ -96,17 +112,25 @@ const MetricsCard = ({
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
-                                <p
-                                    className={`grade ${convertToSonarGrade(
-                                        sonarMeasures?.metrics
-                                            .reliability_rating
-                                    )}`}
+                                <a
+                                    className="grade-link interactive"
+                                    href={SoftwareQualityLink.reliability}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title={`Click to view the reliability rating for the ${projectData.name} project on SonarCloud.`}
                                 >
-                                    {convertToSonarGrade(
-                                        sonarMeasures?.metrics
-                                            .reliability_rating
-                                    )}
-                                </p>
+                                    <p
+                                        className={`grade ${convertToSonarGrade(
+                                            sonarMeasures?.metrics
+                                                .reliability_rating
+                                        )}`}
+                                    >
+                                        {convertToSonarGrade(
+                                            sonarMeasures?.metrics
+                                                .reliability_rating
+                                        )}
+                                    </p>
+                                </a>
                             )}
                         </li>
                         <li>
@@ -114,13 +138,22 @@ const MetricsCard = ({
                             {isSonarMeasuresFetching ? (
                                 <p className="grade">Fetching...</p>
                             ) : (
-                                <p
-                                    className={`grade ${convertToSonarGrade(sonarMeasures?.metrics.security_rating)}`}
+                                <a
+                                    className="grade-link interactive"
+                                    href={SoftwareQualityLink.security}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title={`Click to view the security rating for the ${projectData.name} project on SonarCloud.`}
                                 >
-                                    {convertToSonarGrade(
-                                        sonarMeasures?.metrics.security_rating
-                                    )}
-                                </p>
+                                    <p
+                                        className={`grade ${convertToSonarGrade(sonarMeasures?.metrics.security_rating)}`}
+                                    >
+                                        {convertToSonarGrade(
+                                            sonarMeasures?.metrics
+                                                .security_rating
+                                        )}
+                                    </p>
+                                </a>
                             )}
                         </li>
                     </ul>
