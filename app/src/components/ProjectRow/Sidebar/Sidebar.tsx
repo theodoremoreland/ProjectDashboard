@@ -47,7 +47,7 @@ const Sidebar = ({
     return (
         <aside className="sidebar">
             <h3 className="sidebar-title">Languages //</h3>
-            <ul
+            <ol
                 className={`sidebar-list ${isTopLanguagesFetching ? 'fetching' : ''}`}
             >
                 {languagesByPosition &&
@@ -78,7 +78,7 @@ const Sidebar = ({
                             </li>
                         )
                     )}
-            </ul>
+            </ol>
         </aside>
     );
 };

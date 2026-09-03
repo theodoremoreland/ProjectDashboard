@@ -2,6 +2,7 @@
     z-index: 9999;
     position: absolute;
     top: 12px;
+    left: 3px;
     pointer-events: none;
 
     .pointer {
