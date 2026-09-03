@@ -41,7 +41,7 @@ const MetricsCard = ({
                 <Corner position="bottom-right" />
                 <ul className="software-quality-container">
                     <li>
-                        <div>
+                        <div className="quality-label-container">
                             <p>Lines of Code</p>
                             <GradeGraph grade="N/A" />
                         </div>
@@ -54,7 +54,7 @@ const MetricsCard = ({
                         )}
                     </li>
                     <li>
-                        <div>
+                        <div className="quality-label-container">
                             <p>Maintainability</p>
                             <GradeGraph grade="N/A" />
                         </div>
@@ -81,7 +81,7 @@ const MetricsCard = ({
                         )}
                     </li>
                     <li>
-                        <div>
+                        <div className="quality-label-container">
                             <p>Reliability</p>
                             <GradeGraph grade="N/A" />
                         </div>
@@ -110,7 +110,7 @@ const MetricsCard = ({
                         )}
                     </li>
                     <li>
-                        <div>
+                        <div className="quality-label-container">
                             <p>Security</p>
                             <GradeGraph grade="N/A" />
                         </div>
@@ -135,7 +135,7 @@ const MetricsCard = ({
                         )}
                     </li>
                     <li>
-                        <div>
+                        <div className="quality-label-container">
                             <p>Test Coverage</p>
                             <GradeGraph grade="N/A" />
                         </div>
@@ -154,7 +154,7 @@ const MetricsCard = ({
                         )}
                     </li>
                 </ul>
-                <div className="metrics-label-container">
+                <div className="MetricsCard__header">
                     <h3>Software Quality</h3>x<h3>DORA Metrics</h3>
                 </div>
                 <ul className="dora-container">
