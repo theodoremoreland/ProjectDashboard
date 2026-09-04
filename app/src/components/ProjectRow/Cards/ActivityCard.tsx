@@ -5,7 +5,7 @@ import { ReactElement } from 'react';
 import { BarChart, SparkLineChart } from '@mui/x-charts';
 
 // Custom
-import { getCommitsPerWeek } from './ActivityCard.util';
+import { getCommitsPerWeek, getRecentDelta } from './ActivityCard.util';
 
 // Components
 import Corner from '../../Corner/Corner';
@@ -30,7 +30,8 @@ const ActivityCard = ({
     commitActivity,
     isRecentCommitsFetching,
 }: Props): ReactElement => {
-    const commitsPerWeek = getCommitsPerWeek(commitActivity);
+    const commitsPerWeek: number[] = getCommitsPerWeek(commitActivity);
+    const recentDelta: [number, number] = getRecentDelta(commits);
 
     return (
         <li className="project-card-container">
@@ -46,7 +47,39 @@ const ActivityCard = ({
                                 data: ['Additions', 'Deletions'],
                             },
                         ]}
-                        series={[{ data: [4000, -3566] }]}
+                        yAxis={[
+                            {
+                                colorMap: {
+                                    type: 'piecewise',
+                                    thresholds: [0],
+                                    colors: ['red', 'green'],
+                                },
+                            },
+                        ]}
+                        series={[{ data: recentDelta }]}
+                        barLabel="value"
+                        grid={{ horizontal: true, vertical: true }}
+                        sx={{
+                            // Change axis line color (axis path/ticks)
+                            '.MuiChartsAxis-root .MuiChartsAxis-line': {
+                                stroke: '#f4f1f18e',
+                                strokeWidth: 2,
+                            },
+                            // Change axis tick labels color
+                            '.MuiChartsAxis-tickLabel': {
+                                fill: '#e6e6e669',
+                                fontSize: 12,
+                            },
+                            // Change grid lines color
+                            '.MuiChartsAxis-grid': {
+                                stroke: '#e0e0e0',
+                                strokeDasharray: '2 2', // optional dashed grid lines
+                            },
+                            // Targets the labels displayed on the bars
+                            '& .MuiBarLabel-root': {
+                                fill: '#c8c8c8',
+                            },
+                        }}
                     />
                 </div>
                 <div className="middle sparkline-container">
