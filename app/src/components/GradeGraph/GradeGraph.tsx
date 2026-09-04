@@ -16,19 +16,30 @@ const convertMeasureToPercent = (
     measure: number | undefined,
     type: 'point' | 'percentage' | 'basic'
 ): number => {
+    let result: number = 0;
+
     if (!measure) {
-        return 0;
+        return result;
     }
 
-    if (type === 'percentage') {
-        return measure;
+    switch (type) {
+        case 'point':
+            result = 100 - (measure - 1) * 20;
+            break;
+        case 'percentage':
+            result = measure;
+            break;
+        case 'basic':
+            result = (measure / 100_000) * 100;
+            break;
+        default:
+            break;
     }
 
-    if (type === 'basic') {
-        return (measure / 100_000) * 100;
-    }
+    if (result < 0) result = 0;
+    if (result > 100) result = 100;
 
-    return 100 - (measure - 1) * 20;
+    return result;
 };
 
 const GradeGraph = ({ measure, type }: Props): ReactElement => {

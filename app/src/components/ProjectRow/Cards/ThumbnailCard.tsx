@@ -5,15 +5,15 @@ import { ReactElement } from 'react';
 import Corner from '../../Corner/Corner';
 import Barcode from '../../Barcode/Barcode';
 
-// Types
+// Custom
 import { TaggedRepoData } from '../../../types';
+import getProjectContext from '../../../utils/getProjectContext';
 
 // Images
 import alt from '../../../assets/images/under-construction-thumbnail.jpg';
 
 // Styles
 import './ThumbnailCard.css';
-import getProjectContext from '../../../utils/getProjectContext';
 
 interface Props {
     projectData: TaggedRepoData;
