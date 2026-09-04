@@ -43,7 +43,10 @@ const MetricsCard = ({
                     <li>
                         <div className="quality-label-container">
                             <p>Lines of Code</p>
-                            <GradeGraph grade="N/A" />
+                            <GradeGraph
+                                measure={sonarMeasures?.metrics.ncloc}
+                                type="basic"
+                            />
                         </div>
                         {isSonarMeasuresFetching ? (
                             <p className="grade">...</p>
@@ -56,7 +59,10 @@ const MetricsCard = ({
                     <li>
                         <div className="quality-label-container">
                             <p>Maintainability</p>
-                            <GradeGraph grade="N/A" />
+                            <GradeGraph
+                                measure={sonarMeasures?.metrics.sqale_rating}
+                                type="point"
+                            />
                         </div>
                         {isSonarMeasuresFetching ? (
                             <p className="grade">...</p>
@@ -83,7 +89,12 @@ const MetricsCard = ({
                     <li>
                         <div className="quality-label-container">
                             <p>Reliability</p>
-                            <GradeGraph grade="N/A" />
+                            <GradeGraph
+                                measure={
+                                    sonarMeasures?.metrics.reliability_rating
+                                }
+                                type="point"
+                            />
                         </div>
                         {isSonarMeasuresFetching ? (
                             <p className="grade">...</p>
@@ -112,7 +123,10 @@ const MetricsCard = ({
                     <li>
                         <div className="quality-label-container">
                             <p>Security</p>
-                            <GradeGraph grade="N/A" />
+                            <GradeGraph
+                                measure={sonarMeasures?.metrics.security_rating}
+                                type="point"
+                            />
                         </div>
                         {isSonarMeasuresFetching ? (
                             <p className="grade">...</p>
@@ -137,7 +151,10 @@ const MetricsCard = ({
                     <li>
                         <div className="quality-label-container">
                             <p>Test Coverage</p>
-                            <GradeGraph grade="N/A" />
+                            <GradeGraph
+                                measure={sonarMeasures?.metrics.coverage}
+                                type="percentage"
+                            />
                         </div>
                         {isSonarMeasuresFetching ? (
                             <p className="grade">...</p>
