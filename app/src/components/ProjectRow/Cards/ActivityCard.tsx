@@ -2,7 +2,7 @@
 import { ReactElement } from 'react';
 
 // Third party
-import { SparkLineChart } from '@mui/x-charts';
+import { BarChart, SparkLineChart } from '@mui/x-charts';
 
 // Custom
 import { getCommitsPerWeek } from './ActivityCard.util';
@@ -11,18 +11,14 @@ import { getCommitsPerWeek } from './ActivityCard.util';
 import Corner from '../../Corner/Corner';
 
 // Types
-import {
-    CommitActivityData,
-    RecentCommitsData,
-    TaggedRepoData,
-} from '../../../types';
+import { CommitActivityData, TaggedRepoData, Commit } from '../../../types';
 
 // Styles
 import './ActivityCard.css';
 
 interface Props {
     projectData: TaggedRepoData;
-    commits: RecentCommitsData | undefined;
+    commits: Commit[] | undefined;
     commitActivity: CommitActivityData | undefined;
     isRecentCommitsFetching?: boolean;
     isCommitActivityFetching?: boolean;
@@ -41,7 +37,18 @@ const ActivityCard = ({
             <div className="project-card ActivityCard">
                 <Corner position="top-left" />
                 <Corner position="bottom-right" />
-                <div className="top"></div>
+                <div className="top">
+                    <BarChart
+                        height={300}
+                        xAxis={[
+                            {
+                                scaleType: 'band',
+                                data: ['Additions', 'Deletions'],
+                            },
+                        ]}
+                        series={[{ data: [4000, -3566] }]}
+                    />
+                </div>
                 <div className="middle sparkline-container">
                     <SparkLineChart
                         data={commitsPerWeek}
@@ -57,11 +64,11 @@ const ActivityCard = ({
                         {isRecentCommitsFetching && <p>Loading commits...</p>}
                         {commits?.map((commit, index) => (
                             <li key={index} className="commit">
-                                <h4>{commit.commit.message}</h4>
+                                <h4>{commit.message}</h4>
                                 <p>
-                                    {commit.commit.committer?.date
+                                    {commit.committedDate
                                         ? new Date(
-                                              commit.commit.committer.date
+                                              commit.committedDate
                                           ).toLocaleString()
                                         : 'Unknown date'}
                                 </p>
@@ -69,7 +76,7 @@ const ActivityCard = ({
                                     className="interactive"
                                     target="_blank"
                                     rel="noreferrer"
-                                    href={commit.html_url}
+                                    href={commit.commitUrl}
                                 >
                                     View code diff on GitHub
                                 </a>

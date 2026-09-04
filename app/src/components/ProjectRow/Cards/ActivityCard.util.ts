@@ -7,7 +7,9 @@ export const getCommitsPerWeek = (
         return [];
     }
 
-    const allWeeks = commitActivity.flatMap((contributor) => contributor.weeks);
+    const allWeeks = commitActivity
+        .flatMap((contributor) => contributor.weeks)
+        .sort((a, b) => (a?.w || 0) - (b?.w || 0));
     const commitsPerWeek: { [weekStart: number]: number } = {};
 
     allWeeks.forEach((week) => {
@@ -20,3 +22,17 @@ export const getCommitsPerWeek = (
 
     return Object.values(commitsPerWeek);
 };
+
+// export const getRecentDelta = (
+//     commitActivity: CommitActivityData | undefined,
+//     commitCount: number = 10
+// ): [number, number] => {
+//     if (!commitActivity) {
+//         return [0, 0];
+//     }
+
+//     const allWeeks = commitActivity
+//         .flatMap((contributor) => contributor.weeks)
+//         .sort((a, b) => (a?.w || 0) - (b?.w || 0));
+//     const mostRecentWeeks = allWeeks.slice(0, commitCount);
+// };

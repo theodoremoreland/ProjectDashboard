@@ -1,22 +1,60 @@
 // Custom
 import { octokit } from '../constants/octokit';
-import { RecentCommitsResponse, RecentCommitsData } from '../types';
+import { Commit } from '../types';
 import { REPO_OWNER } from '../constants/RepoOwner';
 
-export const getRecentCommits = async (
-    repo: string
-): Promise<RecentCommitsData> => {
-    const response: RecentCommitsResponse = await octokit.request(
-        `GET /repos/{owner}/{repo}/commits`,
+interface GraphQLResponse {
+    repository: {
+        defaultBranchRef: {
+            target: {
+                history: {
+                    nodes: Commit[];
+                };
+            };
+        };
+    };
+}
+
+const RECENT_COMMITS_QUERY: string = `
+  query getRecentCommits($owner: String!, $repo: String!) {
+    repository(owner: $owner, name: $repo) {
+      defaultBranchRef {
+        target {
+          ... on Commit {
+            history(first: 10) {
+              nodes {
+                id
+                commitUrl
+                message
+                committedDate
+                additions
+                deletions
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const getRecentCommits = async (repo: string): Promise<Commit[]> => {
+    const response = await octokit.graphql<GraphQLResponse>(
+        RECENT_COMMITS_QUERY,
         {
             owner: REPO_OWNER,
             repo,
-            per_page: 5,
-            headers: {
-                'X-GitHub-Api-Version': '2026-03-10',
-            },
         }
     );
 
-    return response.data;
+    const nodes = response.repository.defaultBranchRef.target.history.nodes;
+
+    return nodes.map((commit: Commit) => ({
+        id: commit.id,
+        committedDate: commit.committedDate,
+        commitUrl: commit.commitUrl,
+        message: commit.message,
+        additions: commit.additions,
+        deletions: commit.deletions,
+    }));
 };
