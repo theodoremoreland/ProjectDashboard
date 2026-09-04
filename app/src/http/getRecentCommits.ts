@@ -37,7 +37,7 @@ const RECENT_COMMITS_QUERY: string = `
     }
   }
 `;
-
+// NOTE: This uses GraphQL instead of REST because it supports grabbing additions/deletions and basic commit data in one request.
 export const getRecentCommits = async (repo: string): Promise<Commit[]> => {
     const response = await octokit.graphql<GraphQLResponse>(
         RECENT_COMMITS_QUERY,

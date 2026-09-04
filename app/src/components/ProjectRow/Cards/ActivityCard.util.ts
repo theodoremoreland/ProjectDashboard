@@ -1,4 +1,4 @@
-import { CommitActivityData } from '../../../types';
+import { CommitActivityData, Commit } from '../../../types';
 
 export const getCommitsPerWeek = (
     commitActivity: CommitActivityData | undefined
@@ -23,16 +23,21 @@ export const getCommitsPerWeek = (
     return Object.values(commitsPerWeek);
 };
 
-// export const getRecentDelta = (
-//     commitActivity: CommitActivityData | undefined,
-//     commitCount: number = 10
-// ): [number, number] => {
-//     if (!commitActivity) {
-//         return [0, 0];
-//     }
+export const getRecentDelta = (
+    commits: Commit[] | undefined
+): [number, number] => {
+    if (!commits) {
+        return [0, 0];
+    }
 
-//     const allWeeks = commitActivity
-//         .flatMap((contributor) => contributor.weeks)
-//         .sort((a, b) => (a?.w || 0) - (b?.w || 0));
-//     const mostRecentWeeks = allWeeks.slice(0, commitCount);
-// };
+    const additions: number = commits.reduce(
+        (prev, curr) => prev + curr.additions,
+        0
+    );
+    const deletions: number = commits.reduce(
+        (prev, curr) => prev + curr.deletions,
+        0
+    );
+
+    return [additions, -deletions];
+};
