@@ -29,6 +29,7 @@ const ActivityCard = ({
     commits,
     commitActivity,
     isRecentCommitsFetching,
+    isCommitActivityFetching,
 }: Props): ReactElement => {
     const commitsPerWeek: number[] = getCommitsPerWeek(commitActivity);
     const recentDelta: [number, number] = getRecentDelta(commits);
@@ -82,7 +83,9 @@ const ActivityCard = ({
                         }}
                     />
                 </div>
-                <div className="middle sparkline-container">
+                <div
+                    className={`middle sparkline-container ${isCommitActivityFetching ? '' : 'loaded'}`}
+                >
                     <SparkLineChart
                         data={commitsPerWeek}
                         colors={['#c0fe04']}

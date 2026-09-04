@@ -167,7 +167,7 @@
         color: var(--primary-font-color);
         opacity: 1;
         transition: opacity 0.5s;
-        overflow-y: hidden;
+        overflow: hidden;
 
         &.not-featured {
             pointer-events: none;
