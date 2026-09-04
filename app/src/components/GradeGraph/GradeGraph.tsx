@@ -1,6 +1,9 @@
 // React
 import { ReactElement } from 'react';
 
+// Images
+import CommitIcon from '../../assets/images/icons/commit.svg?react';
+
 // Styles
 import './GradeGraph.css';
 
@@ -14,7 +17,9 @@ const GradeGraph = ({ grade }: Props): ReactElement => {
             {Array.from({ length: 5 }).map((_, index) => (
                 <div key={index} className={`GradeGraph__block`} />
             ))}
-            <span className={`GradeGraph__bar ${grade.toLowerCase()}`} />
+            <div className={`GradeGraph__bar ${grade.toLowerCase()}`}>
+                <CommitIcon className="point" />
+            </div>
         </div>
     );
 };
