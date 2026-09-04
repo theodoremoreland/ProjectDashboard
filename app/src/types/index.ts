@@ -52,6 +52,15 @@ export type SonarMeasures = {
     };
 };
 
+export interface Commit {
+    id: string;
+    commitUrl: string;
+    message: string;
+    committedDate: string;
+    additions: number;
+    deletions: number;
+}
+
 export type RecentCommitsResponse =
     Endpoints['GET /repos/{owner}/{repo}/commits']['response'];
 

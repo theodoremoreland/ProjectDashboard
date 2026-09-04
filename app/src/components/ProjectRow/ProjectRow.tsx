@@ -25,8 +25,8 @@ import {
     TaggedRepoData,
     SonarMeasures,
     CommitActivityData,
-    RecentCommitsData,
     TopLanguagesData,
+    Commit,
 } from '../../types';
 
 // Icons
@@ -43,9 +43,7 @@ interface Props {
 }
 
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
-    const [commits, setCommits] = useState<RecentCommitsData | undefined>(
-        undefined
-    );
+    const [commits, setCommits] = useState<Commit[] | undefined>(undefined);
     const [commitActivity, setCommitActivity] = useState<
         CommitActivityData | undefined
     >(undefined);
