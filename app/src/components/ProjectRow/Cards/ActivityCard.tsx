@@ -66,6 +66,9 @@ const ActivityCard = ({
                                 stroke: '#f4f1f18e',
                                 strokeWidth: 2,
                             },
+                            'MuiChartsAxis-tick': {
+                                stroke: '#f4f1f18e',
+                            },
                             // Change axis tick labels color
                             '.MuiChartsAxis-tickLabel': {
                                 fill: '#e6e6e669',
@@ -75,6 +78,9 @@ const ActivityCard = ({
                             '.MuiChartsAxis-grid': {
                                 stroke: '#e0e0e0',
                                 strokeDasharray: '2 2', // optional dashed grid lines
+                            },
+                            'MuiChartsGrid-line': {
+                                stroke: '#e0e0e0',
                             },
                             // Targets the labels displayed on the bars
                             '& .MuiBarLabel-root': {

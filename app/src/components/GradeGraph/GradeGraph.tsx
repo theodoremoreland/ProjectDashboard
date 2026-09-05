@@ -42,6 +42,8 @@ const convertMeasureToPercent = (
     return result;
 };
 
+const pointSize: number = 16;
+
 const GradeGraph = ({ measure, type }: Props): ReactElement => {
     return (
         <div className="GradeGraph">
@@ -52,7 +54,9 @@ const GradeGraph = ({ measure, type }: Props): ReactElement => {
                 <CommitIcon
                     className="point"
                     style={{
-                        marginLeft: `calc(${convertMeasureToPercent(measure, type)}% - 8px)`,
+                        width: `${pointSize}px`,
+                        height: `${pointSize}px`,
+                        marginLeft: `calc(${convertMeasureToPercent(measure, type)}% - ${pointSize / 2}px)`,
                     }}
                 />
             </div>
