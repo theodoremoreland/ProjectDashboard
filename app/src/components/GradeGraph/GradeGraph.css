@@ -32,8 +32,6 @@
 
         .point {
             fill: var(--secondary-color);
-            width: 16px;
-            height: 16px;
             flex-shrink: 0;
             transition: all 0.5s ease-in-out;
         }
