@@ -113,4 +113,32 @@
     button {
         margin: 0 5px;
     }
+
+    .DeltaBarChart {
+        .MuiChartsAxis-root .MuiChartsAxis-line {
+            stroke: #f4f1f18e;
+            stroke-width: 2;
+        }
+        .MuiChartsAxis-tick {
+            stroke: #f4f1f18e;
+        }
+
+        .MuiChartsAxis-tickLabel {
+            fill: #e6e6e669;
+            font-size: 1rem;
+        }
+
+        .MuiChartsAxis-grid {
+            stroke: #696969;
+            stroke-dasharray: 2 2;
+        }
+
+        .MuiChartsGrid-line {
+            stroke: #838383;
+        }
+
+        .MuiBarLabel-root {
+            fill: #c8c8c8;
+        }
+    }
 }
