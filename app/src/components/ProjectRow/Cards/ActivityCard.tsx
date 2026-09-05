@@ -41,6 +41,7 @@ const ActivityCard = ({
                 <Corner position="bottom-right" />
                 <div className="top">
                     <BarChart
+                        className="DeltaBarChart"
                         height={300}
                         xAxis={[
                             {
@@ -53,40 +54,13 @@ const ActivityCard = ({
                                 colorMap: {
                                     type: 'piecewise',
                                     thresholds: [0],
-                                    colors: ['red', 'green'],
+                                    colors: ['darkred', 'green'],
                                 },
                             },
                         ]}
                         series={[{ data: recentDelta }]}
                         barLabel="value"
                         grid={{ horizontal: true, vertical: true }}
-                        sx={{
-                            // Change axis line color (axis path/ticks)
-                            '.MuiChartsAxis-root .MuiChartsAxis-line': {
-                                stroke: '#f4f1f18e',
-                                strokeWidth: 2,
-                            },
-                            'MuiChartsAxis-tick': {
-                                stroke: '#f4f1f18e',
-                            },
-                            // Change axis tick labels color
-                            '.MuiChartsAxis-tickLabel': {
-                                fill: '#e6e6e669',
-                                fontSize: 12,
-                            },
-                            // Change grid lines color
-                            '.MuiChartsAxis-grid': {
-                                stroke: '#e0e0e0',
-                                strokeDasharray: '2 2', // optional dashed grid lines
-                            },
-                            'MuiChartsGrid-line': {
-                                stroke: '#e0e0e0',
-                            },
-                            // Targets the labels displayed on the bars
-                            '& .MuiBarLabel-root': {
-                                fill: '#c8c8c8',
-                            },
-                        }}
                     />
                 </div>
                 <div
