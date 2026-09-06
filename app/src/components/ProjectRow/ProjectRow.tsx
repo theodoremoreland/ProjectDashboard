@@ -1,16 +1,17 @@
 // React
-import { SetStateAction, Dispatch, useEffect, useState } from 'react';
+import { SetStateAction, Dispatch } from 'react';
 
 // Third party
-import { useQuery } from '@tanstack/react-query';
 import { useInView } from 'react-intersection-observer';
 
 // Custom
-import { getRecentCommits } from '../../http/getRecentCommits';
-import { getCommitActivity } from '../../http/getCommitActivity';
-import { getTopLanguages } from '../../http/getTopLanguages';
-import { getSonarMeasures } from '../../http/getSonarMeasures';
-import extractErrorMessage from '../../utils/extractErrorMessage';
+import {
+    useCommitActivity,
+    useReadme,
+    useRecentCommits,
+    useSonarData,
+    useTopLanguagesData,
+} from './ProjectRow.hooks';
 
 // Components
 import Sidebar from './Sidebar/Sidebar';
@@ -21,13 +22,7 @@ import Corner from '../Corner/Corner';
 import DigitalRain from '../DigitalRain/DigitalRain';
 
 // Types
-import {
-    TaggedRepoData,
-    SonarMeasures,
-    CommitActivityData,
-    TopLanguagesData,
-    Commit,
-} from '../../types';
+import { TaggedRepoData } from '../../types';
 
 // Icons
 import ForkRightIcon from '../../assets/images/icons/fork_right.svg?react';
@@ -36,7 +31,6 @@ import WeightIcon from '../../assets/images/icons/weight.svg?react';
 
 // Styles
 import './ProjectRow.css';
-import { getProjectReadme } from '../../modules/readme';
 
 interface Props {
     projectData: TaggedRepoData;
@@ -44,153 +38,30 @@ interface Props {
 }
 
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
-    const [commits, setCommits] = useState<Commit[] | undefined>(undefined);
-    const [commitActivity, setCommitActivity] = useState<
-        CommitActivityData | undefined
-    >(undefined);
-    const [topLanguages, setTopLanguages] = useState<
-        TopLanguagesData | undefined
-    >(undefined);
-    const [sonarMeasures, setSonarMeasures] = useState<
-        SonarMeasures | undefined
-    >(undefined);
-    const [readme, setReadme] = useState<string | undefined>(undefined);
-
     const { ref, inView } = useInView({
         threshold: 0.25,
     });
-    const {
-        data: recentCommitsData,
-        isError: isRecentCommitsError,
-        isFetching: isRecentCommitsFetching,
-        error: recentCommitsError,
-    } = useQuery({
-        enabled: inView,
-        queryKey: ['commits', projectData.name],
-        queryFn: () => getRecentCommits(projectData.name),
-        staleTime: Infinity,
-        retry: false,
-    });
-    const {
-        data: commitActivityData,
-        isError: isCommitActivityError,
-        isFetching: isCommitActivityFetching,
-        error: commitActivityError,
-    } = useQuery({
-        enabled: inView,
-        queryKey: ['commitActivity', projectData.name],
-        queryFn: () => getCommitActivity(projectData.name),
-        staleTime: Infinity,
-        retry: 4,
-        retryDelay: 1500,
-    });
-    const {
-        data: topLanguagesData,
-        isFetching: isTopLanguagesFetching,
-        isError: isTopLanguagesError,
-        error: topLanguagesError,
-    } = useQuery({
-        enabled: inView,
-        queryKey: ['topLanguages', projectData.name],
-        queryFn: () => getTopLanguages(projectData.name),
-        staleTime: Infinity,
-        retry: false,
-    });
-    const {
-        data: sonarMeasuresData,
-        error: sonarMeasuresError,
-        isError: isSonarMeasuresError,
-        isFetching: isSonarMeasuresFetching,
-    } = useQuery({
-        enabled: inView,
-        queryKey: ['sonarMeasures', projectData.name],
-        queryFn: () => getSonarMeasures(projectData.name),
-        staleTime: Infinity,
-        retry: false,
-    });
-    const {
-        data: readmeData,
-        error: readmeError,
-        isError: isReadmeError,
-        isFetching: isReadmeFetching,
-    } = useQuery({
-        enabled: inView,
-        queryKey: ['readme', projectData.name],
-        queryFn: () => getProjectReadme(projectData.name),
-        staleTime: Infinity,
-        retry: false,
-    });
 
-    // ---- Recent commits ---
-
-    useEffect(() => {
-        if (recentCommitsData) {
-            setCommits(recentCommitsData);
-        }
-    }, [recentCommitsData]);
-
-    useEffect(() => {
-        if (isRecentCommitsError) {
-            setCommits([]);
-
-            console.error(extractErrorMessage(recentCommitsError));
-        }
-    }, [isRecentCommitsError, recentCommitsError]);
-
-    // ---- Commit activity ---
-
-    useEffect(() => {
-        if (commitActivityData) {
-            setCommitActivity(commitActivityData);
-        }
-    }, [commitActivityData]);
-
-    useEffect(() => {
-        if (isCommitActivityError) {
-            setCommitActivity([]);
-        }
-    }, [isCommitActivityError, commitActivityError]);
-
-    // ---- Top languages ---
-
-    useEffect(() => {
-        if (topLanguagesData) {
-            setTopLanguages(topLanguagesData);
-        }
-    }, [topLanguagesData]);
-
-    useEffect(() => {
-        if (isTopLanguagesError) {
-            console.error(extractErrorMessage(topLanguagesError));
-        }
-    }, [isTopLanguagesError, topLanguagesError]);
-
-    // ---- Sonar measures ---
-
-    useEffect(() => {
-        if (sonarMeasuresData) {
-            setSonarMeasures(sonarMeasuresData);
-        }
-    }, [sonarMeasuresData]);
-
-    useEffect(() => {
-        if (isSonarMeasuresError) {
-            console.error('Failed to fetch Sonar measures');
-        }
-    }, [isSonarMeasuresError, sonarMeasuresError]);
-
-    // ---- README -----
-    useEffect(() => {
-        if (readmeData) {
-            setReadme(readmeData);
-        }
-    }, [readmeData]);
-
-    useEffect(() => {
-        if (isReadmeError) {
-            console.error(`Failed to fetch README.md ${readmeError}`);
-        }
-    }, [isReadmeError, readmeError]);
+    const { topLanguagesData, isTopLanguagesFetching } = useTopLanguagesData(
+        projectData.name,
+        inView
+    );
+    const { readmeData, isReadmeFetching } = useReadme(
+        projectData.name,
+        inView
+    );
+    const { sonarMeasuresData, isSonarMeasuresFetching } = useSonarData(
+        projectData.name,
+        inView
+    );
+    const { commits, isRecentCommitsFetching } = useRecentCommits(
+        projectData.name,
+        inView
+    );
+    const { commitActivity, isCommitActivityFetching } = useCommitActivity(
+        projectData.name,
+        inView
+    );
 
     return (
         <article
@@ -242,18 +113,18 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                 </div>
                 <div className="project-row-main">
                     <Sidebar
-                        languages={topLanguages}
+                        languages={topLanguagesData}
                         isTopLanguagesFetching={isTopLanguagesFetching}
                     />
                     <ul className="project-cards">
                         <ThumbnailCard
                             projectData={projectData}
-                            readme={readme}
+                            readme={readmeData}
                             isReadmeFetching={isReadmeFetching}
                         />
                         <MetricsCard
                             projectData={projectData}
-                            sonarMeasures={sonarMeasures}
+                            sonarMeasures={sonarMeasuresData}
                             isSonarMeasuresFetching={isSonarMeasuresFetching}
                         />
                         <ActivityCard
