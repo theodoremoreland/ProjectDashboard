@@ -55,6 +55,16 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
                                 }
                             }}
                         />
+                        <div className="glitch__layers">
+                            {[1, 2, 3].map(() => (
+                                <div
+                                    className="glitch__layer"
+                                    style={{
+                                        backgroundImage: `url('${projectData.image}')`,
+                                    }}
+                                ></div>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <div className="middle">

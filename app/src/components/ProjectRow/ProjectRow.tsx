@@ -18,7 +18,6 @@ import ThumbnailCard from './Cards/ThumbnailCard';
 import MetricsCard from './Cards/MetricsCard';
 import ActivityCard from './Cards/ActivityCard';
 import Corner from '../Corner/Corner';
-import Garganta from '../Garganta/Garganta';
 import DigitalRain from '../DigitalRain/DigitalRain';
 
 // Types
@@ -253,7 +252,6 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                             <span>S</span>
                         </p>
                         <DigitalRain topics={projectData.topics} />
-                        <Garganta />
                     </div>
                 </div>
             </div>

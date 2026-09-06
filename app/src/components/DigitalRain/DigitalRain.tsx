@@ -1,5 +1,5 @@
 // React
-import { ReactElement, useEffect, useState, useRef, useCallback } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 
 // Styles
 import './DigitalRain.css';
@@ -8,101 +8,72 @@ interface Props {
     topics: string[];
 }
 
-interface Props2 {
-    topics: string[];
-    letteringSpeed: number;
-    rainDelay: number;
-}
-
-export const RainRow = ({
-    topics,
-    letteringSpeed,
-    rainDelay,
-}: Props2): ReactElement => {
-    const letterIndex = useRef<number>(0);
-    const wordIndex = useRef<number>(0);
-    const intervalId = useRef<number | undefined>(undefined);
-    const timeoutId = useRef<number | undefined>(undefined);
-    const [isIntervalActive, setIsIntervalActive] = useState<boolean>(true);
-    const [characters, setCharacters] = useState<string[]>([
-        topics[wordIndex.current][0],
-    ]);
-
-    const indexWord = useCallback(() => {
-        if (wordIndex.current === topics.length - 1) {
-            wordIndex.current = 0;
-        } else {
-            wordIndex.current += 1;
-        }
-
-        setCharacters([topics[wordIndex.current][0]]);
-        setIsIntervalActive(true);
-        timeoutId.current = undefined;
-    }, [wordIndex, topics]);
-
-    const indexLetter = useCallback(() => {
-        const word: string = topics[wordIndex.current];
-        const isLastLetter: boolean = letterIndex.current === word.length - 1;
-        console.log(word);
-
-        // If last letter
-        if (isLastLetter) {
-            letterIndex.current = 0;
-            setIsIntervalActive(false);
-            // Countdown before switching words
-            timeoutId.current = setTimeout(indexWord, rainDelay);
-
-            // Stop adding letters
-            clearInterval(intervalId.current);
-        } else {
-            letterIndex.current += 1;
-            setCharacters((c) => [
-                ...c,
-                topics[wordIndex.current][letterIndex.current],
-            ]);
-        }
-    }, [indexWord, rainDelay, topics]);
-
-    console.log(wordIndex.current, letterIndex.current);
+const DigitalRain = ({ topics }: Props): ReactElement => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
-        if (intervalId.current === undefined && isIntervalActive) {
-            // Interval for adding letters
-            // intervalId.current = setInterval(indexLetter, letteringSpeed);
-        }
+        let intervalId: undefined | number;
+        const canvas = canvasRef.current;
 
-        return () => {
-            if (intervalId.current !== undefined) {
-                clearInterval(intervalId.current);
-                intervalId.current = undefined;
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+
+        // Characters: Katakana & Digits
+        const katakana =
+            'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890';
+        const alphabet = katakana.split('');
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        // Track the vertical 'y' position of each column
+        const rainDrops: number[] = Array.from({ length: columns }).fill(
+            1
+        ) as number[];
+
+        const draw = () => {
+            if (!ctx) return;
+            // Draw a translucent background to create the trailing/fade effect
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0'; // Green text
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                // Pick a random character
+                const text =
+                    alphabet[Math.floor(Math.random() * alphabet.length)];
+
+                // x coordinate is column index * font size; y coordinate is tracked in array
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                // Send drop back to top randomly after it crosses the bottom of the screen
+                if (
+                    rainDrops[i] * fontSize > canvas.height &&
+                    Math.random() > 0.975
+                ) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
             }
         };
-    }, [letteringSpeed, rainDelay, topics, indexLetter, isIntervalActive]);
 
-    useEffect(() => {
+        // Keep responsive on resize
+        // window.addEventListener('resize', () => {
+        //     canvas.width = window.innerWidth;
+        //     canvas.height = window.innerHeight;
+        // });
+
+        // intervalId = setInterval(draw, 300);
+
         return () => {
-            if (timeoutId.current !== undefined) {
-                clearTimeout(timeoutId.current);
-                timeoutId.current = undefined;
-            }
+            clearInterval(intervalId);
         };
     }, []);
 
-    return (
-        <div className="RainColumn">
-            {characters.map((letter) => {
-                return <div className="letter">{letter}</div>;
-            })}
-        </div>
-    );
-};
-
-const DigitalRain = ({ topics }: Props): ReactElement => {
-    return (
-        <div className="DigitalRain">
-            <RainRow topics={topics} letteringSpeed={125} rainDelay={3_000} />
-        </div>
-    );
+    return <canvas ref={canvasRef} className="DigitalRain" />;
 };
 
 export default DigitalRain;
