@@ -68,7 +68,7 @@ export const RainRow = ({
     useEffect(() => {
         if (intervalId.current === undefined && isIntervalActive) {
             // Interval for adding letters
-            intervalId.current = setInterval(indexLetter, letteringSpeed);
+            // intervalId.current = setInterval(indexLetter, letteringSpeed);
         }
 
         return () => {

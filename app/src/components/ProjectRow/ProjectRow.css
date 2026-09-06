@@ -99,9 +99,9 @@
     .meta {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: flex-end;
-        height: 55%;
+        gap: 5px;
         color: var(--temp-silver);
         flex-shrink: 0;
     }
