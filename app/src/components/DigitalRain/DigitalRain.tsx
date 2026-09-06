@@ -6,16 +6,17 @@ import './DigitalRain.css';
 
 interface Props {
     topics: string[];
+    inView: boolean;
 }
 
-const DigitalRain = ({ topics }: Props): ReactElement => {
+const DigitalRain = ({ topics, inView }: Props): ReactElement => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const intervalRef = useRef<number | undefined>(undefined);
 
     useEffect(() => {
         const canvas = canvasRef.current;
 
-        if (canvas) {
+        if (canvas && inView) {
             canvas.width = canvas.clientWidth;
             canvas.height = canvas.clientHeight;
             const ctx = canvas.getContext('2d');
@@ -83,13 +84,15 @@ const DigitalRain = ({ topics }: Props): ReactElement => {
             //     canvas.height = window.innerHeight;
             // });
 
-            intervalRef.current = setInterval(draw, 300);
+            intervalRef.current = setInterval(draw, 100);
+        } else if (!inView) {
+            clearInterval(intervalRef.current);
         }
 
         return () => {
             clearInterval(intervalRef.current);
         };
-    }, []);
+    }, [inView, topics]);
 
     return <canvas ref={canvasRef} className="DigitalRain" />;
 };
