@@ -36,6 +36,7 @@ import WeightIcon from '../../assets/images/icons/weight.svg?react';
 
 // Styles
 import './ProjectRow.css';
+import { getProjectReadme } from '../../modules/readme';
 
 interface Props {
     projectData: TaggedRepoData;
@@ -53,6 +54,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     const [sonarMeasures, setSonarMeasures] = useState<
         SonarMeasures | undefined
     >(undefined);
+    const [readme, setReadme] = useState<string | undefined>(undefined);
 
     const { ref, inView } = useInView({
         threshold: 0.25,
@@ -103,6 +105,18 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         enabled: inView,
         queryKey: ['sonarMeasures', projectData.name],
         queryFn: () => getSonarMeasures(projectData.name),
+        staleTime: Infinity,
+        retry: false,
+    });
+    const {
+        data: readmeData,
+        error: readmeError,
+        isError: isReadmeError,
+        isFetching: isReadmeFetching,
+    } = useQuery({
+        enabled: inView,
+        queryKey: ['readme', projectData.name],
+        queryFn: () => getProjectReadme(projectData.name),
         staleTime: Infinity,
         retry: false,
     });
@@ -165,6 +179,19 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         }
     }, [isSonarMeasuresError, sonarMeasuresError]);
 
+    // ---- README -----
+    useEffect(() => {
+        if (readmeData) {
+            setReadme(readmeData);
+        }
+    }, [readmeData]);
+
+    useEffect(() => {
+        if (isReadmeError) {
+            console.error(`Failed to fetch README.md ${readmeError}`);
+        }
+    }, [isReadmeError, readmeError]);
+
     return (
         <article
             id={`${projectData.name}`}
@@ -219,7 +246,11 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         isTopLanguagesFetching={isTopLanguagesFetching}
                     />
                     <ul className="project-cards">
-                        <ThumbnailCard projectData={projectData} />
+                        <ThumbnailCard
+                            projectData={projectData}
+                            readme={readme}
+                            isReadmeFetching={isReadmeFetching}
+                        />
                         <MetricsCard
                             projectData={projectData}
                             sonarMeasures={sonarMeasures}

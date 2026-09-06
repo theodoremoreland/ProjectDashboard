@@ -1,3 +1,4 @@
+import getProjectReadme from './getProjectReadme';
 import getImagesFromReadme from './getImagesFromReadme';
 
-export { getImagesFromReadme };
+export { getProjectReadme, getImagesFromReadme };

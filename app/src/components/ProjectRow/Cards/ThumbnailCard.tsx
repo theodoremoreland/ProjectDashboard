@@ -14,12 +14,24 @@ import alt from '../../../assets/images/under-construction-thumbnail.jpg';
 
 // Styles
 import './ThumbnailCard.css';
+import { getImagesFromReadme } from '../../../modules/readme';
 
 interface Props {
     projectData: TaggedRepoData;
+    readme: string | undefined;
+    isReadmeFetching: boolean;
 }
 
-const ThumbnailCard = ({ projectData }: Props): ReactElement => {
+const ThumbnailCard = ({
+    projectData,
+    readme,
+    isReadmeFetching,
+}: Props): ReactElement => {
+    const readmeImages: string[] = getImagesFromReadme(
+        readme,
+        projectData.name
+    );
+
     return (
         <li
             className={`project-card-container ${
@@ -76,15 +88,16 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
                     <h4 className="project-screenshots-title">Screenshots</h4>
                     <div className="project-screenshots-container">
                         <ul className="project-screenshots">
-                            {[1, 2, 3, 4].map((_, index) => (
-                                <li key={index}>
-                                    <img
-                                        className="project-screenshot interactive"
-                                        src={projectData.image}
-                                        alt={`${projectData.name} screenshot ${index + 1}`}
-                                    />
-                                </li>
-                            ))}
+                            {!isReadmeFetching &&
+                                readmeImages.slice(0, 4).map((src, index) => (
+                                    <li key={index}>
+                                        <img
+                                            className="project-screenshot interactive"
+                                            src={src}
+                                            alt={`${projectData.name} screenshot ${index + 1}`}
+                                        />
+                                    </li>
+                                ))}
                         </ul>
                     </div>
                 </div>
