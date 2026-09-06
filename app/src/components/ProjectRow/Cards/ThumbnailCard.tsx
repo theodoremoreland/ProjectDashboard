@@ -56,8 +56,9 @@ const ThumbnailCard = ({ projectData }: Props): ReactElement => {
                             }}
                         />
                         <div className="glitch__layers">
-                            {[1, 2, 3].map(() => (
+                            {[1, 2, 3].map((num) => (
                                 <div
+                                    key={num}
                                     className="glitch__layer"
                                     style={{
                                         backgroundImage: `url('${projectData.image}')`,
