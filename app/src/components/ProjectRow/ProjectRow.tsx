@@ -251,7 +251,10 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                             <span>C</span>
                             <span>S</span>
                         </p>
-                        <DigitalRain topics={projectData.topics} />
+                        <DigitalRain
+                            topics={projectData.topics}
+                            inView={inView}
+                        />
                     </div>
                 </div>
             </div>
