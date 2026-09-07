@@ -45,6 +45,20 @@
                 border: none;
                 background-color: transparent;
             }
+
+            .index {
+                user-select: none;
+                position: absolute;
+                top: 0;
+                left: 200%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: nowrap;
+                font-size: 70%;
+                color: white;
+                height: 100%;
+            }
         }
     }
 }
