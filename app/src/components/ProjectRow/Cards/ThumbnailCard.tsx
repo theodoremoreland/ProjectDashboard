@@ -9,9 +9,6 @@ import Barcode from '../../Barcode/Barcode';
 import { TaggedRepoData } from '../../../types';
 import getProjectContext from '../../../utils/getProjectContext';
 
-// Images
-import alt from '../../../assets/images/under-construction-thumbnail.jpg';
-
 // Styles
 import './ThumbnailCard.css';
 import { getImagesFromReadme } from '../../../modules/readme';
@@ -59,26 +56,14 @@ const ThumbnailCard = ({
                             }}
                             src={projectData.image}
                             alt={projectData.name}
-                            onError={(e) => {
-                                const target: EventTarget = e.target;
-
-                                if (target instanceof HTMLImageElement) {
-                                    if (target.src !== alt) {
-                                        target.src = alt;
-                                    }
-                                }
-                            }}
                         />
                         <div className="glitch__layers">
-                            {[1, 2, 3].map((num) => (
-                                <div
-                                    key={num}
-                                    className="glitch__layer"
-                                    style={{
-                                        backgroundImage: `url('${projectData.image}')`,
-                                    }}
-                                ></div>
-                            ))}
+                            <div
+                                className="glitch__layer"
+                                style={{
+                                    backgroundImage: `url('${projectData.image}')`,
+                                }}
+                            ></div>
                         </div>
                     </div>
                 </div>
