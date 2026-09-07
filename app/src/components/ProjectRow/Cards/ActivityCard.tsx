@@ -39,6 +39,8 @@ const ActivityCard = ({
             <div className="project-card ActivityCard">
                 <Corner position="top-left" />
                 <Corner position="bottom-right" />
+                <Corner position="top-right" />
+                <Corner position="bottom-left" />
                 <div className="top">
                     <BarChart
                         className="DeltaBarChart"
@@ -54,7 +56,7 @@ const ActivityCard = ({
                                 colorMap: {
                                     type: 'piecewise',
                                     thresholds: [0],
-                                    colors: ['darkred', 'green'],
+                                    colors: ['darkred', '#26ff04'],
                                 },
                             },
                         ]}

@@ -6,7 +6,7 @@
     align-items: flex-start;
     width: 100%;
     height: 100%;
-    background-color: var(--temp-gray-3);
+    background-color: #020202;
     overflow-y: hidden;
 
     .top,

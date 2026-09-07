@@ -41,6 +41,8 @@ const ThumbnailCard = ({
             <div className="project-card ThumbnailCard">
                 <Corner position="top-left" />
                 <Corner position="bottom-right" />
+                <Corner position="top-right" />
+                <Corner position="bottom-left" />
                 <div className="top">
                     <span className="project-context">
                         {getProjectContext(projectData)}

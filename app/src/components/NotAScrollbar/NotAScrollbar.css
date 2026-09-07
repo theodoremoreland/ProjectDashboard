@@ -25,11 +25,11 @@
             position: relative;
             width: 100%;
             flex: 1;
-            background-color: var(--tertiary-color);
+            background-color: var(--secondary-color);
             border-bottom: 1px dotted black;
 
             &.selected {
-                background-color: var(--secondary-color);
+                background-color: var(--quaternary-color);
             }
 
             &:hover {

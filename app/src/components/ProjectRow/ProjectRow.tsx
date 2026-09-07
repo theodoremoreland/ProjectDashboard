@@ -171,7 +171,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         </p>
                         <DigitalRain
                             topics={projectData.topics}
-                            inView={hasSettled}
+                            shouldAnimate={hasSettled}
                         />
                     </div>
                 </div>
