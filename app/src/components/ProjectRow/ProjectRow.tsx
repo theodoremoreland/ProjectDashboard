@@ -39,7 +39,7 @@ interface Props {
 
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     const { ref, inView } = useInView({
-        threshold: 0.25,
+        threshold: 0.75,
     });
 
     const { topLanguagesData, isTopLanguagesFetching } = useTopLanguagesData(

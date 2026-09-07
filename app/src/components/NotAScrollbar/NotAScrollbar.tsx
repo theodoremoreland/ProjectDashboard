@@ -8,11 +8,16 @@ import { TaggedRepoData } from '../../types';
 import './NotAScrollbar.css';
 
 interface Props {
+    scrollToProject: (id: string) => void;
     projects: TaggedRepoData[];
     selectedProject: TaggedRepoData;
 }
 
-const NotAScrollbar = ({ projects, selectedProject }: Props): ReactElement => {
+const NotAScrollbar = ({
+    scrollToProject,
+    projects,
+    selectedProject,
+}: Props): ReactElement => {
     return (
         <div id="NotAScrollbar">
             <ol id="project-options">
@@ -21,10 +26,10 @@ const NotAScrollbar = ({ projects, selectedProject }: Props): ReactElement => {
                         key={project.name}
                         className={`interactive project-option ${selectedProject.name === project.name ? 'selected' : ''}`}
                     >
-                        <a
-                            id={`${project.name}-anchor`}
-                            href={`#${project.name}`}
-                        ></a>
+                        <button
+                            id={`scroll-to-${project.name}-button`}
+                            onClick={() => scrollToProject(project.name)}
+                        ></button>
                     </li>
                 ))}
             </ol>

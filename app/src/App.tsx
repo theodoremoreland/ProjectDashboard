@@ -8,9 +8,6 @@ import {
     ReactElement,
 } from 'react';
 
-// Custom Hooks
-import useIncrementAppViewCount from './hooks/useIncrementAppViewCount';
-
 // Context
 import { ProjectsContext } from './contexts/ProjectsContext';
 
@@ -32,9 +29,6 @@ const App = (): ReactElement => {
     const { repos, isError, selectedProject, setSelectedProject } =
         useContext(ProjectsContext);
 
-    // Custom Hooks
-    useIncrementAppViewCount();
-
     // Refs
     const titleCardRef = useRef<HTMLElement>(null);
     const intervalRef = useRef<number | undefined>(undefined);
@@ -51,6 +45,16 @@ const App = (): ReactElement => {
         []
     );
     const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
+    const scrollToProject = useCallback((id: string) => {
+        // Search for the ID strictly inside the parent container
+        const sectionElement = projectsSectionRef.current?.querySelector(
+            `#${id}`
+        );
+
+        if (sectionElement) {
+            sectionElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
 
     useEffect(() => {
         if (isError) {
@@ -142,6 +146,7 @@ const App = (): ReactElement => {
                         )}
                         {repos && (
                             <NotAScrollbar
+                                scrollToProject={scrollToProject}
                                 projects={repos}
                                 selectedProject={selectedProject || repos[0]}
                             />
