@@ -27,16 +27,16 @@
             rgba(0, 0, 0, 0.4) 0px 2px 4px,
             rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
         border: 1px solid var(--border-color);
-        color: var(--primary-font-color);
+        color: var(--secondary-font-color);
+        caret-color: var(--tertiary-color);
 
         &::placeholder {
             /* Standard syntax for Chrome, Firefox (19+), Opera, Safari, Edge */
-            color: rgba(
-                255,
-                255,
-                255,
-                0.591
-            ); /* Change to your desired color value (hex, RGB, or name) */
+            color: color-mix(
+                in srgb,
+                var(--secondary-font-color) 50%,
+                transparent
+            );
             opacity: 1; /* Firefox applies a lower default opacity, so set this explicitly */
         }
     }
@@ -58,7 +58,7 @@
         background-color: transparent;
 
         .icon {
-            fill: var(--primary-font-color);
+            fill: var(--secondary-font-color);
         }
     }
 

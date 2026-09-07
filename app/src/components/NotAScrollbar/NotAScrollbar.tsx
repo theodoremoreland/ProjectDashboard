@@ -30,7 +30,7 @@ const NotAScrollbar = ({
                             id={`scroll-to-${project.name}-button`}
                             onClick={() => scrollToProject(project.name)}
                         ></button>
-                        <span className="index">-{index}</span>
+                        <span className="index">-{index + 1}</span>
                     </li>
                 ))}
             </ol>

@@ -55,7 +55,7 @@ const DigitalRain = ({ topics, inView }: Props): ReactElement => {
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                ctx.fillStyle = '#c0fe04';
+                ctx.fillStyle = '#e2e2e2';
                 ctx.font = fontSize + 'px monospace';
 
                 for (let i = 0; i < rainDrops.length; i++) {
