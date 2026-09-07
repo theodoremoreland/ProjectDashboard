@@ -395,6 +395,8 @@ main {
     padding: 0;
     margin: 0;
     overflow-y: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     > .row {
         display: flex;
