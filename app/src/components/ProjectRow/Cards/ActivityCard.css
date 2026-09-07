@@ -73,7 +73,7 @@
     a:visited,
     a:hover,
     a:active {
-        color: var(--secondary-color);
+        color: var(--tertiary-color);
         text-decoration: none;
     }
 

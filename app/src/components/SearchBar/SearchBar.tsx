@@ -88,7 +88,7 @@ const SearchBar = (): ReactElement => {
             )}
             <div id="search-bar">
                 <span id="search-icon-area" onClick={handleCancelClick}>
-                    <SearchIcon className="icon" />
+                    <SearchIcon className="icon interactive" />
                 </span>
                 <input
                     ref={inputRef}
@@ -102,7 +102,7 @@ const SearchBar = (): ReactElement => {
                     onChange={(e) => setSearchValue(e.target.value)}
                 />
                 <span id="delete-icon-area" onClick={handleCancelClick}>
-                    <CancelIcon className="icon" />
+                    <CancelIcon className="icon interactive" />
                 </span>
                 {searchValue && showResults && (
                     // Wrapper is here solely for the purpose of positioning data attribute (i.e. result count) in desired location
