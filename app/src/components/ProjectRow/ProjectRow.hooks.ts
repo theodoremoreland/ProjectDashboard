@@ -87,7 +87,9 @@ export const useSonarData = (projectName: string, enabled: boolean) => {
 
     useEffect(() => {
         if (isSonarMeasuresError) {
-            console.error('Failed to fetch Sonar measures');
+            console.error(
+                `Failed to fetch Sonar measures ${sonarMeasuresError}`
+            );
         }
     }, [isSonarMeasuresError, sonarMeasuresError]);
 
@@ -164,9 +166,13 @@ export const useCommitActivity = (projectName: string, enabled: boolean) => {
 
     useEffect(() => {
         if (isCommitActivityError) {
+            console.error(
+                `Failed to fetch commit activity: ${commitActivityError}`
+            );
             setCommitActivity([]);
         }
     }, [isCommitActivityError, commitActivityError]);
+
     return {
         commitActivity,
         isCommitActivityError,
