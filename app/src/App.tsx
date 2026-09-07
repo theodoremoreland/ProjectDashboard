@@ -24,9 +24,6 @@ import Error from './components/Modal/Error/Error';
 import NotAScrollbar from './components/NotAScrollbar/NotAScrollbar';
 import Cursor from './components/Cursor/Cursor';
 
-// Images
-import ArrowUpwardIcon from './assets/images/icons/arrow_upward.svg?react';
-
 // Custom Styles
 import './App.css';
 
@@ -41,13 +38,9 @@ const App = (): ReactElement => {
     // Refs
     const titleCardRef = useRef<HTMLElement>(null);
     const intervalRef = useRef<number | undefined>(undefined);
-    const trackRef = useRef<HTMLDivElement>(null);
-    const thumbRef = useRef<HTMLDivElement>(null);
     const projectsSectionRef = useRef<HTMLDivElement>(null);
 
     // State (boolean)
-    const [showScrollToTopButton, setShowScrollToTopButton] =
-        useState<boolean>(false);
     const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
     const [showAnalytics, setShowAnalytics] = useState<boolean>(false);
     const [showOverviewModal, setShowOverviewModal] = useState<boolean>(false);
@@ -58,41 +51,6 @@ const App = (): ReactElement => {
         []
     );
     const handleShowErrorModal = useCallback(() => setShowErrorModal(true), []);
-
-    // Other
-    const scrollToTopOfProjectsSection = useCallback(() => {
-        const projectsSection: HTMLDivElement | null =
-            projectsSectionRef.current;
-
-        if (projectsSection) {
-            projectsSection.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-            });
-        }
-    }, []);
-
-    const onProjectsSectionScroll = useCallback(() => {
-        const projectsSection: HTMLDivElement | null =
-            projectsSectionRef.current;
-        const track: HTMLDivElement | null = trackRef.current;
-        const thumb: HTMLDivElement | null = thumbRef.current;
-
-        if (!projectsSection || !track || !thumb) {
-            return;
-        }
-
-        const scrollTop: number = projectsSection.scrollTop;
-        const scrollHeight: number =
-            projectsSection.scrollHeight - projectsSection.clientHeight;
-        const scrolledRatio: number = scrollTop / scrollHeight;
-
-        if (scrolledRatio > 0.25) {
-            setShowScrollToTopButton(true);
-        } else {
-            setShowScrollToTopButton(false);
-        }
-    }, []);
 
     useEffect(() => {
         if (isError) {
@@ -156,11 +114,7 @@ const App = (): ReactElement => {
                 <div id="app-content">
                     <div className="row">
                         {repos && (
-                            <section
-                                id="projects"
-                                ref={projectsSectionRef}
-                                onScroll={onProjectsSectionScroll}
-                            >
+                            <section id="projects" ref={projectsSectionRef}>
                                 {repos &&
                                     repos.map((repo) => {
                                         return (
@@ -199,19 +153,6 @@ const App = (): ReactElement => {
                         button in the area of the project grid and thus potentially obscuring the projects or being hard
                         to see, it would potentially overlap with the sidebar.
                     */}
-                    {showScrollToTopButton && (
-                        <div id="scroll-to-top-container">
-                            <button
-                                title="Scroll to top"
-                                aria-label="Scroll to top"
-                                type="button"
-                                className="scroll-to-top"
-                                onClick={scrollToTopOfProjectsSection}
-                            >
-                                <ArrowUpwardIcon className="icon" />
-                            </button>
-                        </div>
-                    )}
                 </div>
                 <ToolBar setShowOverviewModal={setShowOverviewModal} />
             </main>

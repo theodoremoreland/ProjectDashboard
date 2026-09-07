@@ -426,42 +426,6 @@ main {
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* Internet Explorer 10+ */
     }
-
-    #scroll-to-top-container {
-        display: none;
-        z-index: 2;
-        position: fixed;
-        bottom: 10px;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    button.scroll-to-top {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        margin: 0;
-        background-color: var(--primary-highlight-color);
-        border-radius: 100%;
-        border: none;
-        color: var(--primary-font-color);
-
-        &:hover {
-            opacity: 0.7;
-        }
-
-        &:active {
-            transform: scale(0.9);
-        }
-
-        .icon {
-            height: 2em;
-            fill: var(--primary-font-color);
-        }
-    }
 }
 
 .close-button {
