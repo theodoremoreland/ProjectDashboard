@@ -1,5 +1,5 @@
 // React
-import { SetStateAction, Dispatch, useEffect } from 'react';
+import { SetStateAction, Dispatch, useEffect, useState } from 'react';
 
 // Third party
 import { useInView } from 'react-intersection-observer';
@@ -38,35 +38,50 @@ interface Props {
 }
 
 const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
+    const [hasSettled, setHasSettled] = useState<boolean>(false);
+
+    // Third party hooks
     const { ref, inView } = useInView({
-        threshold: 0.75,
+        threshold: 0.25,
     });
 
+    // Custom hooks
     const { topLanguagesData, isTopLanguagesFetching } = useTopLanguagesData(
         projectData.name,
-        inView
+        hasSettled
     );
     const { readmeData, isReadmeFetching } = useReadme(
         projectData.name,
-        inView
+        hasSettled
     );
     const { sonarMeasuresData, isSonarMeasuresFetching } = useSonarData(
         projectData.name,
-        inView
+        hasSettled
     );
     const { commits, isRecentCommitsFetching } = useRecentCommits(
         projectData.name,
-        inView
+        hasSettled
     );
     const { commitActivity, isCommitActivityFetching } = useCommitActivity(
         projectData.name,
-        inView
+        hasSettled
     );
 
     useEffect(() => {
+        let timeoutId: number | undefined;
+
         if (inView) {
-            setSelectedProject(projectData);
+            timeoutId = setTimeout(() => {
+                setSelectedProject(projectData);
+                setHasSettled(true);
+            }, 100);
+        } else {
+            setHasSettled(false);
         }
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
     }, [inView, projectData, setSelectedProject]);
 
     return (
@@ -156,7 +171,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         </p>
                         <DigitalRain
                             topics={projectData.topics}
-                            inView={inView}
+                            inView={hasSettled}
                         />
                     </div>
                 </div>
