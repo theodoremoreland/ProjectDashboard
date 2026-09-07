@@ -21,7 +21,7 @@ import ProjectRow from './components/ProjectRow/ProjectRow';
 import ToolBar from './components/ToolBar/ToolBar';
 import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
-import Scrollbar from './components/Scrollbar/Scrollbar';
+import NotAScrollbar from './components/NotAScrollbar/NotAScrollbar';
 import Cursor from './components/Cursor/Cursor';
 
 // Images
@@ -32,7 +32,8 @@ import './App.css';
 
 const App = (): ReactElement => {
     // Context
-    const { repos, isError, setSelectedProject } = useContext(ProjectsContext);
+    const { repos, isError, selectedProject, setSelectedProject } =
+        useContext(ProjectsContext);
 
     // Custom Hooks
     useIncrementAppViewCount();
@@ -43,13 +44,6 @@ const App = (): ReactElement => {
     const trackRef = useRef<HTMLDivElement>(null);
     const thumbRef = useRef<HTMLDivElement>(null);
     const projectsSectionRef = useRef<HTMLDivElement>(null);
-
-    // State (data)
-    const [dragState, setDragState] = useState({
-        isDragging: false,
-        startY: 0,
-        startTop: 0,
-    });
 
     // State (boolean)
     const [showScrollToTopButton, setShowScrollToTopButton] =
@@ -78,19 +72,6 @@ const App = (): ReactElement => {
         }
     }, []);
 
-    const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-        const thumb = thumbRef.current;
-        if (!thumb) return;
-
-        setDragState({
-            isDragging: true,
-            startY: e.clientY,
-            startTop: thumb.offsetTop,
-        });
-
-        document.body.style.userSelect = 'none'; // Prevent text highlighting
-    };
-
     const onProjectsSectionScroll = useCallback(() => {
         const projectsSection: HTMLDivElement | null =
             projectsSectionRef.current;
@@ -105,14 +86,6 @@ const App = (): ReactElement => {
         const scrollHeight: number =
             projectsSection.scrollHeight - projectsSection.clientHeight;
         const scrolledRatio: number = scrollTop / scrollHeight;
-        const trackRemainingHeight: number =
-            track.clientHeight - thumb.clientHeight;
-
-        if (scrollHeight > 0) {
-            const scrollPercentage = scrollTop / scrollHeight;
-
-            thumb.style.top = `${scrollPercentage * trackRemainingHeight}px`;
-        }
 
         if (scrolledRatio > 0.25) {
             setShowScrollToTopButton(true);
@@ -120,52 +93,6 @@ const App = (): ReactElement => {
             setShowScrollToTopButton(false);
         }
     }, []);
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            if (!dragState.isDragging) return;
-
-            const content = projectsSectionRef.current;
-            const track = trackRef.current;
-            const thumb = thumbRef.current;
-            if (!content || !track || !thumb) return;
-
-            const deltaY = e.clientY - dragState.startY;
-            const trackRemainingHeight =
-                track.clientHeight - thumb.clientHeight;
-
-            let newTop = dragState.startTop + deltaY;
-            newTop = Math.max(0, Math.min(newTop, trackRemainingHeight));
-
-            thumb.style.top = `${newTop}px`;
-
-            // Translate thumb position back to hidden scroll layout
-            if (trackRemainingHeight > 0) {
-                const scrollPercentage = newTop / trackRemainingHeight;
-                const scrollableHeight =
-                    content.scrollHeight - content.clientHeight;
-                content.scrollTop = scrollPercentage * scrollableHeight;
-            }
-        };
-
-        const handleMouseUp = () => {
-            if (dragState.isDragging) {
-                setDragState((prev) => ({ ...prev, isDragging: false }));
-                document.body.style.userSelect = 'auto';
-            }
-        };
-
-        // Attach global listeners for dragging outside the component track boundary
-        if (dragState.isDragging) {
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', handleMouseUp);
-        }
-
-        return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
-        };
-    }, [dragState]);
 
     useEffect(() => {
         if (isError) {
@@ -259,12 +186,12 @@ const App = (): ReactElement => {
                                 handleClose={() => setShowOverviewModal(false)}
                             />
                         )}
-                        <Scrollbar
-                            projects={repos}
-                            trackRef={trackRef}
-                            thumbRef={thumbRef}
-                            handleMouseDown={handleMouseDown}
-                        />
+                        {repos && (
+                            <NotAScrollbar
+                                projects={repos}
+                                selectedProject={selectedProject || repos[0]}
+                            />
+                        )}
                     </div>
                     {/* ! This logic assumes the sidebar, repo count, and limited vertical real estate are enough
                         to warrant a scroll to top button fixed beneath the sidebar. I didn't want to base the

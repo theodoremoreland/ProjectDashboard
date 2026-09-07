@@ -17,8 +17,9 @@ const DigitalRain = ({ topics, inView }: Props): ReactElement => {
         const canvas = canvasRef.current;
 
         if (canvas && inView) {
-            canvas.width = canvas.clientWidth;
-            canvas.height = canvas.clientHeight;
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = canvas.clientWidth * dpr;
+            canvas.height = canvas.clientHeight * dpr;
             const ctx = canvas.getContext('2d');
 
             // Characters: Katakana & Digits

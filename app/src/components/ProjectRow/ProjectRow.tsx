@@ -1,5 +1,5 @@
 // React
-import { SetStateAction, Dispatch } from 'react';
+import { SetStateAction, Dispatch, useEffect } from 'react';
 
 // Third party
 import { useInView } from 'react-intersection-observer';
@@ -63,13 +63,14 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         inView
     );
 
+    useEffect(() => {
+        if (inView) {
+            setSelectedProject(projectData);
+        }
+    }, [inView, projectData, setSelectedProject]);
+
     return (
-        <article
-            id={`${projectData.name}`}
-            className="ProjectRow"
-            ref={ref}
-            onMouseEnter={() => setSelectedProject(projectData)}
-        >
+        <article id={`${projectData.name}`} className="ProjectRow" ref={ref}>
             <div className="project-row-content">
                 <div className="project-row-header">
                     <h2 className="project-name">
