@@ -39,6 +39,8 @@ const MetricsCard = ({
             <div className="project-card MetricsCard">
                 <Corner position="top-left" />
                 <Corner position="bottom-right" />
+                <Corner position="top-right" />
+                <Corner position="bottom-left" />
                 <ul className="software-quality-container">
                     <li>
                         <div className="quality-label-container">

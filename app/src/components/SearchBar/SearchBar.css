@@ -28,7 +28,7 @@
             rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
         border: 1px solid var(--border-color);
         color: var(--secondary-font-color);
-        caret-color: var(--tertiary-color);
+        caret-color: var(--quaternary-color);
 
         &::placeholder {
             /* Standard syntax for Chrome, Firefox (19+), Opera, Safari, Edge */
