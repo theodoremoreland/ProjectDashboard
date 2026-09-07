@@ -24,8 +24,8 @@
         height: 20%;
         padding: 1rem;
         background-color: black;
-        border-top: 1px solid var(--temp-silver);
-        border-bottom: 1px solid var(--temp-silver);
+        border-top: 1px dashed var(--temp-silver);
+        border-bottom: 1px dashed var(--temp-silver);
     }
 
     .dora-container,
