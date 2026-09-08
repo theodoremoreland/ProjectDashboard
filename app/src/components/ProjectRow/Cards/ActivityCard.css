@@ -136,17 +136,18 @@
             font-size: 1rem;
         }
 
-        .MuiChartsAxis-grid {
-            stroke: #696969;
-            stroke-dasharray: 2 2;
-        }
-
         .MuiChartsGrid-line {
             stroke: #838383;
         }
 
         .MuiBarLabel-root {
-            fill: #c8c8c8;
+            &:nth-last-of-type(1) {
+                fill: #c8c8c8;
+            }
+
+            &:nth-last-of-type(2) {
+                fill: #000000;
+            }
         }
     }
 }
