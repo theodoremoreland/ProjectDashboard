@@ -10,7 +10,7 @@ const GlyphLane = (): ReactElement => {
     const randomAssortment: string[] = useMemo(() => {
         const result: string[] = [];
 
-        while (result.length < 50) {
+        for (let i = 0; i < 49; i++) {
             const randomGlyph: string =
                 glyphs[Math.round(Math.random() * (glyphs.length - 1))];
 
