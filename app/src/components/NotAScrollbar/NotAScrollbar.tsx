@@ -24,13 +24,14 @@ const NotAScrollbar = ({
                 {projects?.map((project, index) => (
                     <li
                         key={project.name}
-                        className={`interactive project-option ${selectedProject.name === project.name ? 'selected' : ''}`}
+                        className={`project-option ${selectedProject.name === project.name ? 'selected' : ''}`}
                     >
                         <button
                             id={`scroll-to-${project.name}-button`}
                             onClick={() => scrollToProject(project.name)}
-                        ></button>
-                        <span className="index">-{index + 1}</span>
+                        >
+                            <span className="index">-{index + 1}</span>
+                        </button>
                     </li>
                 ))}
             </ol>

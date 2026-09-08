@@ -1,20 +1,13 @@
 .Cursor {
     z-index: 9999;
+    display: none;
     position: absolute;
     top: 12px;
     left: 3px;
     pointer-events: none;
 
-    .pointer {
-        display: none;
-    }
-
-    &.pointer {
-        .default {
-            display: none;
-        }
-
-        .pointer {
+    &.video {
+        .video-cursor {
             display: block;
         }
     }

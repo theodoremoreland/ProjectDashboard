@@ -96,7 +96,6 @@ const ActivityCard = ({
                                         : 'Unknown date'}
                                 </p>
                                 <a
-                                    className="interactive"
                                     target="_blank"
                                     rel="noreferrer"
                                     href={commit.commitUrl}

@@ -2,7 +2,6 @@
 import { ReactElement, useCallback, useEffect, useRef } from 'react';
 
 // Images
-import DefaultCursorIcon from '../../assets/images/icons/arrow_selector_tool.svg?react';
 import PointerCursorIcon from '../../assets/images/icons/pan_tool_alt.svg?react';
 
 // Styles
@@ -17,10 +16,10 @@ const Cursor = (): ReactElement => {
         cursorRef.current.style.transform = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
 
         if (event.target instanceof Element) {
-            if (event.target.closest('.interactive')) {
-                cursorRef.current.classList.add('pointer');
+            if (event.target.closest('.video')) {
+                cursorRef.current.classList.add('video');
             } else {
-                cursorRef.current.classList.remove('pointer');
+                cursorRef.current.classList.remove('video');
             }
         }
     }, []);
@@ -35,8 +34,7 @@ const Cursor = (): ReactElement => {
 
     return (
         <div className="Cursor" ref={cursorRef}>
-            <DefaultCursorIcon className="default" />
-            <PointerCursorIcon className="pointer" />
+            <PointerCursorIcon className="video-cursor" />
         </div>
     );
 };

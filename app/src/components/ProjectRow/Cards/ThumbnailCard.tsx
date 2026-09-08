@@ -82,7 +82,7 @@ const ThumbnailCard = ({
                                 readmeImages.slice(0, 4).map((src, index) => (
                                     <li key={index}>
                                         <img
-                                            className="project-screenshot interactive"
+                                            className="project-screenshot"
                                             src={src}
                                             alt={`${projectData.name} screenshot ${index + 1}`}
                                         />

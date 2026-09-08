@@ -123,7 +123,6 @@ html {
     background-color: var(--background-color);
     overflow-x: hidden;
     font-family: custom-regular;
-    cursor: none;
 }
 
 body,
@@ -182,7 +181,7 @@ li {
 
 a,
 button {
-    cursor: none;
+    cursor: pointer;
 }
 
 @-webkit-keyframes shine {
