@@ -33,8 +33,6 @@
         align-items: center;
         height: 20%;
         background-color: black;
-        border-top: 1px dashed var(--temp-silver);
-        border-bottom: 1px dashed var(--temp-silver);
         overflow-x: hidden;
 
         &::after {

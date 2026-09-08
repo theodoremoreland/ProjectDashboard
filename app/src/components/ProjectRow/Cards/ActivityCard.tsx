@@ -9,6 +9,7 @@ import { getCommitsPerWeek, getRecentDelta } from './ActivityCard.util';
 
 // Components
 import Corner from '../../Corner/Corner';
+import GlyphLane from '../../GlyphLane/GlyphLane';
 
 // Types
 import { CommitActivityData, TaggedRepoData, Commit } from '../../../types';
@@ -68,6 +69,7 @@ const ActivityCard = ({
                 <div
                     className={`middle sparkline-container ${isCommitActivityFetching ? '' : 'loaded'}`}
                 >
+                    <GlyphLane />
                     <SparkLineChart
                         data={commitsPerWeek}
                         colors={['#c0fe04']}
@@ -75,6 +77,7 @@ const ActivityCard = ({
                         showTooltip
                         showHighlight
                     />
+                    <GlyphLane />
                 </div>
                 <div className="bottom commits-container">
                     <h3>Recent commits</h3>

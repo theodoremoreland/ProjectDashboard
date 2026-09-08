@@ -2,12 +2,12 @@
 import { ReactElement, useMemo } from 'react';
 
 // Styles
-import 'GlyphLane.css';
+import './GlyphLane.css';
 
 const glyphs: string[] = ['#', '/', '-', '*', '='];
 
 const GlyphLane = (): ReactElement => {
-    const randomAssortment = useMemo(() => {
+    const randomAssortment: string[] = useMemo(() => {
         const result: string[] = [];
 
         while (result.length < 50) {

@@ -8,6 +8,7 @@ import { REPO_OWNER } from '../../../constants/RepoOwner';
 // Components
 import Corner from '../../Corner/Corner';
 import GradeGraph from '../../GradeGraph/GradeGraph';
+import GlyphLane from '../../GlyphLane/GlyphLane';
 
 // Types
 import { SonarMeasures, TaggedRepoData } from '../../../types';
@@ -173,8 +174,12 @@ const MetricsCard = ({
                         )}
                     </li>
                 </ul>
-                <div className="MetricsCard__header">
-                    <h3>Software Quality</h3>x<h3>DORA Metrics</h3>
+                <div className="middle">
+                    <GlyphLane />
+                    <div className="MetricsCard__header">
+                        <h3>Software Quality</h3>x<h3>DORA Metrics</h3>
+                    </div>
+                    <GlyphLane />
                 </div>
                 <ul className="dora-container">
                     <li>
