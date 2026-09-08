@@ -4,6 +4,7 @@ import { ReactElement } from 'react';
 // Components
 import Corner from '../../Corner/Corner';
 import Barcode from '../../Barcode/Barcode';
+import GlyphLane from '../../GlyphLane/GlyphLane';
 
 // Custom
 import { TaggedRepoData } from '../../../types';
@@ -68,8 +69,10 @@ const ThumbnailCard = ({
                     </div>
                 </div>
                 <div className="middle">
+                    <GlyphLane />
                     <Barcode value={projectData.name} />
                     <p className="project-description">{projectData.desc}</p>
+                    <GlyphLane />
                 </div>
                 <div className="bottom">
                     <h4 className="project-screenshots-title">Screenshots</h4>
