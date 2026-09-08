@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 5px;
+    width: 8px;
     background-color: transparent;
 
     #project-options {
@@ -47,7 +47,7 @@
             }
 
             .index {
-                user-select: none;
+                pointer-events: none;
                 position: absolute;
                 top: 0;
                 left: 200%;

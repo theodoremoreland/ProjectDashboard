@@ -71,7 +71,7 @@ const MetricsCard = ({
                             <p className="grade">...</p>
                         ) : (
                             <a
-                                className="grade-link interactive"
+                                className="grade-link"
                                 href={SoftwareQualityLink.maintainability}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -103,7 +103,7 @@ const MetricsCard = ({
                             <p className="grade">...</p>
                         ) : (
                             <a
-                                className="grade-link interactive"
+                                className="grade-link"
                                 href={SoftwareQualityLink.reliability}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -135,7 +135,7 @@ const MetricsCard = ({
                             <p className="grade">...</p>
                         ) : (
                             <a
-                                className="grade-link interactive"
+                                className="grade-link"
                                 href={SoftwareQualityLink.security}
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -204,7 +204,7 @@ const MetricsCard = ({
                     </li>
                     <div className="deployment-button-container">
                         <a
-                            className={`view-deployment-link ${hasValidDemoLink ? 'interactive' : ''}`}
+                            className={`view-deployment-link ${!hasValidDemoLink ? 'disabled' : ''}`}
                             href={
                                 hasValidDemoLink
                                     ? projectData.demo_link
@@ -219,7 +219,7 @@ const MetricsCard = ({
                             }
                         >
                             <button
-                                className={`view-deployment ${hasValidDemoLink ? 'interactive' : 'disabled'}`}
+                                className={`view-deployment ${!hasValidDemoLink ? 'disabled' : ''}`}
                                 disabled={!hasValidDemoLink}
                             >
                                 <span>View Deployment</span>{' '}

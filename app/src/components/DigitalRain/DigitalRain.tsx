@@ -22,19 +22,27 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
             canvas.height = canvas.clientHeight * dpr;
             const ctx = canvas.getContext('2d');
 
-            // Characters: Katakana & Digits
-            const katakana: string =
-                'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890';
-            const alphabet: string[] = katakana.split('');
-
-            const fontSize: number = 10;
+            const fontSize: number = 16;
             const columns: number = canvas.width / fontSize;
 
-            const topicMatrix: string[] = [];
-            let topicMatrixIndex = 0;
+            // Represents the vertical position of each char in each column. On draw each char's Y position is multiplied by font-size
+            const topicMatrix: { char: string; pos: number }[][] = [];
+            let topicMatrixIndex: number = 0;
 
             while (topicMatrix.length < columns) {
-                topicMatrix.push(topics[topicMatrixIndex]);
+                const word: string = topics[topicMatrixIndex];
+                const wordByLetterPosition: { char: string; pos: number }[] =
+                    word
+                        .split('')
+                        .reverse()
+                        .map((letter: string, index: number) => {
+                            return {
+                                char: letter,
+                                pos: index * -1,
+                            };
+                        });
+
+                topicMatrix.push(wordByLetterPosition);
 
                 if (topicMatrixIndex === topics.length - 1) {
                     topicMatrixIndex = 0;
@@ -43,38 +51,44 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                 topicMatrixIndex++;
             }
 
-            // Represents the vertical position of each char in each column. On draw each char's Y position is multiplied by font-size
-            const rainDrops: number[] = Array.from({ length: columns }).fill(
-                1
-            ) as number[];
+            console.log(topicMatrix);
 
             const draw = () => {
                 if (!ctx) return;
                 // Draw a translucent background to create the trailing/fade effect
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                // ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                // ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
 
                 ctx.fillStyle = '#e2e2e2';
                 ctx.font = fontSize + 'px monospace';
 
-                for (let i = 0; i < rainDrops.length; i++) {
-                    // Pick a random character
-                    const text =
-                        alphabet[Math.floor(Math.random() * alphabet.length)];
+                for (let i = 0; i < topicMatrix.length; i++) {
+                    const word: { char: string; pos: number }[] =
+                        topicMatrix[i];
+                    const wordLength: number = word.length;
+                    const firstLetterObj: { char: string; pos: number } =
+                        word[wordLength - 1];
 
-                    // x coordinate is column index * font size; y coordinate is tracked in array
-                    ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                    for (let j = 0; j < wordLength; j++) {
+                        word[j].pos++;
+                        // x coordinate is column index * font size; y coordinate is tracked in array
+                        ctx.fillText(
+                            word[j].char,
+                            i * fontSize,
+                            word[j].pos * fontSize
+                        );
+                    }
 
                     // Send drop back to top randomly after it crosses the bottom of the screen
                     if (
-                        rainDrops[i] * fontSize > canvas.height &&
+                        firstLetterObj.pos * fontSize > canvas.height &&
                         Math.random() > 0.975
                     ) {
-                        rainDrops[i] = 0;
+                        word.forEach((charObj, index) => {
+                            charObj.pos = index * -1;
+                        });
                     }
-
-                    // Shorthand for rainDrops += 1, which
-                    rainDrops[i]++;
                 }
             };
 
@@ -84,7 +98,7 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
             //     canvas.height = window.innerHeight;
             // });
 
-            intervalRef.current = setInterval(draw, 100);
+            //intervalRef.current = setInterval(draw, 100);
         } else if (!shouldAnimate) {
             clearInterval(intervalRef.current);
         }

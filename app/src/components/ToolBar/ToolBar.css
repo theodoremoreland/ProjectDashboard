@@ -65,6 +65,7 @@
         height: 100%;
         padding: 0 2em;
         border-right: 1px solid var(--temp-gray-3);
+        cursor: pointer;
 
         &:hover {
             .icon {

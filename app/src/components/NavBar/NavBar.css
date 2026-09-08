@@ -39,6 +39,7 @@
         gap: 4px;
         font-family: custom-regular;
         font-size: 0.9em;
+        cursor: pointer;
 
         &:hover {
             color: var(--quaternary-color);
