@@ -15,6 +15,7 @@
     "plpgsql",
     "REDB",
     "scroller",
+    "sparkline",
     "sqale",
     "svgr",
     "tanstack",
