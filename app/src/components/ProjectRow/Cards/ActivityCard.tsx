@@ -66,17 +66,19 @@ const ActivityCard = ({
                         grid={{ horizontal: true, vertical: true }}
                     />
                 </div>
-                <div
-                    className={`middle sparkline-container ${isCommitActivityFetching ? '' : 'loaded'}`}
-                >
+                <div className={`middle`}>
                     <GlyphLane />
-                    <SparkLineChart
-                        data={commitsPerWeek}
-                        colors={['#c0fe04']}
-                        height={20}
-                        showTooltip
-                        showHighlight
-                    />
+                    <div
+                        className={`sparkline-container ${isCommitActivityFetching ? '' : 'loaded'}`}
+                    >
+                        <SparkLineChart
+                            data={commitsPerWeek}
+                            colors={['#c0fe04']}
+                            height={20}
+                            showTooltip
+                            showHighlight
+                        />
+                    </div>
                     <GlyphLane />
                 </div>
                 <div className="bottom commits-container">
