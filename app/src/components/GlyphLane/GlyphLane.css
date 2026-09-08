@@ -1,0 +1,13 @@
+.GlyphLane {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--temp-gray);
+    background-color: black;
+
+    .glyph {
+        display: inline-block;
+    }
+}
