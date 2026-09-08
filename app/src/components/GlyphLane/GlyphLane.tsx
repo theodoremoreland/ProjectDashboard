@@ -22,8 +22,10 @@ const GlyphLane = (): ReactElement => {
 
     return (
         <div className="GlyphLane">
-            {randomAssortment.map((glyph) => (
-                <span className="glyph">{glyph}</span>
+            {randomAssortment.map((glyph, index) => (
+                <span key={`${glyph}-${index}`} className="glyph">
+                    {glyph}
+                </span>
             ))}
         </div>
     );
