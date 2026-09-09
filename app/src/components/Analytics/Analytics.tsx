@@ -222,7 +222,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                     <button
                         type="button"
                         title="Close"
-                        className="close-button interactive"
+                        className="close-button"
                     >
                         Close
                     </button>
