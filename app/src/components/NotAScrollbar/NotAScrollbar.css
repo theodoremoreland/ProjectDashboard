@@ -1,4 +1,5 @@
 #NotAScrollbar {
+    z-index: 3;
     position: sticky;
     top: 0;
     right: 0;
@@ -34,6 +35,10 @@
 
             &:hover {
                 width: 175%;
+
+                .project-name {
+                    display: flex;
+                }
             }
 
             button {
@@ -56,8 +61,39 @@
                 align-items: center;
                 flex-wrap: nowrap;
                 font-size: 70%;
-                color: white;
+                color: var(--primary-font-color);
                 height: 100%;
+            }
+
+            .project-name {
+                pointer-events: none;
+                position: absolute;
+                top: -50%;
+                right: 200%;
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: nowrap;
+                padding: 0.2rem 0.5rem;
+                margin: 0;
+                background-color: black;
+
+                > p {
+                    color: var(--primary-font-color);
+                    text-align: center;
+                    letter-spacing: 2px;
+                    font-family: custom-regular;
+                    margin-top: -2%;
+                    padding: 0 0.5rem;
+                    padding-bottom: 4%;
+                }
+
+                .Corner {
+                    width: 15px;
+                    height: 15px;
+                    border-width: 1px;
+                }
             }
         }
     }

@@ -3,7 +3,6 @@ import { ReactElement } from 'react';
 
 // Components
 import Corner from '../../Corner/Corner';
-import Barcode from '../../Barcode/Barcode';
 import GlyphLane from '../../GlyphLane/GlyphLane';
 
 // Custom
@@ -70,7 +69,6 @@ const ThumbnailCard = ({
                 </div>
                 <div className="middle">
                     <GlyphLane />
-                    <Barcode value={projectData.name} />
                     <p className="project-description">{projectData.desc}</p>
                     <GlyphLane />
                 </div>

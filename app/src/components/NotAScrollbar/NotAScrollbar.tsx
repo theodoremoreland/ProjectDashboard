@@ -1,6 +1,10 @@
 // React
 import { ReactElement } from 'react';
 
+// Components
+import Barcode from '../Barcode/Barcode';
+import Corner from '../Corner/Corner';
+
 // Types
 import { TaggedRepoData } from '../../types';
 
@@ -32,6 +36,14 @@ const NotAScrollbar = ({
                         >
                             <span className="index">-{index + 1}</span>
                         </button>
+                        <span className="project-name">
+                            <Corner position="top-left" />
+                            <Corner position="bottom-right" />
+                            <Corner position="top-right" />
+                            <Corner position="bottom-left" />
+                            <Barcode value={project.name} />
+                            <p>{project.name}</p>
+                        </span>
                     </li>
                 ))}
             </ol>

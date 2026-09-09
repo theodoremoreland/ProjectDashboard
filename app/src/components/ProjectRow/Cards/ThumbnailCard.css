@@ -40,12 +40,6 @@
         padding-top: 20px;
     }
 
-    .Barcode {
-        g {
-            fill: var(--secondary-color) !important;
-        }
-    }
-
     .project-context {
         position: relative;
         color: black;
