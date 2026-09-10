@@ -182,24 +182,24 @@ const MetricsCard = ({
                     <GlyphLane />
                 </div>
                 <ul className="dora-container">
-                    <li>
-                        <p>Deployment Frequency</p>
-                        <p className="grade">2pw</p>
-                    </li>
-                    <li>
+                    <li title="Measures elapsed time from the initial commit timestamp to when the PR is merged/deployed">
                         <p>Lead Time for Changes</p>
                         <p className="grade">1w</p>
                     </li>
-                    <li>
-                        <p>Change Failure Rate</p>
-                        <p className="grade">5%</p>
+                    <li title="Counts total successful production deployments over a specific timeframe">
+                        <p>Deployment Frequency</p>
+                        <p className="grade">2pw</p>
                     </li>
-                    <li>
+                    <li title="Time to recover from a failed deployment">
                         <p>Failed Deployment Recovery Time</p>
                         <p className="grade">2h</p>
                     </li>
-                    <li>
-                        <p>Time to Restore Service</p>
+                    <li title="Percentage of total deployments that resulted in a hotfix PR or incident issue">
+                        <p>Change Failure Rate</p>
+                        <p className="grade">5%</p>
+                    </li>
+                    <li title="Percentage of deployments that are unplanned work to fix bugs">
+                        <p>Deployment rework rate</p>
                         <p className="grade">30m</p>
                     </li>
                     <div className="deployment-button-container">
