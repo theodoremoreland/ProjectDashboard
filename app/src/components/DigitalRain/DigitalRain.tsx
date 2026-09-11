@@ -20,7 +20,8 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
     const casedTopics = useMemo(() => properCase(topics), [topics]);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const intervalRef = useRef<number | undefined>(undefined);
+    const animationFrameIdRef = useRef<number | undefined>(undefined);
+    const lastAnimate = useRef<number>(0);
     const chosenColumnIndexRef = useRef<number | undefined>(undefined);
     const chosenTopicIndexRef = useRef<number>(0);
 
@@ -78,15 +79,9 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                ctx.fillStyle = '#e2e2e297';
-                ctx.font = FONT_SIZE + 'px monospace';
+                ctx.fillStyle = '#e2e2e2c0';
+                ctx.font = FONT_SIZE + 'px custom-regular';
 
-                // Check if row is chosen
-                // Randomly select a row if not
-                // Check if word can be displayed (i.e. difference between position nad canvas height / fontsize > word)
-                // Check if word of chosen row meets display threshold
-                // If not, display word and increment display threshold
-                // Once meeting display threshold set chosen row to undefined
                 if (chosenColumnIndexRef.current === undefined) {
                     chosenColumnIndexRef.current = Math.floor(
                         Math.random() * columnPositions.length
@@ -109,13 +104,13 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
 
                 for (let i = 0; i < columnPositions.length; i++) {
                     const numberOfCharactersLeftToRender: number =
-                        renderingTopic.reduce((prev, curr) => {
+                        renderingTopic?.reduce((prev, curr) => {
                             if (!curr.hasRendered) {
                                 return prev + 1;
                             } else {
                                 return prev;
                             }
-                        }, 0);
+                        }, 0) || 0;
                     const hasEnoughSpaceToRenderRemainingTopicCharacters: boolean =
                         canvas.height - i * FONT_SIZE >
                         numberOfCharactersLeftToRender * FONT_SIZE;
@@ -171,13 +166,28 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                 }
             };
 
-            intervalRef.current = setInterval(draw, 120);
+            const animate = (time: number) => {
+                const delta = time - lastAnimate.current;
+
+                if (delta >= 64) {
+                    draw();
+                    lastAnimate.current = time;
+                }
+
+                animationFrameIdRef.current = requestAnimationFrame(animate);
+            };
+
+            animationFrameIdRef.current = requestAnimationFrame(animate);
         } else if (!shouldAnimate) {
-            clearInterval(intervalRef.current);
+            if (animationFrameIdRef.current) {
+                cancelAnimationFrame(animationFrameIdRef.current);
+            }
         }
 
         return () => {
-            clearInterval(intervalRef.current);
+            if (animationFrameIdRef.current) {
+                cancelAnimationFrame(animationFrameIdRef.current);
+            }
         };
     }, [shouldAnimate, casedTopics]);
 
