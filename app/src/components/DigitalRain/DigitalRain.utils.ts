@@ -1,3 +1,5 @@
+export type RenderTopic = { char: string; hasRendered: boolean }[];
+
 const ProperCase: Record<string, string> = {
     html: 'HTML',
     css: 'CSS',
@@ -71,4 +73,33 @@ export const properCase = (topics: string[]): string[] => {
     });
 
     return result;
+};
+
+/**
+ * Generates a random number within a range (intended to avoid generating a random number too close to the edges).
+ * @param {number} columnCount - Number of columns.
+ * @returns {number} - A random number within a range.
+ */
+export const generateValidRandomNumber = (columnCount: number): number => {
+    const threshold: number = 8;
+    const randomNumber: number = Math.floor(Math.random() * columnCount);
+
+    if (randomNumber > columnCount - threshold) {
+        return columnCount - threshold;
+    }
+
+    if (randomNumber < threshold) {
+        return threshold;
+    }
+
+    return randomNumber;
+};
+
+export const formatRenderTopic = (topic: string): RenderTopic => {
+    return topic.split('').map((letter: string) => {
+        return {
+            char: letter,
+            hasRendered: false,
+        };
+    });
 };
