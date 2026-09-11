@@ -2,7 +2,12 @@
 import { ReactElement, useCallback, useEffect, useRef, useMemo } from 'react';
 
 // Custom
-import { properCase } from './DigitalRain.utils';
+import {
+    formatRenderTopic,
+    generateValidRandomNumber,
+    properCase,
+    RenderTopic,
+} from './DigitalRain.utils';
 
 // Styles
 import './DigitalRain.css';
@@ -12,18 +17,19 @@ interface Props {
     shouldAnimate: boolean;
 }
 
-const FONT_SIZE: number = 16;
+const FONT_SIZE: number = 12;
 const KATAKANA: string[] =
     'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890'.split('');
 
 const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
-    const casedTopics = useMemo(() => properCase(topics), [topics]);
+    const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameIdRef = useRef<number | undefined>(undefined);
     const lastAnimate = useRef<number>(0);
     const chosenColumnIndexRef = useRef<number | undefined>(undefined);
     const chosenTopicIndexRef = useRef<number>(0);
+    const renderingTopicRef = useRef<RenderTopic | undefined>(undefined);
 
     const size = useCallback(() => {
         if (!canvasRef.current) return;
@@ -47,64 +53,38 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
         if (canvas && shouldAnimate) {
             const ctx: CanvasRenderingContext2D | null =
                 canvas.getContext('2d');
-
             const columns: number = canvas.width / FONT_SIZE;
-            // Track the vertical 'y' position of each column
             const columnPositions: number[] = Array.from({
                 length: columns,
-            }).fill(1) as number[];
-
+            }).fill(1) as number[]; // Track the vertical 'y' position of each column
             const topicsThatFitCanvas: string[] = casedTopics.filter(
                 (topic: string) => {
                     return topic.length * FONT_SIZE < canvas.height;
                 }
             );
-            let renderingTopic:
-                | {
-                      char: string;
-                      hasRendered: boolean;
-                  }[]
-                | undefined = topicsThatFitCanvas[chosenTopicIndexRef.current]
-                .split('')
-                .map((letter: string) => {
-                    return {
-                        char: letter,
-                        hasRendered: false,
-                    };
-                });
 
-            const draw = () => {
+            const draw = (): void => {
                 if (!ctx) return;
-                // Draw a translucent background to create the trailing/fade effect
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                ctx.fillStyle = '#e2e2e2c0';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Draw a translucent background to create the trailing/fade effect
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.font = FONT_SIZE + 'px custom-regular';
 
                 if (chosenColumnIndexRef.current === undefined) {
-                    chosenColumnIndexRef.current = Math.floor(
-                        Math.random() * columnPositions.length
+                    chosenColumnIndexRef.current = generateValidRandomNumber(
+                        columnPositions.length
                     );
                 }
 
-                if (renderingTopic === undefined) {
-                    renderingTopic = topicsThatFitCanvas[
-                        chosenTopicIndexRef.current
-                    ]
-                        .split('')
-                        .map((letter: string, index: number) => {
-                            return {
-                                char: letter,
-                                ordinal: index,
-                                hasRendered: false,
-                            };
-                        });
+                if (renderingTopicRef.current === undefined) {
+                    renderingTopicRef.current = formatRenderTopic(
+                        topicsThatFitCanvas[chosenTopicIndexRef.current]
+                    );
                 }
 
                 for (let i = 0; i < columnPositions.length; i++) {
                     const numberOfCharactersLeftToRender: number =
-                        renderingTopic?.reduce((prev, curr) => {
+                        renderingTopicRef.current?.reduce((prev, curr) => {
                             if (!curr.hasRendered) {
                                 return prev + 1;
                             } else {
@@ -115,11 +95,18 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                         canvas.height - i * FONT_SIZE >
                         numberOfCharactersLeftToRender * FONT_SIZE;
 
-                    if (chosenColumnIndexRef.current === i && renderingTopic) {
+                    if (
+                        chosenColumnIndexRef.current === i &&
+                        renderingTopicRef.current
+                    ) {
                         ctx.fillStyle = '#e2ff04';
 
-                        for (let j = 0; j < renderingTopic.length; j++) {
-                            const char = renderingTopic[j];
+                        for (
+                            let j = 0;
+                            j < renderingTopicRef.current.length;
+                            j++
+                        ) {
+                            const char = renderingTopicRef.current[j];
 
                             if (char.hasRendered === false) {
                                 ctx.fillText(
@@ -152,14 +139,18 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                     }
 
                     if (
-                        renderingTopic &&
-                        renderingTopic[renderingTopic.length - 1].hasRendered
+                        renderingTopicRef.current &&
+                        renderingTopicRef.current[
+                            renderingTopicRef.current.length - 1
+                        ].hasRendered
                     ) {
                         chosenColumnIndexRef.current = undefined;
-                        renderingTopic = undefined;
-                        chosenTopicIndexRef.current = Math.floor(
-                            Math.random() * topicsThatFitCanvas.length
-                        );
+                        renderingTopicRef.current = undefined;
+                        chosenTopicIndexRef.current =
+                            chosenTopicIndexRef.current ===
+                            topicsThatFitCanvas.length - 1
+                                ? 0
+                                : chosenTopicIndexRef.current + 1;
                     }
 
                     columnPositions[i]++;
@@ -169,7 +160,7 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
             const animate = (time: number) => {
                 const delta = time - lastAnimate.current;
 
-                if (delta >= 64) {
+                if (delta >= 80) {
                     draw();
                     lastAnimate.current = time;
                 }
