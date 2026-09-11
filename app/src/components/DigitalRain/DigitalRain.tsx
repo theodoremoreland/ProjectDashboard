@@ -12,83 +12,147 @@ interface Props {
 const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const intervalRef = useRef<number | undefined>(undefined);
+    const chosenColumnIndexRef = useRef<number | undefined>(undefined);
+    const chosenTopicIndexRef = useRef<number>(0);
 
     useEffect(() => {
         const canvas = canvasRef.current;
 
         if (canvas && shouldAnimate) {
-            const dpr = window.devicePixelRatio || 1;
+            const dpr: number = window.devicePixelRatio || 1;
+            const ctx: CanvasRenderingContext2D | null =
+                canvas.getContext('2d');
             canvas.width = canvas.clientWidth * dpr;
             canvas.height = canvas.clientHeight * dpr;
-            const ctx = canvas.getContext('2d');
 
             const fontSize: number = 16;
             const columns: number = canvas.width / fontSize;
+            // Track the vertical 'y' position of each column
+            const columnPositions: number[] = Array.from({
+                length: columns,
+            }).fill(1) as number[];
 
-            // Represents the vertical position of each char in each column. On draw each char's Y position is multiplied by font-size
-            const topicMatrix: { char: string; pos: number }[][] = [];
-            let topicMatrixIndex: number = 0;
-
-            while (topicMatrix.length < columns) {
-                const word: string = topics[topicMatrixIndex];
-                const wordByLetterPosition: { char: string; pos: number }[] =
-                    word
-                        .split('')
-                        .reverse()
-                        .map((letter: string, index: number) => {
-                            return {
-                                char: letter,
-                                pos: index * -1,
-                            };
-                        });
-
-                topicMatrix.push(wordByLetterPosition);
-
-                if (topicMatrixIndex === topics.length - 1) {
-                    topicMatrixIndex = 0;
+            const katakana: string[] =
+                'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890'.split(
+                    ''
+                );
+            const topicsThatFitCanvas: string[] = topics.filter(
+                (topic: string) => {
+                    return topic.length * fontSize < canvas.height;
                 }
-
-                topicMatrixIndex++;
-            }
-
-            console.log(topicMatrix);
+            );
+            let renderingTopic:
+                | {
+                      char: string;
+                      ordinal: number;
+                      hasRendered: boolean;
+                  }[]
+                | undefined = topicsThatFitCanvas[chosenTopicIndexRef.current]
+                .split('')
+                .map((letter: string, index: number) => {
+                    return {
+                        char: letter,
+                        ordinal: index,
+                        hasRendered: false,
+                    };
+                });
 
             const draw = () => {
                 if (!ctx) return;
                 // Draw a translucent background to create the trailing/fade effect
-                // ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                // ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                ctx.fillStyle = '#e2e2e2';
+                ctx.fillStyle = '#e2e2e297';
                 ctx.font = fontSize + 'px monospace';
 
-                for (let i = 0; i < topicMatrix.length; i++) {
-                    const word: { char: string; pos: number }[] =
-                        topicMatrix[i];
-                    const wordLength: number = word.length;
-                    const firstLetterObj: { char: string; pos: number } =
-                        word[wordLength - 1];
+                // Check if row is chosen
+                // Randomly select a row if not
+                // Check if word can be displayed (i.e. difference between position nad canvas height / fontsize > word)
+                // Check if word of chosen row meets display threshold
+                // If not, display word and increment display threshold
+                // Once meeting display threshold set chosen row to undefined
+                if (chosenColumnIndexRef.current === undefined) {
+                    chosenColumnIndexRef.current = Math.floor(
+                        Math.random() * columnPositions.length
+                    );
+                }
 
-                    for (let j = 0; j < wordLength; j++) {
-                        word[j].pos++;
-                        // x coordinate is column index * font size; y coordinate is tracked in array
+                if (renderingTopic === undefined) {
+                    renderingTopic = topicsThatFitCanvas[
+                        chosenTopicIndexRef.current
+                    ]
+                        .split('')
+                        .map((letter: string, index: number) => {
+                            return {
+                                char: letter,
+                                ordinal: index,
+                                hasRendered: false,
+                            };
+                        });
+                }
+
+                for (let i = 0; i < columnPositions.length; i++) {
+                    const numberOfCharactersLeftToRender: number =
+                        renderingTopic.reduce((prev, curr) => {
+                            if (!curr.hasRendered) {
+                                return prev + 1;
+                            } else {
+                                return prev;
+                            }
+                        }, 0);
+                    const hasEnoughSpaceToRenderRemainingTopicCharacters: boolean =
+                        canvas.height - i * fontSize >
+                        numberOfCharactersLeftToRender * fontSize;
+
+                    if (chosenColumnIndexRef.current === i && renderingTopic) {
+                        ctx.fillStyle = '#e2ff04';
+
+                        for (let j = 0; j < renderingTopic.length; j++) {
+                            const char = renderingTopic[j];
+
+                            if (char.hasRendered === false) {
+                                ctx.fillText(
+                                    char.char,
+                                    i * fontSize,
+                                    columnPositions[i] * fontSize
+                                );
+                                char.hasRendered = true;
+                                break;
+                            }
+                        }
+                    } else {
+                        const randomKatakanaCharacter: string =
+                            katakana[
+                                Math.floor(Math.random() * katakana.length)
+                            ];
+                        ctx.fillStyle = '#e2e2e2c0';
                         ctx.fillText(
-                            word[j].char,
+                            randomKatakanaCharacter,
                             i * fontSize,
-                            word[j].pos * fontSize
+                            columnPositions[i] * fontSize
                         );
                     }
 
-                    // Send drop back to top randomly after it crosses the bottom of the screen
                     if (
-                        firstLetterObj.pos * fontSize > canvas.height &&
+                        columnPositions[i] * fontSize > canvas.height &&
                         Math.random() > 0.975
                     ) {
-                        word.forEach((charObj, index) => {
-                            charObj.pos = index * -1;
-                        });
+                        columnPositions[i] = 0;
                     }
+
+                    if (
+                        renderingTopic &&
+                        renderingTopic[renderingTopic.length - 1].hasRendered
+                    ) {
+                        chosenColumnIndexRef.current = undefined;
+                        renderingTopic = undefined;
+                        chosenTopicIndexRef.current = Math.floor(
+                            Math.random() * topicsThatFitCanvas.length
+                        );
+                    }
+
+                    columnPositions[i]++;
                 }
             };
 
@@ -98,7 +162,7 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
             //     canvas.height = window.innerHeight;
             // });
 
-            //intervalRef.current = setInterval(draw, 100);
+            // intervalRef.current = setInterval(draw, 100);
         } else if (!shouldAnimate) {
             clearInterval(intervalRef.current);
         }
