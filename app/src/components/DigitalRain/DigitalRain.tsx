@@ -1,6 +1,9 @@
 // React
 import { ReactElement, useCallback, useEffect, useRef, useMemo } from 'react';
 
+// Third party
+import debounce from 'lodash.debounce';
+
 // Custom
 import {
     formatRenderTopic,
@@ -41,13 +44,15 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
         canvasRef.current.height = canvasRef.current.clientHeight * dpr;
     }, []);
 
+    const resize = useCallback(() => debounce(size, 300), [size]);
+
     useEffect(() => {
         size();
 
-        window.addEventListener('resize', size);
+        window.addEventListener('resize', resize);
 
-        return () => window.removeEventListener('resize', size);
-    }, [size]);
+        return () => window.removeEventListener('resize', resize);
+    }, [resize, size]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
