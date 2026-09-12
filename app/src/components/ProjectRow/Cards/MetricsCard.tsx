@@ -214,7 +214,7 @@ const MetricsCard = ({
                             rel="noopener noreferrer"
                             title={
                                 hasValidDemoLink
-                                    ? `Click to view a live deployment of the ${projectData.name} project.`
+                                    ? `Click to visit an active deployment of the ${projectData.name} project.`
                                     : undefined
                             }
                         >
