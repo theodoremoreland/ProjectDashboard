@@ -161,14 +161,14 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         />
                     </div>
                     <div className="topics-container">
-                        <p className="topics-label">
+                        <h3 className="topics-label">
                             <span>T</span>
                             <span>O</span>
                             <span>P</span>
                             <span>I</span>
                             <span>C</span>
                             <span>S</span>
-                        </p>
+                        </h3>
                         <DigitalRain
                             topics={projectData.topics}
                             shouldAnimate={hasSettled}
