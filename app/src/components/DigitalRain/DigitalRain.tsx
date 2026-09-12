@@ -17,7 +17,7 @@ interface Props {
     shouldAnimate: boolean;
 }
 
-const FONT_SIZE: number = 12;
+const FONT_SIZE: number = 16;
 const KATAKANA: string[] =
     'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890'.split('');
 
@@ -27,9 +27,11 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameIdRef = useRef<number | undefined>(undefined);
     const lastAnimate = useRef<number>(0);
-    const chosenColumnIndexRef = useRef<number | undefined>(undefined);
+    const chosenColumnIndexRef = useRef<number>(15);
     const chosenTopicIndexRef = useRef<number>(0);
-    const renderingTopicRef = useRef<RenderTopic | undefined>(undefined);
+    const renderingTopicRef = useRef<RenderTopic>(
+        formatRenderTopic(casedTopics[0])
+    );
 
     const size = useCallback(() => {
         if (!canvasRef.current) return;
@@ -70,34 +72,19 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.font = FONT_SIZE + 'px custom-regular';
 
-                if (chosenColumnIndexRef.current === undefined) {
-                    chosenColumnIndexRef.current = generateValidRandomNumber(
-                        columnPositions.length
-                    );
-                }
-
-                if (renderingTopicRef.current === undefined) {
-                    renderingTopicRef.current = formatRenderTopic(
-                        topicsThatFitCanvas[chosenTopicIndexRef.current]
-                    );
-                }
-
                 for (let i = 0; i < columnPositions.length; i++) {
                     const numberOfCharactersLeftToRender: number =
-                        renderingTopicRef.current?.reduce((prev, curr) => {
+                        renderingTopicRef.current.reduce((prev, curr) => {
                             if (!curr.hasRendered) {
                                 return prev + 1;
                             } else {
                                 return prev;
                             }
-                        }, 0) || 0;
-                    const hasEnoughSpaceToRenderRemainingTopicCharacters: boolean =
-                        canvas.height - i * FONT_SIZE >
-                        numberOfCharactersLeftToRender * FONT_SIZE;
+                        }, 0);
 
                     if (
                         chosenColumnIndexRef.current === i &&
-                        renderingTopicRef.current
+                        numberOfCharactersLeftToRender > 0
                     ) {
                         ctx.fillStyle = '#e2ff04';
 
@@ -114,7 +101,9 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                                     i * FONT_SIZE,
                                     columnPositions[i] * FONT_SIZE
                                 );
+
                                 char.hasRendered = true;
+
                                 break;
                             }
                         }
@@ -123,6 +112,7 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                             KATAKANA[
                                 Math.floor(Math.random() * KATAKANA.length)
                             ];
+
                         ctx.fillStyle = '#e2e2e2c0';
                         ctx.fillText(
                             randomKatakanaCharacter,
@@ -139,13 +129,18 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                     }
 
                     if (
-                        renderingTopicRef.current &&
                         renderingTopicRef.current[
                             renderingTopicRef.current.length - 1
                         ].hasRendered
                     ) {
-                        chosenColumnIndexRef.current = undefined;
-                        renderingTopicRef.current = undefined;
+                        chosenColumnIndexRef.current =
+                            generateValidRandomNumber(
+                                columnPositions.length,
+                                chosenColumnIndexRef.current
+                            );
+                        renderingTopicRef.current = formatRenderTopic(
+                            topicsThatFitCanvas[chosenTopicIndexRef.current]
+                        );
                         chosenTopicIndexRef.current =
                             chosenTopicIndexRef.current ===
                             topicsThatFitCanvas.length - 1
