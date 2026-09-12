@@ -1,10 +1,9 @@
 .DigitalRain {
     z-index: 2;
     position: relative;
-    top: -5%;
     display: block;
-    width: 65%;
-    height: 225px;
+    width: 60%;
+    height: 100%;
     background-color: black;
     clip-path: polygon(
         0.06% 61.76%,

@@ -29,9 +29,9 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameIdRef = useRef<number | undefined>(undefined);
-    const lastAnimate = useRef<number>(0);
-    const chosenColumnIndexRef = useRef<number>(15);
-    const chosenTopicIndexRef = useRef<number>(0);
+    const timestampOfLastAnimateRef = useRef<number>(0);
+    const activeColumnIndexRef = useRef<number>(15);
+    const currentTopicIndexRef = useRef<number>(0);
     const renderingTopicRef = useRef<RenderTopic>(
         formatRenderTopic(casedTopics[0])
     );
@@ -88,7 +88,7 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                         }, 0);
 
                     if (
-                        chosenColumnIndexRef.current === i &&
+                        activeColumnIndexRef.current === i &&
                         numberOfCharactersLeftToRender > 0
                     ) {
                         ctx.fillStyle = '#e2ff04';
@@ -138,19 +138,19 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                             renderingTopicRef.current.length - 1
                         ].hasRendered
                     ) {
-                        chosenColumnIndexRef.current =
+                        activeColumnIndexRef.current =
                             generateValidRandomNumber(
                                 columnPositions.length,
-                                chosenColumnIndexRef.current
+                                activeColumnIndexRef.current
                             );
                         renderingTopicRef.current = formatRenderTopic(
-                            topicsThatFitCanvas[chosenTopicIndexRef.current]
+                            topicsThatFitCanvas[currentTopicIndexRef.current]
                         );
-                        chosenTopicIndexRef.current =
-                            chosenTopicIndexRef.current ===
+                        currentTopicIndexRef.current =
+                            currentTopicIndexRef.current ===
                             topicsThatFitCanvas.length - 1
                                 ? 0
-                                : chosenTopicIndexRef.current + 1;
+                                : currentTopicIndexRef.current + 1;
                     }
 
                     columnPositions[i]++;
@@ -158,11 +158,11 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
             };
 
             const animate = (time: number) => {
-                const delta = time - lastAnimate.current;
+                const delta = time - timestampOfLastAnimateRef.current;
 
                 if (delta >= 80) {
                     draw();
-                    lastAnimate.current = time;
+                    timestampOfLastAnimateRef.current = time;
                 }
 
                 animationFrameIdRef.current = requestAnimationFrame(animate);
@@ -182,7 +182,12 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
         };
     }, [shouldAnimate, casedTopics]);
 
-    return <canvas ref={canvasRef} className="DigitalRain" />;
+    return (
+        <canvas ref={canvasRef} className="DigitalRain">
+            A The Matrix-style wall of falling text that occasionally reads
+            GitHub topics related to this project.
+        </canvas>
+    );
 };
 
 export default DigitalRain;

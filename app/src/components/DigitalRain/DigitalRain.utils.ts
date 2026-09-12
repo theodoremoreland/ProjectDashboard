@@ -173,7 +173,9 @@ export const generateValidRandomNumber = (
     return randomNumber;
 };
 
-export const formatRenderTopic = (topic: string): RenderTopic => {
+export const formatRenderTopic = (topic: string | undefined): RenderTopic => {
+    if (!topic) return [];
+
     return topic.split('').map((letter: string) => {
         return {
             char: letter,
