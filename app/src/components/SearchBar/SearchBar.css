@@ -62,6 +62,10 @@
 
         .icon {
             fill: var(--secondary-font-color);
+
+            &:hover {
+                fill: var(--quaternary-color);
+            }
         }
     }
 
@@ -117,7 +121,7 @@
             rgba(0, 0, 0, 0.4) 0px 2px 4px,
             rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
         border: 1px solid var(--border-color);
-        color: var(--primary-font-color);
+        color: var(--secondary-color);
 
         .search-result {
             display: flex;
@@ -132,17 +136,13 @@
             list-style: none;
 
             &:hover {
-                background-color: rgba(255, 255, 255, 0.058);
-                color: var(--primary-font-color);
-            }
-
-            &:hover .title {
+                background-color: var(--quaternary-color);
                 color: var(--primary-font-color);
             }
 
             &:hover .topic {
-                background-color: var(--primary-font-color);
-                color: var(--primary-color);
+                color: var(--primary-font-color-color);
+                background-color: transparent;
             }
         }
 
@@ -152,10 +152,9 @@
         }
 
         .title {
-            font-size: 1.1em;
+            font-size: 1.2rem;
             font-family: custom-bold;
             font-style: oblique;
-            color: var(--primary-font-color);
         }
 
         .topics {
@@ -168,11 +167,6 @@
         }
 
         .topic {
-            font-size: 0.8em;
-            padding: 0.3em 0.55em;
-            border-radius: 1em;
-            color: var(--primary-font-color);
-            background-color: var(--secondary-font-color);
         }
 
         .none {
