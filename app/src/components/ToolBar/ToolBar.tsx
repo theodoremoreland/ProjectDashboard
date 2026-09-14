@@ -7,6 +7,7 @@ import SearchBar from '../SearchBar/SearchBar';
 // Images
 import InfoIcon from '../../assets/images/icons/info.svg?react';
 import PersonIcon from '../../assets/images/icons/person.svg?react';
+import FilterListIcon from '../../assets/images/icons/filter_list.svg?react';
 
 // Styles
 import './ToolBar.css';
@@ -23,6 +24,9 @@ const ToolBar = ({ setShowOverviewModal }: Props): ReactElement => {
                     <SearchBar />
                 </div>
                 <ul id="toolbar-right">
+                    <li title="Filter projects">
+                        <FilterListIcon className="filter icon" />
+                    </li>
                     <li>
                         <PersonIcon className="person icon" />
                     </li>
