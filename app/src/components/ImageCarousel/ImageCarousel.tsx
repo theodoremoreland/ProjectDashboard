@@ -6,6 +6,9 @@ import {
     useEffect,
     useRef,
     useState,
+    Dispatch,
+    SetStateAction,
+    MouseEvent,
 } from 'react';
 
 // Images
@@ -16,17 +19,23 @@ import './ImageCarousel.css';
 
 interface Props {
     images: string[];
+    selectedImageIndex: number;
+    setIsImageCarouselOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const AUTO_PLAY_INTERVAL_TIME: number = 4_000;
 
-const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
+const ImageCarousel: FC<Props> = ({
+    images,
+    selectedImageIndex,
+    setIsImageCarouselOpen,
+}: Props): ReactElement => {
     const selfRef = useRef<HTMLDivElement>(null);
     const shouldAutoPlay = useRef(true);
     const isAutoPlayPaused = useRef(false);
     const setAutoPlayIntervalId = useRef<number | undefined>(undefined);
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(selectedImageIndex);
 
     const currentImage: string = images[currentIndex];
 
@@ -39,6 +48,15 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
             isAutoPlayPaused.current = false;
         }
     }, []);
+
+    const handleBackdropClick = useCallback(
+        (event: MouseEvent) => {
+            if (event.target === event.currentTarget) {
+                setIsImageCarouselOpen(false);
+            }
+        },
+        [setIsImageCarouselOpen]
+    );
 
     const handleLeftClick = () => {
         stopAutoPlay();
@@ -110,32 +128,41 @@ const ImageCarousel: FC<Props> = ({ images }: Props): ReactElement => {
     }, [images, handleMouseEnter, handleMouseLeave]);
 
     return (
-        <div className="ImageCarousel" ref={selfRef}>
-            <button className="left" onClick={handleLeftClick}>
-                <ArrowUpwardIcon className="icon" />
-            </button>
-            <img
-                src={currentImage}
-                alt={`Carousel image ${currentIndex + 1}`}
-                onLoad={(e) => {
-                    const target: EventTarget = e.target;
+        <div
+            className="ImageCarousel"
+            ref={selfRef}
+            onClick={handleBackdropClick}
+        >
+            <div className="image-container">
+                <button className="cycle-button left" onClick={handleLeftClick}>
+                    <ArrowUpwardIcon className="icon" />
+                </button>
+                <img
+                    src={currentImage}
+                    alt={`Carousel image ${currentIndex + 1}`}
+                    onLoad={(e) => {
+                        const target: EventTarget = e.target;
 
-                    if (target instanceof HTMLImageElement) {
-                        target.classList.add('loaded');
-                    }
-                }}
-            />
-            <button className="right" onClick={handleRightClick}>
-                <ArrowUpwardIcon className="icon" />
-            </button>
-            <div className="circles">
-                {images.map((_, index) => (
-                    <button
-                        key={index}
-                        className={`index ${currentIndex === index ? 'selected' : ''}`}
-                        onClick={() => handleCircleClick(index)}
-                    ></button>
-                ))}
+                        if (target instanceof HTMLImageElement) {
+                            target.classList.add('loaded');
+                        }
+                    }}
+                />
+                <button
+                    className="cycle-button right"
+                    onClick={handleRightClick}
+                >
+                    <ArrowUpwardIcon className="icon" />
+                </button>
+                <div className="circles">
+                    {images.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`index ${currentIndex === index ? 'selected' : ''}`}
+                            onClick={() => handleCircleClick(index)}
+                        ></button>
+                    ))}
+                </div>
             </div>
         </div>
     );

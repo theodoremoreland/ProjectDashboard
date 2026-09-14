@@ -1,17 +1,18 @@
 // React
-import { ReactElement } from 'react';
+import { ReactElement, useCallback, useState } from 'react';
 
 // Components
 import Corner from '../../Corner/Corner';
 import GlyphLane from '../../GlyphLane/GlyphLane';
+import ImageCarousel from '../../ImageCarousel/ImageCarousel';
 
 // Custom
 import { TaggedRepoData } from '../../../types';
 import getProjectContext from '../../../utils/getProjectContext';
+import { getImagesFromReadme } from '../../../modules/readme';
 
 // Styles
 import './ThumbnailCard.css';
-import { getImagesFromReadme } from '../../../modules/readme';
 
 interface Props {
     projectData: TaggedRepoData;
@@ -29,12 +30,28 @@ const ThumbnailCard = ({
         projectData.name
     );
 
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+    const [isImageCarouselOpen, setIsImageCarouselOpen] =
+        useState<boolean>(false);
+
+    const handleImageClick = useCallback((index: number) => {
+        setSelectedImageIndex(index);
+        setIsImageCarouselOpen(true);
+    }, []);
+
     return (
         <li
             className={`project-card-container ${
                 projectData.isFeatured ? 'featured' : 'not-featured'
             }`}
         >
+            {isImageCarouselOpen && (
+                <ImageCarousel
+                    images={readmeImages}
+                    selectedImageIndex={selectedImageIndex}
+                    setIsImageCarouselOpen={setIsImageCarouselOpen}
+                />
+            )}
             <div className="project-card ThumbnailCard">
                 <Corner position="top-left" />
                 <Corner position="bottom-right" />
@@ -78,7 +95,10 @@ const ThumbnailCard = ({
                         <ul className="project-screenshots">
                             {!isReadmeFetching &&
                                 readmeImages.slice(0, 4).map((src, index) => (
-                                    <li key={index}>
+                                    <li
+                                        key={index}
+                                        onClick={() => handleImageClick(index)}
+                                    >
                                         <img
                                             className="project-screenshot"
                                             src={src}
