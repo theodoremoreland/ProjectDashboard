@@ -148,7 +148,7 @@ body::-webkit-scrollbar-track,
 ul::-webkit-scrollbar-track,
 section::-webkit-scrollbar-track,
 div::-webkit-scrollbar-track {
-    background: transparent; /* color of the tracking area */
+    background: var(--secondary-color);
     border: none;
     border-radius: 10px;
 }
@@ -158,8 +158,7 @@ ul::-webkit-scrollbar-thumb,
 section::-webkit-scrollbar-thumb,
 div::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: var(--primary-font-color);
-    /* color of the scroll thumb */
+    background-color: var(--quaternary-color);
 }
 
 h1,
@@ -470,13 +469,10 @@ main {
 .topic {
     padding: 0.3em 0.8em;
     border-radius: 1em;
-    color: var(--primary-font-color);
+    color: var(--secondary-color);
     text-wrap: nowrap;
     font-size: 0.8em;
-    background-color: var(--secondary-font-color);
-    box-shadow:
-        rgba(0, 0, 0, 0.21) 0px 10px 15px -3px,
-        rgba(0, 0, 0, 0.45) 0px 4px 6px -2px;
+    background-color: var(--primary-color);
 }
 
 @media screen and (min-width: 801px) {
