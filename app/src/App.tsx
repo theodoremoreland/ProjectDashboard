@@ -159,7 +159,10 @@ const App = (): ReactElement => {
                         to see, it would potentially overlap with the sidebar.
                     */}
                 </div>
-                <ToolBar setShowOverviewModal={setShowOverviewModal} />
+                <ToolBar
+                    scrollToProject={scrollToProject}
+                    setShowOverviewModal={setShowOverviewModal}
+                />
             </main>
         </>
     );
