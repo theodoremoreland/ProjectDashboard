@@ -23,8 +23,12 @@ import CancelIcon from '../../assets/images/icons/cancel.svg?react';
 // Styles
 import './SearchBar.css';
 
-const SearchBar = (): ReactElement => {
-    const { repos, setSelectedProject } = useContext(ProjectsContext);
+interface Props {
+    scrollToProject: (id: string) => void;
+}
+
+const SearchBar = ({ scrollToProject }: Props): ReactElement => {
+    const { repos } = useContext(ProjectsContext);
     const [searchValue, setSearchValue] = useState('');
     const [searchResults, setSearchResults] = useState<
         FuseResult<TaggedRepoData>[] | TaggedRepoData[] | undefined
@@ -35,9 +39,9 @@ const SearchBar = (): ReactElement => {
     const handleSearchResultClick = useCallback(
         (projectData: TaggedRepoData) => {
             setSearchValue('');
-            setSelectedProject(projectData);
+            scrollToProject(projectData.name);
         },
-        [setSelectedProject]
+        [scrollToProject]
     );
 
     const handleCancelClick = useCallback(() => {

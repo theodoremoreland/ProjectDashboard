@@ -13,15 +13,19 @@ import FilterListIcon from '../../assets/images/icons/filter_list.svg?react';
 import './ToolBar.css';
 
 interface Props {
+    scrollToProject: (id: string) => void;
     setShowOverviewModal: (show: boolean) => void;
 }
 
-const ToolBar = ({ setShowOverviewModal }: Props): ReactElement => {
+const ToolBar = ({
+    setShowOverviewModal,
+    scrollToProject,
+}: Props): ReactElement => {
     return (
         <footer id="app-toolbar">
             <div id="app-toolbar-content">
                 <div id="toolbar-left">
-                    <SearchBar />
+                    <SearchBar scrollToProject={scrollToProject} />
                 </div>
                 <ul id="toolbar-right">
                     <li title="Filter projects">
