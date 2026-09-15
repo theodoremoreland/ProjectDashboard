@@ -161,6 +161,11 @@ div::-webkit-scrollbar-thumb {
     background-color: var(--quaternary-color);
 }
 
+::selection {
+    background-color: var(--quaternary-color);
+    color: var(--primary-font-color);
+}
+
 h1,
 h2,
 h3,

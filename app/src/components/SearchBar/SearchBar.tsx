@@ -86,7 +86,7 @@ const SearchBar = ({ scrollToProject }: Props): ReactElement => {
         <>
             {searchValue && showResults && (
                 <div
-                    id="clickaway-area"
+                    id="clickaway-area__search"
                     onClick={() => setShowResults(false)}
                 ></div>
             )}

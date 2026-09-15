@@ -54,7 +54,7 @@
         color: inherit;
     }
 
-    li {
+    .toolbar-item {
         display: flex;
         flex-direction: column;
         justify-content: center;
