@@ -1,10 +1,13 @@
 // React
 import {
+    Dispatch,
     ReactElement,
+    SetStateAction,
     useCallback,
     useContext,
     useEffect,
     useState,
+    MouseEvent,
 } from 'react';
 
 // Controller
@@ -28,7 +31,11 @@ import CheckIcon from '../../assets/images/icons/check.svg?react';
 // Styles
 import './TechList.css';
 
-const TechList = (): ReactElement => {
+interface Props {
+    setShowTechList: Dispatch<SetStateAction<boolean>>;
+}
+
+const TechList = ({ setShowTechList }: Props): ReactElement => {
     const { repos, updateFeaturedTopics, featuredTopics } =
         useContext(ProjectsContext);
     const [topicsCount, setTopicsCount] = useState<TopicCounts | null>(null);
@@ -40,18 +47,14 @@ const TechList = (): ReactElement => {
         useState<boolean>(true);
     const [areToolsVisible, setAreToolsVisible] = useState<boolean>(true);
 
-    const closeAllCategories = useCallback(() => {
-        setAreCompetenciesVisible(false);
-        setAreLanguagesVisible(false);
-        setAreFrameworksVisible(false);
-        setAreToolsVisible(false);
-    }, []);
-
-    const handleResize = useCallback((): void => {
-        if (window.innerWidth < 965) {
-            closeAllCategories();
-        }
-    }, [closeAllCategories]);
+    const handleClickAway = useCallback(
+        (event: MouseEvent) => {
+            if (event.target === event.currentTarget) {
+                setShowTechList(false);
+            }
+        },
+        [setShowTechList]
+    );
 
     const generateListItems = useCallback(
         (topics: { [key: string]: number }) => {
@@ -133,104 +136,100 @@ const TechList = (): ReactElement => {
         }
     }, [repos]);
 
-    useEffect(() => {
-        handleResize(); // Initial check on mount
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, [handleResize]);
-
     return (
-        <ul id="tech-list">
-            <h2 className="header">Filter projects</h2>
-            <div
-                className={`tech-category-container ${areCompetenciesVisible ? '' : 'rotated'}`}
-            >
-                <p className="tech-category">Competencies</p>
-                <button
-                    className="toggle-visibility-button"
-                    onClick={() => setAreCompetenciesVisible((prev) => !prev)}
-                    title="Toggle competencies visibility"
-                    aria-label={
-                        areCompetenciesVisible
-                            ? 'Hide competencies'
-                            : 'Show competencies'
-                    }
+        <div id="clickaway-area__filter" onClick={handleClickAway}>
+            <ul id="tech-list">
+                <h2 className="header">Filter projects</h2>
+                <div
+                    className={`tech-category-container ${areCompetenciesVisible ? '' : 'rotated'}`}
                 >
-                    <KeyboardControlKey
-                        className={`toggle-icon ${areCompetenciesVisible ? '' : 'rotated'}`}
-                    />
-                </button>
-            </div>
-            {topicsCount &&
-                areCompetenciesVisible &&
-                generateListItems(topicsCount.competencies)}
-            <div
-                className={`tech-category-container ${areLanguagesVisible ? '' : 'rotated'}`}
-            >
-                <p className="tech-category">Languages</p>
-                <button
-                    className="toggle-visibility-button"
-                    onClick={() => setAreLanguagesVisible((prev) => !prev)}
-                    title="Toggle languages visibility"
-                    aria-label={
-                        areLanguagesVisible
-                            ? 'Hide languages'
-                            : 'Show languages'
-                    }
+                    <p className="tech-category">Competencies</p>
+                    <button
+                        className="toggle-visibility-button"
+                        onClick={() =>
+                            setAreCompetenciesVisible((prev) => !prev)
+                        }
+                        title="Toggle competencies visibility"
+                        aria-label={
+                            areCompetenciesVisible
+                                ? 'Hide competencies'
+                                : 'Show competencies'
+                        }
+                    >
+                        <KeyboardControlKey
+                            className={`toggle-icon ${areCompetenciesVisible ? '' : 'rotated'}`}
+                        />
+                    </button>
+                </div>
+                {topicsCount &&
+                    areCompetenciesVisible &&
+                    generateListItems(topicsCount.competencies)}
+                <div
+                    className={`tech-category-container ${areLanguagesVisible ? '' : 'rotated'}`}
                 >
-                    <KeyboardControlKey
-                        className={`toggle-icon ${areLanguagesVisible ? '' : 'rotated'}`}
-                    />
-                </button>
-            </div>
-            {topicsCount &&
-                areLanguagesVisible &&
-                generateListItems(topicsCount.languages)}
-            <div
-                className={`tech-category-container ${areFrameworksVisible ? '' : 'rotated'}`}
-            >
-                <p className="tech-category">Frameworks</p>
-                <button
-                    className="toggle-visibility-button"
-                    onClick={() => setAreFrameworksVisible((prev) => !prev)}
-                    title="Toggle frameworks visibility"
-                    aria-label={
-                        areFrameworksVisible
-                            ? 'Hide frameworks'
-                            : 'Show frameworks'
-                    }
+                    <p className="tech-category">Languages</p>
+                    <button
+                        className="toggle-visibility-button"
+                        onClick={() => setAreLanguagesVisible((prev) => !prev)}
+                        title="Toggle languages visibility"
+                        aria-label={
+                            areLanguagesVisible
+                                ? 'Hide languages'
+                                : 'Show languages'
+                        }
+                    >
+                        <KeyboardControlKey
+                            className={`toggle-icon ${areLanguagesVisible ? '' : 'rotated'}`}
+                        />
+                    </button>
+                </div>
+                {topicsCount &&
+                    areLanguagesVisible &&
+                    generateListItems(topicsCount.languages)}
+                <div
+                    className={`tech-category-container ${areFrameworksVisible ? '' : 'rotated'}`}
                 >
-                    <KeyboardControlKey
-                        className={`toggle-icon ${areFrameworksVisible ? '' : 'rotated'}`}
-                    />
-                </button>
-            </div>
-            {topicsCount &&
-                areFrameworksVisible &&
-                generateListItems(topicsCount.frameworks)}
-            <div
-                className={`tech-category-container ${areToolsVisible ? '' : 'rotated'}`}
-            >
-                <p className="tech-category">Tools</p>
-                <button
-                    className="toggle-visibility-button"
-                    onClick={() => setAreToolsVisible((prev) => !prev)}
-                    title="Toggle tools visibility"
-                    aria-label={areToolsVisible ? 'Hide tools' : 'Show tools'}
+                    <p className="tech-category">Frameworks</p>
+                    <button
+                        className="toggle-visibility-button"
+                        onClick={() => setAreFrameworksVisible((prev) => !prev)}
+                        title="Toggle frameworks visibility"
+                        aria-label={
+                            areFrameworksVisible
+                                ? 'Hide frameworks'
+                                : 'Show frameworks'
+                        }
+                    >
+                        <KeyboardControlKey
+                            className={`toggle-icon ${areFrameworksVisible ? '' : 'rotated'}`}
+                        />
+                    </button>
+                </div>
+                {topicsCount &&
+                    areFrameworksVisible &&
+                    generateListItems(topicsCount.frameworks)}
+                <div
+                    className={`tech-category-container ${areToolsVisible ? '' : 'rotated'}`}
                 >
-                    <KeyboardControlKey
-                        className={`toggle-icon ${areToolsVisible ? '' : 'rotated'}`}
-                    />
-                </button>
-            </div>
-            {topicsCount &&
-                areToolsVisible &&
-                generateListItems(topicsCount.tools)}
-        </ul>
+                    <p className="tech-category">Tools</p>
+                    <button
+                        className="toggle-visibility-button"
+                        onClick={() => setAreToolsVisible((prev) => !prev)}
+                        title="Toggle tools visibility"
+                        aria-label={
+                            areToolsVisible ? 'Hide tools' : 'Show tools'
+                        }
+                    >
+                        <KeyboardControlKey
+                            className={`toggle-icon ${areToolsVisible ? '' : 'rotated'}`}
+                        />
+                    </button>
+                </div>
+                {topicsCount &&
+                    areToolsVisible &&
+                    generateListItems(topicsCount.tools)}
+            </ul>
+        </div>
     );
 };
 
