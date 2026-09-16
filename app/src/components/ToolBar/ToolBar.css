@@ -55,6 +55,7 @@
     }
 
     .toolbar-item {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -63,8 +64,19 @@
         font-family: custom-regular;
         font-size: 0.9em;
         height: 100%;
-        padding: 0 2em;
+        padding: 0;
+        margin: 0;
         border-right: 1px solid var(--temp-gray-3);
+    }
+
+    .toolbar-button {
+        width: 75px;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background-color: var(--secondary-color);
+        border: none;
+        outline: transparent;
         cursor: pointer;
 
         &:hover {
@@ -75,6 +87,10 @@
 
         &:active {
             transform: scale(0.95);
+        }
+
+        &.active {
+            z-index: 7;
         }
     }
 

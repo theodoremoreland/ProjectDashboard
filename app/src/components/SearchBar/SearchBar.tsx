@@ -90,7 +90,7 @@ const SearchBar = ({ scrollToProject }: Props): ReactElement => {
                     onClick={() => setShowResults(false)}
                 ></div>
             )}
-            <div id="search-bar">
+            <div id="search-bar" className={`${showResults ? 'active' : ''}`}>
                 <span id="search-icon-area" onClick={handleCancelClick}>
                     <SearchIcon className="icon" />
                 </span>
