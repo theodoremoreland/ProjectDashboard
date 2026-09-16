@@ -137,13 +137,14 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
     }, [repos]);
 
     return (
-        <div id="clickaway-area__filter" onClick={handleClickAway}>
+        <>
+            <div id="clickaway-area__filter" onClick={handleClickAway}></div>
             <ul id="tech-list">
                 <h2 className="header">Filter projects</h2>
                 <div
                     className={`tech-category-container ${areCompetenciesVisible ? '' : 'rotated'}`}
                 >
-                    <p className="tech-category">Competencies</p>
+                    <h3 className="tech-category">Competencies</h3>
                     <button
                         className="toggle-visibility-button"
                         onClick={() =>
@@ -167,7 +168,7 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
                 <div
                     className={`tech-category-container ${areLanguagesVisible ? '' : 'rotated'}`}
                 >
-                    <p className="tech-category">Languages</p>
+                    <h3 className="tech-category">Languages</h3>
                     <button
                         className="toggle-visibility-button"
                         onClick={() => setAreLanguagesVisible((prev) => !prev)}
@@ -189,7 +190,7 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
                 <div
                     className={`tech-category-container ${areFrameworksVisible ? '' : 'rotated'}`}
                 >
-                    <p className="tech-category">Frameworks</p>
+                    <h3 className="tech-category">Frameworks</h3>
                     <button
                         className="toggle-visibility-button"
                         onClick={() => setAreFrameworksVisible((prev) => !prev)}
@@ -211,7 +212,7 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
                 <div
                     className={`tech-category-container ${areToolsVisible ? '' : 'rotated'}`}
                 >
-                    <p className="tech-category">Tools</p>
+                    <h3 className="tech-category">Tools</h3>
                     <button
                         className="toggle-visibility-button"
                         onClick={() => setAreToolsVisible((prev) => !prev)}
@@ -229,7 +230,7 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
                     areToolsVisible &&
                     generateListItems(topicsCount.tools)}
             </ul>
-        </div>
+        </>
     );
 };
 

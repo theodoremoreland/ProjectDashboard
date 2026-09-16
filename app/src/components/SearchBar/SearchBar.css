@@ -10,11 +10,14 @@
 }
 
 #search-bar {
-    z-index: 6;
     position: relative;
     width: 100%;
     min-width: 45rem;
     background-color: var(--secondary-color);
+
+    &.active {
+        z-index: 6;
+    }
 
     #search {
         outline: transparent;

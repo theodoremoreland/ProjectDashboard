@@ -26,30 +26,44 @@ const ToolBar = ({
 
     return (
         <footer id="app-toolbar">
-            {showTechList && <TechList setShowTechList={setShowTechList} />}
             <div id="app-toolbar-content">
                 <div id="toolbar-left">
                     <SearchBar scrollToProject={scrollToProject} />
                 </div>
                 <ul id="toolbar-right">
                     <li className="toolbar-item">
-                        <PersonIcon className="person icon" />
+                        <button
+                            id="active-users-button"
+                            className="toolbar-button"
+                            type="button"
+                        >
+                            <PersonIcon className="person icon" />
+                        </button>
                     </li>
-                    <li
-                        title="Filter projects"
-                        onClick={() => setShowTechList(true)}
-                        className="toolbar-item"
-                    >
-                        <FilterListIcon className="filter icon" />
+                    <li className="toolbar-item">
+                        {showTechList && (
+                            <TechList setShowTechList={setShowTechList} />
+                        )}
+                        <button
+                            id="filter-dropdown-button"
+                            type="button"
+                            title="Filter projects"
+                            onClick={() => setShowTechList(!showTechList)}
+                            className={`toolbar-button ${showTechList ? 'active' : ''}`}
+                        >
+                            <FilterListIcon className="filter icon" />
+                        </button>
                     </li>
-                    <li
-                        id="nav-overview"
-                        title="Overview"
-                        role="presentation"
-                        onClick={() => setShowOverviewModal(true)}
-                        className="toolbar-item"
-                    >
-                        <InfoIcon className="info icon" />
+                    <li className="toolbar-item">
+                        <button
+                            id="nav-overview"
+                            title="Overview"
+                            role="presentation"
+                            onClick={() => setShowOverviewModal(true)}
+                            className={`toolbar-button`}
+                        >
+                            <InfoIcon className="info icon" />
+                        </button>
                     </li>
                 </ul>
             </div>
