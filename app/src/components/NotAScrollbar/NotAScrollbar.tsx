@@ -25,27 +25,41 @@ const NotAScrollbar = ({
     return (
         <div id="NotAScrollbar">
             <ol id="project-options">
-                {projects?.map((project, index) => (
-                    <li
-                        key={project.name}
-                        className={`project-option ${selectedProject.name === project.name ? 'selected' : ''}`}
-                    >
-                        <button
-                            id={`scroll-to-${project.name}-button`}
-                            onClick={() => scrollToProject(project.name)}
+                {projects?.map((project, index) => {
+                    const isSelectedProject: boolean =
+                        selectedProject.name === project.name;
+                    let classState: string = '';
+
+                    if (!project.isFeatured) {
+                        classState += ' disabled';
+                    }
+
+                    if (isSelectedProject) {
+                        classState += ' selected';
+                    }
+
+                    return (
+                        <li
+                            key={project.name}
+                            className={`project-option ${classState} `}
                         >
-                            <span className="index">-{index + 1}</span>
-                        </button>
-                        <span className="project-name">
-                            <Corner position="top-left" />
-                            <Corner position="bottom-right" />
-                            <Corner position="top-right" />
-                            <Corner position="bottom-left" />
-                            <Barcode value={project.name} />
-                            <p>{project.name}</p>
-                        </span>
-                    </li>
-                ))}
+                            <button
+                                id={`scroll-to-${project.name}-button`}
+                                onClick={() => scrollToProject(project.name)}
+                            >
+                                <span className="index">-{index + 1}</span>
+                            </button>
+                            <span className="project-name">
+                                <Corner position="top-left" />
+                                <Corner position="bottom-right" />
+                                <Corner position="top-right" />
+                                <Corner position="bottom-left" />
+                                <Barcode value={project.name} />
+                                <p>{project.name}</p>
+                            </span>
+                        </li>
+                    );
+                })}
             </ol>
         </div>
     );

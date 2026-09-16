@@ -33,6 +33,19 @@
                 background-color: var(--quaternary-color);
             }
 
+            &.disabled {
+                background-color: darkred;
+                cursor: not-allowed;
+            }
+
+            &.selected.disabled {
+                background-color: color-mix(
+                    in srgb,
+                    var(--quaternary-color) 50%,
+                    darkred 50%
+                );
+            }
+
             &:hover {
                 width: 175%;
 
