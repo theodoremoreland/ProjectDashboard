@@ -8,6 +8,7 @@ import {
     useEffect,
     useState,
     MouseEvent,
+    useMemo,
 } from 'react';
 
 // Controller
@@ -38,6 +39,17 @@ interface Props {
 const TechList = ({ setShowTechList }: Props): ReactElement => {
     const { repos, updateFeaturedTopics, featuredTopics } =
         useContext(ProjectsContext);
+
+    const featuredCount: number = useMemo(() => {
+        if (!repos) {
+            return 0;
+        }
+
+        return repos?.reduce((prev, curr) => {
+            return curr.isFeatured ? prev + 1 : prev;
+        }, 0);
+    }, [repos]);
+
     const [topicsCount, setTopicsCount] = useState<TopicCounts | null>(null);
     const [areCompetenciesVisible, setAreCompetenciesVisible] =
         useState<boolean>(true);
@@ -140,7 +152,7 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
         <>
             <div id="clickaway-area__filter" onClick={handleClickAway}></div>
             <ul id="tech-list">
-                <h2 className="header">Filter projects</h2>
+                <h2 className="header">Filter projects {featuredCount}</h2>
                 <div
                     className={`tech-category-container ${areCompetenciesVisible ? '' : 'rotated'}`}
                 >
