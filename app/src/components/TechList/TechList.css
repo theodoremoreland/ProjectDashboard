@@ -128,12 +128,6 @@
     }
 }
 
-@media screen and (min-width: 1440px) {
-    #tech-list > li {
-        font-size: 1em;
-    }
-}
-
 #tech-list > li.filtered-out {
     opacity: 0.5;
 }
