@@ -1,3 +1,13 @@
+.project-card-container.not-featured .project-image-container {
+    &::after {
+        display: none;
+    }
+
+    .project-image {
+        opacity: 0.5;
+    }
+}
+
 .ThumbnailCard {
     display: flex;
     flex-direction: column;
