@@ -45,6 +45,7 @@ const NotAScrollbar = ({
                         >
                             <button
                                 id={`scroll-to-${project.name}-button`}
+                                disabled={classState.trim() === 'disabled'}
                                 onClick={() => scrollToProject(project.name)}
                             >
                                 <span className="index">-{index + 1}</span>

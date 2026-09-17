@@ -36,6 +36,10 @@
             &.disabled {
                 background-color: darkred;
                 cursor: not-allowed;
+
+                > button {
+                    cursor: not-allowed;
+                }
             }
 
             &.selected.disabled {
