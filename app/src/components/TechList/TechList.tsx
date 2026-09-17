@@ -75,7 +75,7 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
                     ([, topicCount1], [, topicCount2]) =>
                         topicCount2 - topicCount1
                 )
-                .map(([topicLabel, topicCount]) => {
+                .map(([topicLabel]) => {
                     const className: '' | 'selected' | 'filtered-out' =
                         determineClassName(topicLabel, featuredTopics);
 
@@ -134,12 +134,21 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
                                     />
                                 )}
                             </div>
-                            <span className="count">{topicCount}</span>
+                            <span className="count">
+                                {repos?.reduce((prev, curr) => {
+                                    return curr.isFeatured &&
+                                        curr.topics.includes(
+                                            findKeyForTopicLabel(topicLabel)
+                                        )
+                                        ? prev + 1
+                                        : prev;
+                                }, 0)}
+                            </span>
                         </li>
                     );
                 });
         },
-        [updateFeaturedTopics, featuredTopics]
+        [updateFeaturedTopics, featuredTopics, repos]
     );
 
     useEffect(() => {
