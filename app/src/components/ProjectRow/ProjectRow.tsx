@@ -73,7 +73,7 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
         if (inView) {
             timeoutId = setTimeout(() => {
                 setSelectedProject(projectData);
-                setHasSettled(true);
+                setHasSettled(projectData.isFeatured);
             }, 100);
         } else {
             setHasSettled(false);
@@ -85,7 +85,22 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
     }, [inView, projectData, setSelectedProject]);
 
     return (
-        <article id={`${projectData.name}`} className="ProjectRow" ref={ref}>
+        <article
+            id={`${projectData.name}`}
+            className={`ProjectRow ${projectData.isFeatured ? 'featured' : 'not-featured'}`}
+            ref={ref}
+        >
+            <div className="not-featured-overlay">
+                <h2 className="glitch layers">
+                    <span data-text="[Invalid project]">[Invalid project]</span>
+                </h2>
+                <p
+                    className="glitch layers"
+                    data-text="Project does not satisfy filter criteria"
+                >
+                    Project does not satisfy filter criteria
+                </p>
+            </div>
             <div className="project-row-content">
                 <div className="project-row-header">
                     <h2 className="project-name">

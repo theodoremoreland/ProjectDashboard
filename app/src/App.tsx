@@ -22,6 +22,7 @@ import NotAScrollbar from './components/NotAScrollbar/NotAScrollbar';
 import Cursor from './components/Cursor/Cursor';
 
 // Custom Styles
+import './index.css';
 import './App.css';
 
 const App = (): ReactElement => {

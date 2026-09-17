@@ -10,6 +10,37 @@
     height: 100%;
     scroll-snap-align: start;
 
+    .not-featured-overlay {
+        z-index: 3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
+        color: var(--primary-font-color);
+        background-color: rgba(0, 0, 0, 0.831);
+        backdrop-filter: blur(5px);
+
+        > h2 {
+            font-size: 2rem;
+            font-family: bit-bold;
+            font-style: oblique;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &.not-featured {
+        .not-featured-overlay {
+            display: flex;
+        }
+    }
+
     .project-row-content {
         position: relative;
         display: flex;
