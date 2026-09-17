@@ -54,13 +54,17 @@ const ProjectsContextProvider = ({
 
         return repos.map((repo) => {
             const { topics } = repo;
+            const topicsSetRepo = new Set(topics);
+            const isEveryFeaturedTopicInRepo: boolean = [
+                ...featuredTopics,
+            ].every((ft) => topicsSetRepo.has(ft));
 
             return {
                 ...repo,
                 isFeatured:
                     featuredTopics.size === 0
                         ? true
-                        : topics.some((topic) => featuredTopics.has(topic)),
+                        : isEveryFeaturedTopicInRepo,
             };
         });
     }, [repos, featuredTopics]);
