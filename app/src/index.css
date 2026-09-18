@@ -50,7 +50,7 @@
     --quinary-color: #ff00f7;
     --senary-color: #01002deb;
 
-    --primary-highlight-color: #006e88;
+    --primary-highlight-color: var(--secondary-color);
     --secondary-highlight-color: #26ff04;
 
     --primary-font-color: #fafafa;
@@ -123,6 +123,13 @@ html {
     background-color: var(--background-color);
     overflow-x: hidden;
     font-family: custom-regular;
+    font-size: 16px;
+}
+
+@media screen and (min-width: 1440px) {
+    html {
+        font-size: 16px;
+    }
 }
 
 body,
@@ -186,31 +193,6 @@ li {
 a,
 button {
     cursor: pointer;
-}
-
-@-webkit-keyframes shine {
-    0%,
-    4% {
-        left: -125%;
-    }
-    20% {
-        left: 125%;
-    }
-    100% {
-        left: 125%;
-    }
-}
-@keyframes shine {
-    0%,
-    4% {
-        left: -125%;
-    }
-    20% {
-        left: 125%;
-    }
-    100% {
-        left: 125%;
-    }
 }
 
 @-webkit-keyframes fadeLoop {

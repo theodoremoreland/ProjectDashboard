@@ -41,7 +41,7 @@ const NotAScrollbar = ({
                     return (
                         <li
                             key={project.name}
-                            className={`project-option ${classState} `}
+                            className={`project-option ${classState}`}
                         >
                             <button
                                 id={`scroll-to-${project.name}-button`}
