@@ -39,6 +39,8 @@ const App = (): ReactElement => {
     const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
     const [showAnalytics, setShowAnalytics] = useState<boolean>(false);
     const [showOverviewModal, setShowOverviewModal] = useState<boolean>(false);
+    const [showDigitalRainAnimation, setShowDigitalRainAnimation] =
+        useState<boolean>(true);
 
     // Handlers
     const handleCloseErrorModal = useCallback(
@@ -128,6 +130,12 @@ const App = (): ReactElement => {
                                                 projectData={repo}
                                                 setSelectedProject={
                                                     setSelectedProject
+                                                }
+                                                showDigitalRainAnimation={
+                                                    showDigitalRainAnimation
+                                                }
+                                                setShowDigitalRainAnimation={
+                                                    setShowDigitalRainAnimation
                                                 }
                                             />
                                         );

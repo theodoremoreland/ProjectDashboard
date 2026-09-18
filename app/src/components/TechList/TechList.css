@@ -6,7 +6,7 @@
     height: 100vh;
     z-index: 7;
     background-color: rgba(0, 0, 0, 0.776);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(7px);
 }
 
 #tech-list-container {

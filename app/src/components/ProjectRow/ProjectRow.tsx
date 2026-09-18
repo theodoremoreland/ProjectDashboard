@@ -35,9 +35,16 @@ import './ProjectRow.css';
 interface Props {
     projectData: TaggedRepoData;
     setSelectedProject: Dispatch<SetStateAction<TaggedRepoData | null>>;
+    showDigitalRainAnimation: boolean;
+    setShowDigitalRainAnimation: Dispatch<SetStateAction<boolean>>;
 }
 
-const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
+const ProjectRow = ({
+    projectData,
+    setSelectedProject,
+    showDigitalRainAnimation,
+    setShowDigitalRainAnimation,
+}: Props) => {
     const [hasSettled, setHasSettled] = useState<boolean>(false);
 
     // Third party hooks
@@ -176,6 +183,24 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         />
                     </div>
                     <div className="topics-container">
+                        <div className="topics-dialog">
+                            <button className="view-topics" type="button">
+                                View topics
+                            </button>
+                            <button
+                                className="pause-animation"
+                                type="button"
+                                onClick={() =>
+                                    setShowDigitalRainAnimation(
+                                        !showDigitalRainAnimation
+                                    )
+                                }
+                            >
+                                {showDigitalRainAnimation
+                                    ? 'Pause animation'
+                                    : 'Play animation'}
+                            </button>
+                        </div>
                         <h3 className="topics-label">
                             <span>T</span>
                             <span>O</span>
@@ -186,7 +211,9 @@ const ProjectRow = ({ projectData, setSelectedProject }: Props) => {
                         </h3>
                         <DigitalRain
                             topics={projectData.topics}
-                            shouldAnimate={hasSettled}
+                            shouldAnimate={
+                                hasSettled && showDigitalRainAnimation
+                            }
                         />
                     </div>
                 </div>
