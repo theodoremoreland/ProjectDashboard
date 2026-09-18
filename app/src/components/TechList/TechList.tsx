@@ -62,10 +62,10 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
     return (
         <>
             <div id="clickaway-area__filter" onClick={handleClickAway}></div>
-            <ul id="tech-list">
+            <div id="tech-list-container">
                 <h2 className="header">Filter projects {featuredCount}</h2>
                 {topicsCount && repos && (
-                    <>
+                    <ul id="tech-list">
                         <ListItems
                             groupName="Competencies"
                             repos={repos}
@@ -94,9 +94,9 @@ const TechList = ({ setShowTechList }: Props): ReactElement => {
                             featuredTopics={featuredTopics}
                             updateFeaturedTopics={updateFeaturedTopics}
                         />
-                    </>
+                    </ul>
                 )}
-            </ul>
+            </div>
         </>
     );
 };

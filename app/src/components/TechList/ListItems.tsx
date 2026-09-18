@@ -60,78 +60,79 @@ const ListItems = ({
                     />
                 </button>
             </div>
-            {sortedTopics.map(([topicLabel]) => {
-                const className: undefined | 'selected' = determineClassName(
-                    topicLabel,
-                    featuredTopics
-                );
+            {isGroupVisible &&
+                sortedTopics.map(([topicLabel]) => {
+                    const className: undefined | 'selected' =
+                        determineClassName(topicLabel, featuredTopics);
 
-                return (
-                    <li
-                        key={topicLabel}
-                        title={
-                            className !== 'selected'
-                                ? `Click to filter projects by ${topicLabel}`
-                                : `Click to remove ${topicLabel} filter`
-                        }
-                        className={className}
-                        onClick={() =>
-                            updateFeaturedTopics(
-                                findKeyForTopicLabel(topicLabel)
-                            )
-                        }
-                    >
-                        <label
-                            htmlFor={`${topicLabel}-checkbox`}
-                            className="checkbox-label"
+                    return (
+                        <li
+                            key={topicLabel}
+                            title={
+                                className !== 'selected'
+                                    ? `Click to filter projects by ${topicLabel}`
+                                    : `Click to remove ${topicLabel} filter`
+                            }
+                            className={className}
+                            onClick={() =>
+                                updateFeaturedTopics(
+                                    findKeyForTopicLabel(topicLabel)
+                                )
+                            }
                         >
-                            {className === 'selected' && (
-                                <CheckIcon className="checkbox-icon" />
-                            )}
-                            <input
-                                id={`${topicLabel}-checkbox`}
-                                aria-label={`Filter projects by ${topicLabel}`}
-                                name={`${topicLabel}-checkbox`}
-                                type="checkbox"
-                                className="checkbox"
-                                checked={
-                                    className === 'selected' ? true : false
-                                }
-                                readOnly
-                            />
-                        </label>
-                        <div className="topic-label-container">
-                            {topicLabel}
-                            {findTopicLabelImageSrc(topicLabel) && (
-                                <img
-                                    src={findTopicLabelImageSrc(topicLabel)}
-                                    alt={topicLabel}
-                                    className="tech-icon"
-                                    onLoad={(e) => {
-                                        const target: EventTarget = e.target;
-
-                                        if (
-                                            target instanceof HTMLImageElement
-                                        ) {
-                                            target.classList.add('loaded');
-                                        }
-                                    }}
+                            <label
+                                htmlFor={`${topicLabel}-checkbox`}
+                                className="checkbox-label"
+                            >
+                                {className === 'selected' && (
+                                    <CheckIcon className="checkbox-icon" />
+                                )}
+                                <input
+                                    id={`${topicLabel}-checkbox`}
+                                    aria-label={`Filter projects by ${topicLabel}`}
+                                    name={`${topicLabel}-checkbox`}
+                                    type="checkbox"
+                                    className="checkbox"
+                                    checked={
+                                        className === 'selected' ? true : false
+                                    }
+                                    readOnly
                                 />
-                            )}
-                        </div>
-                        <span className="count">
-                            {repos?.reduce((prev, curr) => {
-                                return curr.isFeatured &&
-                                    curr.topics.includes(
-                                        findKeyForTopicLabel(topicLabel)
-                                    )
-                                    ? prev + 1
-                                    : prev;
-                            }, 0)}
-                        </span>
-                    </li>
-                );
-            })}
+                            </label>
+                            <div className="topic-label-container">
+                                {topicLabel}
+                                {findTopicLabelImageSrc(topicLabel) && (
+                                    <img
+                                        src={findTopicLabelImageSrc(topicLabel)}
+                                        alt={topicLabel}
+                                        className="tech-icon"
+                                        onLoad={(e) => {
+                                            const target: EventTarget =
+                                                e.target;
+
+                                            if (
+                                                target instanceof
+                                                HTMLImageElement
+                                            ) {
+                                                target.classList.add('loaded');
+                                            }
+                                        }}
+                                    />
+                                )}
+                            </div>
+                            <span className="count">
+                                {repos?.reduce((prev, curr) => {
+                                    return curr.isFeatured &&
+                                        curr.topics.includes(
+                                            findKeyForTopicLabel(topicLabel)
+                                        )
+                                        ? prev + 1
+                                        : prev;
+                                }, 0)}
+                            </span>
+                        </li>
+                    );
+                })}
         </>
     );
 };
