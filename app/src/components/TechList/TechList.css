@@ -92,6 +92,10 @@
     animation: fadeIn 0.3s ease-in-out;
     cursor: pointer;
 
+    &.selected .count {
+        color: var(--secondary-color);
+    }
+
     & > .checkbox-label {
         position: relative;
         display: flex;
@@ -128,10 +132,6 @@
     }
 }
 
-#tech-list > li.filtered-out {
-    opacity: 0.5;
-}
-
 #tech-list > li:hover {
     opacity: 1;
     background-color: var(--quaternary-color);
@@ -150,7 +150,7 @@
 #tech-list > li.selected .tech-icon,
 #tech-list > li:hover .tech-icon,
 #tech-list > li.active .tech-icon {
-    height: 125%;
+    height: 130%;
     opacity: 1;
     transform: rotate(15deg);
 }

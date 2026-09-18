@@ -175,7 +175,7 @@ main {
     border: none;
     border-radius: 1em;
     margin: 0;
-    color: var(--primary-font-color);
+    color: var(--secondary-font-color);
     font-style: custom-bold;
     font-size: 1em;
     background-color: var(--primary-highlight-color);
