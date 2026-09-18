@@ -61,16 +61,18 @@ const ListItems = ({
                 </button>
             </div>
             {sortedTopics.map(([topicLabel]) => {
-                const className: '' | 'selected' | 'filtered-out' =
-                    determineClassName(topicLabel, featuredTopics);
+                const className: undefined | 'selected' = determineClassName(
+                    topicLabel,
+                    featuredTopics
+                );
 
                 return (
                     <li
                         key={topicLabel}
                         title={
                             className !== 'selected'
-                                ? `Click to filter projects by ${topicLabel}.`
-                                : `Click to remove ${topicLabel} filter.`
+                                ? `Click to filter projects by ${topicLabel}`
+                                : `Click to remove ${topicLabel} filter`
                         }
                         className={className}
                         onClick={() =>
