@@ -1,7 +1,7 @@
 {
-    "name": "project-dashboard",
+    "name": "theodora",
     "private": true,
-    "version": "5.1.0",
+    "version": "0.1.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
