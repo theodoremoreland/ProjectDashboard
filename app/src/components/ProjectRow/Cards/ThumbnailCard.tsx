@@ -15,12 +15,14 @@ import { getImagesFromReadme } from '../../../modules/readme';
 import './ThumbnailCard.css';
 
 interface Props {
+    hasSettled: boolean;
     projectData: TaggedRepoData;
     readme: string | undefined;
     isReadmeFetching: boolean;
 }
 
 const ThumbnailCard = ({
+    hasSettled,
     projectData,
     readme,
     isReadmeFetching,
@@ -61,20 +63,23 @@ const ThumbnailCard = ({
                     <span className="project-context">
                         {getProjectContext(projectData)}
                     </span>
-                    <div className="project-image-container">
-                        <img
-                            className="project-image"
-                            onLoad={(e) => {
-                                const target: EventTarget = e.target;
+                    <div
+                        className={`project-image-container ${hasSettled ? 'loaded' : 'loading'}`}
+                    >
+                        {hasSettled && (
+                            <img
+                                className="project-image"
+                                onLoad={(e) => {
+                                    const target: EventTarget = e.target;
 
-                                if (target instanceof HTMLImageElement) {
-                                    target.classList.add('loaded');
-                                }
-                            }}
-                            src={projectData.image}
-                            alt={projectData.name}
-                            loading="lazy"
-                        />
+                                    if (target instanceof HTMLImageElement) {
+                                        target.classList.add('loaded');
+                                    }
+                                }}
+                                src={projectData.image}
+                                alt={projectData.name}
+                            />
+                        )}
                     </div>
                 </div>
                 <div className="middle">
@@ -87,13 +92,13 @@ const ThumbnailCard = ({
                     <div className="project-screenshots-container">
                         <ul className="project-screenshots">
                             {!isReadmeFetching &&
+                                hasSettled &&
                                 readmeImages.slice(0, 4).map((src, index) => (
                                     <li
                                         key={index}
                                         onClick={() => handleImageClick(index)}
                                     >
                                         <img
-                                            loading="lazy"
                                             className="project-screenshot"
                                             src={src}
                                             alt={`${projectData.name} screenshot ${index + 1}`}

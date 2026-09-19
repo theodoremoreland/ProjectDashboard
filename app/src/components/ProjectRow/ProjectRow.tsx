@@ -159,6 +159,7 @@ const ProjectRow = ({
                     />
                     <ul className="project-cards">
                         <ThumbnailCard
+                            hasSettled={hasSettled}
                             projectData={projectData}
                             readme={readmeData}
                             isReadmeFetching={isReadmeFetching}
@@ -179,11 +180,15 @@ const ProjectRow = ({
                 </div>
                 <div className="project-row-footer">
                     <div className="project-video-preview">
-                        <h3>Project Preview</h3>
-                        <img
-                            src="https://mir-s3-cdn-cf.behance.net/project_modules/source/d20511205038723.66b3a6fe1a294.gif"
-                            alt="Project preview"
-                        />
+                        {hasSettled && (
+                            <>
+                                <h3>Project Preview</h3>
+                                <img
+                                    src="https://mir-s3-cdn-cf.behance.net/project_modules/source/d20511205038723.66b3a6fe1a294.gif"
+                                    alt="Project preview"
+                                />
+                            </>
+                        )}
                     </div>
                     <div className="topics-container">
                         <div className="topics-dialog">
@@ -193,7 +198,7 @@ const ProjectRow = ({
                                 type="button"
                             >
                                 <EyeTrackingIcon className="icon" />
-                                <span>View topics</span>
+                                <span>View</span>
                             </button>
                             <button
                                 title={`${showDigitalRainAnimation ? 'Pause' : 'Play'} digital rain animation`}
@@ -208,12 +213,12 @@ const ProjectRow = ({
                                 {showDigitalRainAnimation ? (
                                     <>
                                         <MotionPauseIcon className="icon" />{' '}
-                                        <span>Pause animation</span>
+                                        <span>Pause</span>
                                     </>
                                 ) : (
                                     <>
                                         <MotionPlayIcon className="icon" />{' '}
-                                        <span>Play animation</span>
+                                        <span>Play</span>
                                     </>
                                 )}
                             </button>
