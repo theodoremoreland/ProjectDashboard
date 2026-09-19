@@ -10,7 +10,7 @@ import { getTopLanguages } from '../../http/getTopLanguages';
 import { getSonarMeasures } from '../../http/getSonarMeasures';
 import { getRecentCommits } from '../../http/getRecentCommits';
 import { getCommitActivity } from '../../http/getCommitActivity';
-import getProjectReadme from '../../http/getProjectReadme';
+import { getProjectReadme } from '../../modules/readme/';
 
 // Types
 import { Commit, CommitActivityData } from '../../types';
