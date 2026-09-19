@@ -28,6 +28,9 @@ import { TaggedRepoData } from '../../types';
 import ForkRightIcon from '../../assets/images/icons/fork_right.svg?react';
 import HotelClassIcon from '../../assets/images/icons/hotel_class.svg?react';
 import WeightIcon from '../../assets/images/icons/weight.svg?react';
+import EyeTrackingIcon from '../../assets/images/icons/eye_tracking.svg?react';
+import MotionPlayIcon from '../../assets/images/icons/motion_play.svg?react';
+import MotionPauseIcon from '../../assets/images/icons/motion_photos_paused.svg?react';
 
 // Styles
 import './ProjectRow.css';
@@ -184,11 +187,17 @@ const ProjectRow = ({
                     </div>
                     <div className="topics-container">
                         <div className="topics-dialog">
-                            <button className="view-topics" type="button">
-                                View topics
+                            <button
+                                title="View project topics"
+                                className="view-topics"
+                                type="button"
+                            >
+                                <EyeTrackingIcon className="icon" />
+                                <span>View topics</span>
                             </button>
                             <button
-                                className="pause-animation"
+                                title={`${showDigitalRainAnimation ? 'Pause' : 'Play'} digital rain animation`}
+                                className={`${showDigitalRainAnimation ? 'pause' : 'play'}-animation`}
                                 type="button"
                                 onClick={() =>
                                     setShowDigitalRainAnimation(
@@ -196,9 +205,17 @@ const ProjectRow = ({
                                     )
                                 }
                             >
-                                {showDigitalRainAnimation
-                                    ? 'Pause animation'
-                                    : 'Play animation'}
+                                {showDigitalRainAnimation ? (
+                                    <>
+                                        <MotionPauseIcon className="icon" />{' '}
+                                        <span>Pause animation</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <MotionPlayIcon className="icon" />{' '}
+                                        <span>Play animation</span>
+                                    </>
+                                )}
                             </button>
                         </div>
                         <h3 className="topics-label">
