@@ -152,6 +152,7 @@ const SearchBar = ({ scrollToProject }: Props): ReactElement => {
                                         >
                                             <p className="title">{repo.name}</p>
                                             <img
+                                                loading="lazy"
                                                 src={repo.image}
                                                 alt={repo.name}
                                             />

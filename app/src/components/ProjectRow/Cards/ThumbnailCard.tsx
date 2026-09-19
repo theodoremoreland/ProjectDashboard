@@ -73,15 +73,8 @@ const ThumbnailCard = ({
                             }}
                             src={projectData.image}
                             alt={projectData.name}
+                            loading="lazy"
                         />
-                        <div className="glitch__layers">
-                            <div
-                                className="glitch__layer"
-                                style={{
-                                    backgroundImage: `url('${projectData.image}')`,
-                                }}
-                            ></div>
-                        </div>
                     </div>
                 </div>
                 <div className="middle">
@@ -100,6 +93,7 @@ const ThumbnailCard = ({
                                         onClick={() => handleImageClick(index)}
                                     >
                                         <img
+                                            loading="lazy"
                                             className="project-screenshot"
                                             src={src}
                                             alt={`${projectData.name} screenshot ${index + 1}`}
