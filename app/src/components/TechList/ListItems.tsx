@@ -106,17 +106,6 @@ const ListItems = ({
                                         src={findTopicLabelImageSrc(topicLabel)}
                                         alt={topicLabel}
                                         className="tech-icon"
-                                        onLoad={(e) => {
-                                            const target: EventTarget =
-                                                e.target;
-
-                                            if (
-                                                target instanceof
-                                                HTMLImageElement
-                                            ) {
-                                                target.classList.add('loaded');
-                                            }
-                                        }}
                                     />
                                 )}
                             </div>
