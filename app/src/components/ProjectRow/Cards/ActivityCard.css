@@ -9,6 +9,29 @@
     background-color: #020202;
     overflow-y: hidden;
 
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        color: var(--tertiary-color);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    h3,
+    h4 {
+        width: 100%;
+        max-width: 55ch;
+        overflow-wrap: break-word;
+    }
+
+    button {
+        margin: 0 5px;
+    }
+
     .top,
     .middle,
     .bottom {
@@ -33,33 +56,7 @@
         align-items: center;
         height: 20%;
         background-color: black;
-        overflow-x: hidden;
-
-        .sparkline-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-
-            &::after {
-                z-index: 2;
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: black;
-                transition: left 1s ease-in-out;
-            }
-
-            &.loaded::after {
-                left: 100%;
-            }
-        }
+        overflow: hidden;
     }
 
     .bottom {
@@ -67,59 +64,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 20px;
         height: 40%;
-        padding: 20px 20px 0px 20px;
-
-        h3 {
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--temp-silver);
-        }
-    }
-
-    a:link,
-    a:visited,
-    a:hover,
-    a:active {
-        color: var(--tertiary-color);
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    h3,
-    h4 {
-        width: 100%;
-        max-width: 55ch;
-        overflow-wrap: break-word;
-    }
-
-    ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 1em;
-        width: 100%;
-        list-style: none;
-        overflow-y: auto;
-    }
-
-    li {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 12px;
-        width: 100%;
-        padding: 0.5em 0;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    button {
-        margin: 0 5px;
     }
 
     .DeltaBarChart {
@@ -148,6 +93,73 @@
             &:nth-last-of-type(2) {
                 fill: #000000;
             }
+        }
+    }
+
+    .sparkline-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        &::after {
+            z-index: 2;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            transition: left 1s ease-in-out;
+        }
+
+        &.loaded::after {
+            left: 100%;
+        }
+    }
+
+    .commits-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        height: 100%;
+        padding: 20px 20px 0px 20px;
+
+        h3 {
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--temp-silver);
+        }
+    }
+
+    .commits {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1em;
+        width: 100%;
+        list-style: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 12px;
+            width: 100%;
+            padding: 0.5em 0;
+            border-bottom: 1px solid var(--border-color);
         }
     }
 }

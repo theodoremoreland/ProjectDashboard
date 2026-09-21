@@ -155,11 +155,13 @@
 
     .project-cards {
         position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
+        grid-template-rows: 1fr;
+        flex-grow: 1; /* Fills the exact remaining space without overflowing */
         gap: 8px;
+        width: 100%;
+        min-height: 0;
         height: 100%;
     }
 
@@ -167,9 +169,9 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        width: 32%;
+        width: 100%;
+        min-height: 0;
         height: 100%;
-        flex-shrink: 0;
 
         .trailing-text {
             position: relative;

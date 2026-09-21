@@ -81,30 +81,34 @@ const ActivityCard = ({
                     </div>
                     <GlyphLane />
                 </div>
-                <div className="bottom commits-container">
-                    <h3>Recent commits</h3>
-                    <ul className="commits">
-                        {isRecentCommitsFetching && <p>Loading commits...</p>}
-                        {commits?.map((commit, index) => (
-                            <li key={index} className="commit">
-                                <h4>{commit.message}</h4>
-                                <p>
-                                    {commit.committedDate
-                                        ? new Date(
-                                              commit.committedDate
-                                          ).toLocaleString()
-                                        : 'Unknown date'}
-                                </p>
-                                <a
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={commit.commitUrl}
-                                >
-                                    View code diff on GitHub
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                <div className="bottom">
+                    <div className=" commits-container">
+                        <h3>Recent commits</h3>
+                        <ul className="commits">
+                            {isRecentCommitsFetching && (
+                                <p>Loading commits...</p>
+                            )}
+                            {commits?.map((commit, index) => (
+                                <li key={index} className="commit">
+                                    <h4>{commit.message}</h4>
+                                    <p>
+                                        {commit.committedDate
+                                            ? new Date(
+                                                  commit.committedDate
+                                              ).toLocaleString()
+                                            : 'Unknown date'}
+                                    </p>
+                                    <a
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        href={commit.commitUrl}
+                                    >
+                                        View code diff on GitHub
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div className="trailing-text">
