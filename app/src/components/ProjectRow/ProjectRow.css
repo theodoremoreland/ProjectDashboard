@@ -39,6 +39,7 @@
         .not-featured-overlay {
             display: flex;
             content-visibility: auto;
+            contain-intrinsic-size: 100vw 100vh;
         }
     }
 
