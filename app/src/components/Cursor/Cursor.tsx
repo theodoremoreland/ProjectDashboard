@@ -7,7 +7,12 @@ import PointerCursorIcon from '../../assets/images/icons/pan_tool_alt.svg?react'
 // Styles
 import './Cursor.css';
 
-const Cursor = (): ReactElement => {
+interface Props {
+    replaceCursor: boolean;
+    userId: string;
+}
+
+const Cursor = ({ userId, replaceCursor }: Props): ReactElement => {
     const cursorRef = useRef<HTMLDivElement>(null);
 
     const handleMouseMove = useCallback((event: MouseEvent) => {
@@ -34,7 +39,8 @@ const Cursor = (): ReactElement => {
 
     return (
         <div className="Cursor" ref={cursorRef}>
-            <PointerCursorIcon className="video-cursor" />
+            {replaceCursor && <PointerCursorIcon />}
+            <span>#{userId}</span>
         </div>
     );
 };

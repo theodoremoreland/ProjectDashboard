@@ -176,7 +176,7 @@ main {
     border-radius: 1em;
     margin: 0;
     color: var(--secondary-font-color);
-    font-style: custom-bold;
+    font-family: bit-regular;
     font-size: 1em;
     background-color: var(--primary-highlight-color);
 }

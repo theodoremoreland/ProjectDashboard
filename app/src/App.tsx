@@ -94,7 +94,7 @@ const App = (): ReactElement => {
 
     return (
         <>
-            <Cursor />
+            <Cursor userId="0001" replaceCursor={false} />
             {showErrorModal && <Error handleClose={handleCloseErrorModal} />}
             <header
                 ref={titleCardRef}
