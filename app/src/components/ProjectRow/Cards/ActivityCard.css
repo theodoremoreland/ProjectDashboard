@@ -37,6 +37,7 @@
     .bottom {
         position: relative;
         width: 100%;
+        min-width: 0;
     }
 
     .top {
@@ -46,6 +47,7 @@
         align-items: flex-start;
         gap: 15px;
         height: 40%;
+        flex-grow: 1;
         padding-bottom: 20px;
     }
 
@@ -68,6 +70,8 @@
     }
 
     .DeltaBarChart {
+        width: 100%;
+
         .MuiChartsAxis-root .MuiChartsAxis-line {
             stroke: #f4f1f18e;
             stroke-width: 2;
@@ -85,7 +89,7 @@
             stroke: #838383;
         }
 
-        .MuiBarLabel-root {
+        .MuiBarChart-label {
             &:nth-last-of-type(1) {
                 fill: #c8c8c8;
             }

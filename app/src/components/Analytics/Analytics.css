@@ -173,6 +173,14 @@
             border-radius: var(--border-radius);
         }
 
+        .Pie {
+            width: 100%;
+        }
+
+        .MuiChartsLegend-label {
+            color: var(--primary-font-color);
+        }
+
         .MuiChartsLegend-mark {
             width: 15px;
             height: 15px;

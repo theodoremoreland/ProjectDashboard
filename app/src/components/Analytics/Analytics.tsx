@@ -96,8 +96,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         if (window.innerWidth <= 640) {
             const _pieChartSlotProps: PieChartSlotProps = {
                 legend: {
-                    position: { vertical: 'bottom', horizontal: 'middle' },
-                    direction: 'row',
+                    position: { vertical: 'bottom', horizontal: 'center' },
+                    direction: 'horizontal',
                 },
             };
             const _pieChartMargins = { top: 0, right: 0, bottom: 110, left: 0 };
@@ -108,8 +108,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         } else if (window.innerWidth < 769) {
             const _pieChartSlotProps: PieChartSlotProps = {
                 legend: {
-                    position: { vertical: 'bottom', horizontal: 'middle' },
-                    direction: 'row',
+                    position: { vertical: 'bottom', horizontal: 'center' },
+                    direction: 'horizontal',
                 },
             };
             const _pieChartMargins = { top: 0, right: 0, bottom: 50, left: 0 };
@@ -120,8 +120,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         } else if (window.innerWidth <= 1150) {
             const _pieChartSlotProps: PieChartSlotProps = {
                 legend: {
-                    position: { vertical: 'middle', horizontal: 'right' },
-                    direction: 'column',
+                    position: { vertical: 'middle', horizontal: 'end' },
+                    direction: 'vertical',
                 },
             };
             const _pieChartMargins = { top: 0, right: 100, bottom: 0, left: 0 };
@@ -132,8 +132,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
         } else {
             const _pieChartSlotProps: PieChartSlotProps = {
                 legend: {
-                    position: { vertical: 'middle', horizontal: 'right' },
-                    direction: 'column',
+                    position: { vertical: 'middle', horizontal: 'end' },
+                    direction: 'vertical',
                 },
             };
             const _pieChartMargins = { top: 0, right: 200, bottom: 0, left: 0 };
@@ -277,6 +277,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                     <div className="pie-chart-container">
                         <h2 className="pie-chart-title">Projects by context</h2>
                         <PieChart
+                            className="Pie"
                             title="Projects by context"
                             colors={COLORS}
                             slotProps={pieChartSlotProps}
@@ -285,8 +286,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                 {
                                     data: contextCounts,
                                     highlightScope: {
-                                        faded: 'global',
-                                        highlighted: 'item',
+                                        fade: 'global',
+                                        highlight: 'item',
                                     },
                                     innerRadius: pieChartInnerRadius,
                                     paddingAngle: 4,
@@ -305,6 +306,7 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                             Academic projects by course
                         </h2>
                         <PieChart
+                            className="Pie"
                             colors={COLORS}
                             slotProps={pieChartSlotProps}
                             margin={pieChartMargins}
@@ -312,8 +314,8 @@ const Analytics = ({ projects, handleClose }: Props): ReactElement => {
                                 {
                                     data: courseCounts,
                                     highlightScope: {
-                                        faded: 'global',
-                                        highlighted: 'item',
+                                        fade: 'global',
+                                        highlight: 'item',
                                     },
                                     innerRadius: pieChartInnerRadius,
                                     paddingAngle: 4,

@@ -61,8 +61,7 @@ const ActivityCard = ({
                                 },
                             },
                         ]}
-                        series={[{ data: recentDelta }]}
-                        barLabel="value"
+                        series={[{ data: recentDelta, barLabel: 'value' }]}
                         grid={{ horizontal: true, vertical: true }}
                     />
                 </div>
@@ -73,7 +72,7 @@ const ActivityCard = ({
                     >
                         <SparkLineChart
                             data={commitsPerWeek}
-                            colors={['#c0fe04']}
+                            color="#c0fe04"
                             height={20}
                             showTooltip
                             showHighlight
