@@ -101,15 +101,19 @@ const ProjectRow = ({
             ref={ref}
         >
             <div className="not-featured-overlay">
-                <h2 className="glitch layers">
-                    <span data-text="[Invalid project]">[Invalid project]</span>
-                </h2>
-                <p
-                    className="glitch layers"
-                    data-text="Project does not satisfy filter criteria"
-                >
-                    Project does not satisfy filter criteria
-                </p>
+                <div>
+                    <h2 className="glitch layers">
+                        <span data-text="[Invalid project]">
+                            [Invalid project]
+                        </span>
+                    </h2>
+                    <p
+                        className="glitch layers"
+                        data-text="Project does not satisfy filter criteria"
+                    >
+                        Project does not satisfy filter criteria
+                    </p>
+                </div>
             </div>
             <div className="project-row-content">
                 <div className="project-row-header">
