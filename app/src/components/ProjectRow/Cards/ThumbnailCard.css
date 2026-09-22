@@ -87,9 +87,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            filter: hue-rotate(150deg);
             mix-blend-mode: difference;
-            background-image: url('../../../assets/images/untitled-4.gif');
+            background-image: url('https://d1p1bf198tl14c.cloudfront.net/theo-dora/untitled-5.gif');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
