@@ -1,5 +1,5 @@
 // React
-import { ReactElement } from 'react';
+import { ReactElement, useMemo } from 'react';
 
 // Third party
 import { BarChart, SparkLineChart } from '@mui/x-charts';
@@ -25,6 +25,25 @@ interface Props {
     isCommitActivityFetching?: boolean;
 }
 
+const barX = [
+    {
+        id: 'x-axis-1',
+        scaleType: 'band' as const,
+        data: ['Additions', 'Deletions'] as const,
+    },
+];
+const barY = [
+    {
+        id: 'y-axis-1',
+        colorMap: {
+            type: 'piecewise' as const,
+            thresholds: [0],
+            colors: ['darkred', '#26ff04'],
+        },
+    },
+];
+const barGrid = { horizontal: true, vertical: true };
+
 const ActivityCard = ({
     projectData,
     commits,
@@ -32,8 +51,24 @@ const ActivityCard = ({
     isRecentCommitsFetching,
     isCommitActivityFetching,
 }: Props): ReactElement => {
-    const commitsPerWeek: number[] = getCommitsPerWeek(commitActivity);
-    const recentDelta: [number, number] = getRecentDelta(commits);
+    const commitsPerWeek: number[] = useMemo(
+        () => getCommitsPerWeek(commitActivity),
+        [commitActivity]
+    );
+    const recentDelta: [number, number] = useMemo(
+        () => getRecentDelta(commits),
+        [commits]
+    );
+    const barSeries = useMemo(
+        () => [
+            {
+                id: 'activity-delta-series',
+                data: recentDelta,
+                barLabel: 'value' as const,
+            },
+        ],
+        [recentDelta]
+    );
 
     return (
         <li className="project-card-container">
@@ -45,24 +80,11 @@ const ActivityCard = ({
                 <div className="top">
                     <BarChart
                         className="DeltaBarChart"
-                        height={300}
-                        xAxis={[
-                            {
-                                scaleType: 'band',
-                                data: ['Additions', 'Deletions'],
-                            },
-                        ]}
-                        yAxis={[
-                            {
-                                colorMap: {
-                                    type: 'piecewise',
-                                    thresholds: [0],
-                                    colors: ['darkred', '#26ff04'],
-                                },
-                            },
-                        ]}
-                        series={[{ data: recentDelta, barLabel: 'value' }]}
-                        grid={{ horizontal: true, vertical: true }}
+                        height={270}
+                        xAxis={barX}
+                        yAxis={barY}
+                        series={barSeries}
+                        grid={barGrid}
                     />
                 </div>
                 <div className={`middle`}>
