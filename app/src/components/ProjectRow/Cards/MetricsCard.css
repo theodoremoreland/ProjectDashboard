@@ -88,10 +88,7 @@
 
     .software-quality-container {
         contain-intrinsic-size: auto;
-        transition:
-            opacity 1s,
-            content-visibility 1s;
-        transition-behavior: allow-discrete;
+        transition: opacity 1s;
     }
 
     .software-quality-container.show {
