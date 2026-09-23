@@ -86,6 +86,24 @@
         }
     }
 
+    .software-quality-container {
+        contain-intrinsic-size: auto;
+        transition:
+            opacity 1s,
+            content-visibility 1s;
+        transition-behavior: allow-discrete;
+    }
+
+    .software-quality-container.show {
+        content-visibility: auto;
+        opacity: 1;
+    }
+
+    .software-quality-container.hide {
+        content-visibility: hidden;
+        opacity: 0;
+    }
+
     .deployment-button-container {
         display: flex;
         justify-content: center;

@@ -18,15 +18,19 @@ import './MetricsCard.css';
 
 const SonarCloudBaseUrl: string = `https://sonarcloud.io/project/issues?id=${REPO_OWNER}_`;
 
-const MetricsCard = ({
-    projectData,
-    sonarMeasures,
-    isSonarMeasuresFetching,
-}: {
+interface Props {
+    hasSettled: boolean;
     projectData: TaggedRepoData;
     sonarMeasures: SonarMeasures | undefined;
     isSonarMeasuresFetching: boolean;
-}): ReactElement => {
+}
+
+const MetricsCard = ({
+    hasSettled,
+    projectData,
+    sonarMeasures,
+    isSonarMeasuresFetching,
+}: Props): ReactElement => {
     const hasValidDemoLink: boolean =
         projectData.name !== 'ProjectDashboard' && projectData.demo_link !== '';
     const SoftwareQualityLink: Record<string, string> = {
@@ -42,7 +46,9 @@ const MetricsCard = ({
                 <Corner position="bottom-right" />
                 <Corner position="top-right" />
                 <Corner position="bottom-left" />
-                <ul className="software-quality-container">
+                <ul
+                    className={`software-quality-container ${hasSettled ? 'show' : 'hide'}`}
+                >
                     <li>
                         <div className="quality-label-container">
                             <p>Lines of Code</p>

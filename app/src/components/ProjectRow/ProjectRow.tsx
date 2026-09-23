@@ -95,12 +95,10 @@ const ProjectRow = ({
     }, [inView, projectData, setSelectedProject]);
 
     return (
-        <article
-            id={`${projectData.name}`}
-            className={`ProjectRow ${projectData.isFeatured ? 'featured' : 'not-featured'}`}
-            ref={ref}
-        >
-            <div className="not-featured-overlay">
+        <article id={`${projectData.name}`} className={`ProjectRow`} ref={ref}>
+            <div
+                className={`not-featured-overlay ${projectData.isFeatured ? 'hide' : 'show'}`}
+            >
                 <div>
                     <h2 className="glitch layers">
                         <span data-text="[Invalid project]">
@@ -169,11 +167,13 @@ const ProjectRow = ({
                             isReadmeFetching={isReadmeFetching}
                         />
                         <MetricsCard
+                            hasSettled={hasSettled}
                             projectData={projectData}
                             sonarMeasures={sonarMeasuresData}
                             isSonarMeasuresFetching={isSonarMeasuresFetching}
                         />
                         <ActivityCard
+                            hasSettled={hasSettled}
                             isRecentCommitsFetching={isRecentCommitsFetching}
                             isCommitActivityFetching={isCommitActivityFetching}
                             projectData={projectData}

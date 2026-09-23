@@ -18,6 +18,7 @@ import { CommitActivityData, TaggedRepoData, Commit } from '../../../types';
 import './ActivityCard.css';
 
 interface Props {
+    hasSettled: boolean;
     projectData: TaggedRepoData;
     commits: Commit[] | undefined;
     commitActivity: CommitActivityData | undefined;
@@ -45,6 +46,7 @@ const barY = [
 const barGrid = { horizontal: true, vertical: true };
 
 const ActivityCard = ({
+    hasSettled,
     projectData,
     commits,
     commitActivity,
@@ -79,7 +81,7 @@ const ActivityCard = ({
                 <Corner position="bottom-left" />
                 <div className="top">
                     <BarChart
-                        className="DeltaBarChart"
+                        className={`DeltaBarChart ${hasSettled ? 'show' : 'hide'}`}
                         height={270}
                         xAxis={barX}
                         yAxis={barY}
