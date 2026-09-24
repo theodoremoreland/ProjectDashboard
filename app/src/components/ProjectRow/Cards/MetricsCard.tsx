@@ -1,5 +1,8 @@
 // React
-import { ReactElement } from 'react';
+import { ReactElement, useMemo } from 'react';
+
+// Third party
+import { RadarAxis, RadarChart } from '@mui/x-charts';
 
 // Custom
 import { convertToSonarGrade } from '../../../utils/convertToSonarGrade';
@@ -7,7 +10,7 @@ import { REPO_OWNER } from '../../../constants/RepoOwner';
 
 // Components
 import Corner from '../../Corner/Corner';
-import GradeGraph from '../../GradeGraph/GradeGraph';
+import LayeredBar from '../../LayeredBar/LayeredBar';
 import GlyphLane from '../../GlyphLane/GlyphLane';
 
 // Types
@@ -38,7 +41,31 @@ const MetricsCard = ({
         maintainability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=MAINTAINABILITY&s=IMPACT_RANK`,
         reliability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=RELIABILITY&s=IMPACT_RANK`,
     };
-
+    const radarData = useMemo(() => {
+        return [
+            {
+                id: 'software-quality',
+                label: 'Grade',
+                data: [
+                    sonarMeasures?.metrics.sqale_rating || 0,
+                    sonarMeasures?.metrics.reliability_rating || 0,
+                    sonarMeasures?.metrics.security_rating || 0,
+                ],
+            },
+        ];
+    }, [sonarMeasures]);
+    const topData = useMemo(() => {
+        return {
+            label: 'Lines of Code',
+            value: sonarMeasures?.metrics.ncloc || 0,
+        };
+    }, [sonarMeasures]);
+    const bottomData = useMemo(() => {
+        return {
+            label: 'Test Coverage',
+            value: sonarMeasures?.metrics.coverage || 0,
+        };
+    }, [sonarMeasures]);
     return (
         <li className="project-card-container">
             <div className="project-card MetricsCard">
@@ -46,140 +73,46 @@ const MetricsCard = ({
                 <Corner position="bottom-right" />
                 <Corner position="top-right" />
                 <Corner position="bottom-left" />
-                <ul
+                <div
                     className={`software-quality-container ${hasSettled ? 'show' : 'hide'}`}
                 >
-                    <li>
-                        <div className="quality-label-container">
-                            <p>Lines of Code</p>
-                            <GradeGraph
-                                measure={sonarMeasures?.metrics.ncloc}
-                                type="basic"
-                            />
-                        </div>
-                        {isSonarMeasuresFetching ? (
-                            <p className="grade">...</p>
-                        ) : (
-                            <p className="grade">
-                                {sonarMeasures?.metrics.ncloc}
-                            </p>
-                        )}
-                    </li>
-                    <li>
-                        <div className="quality-label-container">
-                            <p>Maintainability</p>
-                            <GradeGraph
-                                measure={sonarMeasures?.metrics.sqale_rating}
-                                type="point"
-                            />
-                        </div>
-                        {isSonarMeasuresFetching ? (
-                            <p className="grade">...</p>
-                        ) : (
-                            <a
-                                className="grade-link"
-                                href={SoftwareQualityLink.maintainability}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title={`Click to view the maintainability rating on SonarCloud.`}
-                            >
-                                <p
-                                    className={`grade ${convertToSonarGrade(
-                                        sonarMeasures?.metrics.sqale_rating
-                                    )}`}
-                                >
-                                    {convertToSonarGrade(
-                                        sonarMeasures?.metrics.sqale_rating
-                                    )}
-                                </p>
-                            </a>
-                        )}
-                    </li>
-                    <li>
-                        <div className="quality-label-container">
-                            <p>Reliability</p>
-                            <GradeGraph
-                                measure={
-                                    sonarMeasures?.metrics.reliability_rating
-                                }
-                                type="point"
-                            />
-                        </div>
-                        {isSonarMeasuresFetching ? (
-                            <p className="grade">...</p>
-                        ) : (
-                            <a
-                                className="grade-link"
-                                href={SoftwareQualityLink.reliability}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title={`Click to view the reliability rating on SonarCloud.`}
-                            >
-                                <p
-                                    className={`grade ${convertToSonarGrade(
-                                        sonarMeasures?.metrics
-                                            .reliability_rating
-                                    )}`}
-                                >
-                                    {convertToSonarGrade(
-                                        sonarMeasures?.metrics
-                                            .reliability_rating
-                                    )}
-                                </p>
-                            </a>
-                        )}
-                    </li>
-                    <li>
-                        <div className="quality-label-container">
-                            <p>Security</p>
-                            <GradeGraph
-                                measure={sonarMeasures?.metrics.security_rating}
-                                type="point"
-                            />
-                        </div>
-                        {isSonarMeasuresFetching ? (
-                            <p className="grade">...</p>
-                        ) : (
-                            <a
-                                className="grade-link"
-                                href={SoftwareQualityLink.security}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                title={`Click to view the security rating on SonarCloud.`}
-                            >
-                                <p
-                                    className={`grade ${convertToSonarGrade(sonarMeasures?.metrics.security_rating)}`}
-                                >
-                                    {convertToSonarGrade(
-                                        sonarMeasures?.metrics.security_rating
-                                    )}
-                                </p>
-                            </a>
-                        )}
-                    </li>
-                    <li>
-                        <div className="quality-label-container">
-                            <p>Test Coverage</p>
-                            <GradeGraph
-                                measure={sonarMeasures?.metrics.coverage}
-                                type="percentage"
-                            />
-                        </div>
-                        {isSonarMeasuresFetching ? (
-                            <p className="grade">...</p>
-                        ) : (
-                            <p
-                                className={`grade ${convertToSonarGrade(
-                                    sonarMeasures?.metrics.coverage
-                                )}`}
-                            >
-                                {convertToSonarGrade(
-                                    sonarMeasures?.metrics.coverage
-                                )}
-                            </p>
-                        )}
-                    </li>
-                </ul>
+                    <RadarChart
+                        className="RadarChart"
+                        desc="A radar chart illustrating code quality grades for project"
+                        colors={['var(--secondary-color)']}
+                        height={250}
+                        hideLegend
+                        series={radarData}
+                        stripeColor={(index: number) =>
+                            index % 2 === 0
+                                ? 'var(--secondary-color)'
+                                : 'var(--tertiary-color)'
+                        }
+                        divisions={5}
+                        radar={{
+                            max: 5,
+                            startAngle: 0,
+                            metrics: [
+                                'Maintainability',
+                                'Reliability',
+                                'Security',
+                            ],
+                        }}
+                        slotProps={{ tooltip: { trigger: 'axis' } }}
+                    >
+                        <RadarAxis
+                            metric="Maintainability"
+                            divisions={5}
+                            labelOrientation="rotated"
+                            angle={36}
+                        />
+                    </RadarChart>
+                    <LayeredBar
+                        className="code-coverage"
+                        topData={topData}
+                        bottomData={bottomData}
+                    />
+                </div>
                 <div className="middle">
                     <GlyphLane />
                     <div className="MetricsCard__header">

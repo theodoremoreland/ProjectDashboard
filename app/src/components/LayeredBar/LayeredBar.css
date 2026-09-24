@@ -1,0 +1,62 @@
+.LayeredBar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    width: 25%;
+    height: 75%;
+
+    .legend {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .color {
+            display: none;
+            width: 20px;
+            height: 20px;
+        }
+
+        &.top {
+        }
+
+        &.bottom {
+        }
+    }
+
+    .label-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bar-container {
+        position: relative;
+        width: 8px;
+        height: 100%;
+        background-color: var(--temp-gray);
+
+        .bar {
+            position: absolute;
+            bottom: 0;
+            width: 4px;
+
+            &.top {
+                z-index: 2;
+                background-color: darkred;
+            }
+
+            &.bottom {
+                z-index: 3;
+                background-color: lime;
+            }
+        }
+    }
+}
