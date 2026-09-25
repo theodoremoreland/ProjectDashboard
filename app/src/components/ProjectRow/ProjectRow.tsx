@@ -186,10 +186,10 @@ const ProjectRow = ({
                     <div className="project-video-preview">
                         {hasSettled && (
                             <>
-                                <h3>Project Preview</h3>
+                                <h3>Video Preview</h3>
                                 <img
                                     src="https://mir-s3-cdn-cf.behance.net/project_modules/source/d20511205038723.66b3a6fe1a294.gif"
-                                    alt="Project preview"
+                                    alt="Video preview"
                                 />
                             </>
                         )}

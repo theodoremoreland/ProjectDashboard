@@ -22,14 +22,13 @@
         align-items: center;
         width: 100%;
         height: 20%;
-        background-color: black;
 
         .MetricsCard__header {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
             width: 100%;
             height: 100%;
             padding: 1rem;
@@ -119,12 +118,32 @@
             z-index: 99;
             background-color: aliceblue;
         }
+
+        [data-series='software-quality'] td {
+            color: red !important;
+            font-family: bit-bold;
+        }
     }
 
     .dora-container {
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
+        padding-bottom: 0;
+        transition:
+            opacity 1s ease-in-out,
+            visibility 1s;
+        transition-behavior: allow-discrete;
+
+        &.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        &.hide {
+            visibility: hidden;
+            opacity: 0;
+        }
     }
 
     .deployment-button-container {

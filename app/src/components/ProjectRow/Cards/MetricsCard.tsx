@@ -1,11 +1,11 @@
 // React
-import { ReactElement, useMemo } from 'react';
+import { ReactElement, useCallback, useMemo } from 'react';
 
 // Third party
-import { RadarAxis, RadarChart } from '@mui/x-charts';
+import { ChartsAxisData, RadarChart } from '@mui/x-charts';
 
 // Custom
-import { convertToSonarGrade } from '../../../utils/convertToSonarGrade';
+import { convertSonarScoreToGrade, inverseSonarScore } from './Cards.utils';
 import { REPO_OWNER } from '../../../constants/RepoOwner';
 
 // Components
@@ -20,6 +20,29 @@ import { SonarMeasures, TaggedRepoData } from '../../../types';
 import './MetricsCard.css';
 
 const SonarCloudBaseUrl: string = `https://sonarcloud.io/project/issues?id=${REPO_OWNER}_`;
+const radar = {
+    max: 5,
+    startAngle: 0,
+    metrics: ['Maintainability', 'Reliability', 'Security'],
+};
+const radarColors: string[] = ['var(--secondary-color)'];
+const radarStripeColor = (index: number): string => {
+    switch (index) {
+        case 0:
+            return 'darkred';
+        case 1:
+            return 'orangered';
+        case 2:
+            return 'yellow';
+        case 3:
+            return 'yellowgreen';
+        case 4:
+            return 'lime';
+        default:
+            return 'lime';
+    }
+};
+const radarSlotProps = { tooltip: { trigger: 'axis' as const } };
 
 interface Props {
     hasSettled: boolean;
@@ -36,11 +59,23 @@ const MetricsCard = ({
 }: Props): ReactElement => {
     const hasValidDemoLink: boolean =
         projectData.name !== 'ProjectDashboard' && projectData.demo_link !== '';
-    const SoftwareQualityLink: Record<string, string> = {
-        security: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=SECURITY&s=IMPACT_RANK`,
-        maintainability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=MAINTAINABILITY&s=IMPACT_RANK`,
-        reliability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=RELIABILITY&s=IMPACT_RANK`,
-    };
+    const onAxisClick = useCallback(
+        (_: MouseEvent, d: ChartsAxisData | null): void => {
+            const SoftwareQualityLink: Record<string, string> = {
+                security: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=SECURITY&s=IMPACT_RANK`,
+                maintainability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=MAINTAINABILITY&s=IMPACT_RANK`,
+                reliability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=RELIABILITY&s=IMPACT_RANK`,
+            };
+            const key = d?.axisValue;
+
+            if (key) {
+                const _key = String(key).toLowerCase();
+
+                window.open(SoftwareQualityLink[_key], '_blank');
+            }
+        },
+        [projectData.name]
+    );
     const radarData = useMemo(() => {
         return [
             {
@@ -50,7 +85,9 @@ const MetricsCard = ({
                     sonarMeasures?.metrics.sqale_rating || 0,
                     sonarMeasures?.metrics.reliability_rating || 0,
                     sonarMeasures?.metrics.security_rating || 0,
-                ],
+                ].map(inverseSonarScore),
+                valueFormatter: (value: number) =>
+                    convertSonarScoreToGrade(value),
             },
         ];
     }, [sonarMeasures]);
@@ -66,6 +103,7 @@ const MetricsCard = ({
             value: sonarMeasures?.metrics.coverage || 0,
         };
     }, [sonarMeasures]);
+
     return (
         <li className="project-card-container">
             <div className="project-card MetricsCard">
@@ -78,35 +116,18 @@ const MetricsCard = ({
                 >
                     <RadarChart
                         className="RadarChart"
-                        desc="A radar chart illustrating code quality grades for project"
-                        colors={['var(--secondary-color)']}
-                        height={250}
+                        desc="A radar chart illustrating code quality grades for project."
+                        colors={radarColors}
+                        height={270}
                         hideLegend
+                        loading={isSonarMeasuresFetching}
                         series={radarData}
-                        stripeColor={(index: number) =>
-                            index % 2 === 0
-                                ? 'var(--secondary-color)'
-                                : 'var(--tertiary-color)'
-                        }
+                        stripeColor={radarStripeColor}
                         divisions={5}
-                        radar={{
-                            max: 5,
-                            startAngle: 0,
-                            metrics: [
-                                'Maintainability',
-                                'Reliability',
-                                'Security',
-                            ],
-                        }}
-                        slotProps={{ tooltip: { trigger: 'axis' } }}
-                    >
-                        <RadarAxis
-                            metric="Maintainability"
-                            divisions={5}
-                            labelOrientation="rotated"
-                            angle={36}
-                        />
-                    </RadarChart>
+                        radar={radar}
+                        slotProps={radarSlotProps}
+                        onAxisClick={onAxisClick}
+                    />
                     <LayeredBar
                         className="code-coverage"
                         topData={topData}
@@ -120,26 +141,28 @@ const MetricsCard = ({
                     </div>
                     <GlyphLane />
                 </div>
-                <ul className="dora-container">
+                <ul
+                    className={`dora-container ${hasSettled ? 'show' : 'hide'}`}
+                >
                     <li title="Measures elapsed time from the initial commit timestamp to when the PR is merged/deployed">
                         <p>Lead Time for Changes</p>
-                        <p className="grade">1w</p>
+                        <p className="metric">1w</p>
                     </li>
                     <li title="Counts total successful production deployments over a specific timeframe">
                         <p>Deployment Frequency</p>
-                        <p className="grade">2pw</p>
+                        <p className="metric">2pw</p>
                     </li>
                     <li title="Time to recover from a failed deployment">
                         <p>Failed Deployment Recovery Time</p>
-                        <p className="grade">2h</p>
+                        <p className="metric">2h</p>
                     </li>
                     <li title="Percentage of total deployments that resulted in a hotfix PR or incident issue">
                         <p>Change Failure Rate</p>
-                        <p className="grade">5%</p>
+                        <p className="metric">5%</p>
                     </li>
                     <li title="Percentage of deployments that are unplanned work to fix bugs">
                         <p>Deployment rework rate</p>
-                        <p className="grade">30m</p>
+                        <p className="metric">30m</p>
                     </li>
                     <div className="deployment-button-container">
                         <a
