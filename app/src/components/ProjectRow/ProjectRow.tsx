@@ -187,10 +187,10 @@ const ProjectRow = ({
                         {hasSettled && (
                             <>
                                 <h3>Video Preview</h3>
-                                <img
-                                    src="https://mir-s3-cdn-cf.behance.net/project_modules/source/d20511205038723.66b3a6fe1a294.gif"
-                                    alt="Video preview"
-                                />
+                                <div className="content">
+                                    <p>No</p>
+                                    <p>Data</p>
+                                </div>
                             </>
                         )}
                     </div>

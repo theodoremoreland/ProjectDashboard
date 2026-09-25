@@ -46,7 +46,7 @@
         .bar {
             position: absolute;
             bottom: 0;
-            width: 4px;
+            width: 100%;
 
             &.top {
                 z-index: 2;

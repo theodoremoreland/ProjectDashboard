@@ -1,6 +1,9 @@
 // React
 import { ReactElement } from 'react';
 
+// Custom
+import { convertToPercentage } from './LayeredBar.utils';
+
 // Styles
 import './LayeredBar.css';
 
@@ -32,8 +35,21 @@ const LayeredBar = ({
                 </div>
             </div>
             <div className="bar-container">
-                <span className="top bar"></span>
-                <span className="bottom bar"></span>
+                <span
+                    className="top bar"
+                    style={{
+                        height: convertToPercentage(topData.value || 0, 10_000),
+                    }}
+                ></span>
+                <span
+                    className="bottom bar"
+                    style={{
+                        height: convertToPercentage(
+                            bottomData.value || 0,
+                            10_000
+                        ),
+                    }}
+                ></span>
             </div>
             <div className="bottom legend">
                 <span className="color"></span>

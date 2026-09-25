@@ -81,6 +81,7 @@ const MetricsCard = ({
             {
                 id: 'software-quality',
                 label: 'Grade',
+                fillArea: true,
                 data: [
                     sonarMeasures?.metrics.sqale_rating || 0,
                     sonarMeasures?.metrics.reliability_rating || 0,

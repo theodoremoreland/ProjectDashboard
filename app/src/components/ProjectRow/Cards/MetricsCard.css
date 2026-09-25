@@ -5,7 +5,6 @@
     align-items: flex-start;
     width: 100%;
     height: 100%;
-    background-color: #020202;
 
     a:link,
     a:visited,
@@ -119,9 +118,15 @@
             background-color: aliceblue;
         }
 
-        [data-series='software-quality'] td {
-            color: red !important;
-            font-family: bit-bold;
+        [data-series='software-quality'] {
+            caption {
+                font-family: custom-bold;
+            }
+
+            td {
+                color: red !important;
+                font-family: bit-bold;
+            }
         }
     }
 
