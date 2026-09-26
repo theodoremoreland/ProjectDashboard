@@ -16,6 +16,13 @@ import GlyphLane from '../../GlyphLane/GlyphLane';
 // Types
 import { SonarMeasures, TaggedRepoData } from '../../../types';
 
+// Images
+import DeleteHistoryIcon from '../../../assets/images/icons/delete_history.svg?react';
+import EventUpcomingIcon from '../../../assets/images/icons/event_upcoming.svg?react';
+import HourglassArrowUpIcon from '../../../assets/images/icons/hourglass_arrow_up.svg?react';
+import PlannerReviewIcon from '../../../assets/images/icons/planner_review.svg?react';
+import RunningWithErrorsIcon from '../../../assets/images/icons/running_with_errors.svg?react';
+
 // Styles
 import './MetricsCard.css';
 
@@ -148,23 +155,43 @@ const MetricsCard = ({
                     className={`dora-container ${hasSettled ? 'show' : 'hide'}`}
                 >
                     <li title="Lead Time for Changes (LTFC): Measures elapsed time from the initial commit timestamp to when the PR is merged/deployed">
-                        <p>Lead Time</p>
+                        <span className="label-container">
+                            <EventUpcomingIcon className="icon" />
+                            <p>Lead Time</p>
+                        </span>
+                        <span className="dots"></span>
                         <p className="metric">1w</p>
                     </li>
                     <li title="Deployment Frequency (DF): Counts total successful production deployments over a specific timeframe">
-                        <p>Frequency</p>
+                        <span className="label-container">
+                            <PlannerReviewIcon className="icon" />
+                            <p>Frequency</p>
+                        </span>
+                        <span className="dots"></span>
                         <p className="metric">2pw</p>
                     </li>
                     <li title="Failed Deployment Recovery Time (FDRT): Time to recover from a failed deployment">
-                        <p>Recovery Time</p>
+                        <span className="label-container">
+                            <HourglassArrowUpIcon className="icon" />
+                            <p>Recovery Time</p>
+                        </span>
+                        <span className="dots"></span>
                         <p className="metric">2h</p>
                     </li>
                     <li title="Change Failure Rate (CFR): Percentage of total deployments that resulted in a hotfix PR or incident issue">
-                        <p>Failure Rate</p>
+                        <span className="label-container">
+                            <RunningWithErrorsIcon className="icon" />
+                            <p>Failure Rate</p>
+                        </span>
+                        <span className="dots"></span>
                         <p className="metric">5%</p>
                     </li>
                     <li title="Deployment rework rate (DRR): Percentage of deployments that are unplanned work to fix bugs">
-                        <p>Rework rate</p>
+                        <span className="label-container">
+                            <DeleteHistoryIcon className="icon" />
+                            <p className="label-container">Rework Rate</p>
+                        </span>
+                        <span className="dots"></span>
                         <p className="metric">3%</p>
                     </li>
                     <div className="deployment-button-container">

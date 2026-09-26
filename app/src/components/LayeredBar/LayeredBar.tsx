@@ -1,6 +1,9 @@
 // React
 import { ReactElement } from 'react';
 
+// Components
+import Corner from '../Corner/Corner';
+
 // Custom
 import { convertToPercentage } from './LayeredBar.utils';
 
@@ -35,6 +38,10 @@ const LayeredBar = ({
                     <p>{topData.label}</p>
                     <hr />
                     <span className="number">
+                        <Corner position="top-left" />
+                        <Corner position="bottom-right" />
+                        <Corner position="top-right" />
+                        <Corner position="bottom-left" />
                         {topData.value}
                         {topData.format === 'percent' ? '%' : null}
                     </span>
@@ -50,10 +57,7 @@ const LayeredBar = ({
                 <span
                     className="bottom bar"
                     style={{
-                        height: convertToPercentage(
-                            bottomData.value || 0,
-                            10_000
-                        ),
+                        height: convertToPercentage(bottomData.value || 0, 100),
                     }}
                 ></span>
             </div>
@@ -63,6 +67,10 @@ const LayeredBar = ({
                     <p>{bottomData.label}</p>
                     <hr />
                     <span className="number">
+                        <Corner position="top-left" />
+                        <Corner position="bottom-right" />
+                        <Corner position="top-right" />
+                        <Corner position="bottom-left" />
                         {bottomData.value}
                         {bottomData.format === 'percent' ? '%' : null}
                     </span>

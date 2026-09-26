@@ -60,11 +60,11 @@
             padding: 2px 6px;
 
             &.A {
-                color: green;
+                color: lime;
             }
 
             &.B {
-                color: lightgreen;
+                color: yellowgreen;
             }
 
             &.C {
@@ -72,11 +72,11 @@
             }
 
             &.D {
-                color: orange;
+                color: orangered;
             }
 
             &.E {
-                color: red;
+                color: darkred;
             }
         }
     }
@@ -148,6 +148,26 @@
         &.hide {
             visibility: hidden;
             opacity: 0;
+        }
+
+        .label-container {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .dots {
+            flex-grow: 1;
+            margin: 0 1.5rem;
+            border-top: 3px dotted var(--temp-gray-3);
         }
     }
 
