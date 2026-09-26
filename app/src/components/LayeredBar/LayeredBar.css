@@ -9,6 +9,9 @@
     width: 25%;
     height: 75%;
 
+    --stripe-1: color-mix(in srgb, var(--secondary-color), transparent 1%);
+    --stripe-2: color-mix(in srgb, var(--secondary-color), transparent 30%);
+
     .legend {
         position: relative;
         display: flex;
@@ -35,11 +38,21 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 5px;
+
+        hr {
+            height: 1px;
+            width: 70%;
+            background-color: #e5dada48;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
     }
 
     .bar-container {
         position: relative;
-        width: 8px;
+        width: 4px;
         height: 100%;
         background-color: var(--temp-gray);
 
@@ -50,7 +63,17 @@
 
             &.top {
                 z-index: 2;
-                background-color: darkred;
+                background-image: linear-gradient(
+                    0deg,
+                    var(--stripe-1) 25%,
+                    var(--stripe-2) 25%,
+                    var(--stripe-2) 50%,
+                    var(--stripe-1) 50%,
+                    var(--stripe-1) 75%,
+                    var(--stripe-2) 75%,
+                    var(--stripe-2) 100%
+                );
+                background-size: 10.57px 10.57px;
             }
 
             &.bottom {

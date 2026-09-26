@@ -96,12 +96,14 @@ const MetricsCard = ({
         return {
             label: 'Lines of Code',
             value: sonarMeasures?.metrics.ncloc || 0,
+            format: 'int' as const,
         };
     }, [sonarMeasures]);
     const bottomData = useMemo(() => {
         return {
             label: 'Test Coverage',
             value: sonarMeasures?.metrics.coverage || 0,
+            format: 'percent' as const,
         };
     }, [sonarMeasures]);
 
@@ -145,25 +147,25 @@ const MetricsCard = ({
                 <ul
                     className={`dora-container ${hasSettled ? 'show' : 'hide'}`}
                 >
-                    <li title="Measures elapsed time from the initial commit timestamp to when the PR is merged/deployed">
-                        <p>Lead Time for Changes</p>
+                    <li title="Lead Time for Changes (LTFC): Measures elapsed time from the initial commit timestamp to when the PR is merged/deployed">
+                        <p>Lead Time</p>
                         <p className="metric">1w</p>
                     </li>
-                    <li title="Counts total successful production deployments over a specific timeframe">
-                        <p>Deployment Frequency</p>
+                    <li title="Deployment Frequency (DF): Counts total successful production deployments over a specific timeframe">
+                        <p>Frequency</p>
                         <p className="metric">2pw</p>
                     </li>
-                    <li title="Time to recover from a failed deployment">
-                        <p>Failed Deployment Recovery Time</p>
+                    <li title="Failed Deployment Recovery Time (FDRT): Time to recover from a failed deployment">
+                        <p>Recovery Time</p>
                         <p className="metric">2h</p>
                     </li>
-                    <li title="Percentage of total deployments that resulted in a hotfix PR or incident issue">
-                        <p>Change Failure Rate</p>
+                    <li title="Change Failure Rate (CFR): Percentage of total deployments that resulted in a hotfix PR or incident issue">
+                        <p>Failure Rate</p>
                         <p className="metric">5%</p>
                     </li>
-                    <li title="Percentage of deployments that are unplanned work to fix bugs">
-                        <p>Deployment rework rate</p>
-                        <p className="metric">30m</p>
+                    <li title="Deployment rework rate (DRR): Percentage of deployments that are unplanned work to fix bugs">
+                        <p>Rework rate</p>
+                        <p className="metric">3%</p>
                     </li>
                     <div className="deployment-button-container">
                         <a

@@ -12,10 +12,12 @@ interface Props {
     topData: {
         label: string;
         value: number;
+        format: 'int' | 'percent';
     };
     bottomData: {
         label: string;
         value: number;
+        format: 'int' | 'percent';
     };
     direction?: 'vertical' | 'horizontal';
 }
@@ -31,7 +33,11 @@ const LayeredBar = ({
                 <span className="color"></span>
                 <div className="label-container">
                     <p>{topData.label}</p>
-                    <span className="number">{topData.value}</span>
+                    <hr />
+                    <span className="number">
+                        {topData.value}
+                        {topData.format === 'percent' ? '%' : null}
+                    </span>
                 </div>
             </div>
             <div className="bar-container">
@@ -55,7 +61,11 @@ const LayeredBar = ({
                 <span className="color"></span>
                 <div className="label-container">
                     <p>{bottomData.label}</p>
-                    <span className="number">{bottomData.value}</span>
+                    <hr />
+                    <span className="number">
+                        {bottomData.value}
+                        {bottomData.format === 'percent' ? '%' : null}
+                    </span>
                 </div>
             </div>
         </div>

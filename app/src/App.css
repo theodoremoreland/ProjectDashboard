@@ -135,10 +135,10 @@ main {
     background-color: #000000;
     background-image: radial-gradient(
         circle,
-        #dff30628 0.8px,
+        #dff30641 0.8px,
         transparent 0.8px
     );
-    background-size: 50px 50px;
+    background-size: 60px 70px;
 
     > .row {
         display: flex;
