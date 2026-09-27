@@ -111,7 +111,6 @@ const ThumbnailCard = ({
             </div>
             <div className="trailing-text">
                 <p>Thumbnail</p>
-                <p>{projectData.id}</p>
             </div>
         </li>
     );

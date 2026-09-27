@@ -5,7 +5,7 @@ import { ReactElement, useMemo } from 'react';
 import { BarChart, SparkLineChart } from '@mui/x-charts';
 
 // Custom
-import { getCommitsPerWeek, getRecentDelta } from './ActivityCard.util';
+import { getCommitsPerWeek, getRecentDelta } from './ActivityCard.utils';
 
 // Components
 import Corner from '../../Corner/Corner';
@@ -47,7 +47,6 @@ const barGrid = { horizontal: true, vertical: true };
 
 const ActivityCard = ({
     hasSettled,
-    projectData,
     commits,
     commitActivity,
     isRecentCommitsFetching,
@@ -136,7 +135,6 @@ const ActivityCard = ({
             </div>
             <div className="trailing-text">
                 <p>Activity</p>
-                <p>{projectData.id}</p>
             </div>
         </li>
     );

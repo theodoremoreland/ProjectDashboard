@@ -270,7 +270,6 @@ const MetricsCard = ({
             </div>
             <div className="trailing-text">
                 <p>Metrics</p>
-                <p>{projectData.id}</p>
             </div>
         </li>
     );
