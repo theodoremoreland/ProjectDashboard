@@ -31,18 +31,6 @@
         overflow-x: hidden;
         overflow-y: auto;
 
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-            color: var(--secondary-highlight-color);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
         h2,
         h3 {
             font-family: custom-bold;

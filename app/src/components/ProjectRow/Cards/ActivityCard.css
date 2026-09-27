@@ -8,18 +8,6 @@
     height: 100%;
     overflow-y: hidden;
 
-    a:link,
-    a:visited,
-    a:hover,
-    a:active {
-        color: var(--tertiary-color);
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
     h3,
     h4 {
         width: 100%;

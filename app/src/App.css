@@ -180,18 +180,6 @@ main {
         background-color: var(--temp-gray-3);
     }
 
-    a:link,
-    a:visited,
-    a:hover,
-    a:active {
-        color: var(--tertiary-color);
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
     p {
         max-width: 75ch;
     }
