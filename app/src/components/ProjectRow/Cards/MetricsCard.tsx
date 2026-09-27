@@ -1,8 +1,10 @@
 // React
-import { ReactElement, useCallback, useMemo } from 'react';
+import { ReactElement, useCallback, useMemo, useState } from 'react';
 
 // Third party
 import { ChartsAxisData, RadarChart } from '@mui/x-charts';
+import IconButton from '@mui/material/IconButton';
+import { Menu } from '@mui/material';
 
 // Custom
 import { convertSonarScoreToGrade, inverseSonarScore } from './Cards.utils';
@@ -22,6 +24,7 @@ import EventUpcomingIcon from '../../../assets/images/icons/event_upcoming.svg?r
 import HourglassArrowUpIcon from '../../../assets/images/icons/hourglass_arrow_up.svg?react';
 import PlannerReviewIcon from '../../../assets/images/icons/planner_review.svg?react';
 import RunningWithErrorsIcon from '../../../assets/images/icons/running_with_errors.svg?react';
+import InfoHollowIcon from '../../../assets/images/icons/info_filled.svg?react';
 
 // Styles
 import './MetricsCard.css';
@@ -66,6 +69,7 @@ const MetricsCard = ({
 }: Props): ReactElement => {
     const hasValidDemoLink: boolean =
         projectData.name !== 'ProjectDashboard' && projectData.demo_link !== '';
+
     const onAxisClick = useCallback(
         (_: MouseEvent, d: ChartsAxisData | null): void => {
             const SoftwareQualityLink: Record<string, string> = {
@@ -146,15 +150,13 @@ const MetricsCard = ({
                 </div>
                 <div className="middle">
                     <GlyphLane />
-                    <div className="MetricsCard__header">
-                        <h3>Software Quality</h3>x<h3>DORA Metrics</h3>
-                    </div>
+                    <MetricsHeader />
                     <GlyphLane />
                 </div>
                 <ul
                     className={`dora-container ${hasSettled ? 'show' : 'hide'}`}
                 >
-                    <li title="Lead Time for Changes (LTFC): Measures elapsed time from the initial commit timestamp to when the PR is merged/deployed">
+                    <li title="Lead Time for Changes: Measures elapsed time from the initial commit timestamp to when the PR is merged/deployed">
                         <span className="label-container">
                             <EventUpcomingIcon className="icon" />
                             <p>Lead Time</p>
@@ -162,7 +164,7 @@ const MetricsCard = ({
                         <span className="dots"></span>
                         <p className="metric">1w</p>
                     </li>
-                    <li title="Deployment Frequency (DF): Counts total successful production deployments over a specific timeframe">
+                    <li title="Deployment Frequency: Counts total successful production deployments over a specific timeframe">
                         <span className="label-container">
                             <PlannerReviewIcon className="icon" />
                             <p>Frequency</p>
@@ -170,7 +172,7 @@ const MetricsCard = ({
                         <span className="dots"></span>
                         <p className="metric">2pw</p>
                     </li>
-                    <li title="Failed Deployment Recovery Time (FDRT): Time to recover from a failed deployment">
+                    <li title="Failed Deployment Recovery Time: Time to recover from a failed deployment">
                         <span className="label-container">
                             <HourglassArrowUpIcon className="icon" />
                             <p>Recovery Time</p>
@@ -178,7 +180,7 @@ const MetricsCard = ({
                         <span className="dots"></span>
                         <p className="metric">2h</p>
                     </li>
-                    <li title="Change Failure Rate (CFR): Percentage of total deployments that resulted in a hotfix PR or incident issue">
+                    <li title="Change Failure Rate: Percentage of total deployments that resulted in a hotfix PR or incident issue">
                         <span className="label-container">
                             <RunningWithErrorsIcon className="icon" />
                             <p>Failure Rate</p>
@@ -186,7 +188,7 @@ const MetricsCard = ({
                         <span className="dots"></span>
                         <p className="metric">5%</p>
                     </li>
-                    <li title="Deployment rework rate (DRR): Percentage of deployments that are unplanned work to fix bugs">
+                    <li title="Deployment rework rate: Percentage of deployments that are unplanned work to fix bugs">
                         <span className="label-container">
                             <DeleteHistoryIcon className="icon" />
                             <p className="label-container">Rework Rate</p>
@@ -228,6 +230,121 @@ const MetricsCard = ({
                 <p>{projectData.id}</p>
             </div>
         </li>
+    );
+};
+
+const MetricsHeader = (): ReactElement => {
+    const [
+        softwareQualityInfoMenuAnchorEl,
+        setSoftwareQualityInfoMenuAnchorEl,
+    ] = useState<null | HTMLElement>(null);
+    const isSoftwareQualityInfoMenuOpen = Boolean(
+        softwareQualityInfoMenuAnchorEl
+    );
+    const [doraMetricsInfoMenuAnchorEl, setDoraMetricsInfoMenuAnchorEl] =
+        useState<null | HTMLElement>(null);
+    const isDoraMetricsInfoMenuOpen = Boolean(doraMetricsInfoMenuAnchorEl);
+
+    const handleSoftwareQualityInfoMenuOpen = useCallback(
+        (event: React.MouseEvent<HTMLElement>) => {
+            setSoftwareQualityInfoMenuAnchorEl(event.currentTarget);
+        },
+        []
+    );
+    const handleSoftwareQualityInfoMenuClose = useCallback(() => {
+        setSoftwareQualityInfoMenuAnchorEl(null);
+    }, []);
+    const handleDoraMetricsInfoMenuOpen = useCallback(
+        (event: React.MouseEvent<HTMLElement>) => {
+            setDoraMetricsInfoMenuAnchorEl(event.currentTarget);
+        },
+        []
+    );
+    const handleDoraMetricsInfoMenuClose = useCallback(() => {
+        setDoraMetricsInfoMenuAnchorEl(null);
+    }, []);
+    return (
+        <div className="MetricsCard__header">
+            <h3>
+                Software Quality{' '}
+                <IconButton
+                    id="software-quality-info-menu-icon-button"
+                    className="icon-button"
+                    aria-label="top-streaks-info-menu"
+                    aria-controls={
+                        isSoftwareQualityInfoMenuOpen
+                            ? 'top-streaks-info-menu'
+                            : undefined
+                    }
+                    aria-haspopup="true"
+                    aria-expanded={
+                        isSoftwareQualityInfoMenuOpen ? 'true' : undefined
+                    }
+                    onClick={handleSoftwareQualityInfoMenuOpen}
+                >
+                    {' '}
+                    <InfoHollowIcon className="info-icon" />
+                </IconButton>
+                <Menu
+                    id="top-streaks-info-menu"
+                    className="menu"
+                    anchorEl={softwareQualityInfoMenuAnchorEl}
+                    open={isSoftwareQualityInfoMenuOpen}
+                    onClose={handleSoftwareQualityInfoMenuClose}
+                >
+                    <p>
+                        Ratings derived from{' '}
+                        <a
+                            href="https://docs.sonarsource.com/sonarqube-cloud/standards/managing-rules/rules#software-qualities"
+                            target="_blank"
+                            referrerPolicy="no-referrer"
+                        >
+                            SonarQube
+                        </a>{' '}
+                        code analysis to evaluate software quality.
+                    </p>
+                </Menu>
+            </h3>
+            x
+            <h3>
+                DORA Metrics{' '}
+                <IconButton
+                    id="dora-metrics-info-menu-icon-button"
+                    className="icon-button"
+                    aria-label="dora-metrics-info-menu"
+                    aria-controls={
+                        isDoraMetricsInfoMenuOpen
+                            ? 'dora-metrics-info-menu'
+                            : undefined
+                    }
+                    aria-haspopup="true"
+                    aria-expanded={
+                        isDoraMetricsInfoMenuOpen ? 'true' : undefined
+                    }
+                    onClick={handleDoraMetricsInfoMenuOpen}
+                >
+                    <InfoHollowIcon className="info-icon" />
+                </IconButton>
+                <Menu
+                    id="dora-metrics-info-menu"
+                    className="menu"
+                    anchorEl={doraMetricsInfoMenuAnchorEl}
+                    open={isDoraMetricsInfoMenuOpen}
+                    onClose={handleDoraMetricsInfoMenuClose}
+                >
+                    <p>
+                        <a
+                            href="https://dora.dev/guides/dora-metrics/"
+                            target="_blank"
+                            referrerPolicy="no-referrer"
+                        >
+                            A standardized set of performance indicators
+                        </a>{' '}
+                        used to measure software delivery effectiveness.
+                    </p>
+                </Menu>
+            </h3>
+        </div>
     );
 };
 

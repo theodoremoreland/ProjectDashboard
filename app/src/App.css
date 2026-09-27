@@ -170,6 +170,33 @@ main {
     }
 }
 
+.menu {
+    .MuiPaper-root {
+        font-size: 1rem;
+        color: var(--primary-font-color);
+        padding: 8px;
+        outline: transparent;
+        border: none;
+        background-color: var(--temp-gray-3);
+    }
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        color: var(--tertiary-color);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    p {
+        max-width: 75ch;
+    }
+}
+
 .close-button {
     padding: 0.5em 1em;
     border: none;
