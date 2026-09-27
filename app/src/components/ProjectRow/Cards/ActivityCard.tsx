@@ -5,7 +5,7 @@ import { ReactElement, useMemo } from 'react';
 import { BarChart, SparkLineChart } from '@mui/x-charts';
 
 // Custom
-import { getCommitsPerWeek, getRecentDelta } from './ActivityCard.utils';
+import { getCommitsPerDay, getRecentDelta } from './ActivityCard.utils';
 
 // Components
 import Corner from '../../Corner/Corner';
@@ -36,7 +36,7 @@ const barX = [
 const barY = [
     {
         id: 'y-axis-1',
-        label: 'Code diff (Last 10 commits)',
+        label: 'Lines (Last 10 commits)',
         colorMap: {
             type: 'piecewise' as const,
             thresholds: [0],
@@ -54,7 +54,7 @@ const ActivityCard = ({
     isCommitActivityFetching,
 }: Props): ReactElement => {
     const commitsPerWeek: number[] = useMemo(
-        () => getCommitsPerWeek(commitActivity),
+        () => getCommitsPerDay(commitActivity),
         [commitActivity]
     );
     const recentDelta: [number, number] = useMemo(
@@ -106,7 +106,7 @@ const ActivityCard = ({
                 </div>
                 <div className="bottom">
                     <div className=" commits-container">
-                        <h3>Recent commits</h3>
+                        <h3>Last 10 commits</h3>
                         <ul className="commits">
                             {isRecentCommitsFetching && (
                                 <p>Loading commits...</p>

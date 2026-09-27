@@ -1,6 +1,11 @@
 import { CommitActivityData, Commit } from '../../../types';
 
-export const getCommitsPerWeek = (
+/*
+    Returns an array where each element is the number of commits for a given day.
+    The array features a count for each day of the past year (starting from yesterday).
+    In total, there should be between 364-365 elements.
+*/
+export const getCommitsPerDay = (
     commitActivity: CommitActivityData | undefined
 ): number[] => {
     if (!commitActivity) {

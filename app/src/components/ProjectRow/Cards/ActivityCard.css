@@ -86,6 +86,10 @@
             stroke: #838383;
         }
 
+        .MuiChartsAxis-label {
+            fill: #e6e6e669;
+        }
+
         .MuiBarChart-label {
             &:nth-last-of-type(1) {
                 fill: #c8c8c8;
