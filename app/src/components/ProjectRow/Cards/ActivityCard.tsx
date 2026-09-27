@@ -36,6 +36,7 @@ const barX = [
 const barY = [
     {
         id: 'y-axis-1',
+        label: 'Code diff (Last 10 commits)',
         colorMap: {
             type: 'piecewise' as const,
             thresholds: [0],

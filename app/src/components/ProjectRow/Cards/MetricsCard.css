@@ -145,11 +145,11 @@
             }
 
             hr {
-                border: 2px dashed
+                border: 1px dashed
                     color-mix(
                         in srgb,
                         var(--primary-font-color),
-                        transparent 40%
+                        transparent 50%
                     );
                 border-bottom: none;
             }
