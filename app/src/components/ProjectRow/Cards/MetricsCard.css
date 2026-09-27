@@ -13,6 +13,55 @@
         text-decoration: none;
     }
 
+    .CustomTooltip {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        min-width: 15ch;
+        width: 100%;
+        color: var(--secondary-font-color);
+        font-size: 1rem;
+        padding: 0.5rem;
+        border-radius: 4px;
+
+        .content {
+            width: 100%;
+        }
+
+        h4 {
+            font-size: 1rem;
+        }
+
+        .grade {
+            text-align: center;
+            font-size: 1.25rem;
+            font-family: bit-regular;
+            padding: 2px 6px;
+
+            &[data-grade='A'] {
+                color: lime;
+            }
+
+            &[data-grade='B'] {
+                color: yellowgreen;
+            }
+
+            &[data-grade='C'] {
+                color: yellow;
+            }
+
+            &[data-grade='D'] {
+                color: orangered;
+            }
+
+            &[data-grade='E'] {
+                color: darkred;
+            }
+        }
+    }
+
     .middle {
         position: relative;
         display: flex;
@@ -81,33 +130,6 @@
 
         .quality-label-container {
             width: 55%;
-        }
-
-        .grade {
-            text-align: center;
-            font-size: 1.25rem;
-            font-family: bit-regular;
-            padding: 2px 6px;
-
-            &.A {
-                color: lime;
-            }
-
-            &.B {
-                color: yellowgreen;
-            }
-
-            &.C {
-                color: yellow;
-            }
-
-            &.D {
-                color: orangered;
-            }
-
-            &.E {
-                color: darkred;
-            }
         }
     }
 

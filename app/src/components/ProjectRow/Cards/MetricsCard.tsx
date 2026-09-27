@@ -2,7 +2,12 @@
 import { ReactElement, useCallback, useMemo, useState } from 'react';
 
 // Third party
-import { ChartsAxisData, RadarChart } from '@mui/x-charts';
+import {
+    ChartsAxisData,
+    RadarChart,
+    useAxesTooltip,
+    ChartsTooltipContainer,
+} from '@mui/x-charts';
 import IconButton from '@mui/material/IconButton';
 import { Menu } from '@mui/material';
 
@@ -29,6 +34,40 @@ import InfoHollowIcon from '../../../assets/images/icons/info_filled.svg?react';
 // Styles
 import './MetricsCard.css';
 
+const CustomToolTip = (): ReactElement | null => {
+    const axesTooltip = useAxesTooltip<'radar'>();
+
+    if (!axesTooltip || axesTooltip.length === 0) {
+        return null;
+    }
+
+    const { seriesItems, axisFormattedValue } = axesTooltip[0];
+
+    return (
+        <ChartsTooltipContainer>
+            <div className="CustomTooltip">
+                {seriesItems.map(
+                    ({ formattedLabel, formattedValue, seriesId }) => (
+                        <div key={seriesId} className="content">
+                            <h4>{axisFormattedValue}</h4>
+                            <hr />
+                            <p>
+                                <span>{formattedLabel}:</span>{' '}
+                                <span
+                                    className="grade"
+                                    data-grade={formattedValue}
+                                >
+                                    {formattedValue}
+                                </span>
+                            </p>
+                        </div>
+                    )
+                )}
+            </div>
+        </ChartsTooltipContainer>
+    );
+};
+
 const SonarCloudBaseUrl: string = `https://sonarcloud.io/project/issues?id=${REPO_OWNER}_`;
 const radar = {
     max: 5,
@@ -53,6 +92,9 @@ const radarStripeColor = (index: number): string => {
     }
 };
 const radarSlotProps = { tooltip: { trigger: 'axis' as const } };
+const radarSlots = {
+    tooltip: CustomToolTip,
+};
 
 interface Props {
     hasSettled: boolean;
@@ -140,6 +182,7 @@ const MetricsCard = ({
                         divisions={5}
                         radar={radar}
                         slotProps={radarSlotProps}
+                        slots={radarSlots}
                         onAxisClick={onAxisClick}
                     />
                     <LayeredBar
@@ -234,35 +277,42 @@ const MetricsCard = ({
 };
 
 const MetricsHeader = (): ReactElement => {
+    // State
     const [
         softwareQualityInfoMenuAnchorEl,
         setSoftwareQualityInfoMenuAnchorEl,
     ] = useState<null | HTMLElement>(null);
+    const [doraMetricsInfoMenuAnchorEl, setDoraMetricsInfoMenuAnchorEl] =
+        useState<null | HTMLElement>(null);
+
+    // Anchors
     const isSoftwareQualityInfoMenuOpen = Boolean(
         softwareQualityInfoMenuAnchorEl
     );
-    const [doraMetricsInfoMenuAnchorEl, setDoraMetricsInfoMenuAnchorEl] =
-        useState<null | HTMLElement>(null);
     const isDoraMetricsInfoMenuOpen = Boolean(doraMetricsInfoMenuAnchorEl);
 
+    // Open
     const handleSoftwareQualityInfoMenuOpen = useCallback(
         (event: React.MouseEvent<HTMLElement>) => {
             setSoftwareQualityInfoMenuAnchorEl(event.currentTarget);
         },
         []
     );
-    const handleSoftwareQualityInfoMenuClose = useCallback(() => {
-        setSoftwareQualityInfoMenuAnchorEl(null);
-    }, []);
     const handleDoraMetricsInfoMenuOpen = useCallback(
         (event: React.MouseEvent<HTMLElement>) => {
             setDoraMetricsInfoMenuAnchorEl(event.currentTarget);
         },
         []
     );
+
+    // Close
+    const handleSoftwareQualityInfoMenuClose = useCallback(() => {
+        setSoftwareQualityInfoMenuAnchorEl(null);
+    }, []);
     const handleDoraMetricsInfoMenuClose = useCallback(() => {
         setDoraMetricsInfoMenuAnchorEl(null);
     }, []);
+
     return (
         <div className="MetricsCard__header">
             <h3>

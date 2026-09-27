@@ -9,7 +9,7 @@ a {
     display: block;
     position: absolute;
     top: 1.5rem;
-    left: 2.5rem;
+    left: -1.5rem;
     pointer-events: none;
 
     &.video {
