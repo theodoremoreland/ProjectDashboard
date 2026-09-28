@@ -2,7 +2,12 @@
 import { ReactElement, useMemo } from 'react';
 
 // Third party
-import { BarChart, SparkLineChart } from '@mui/x-charts';
+import {
+    BarChart,
+    SparkLineChart,
+    useItemTooltip,
+    ChartsTooltipContainer,
+} from '@mui/x-charts';
 
 // Custom
 import { getCommitsPerDay, getRecentDelta } from './ActivityCard.utils';
@@ -16,6 +21,34 @@ import { CommitActivityData, TaggedRepoData, Commit } from '../../../types';
 
 // Styles
 import './ActivityCard.css';
+
+const CustomToolTip = (): ReactElement | null => {
+    const itemsTooltip = useItemTooltip<'bar'>();
+
+    if (!itemsTooltip) {
+        return null;
+    }
+
+    const { identifier, formattedValue } = itemsTooltip;
+
+    const label: string =
+        identifier.dataIndex === 0 ? 'Lines added' : 'Lines deleted';
+
+    return (
+        <ChartsTooltipContainer>
+            <div className="CustomTooltip">
+                <div key={identifier.seriesId} className="content">
+                    <h4>{label}</h4>
+                    <p className="note">*Includes dependencies and assets</p>
+                    <hr />
+                    <p className="value" data-index={identifier.dataIndex}>
+                        {formattedValue}
+                    </p>
+                </div>
+            </div>
+        </ChartsTooltipContainer>
+    );
+};
 
 interface Props {
     hasSettled: boolean;
@@ -40,11 +73,12 @@ const barY = [
         colorMap: {
             type: 'piecewise' as const,
             thresholds: [0],
-            colors: ['darkred', '#26ff04'],
+            colors: ['darkred', 'lime'],
         },
     },
 ];
 const barGrid = { horizontal: true, vertical: true };
+const slots = { tooltip: CustomToolTip };
 
 const ActivityCard = ({
     hasSettled,
@@ -87,6 +121,7 @@ const ActivityCard = ({
                         yAxis={barY}
                         series={barSeries}
                         grid={barGrid}
+                        slots={slots}
                     />
                 </div>
                 <div className={`middle`}>
@@ -98,6 +133,7 @@ const ActivityCard = ({
                             data={commitsPerWeek}
                             color="#c0fe04"
                             height={20}
+                            slots={slots}
                             showTooltip
                             showHighlight
                         />

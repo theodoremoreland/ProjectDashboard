@@ -10,18 +10,17 @@ import { convertToPercentage } from './LayeredBar.utils';
 // Styles
 import './LayeredBar.css';
 
+type LayerData = {
+    label: string;
+    value: number;
+    format: 'int' | 'percent';
+    title?: string;
+};
+
 interface Props {
     className: string;
-    topData: {
-        label: string;
-        value: number;
-        format: 'int' | 'percent';
-    };
-    bottomData: {
-        label: string;
-        value: number;
-        format: 'int' | 'percent';
-    };
+    topData: LayerData;
+    bottomData: LayerData;
     direction?: 'vertical' | 'horizontal';
 }
 
@@ -35,7 +34,7 @@ const LayeredBar = ({
             <div className="top legend">
                 <span className="color"></span>
                 <div className="label-container">
-                    <p>{topData.label}</p>
+                    <p title={topData.title}>{topData.label}</p>
                     <hr />
                     <span className="number">
                         <Corner position="top-left" />
@@ -64,7 +63,7 @@ const LayeredBar = ({
             <div className="bottom legend">
                 <span className="color"></span>
                 <div className="label-container">
-                    <p>{bottomData.label}</p>
+                    <p title={bottomData.title}>{bottomData.label}</p>
                     <hr />
                     <span className="number">
                         <Corner position="top-left" />

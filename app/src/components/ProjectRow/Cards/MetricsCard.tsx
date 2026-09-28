@@ -12,7 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import { Menu } from '@mui/material';
 
 // Custom
-import { convertSonarScoreToGrade, inverseSonarScore } from './Cards.utils';
+import { convertSonarScoreToGrade, inverseSonarScore } from './utils';
 import { REPO_OWNER } from '../../../constants/RepoOwner';
 
 // Components
@@ -150,6 +150,7 @@ const MetricsCard = ({
             label: 'Lines of Code',
             value: sonarMeasures?.metrics.ncloc || 0,
             format: 'int' as const,
+            title: 'Lines of application code (does not include dependencies and assets)',
         };
     }, [sonarMeasures]);
     const bottomData = useMemo(() => {
@@ -157,6 +158,7 @@ const MetricsCard = ({
             label: 'Test Coverage',
             value: sonarMeasures?.metrics.coverage || 0,
             format: 'percent' as const,
+            title: 'Percentage of application code covered by automated tests',
         };
     }, [sonarMeasures]);
 

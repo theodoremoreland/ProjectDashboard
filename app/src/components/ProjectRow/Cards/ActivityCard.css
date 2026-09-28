@@ -169,3 +169,63 @@
         }
     }
 }
+
+.MuiChartsTooltip-root {
+    position: absolute !important;
+    z-index: 99;
+    background-color: transparent;
+}
+
+.CustomTooltip {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 75ch;
+    color: var(--primary-font-color);
+    font-size: 16px;
+    background-color: var(--temp-gray-3);
+    box-shadow:
+        rgba(0, 0, 0, 0.09) 0px 2px 1px,
+        rgba(0, 0, 0, 0.09) 0px 4px 2px,
+        rgba(0, 0, 0, 0.09) 0px 8px 4px,
+        rgba(0, 0, 0, 0.09) 0px 16px 8px,
+        rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    padding: 0.55rem 0.8rem;
+    border-radius: 4px;
+
+    .content {
+        width: 100%;
+        font-family: bit-regular;
+    }
+
+    h4 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    hr {
+        border: 1px dashed
+            color-mix(in srgb, var(--primary-font-color), transparent 50%);
+        border-bottom: none;
+    }
+
+    .note {
+        font-size: 0.8rem;
+    }
+
+    .value {
+        /* font-family: bit-bold; */
+        letter-spacing: 2px;
+    }
+
+    .value[data-index='0'] {
+        color: lime;
+    }
+
+    .value[data-index='1'] {
+        color: red;
+    }
+}
