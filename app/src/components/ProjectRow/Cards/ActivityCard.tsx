@@ -6,6 +6,7 @@ import {
     BarChart,
     SparkLineChart,
     useItemTooltip,
+    useAxesTooltip,
     ChartsTooltipContainer,
 } from '@mui/x-charts';
 
@@ -26,7 +27,7 @@ import { CommitActivityData, TaggedRepoData, Commit } from '../../../types';
 // Styles
 import './ActivityCard.css';
 
-const CustomToolTip = (): ReactElement | null => {
+const CustomDeltaBarToolTip = (): ReactElement | null => {
     const itemsTooltip = useItemTooltip<'bar'>();
 
     if (!itemsTooltip) {
@@ -48,6 +49,31 @@ const CustomToolTip = (): ReactElement | null => {
                     <p className="value" data-index={identifier.dataIndex}>
                         {identifier.dataIndex === 0 ? `+` : null}
                         {formattedValue}
+                    </p>
+                </div>
+            </div>
+        </ChartsTooltipContainer>
+    );
+};
+
+const CustomSparklineToolTip = (): ReactElement | null => {
+    // The tooltip only works with axes hook for sparkline in my experience
+    const axesTooltip = useAxesTooltip<'line'>();
+
+    if (!axesTooltip || axesTooltip.length === 0) {
+        return null;
+    }
+
+    const { axisFormattedValue, seriesItems } = axesTooltip[0];
+
+    return (
+        <ChartsTooltipContainer>
+            <div className="CustomTooltip">
+                <div className="content">
+                    <h4>{axisFormattedValue} UTC</h4>
+                    <hr />
+                    <p className="value">
+                        {seriesItems[0]?.formattedValue} commits
                     </p>
                 </div>
             </div>
@@ -83,7 +109,8 @@ const barY = [
     },
 ];
 const barGrid = { horizontal: true, vertical: true };
-const slots = { tooltip: CustomToolTip };
+const barSlots = { tooltip: CustomDeltaBarToolTip };
+const sparklineSlots = { tooltip: CustomSparklineToolTip };
 
 const ActivityCard = ({
     hasSettled,
@@ -112,6 +139,7 @@ const ActivityCard = ({
     );
     const sparklineX = useMemo(() => {
         return {
+            id: 'days',
             type: 'time' as const,
             data: commitsByDay.map((dayCommits) => dayCommits.date),
             valueFormatter: (value: Date) => value.toLocaleDateString(),
@@ -136,7 +164,7 @@ const ActivityCard = ({
                         yAxis={barY}
                         series={barSeries}
                         grid={barGrid}
-                        slots={slots}
+                        slots={barSlots}
                     />
                 </div>
                 <div className={`middle`}>
@@ -147,8 +175,9 @@ const ActivityCard = ({
                         <SparkLineChart
                             data={sparklineData}
                             xAxis={sparklineX}
+                            slots={sparklineSlots}
                             color="var(--secondary-color)"
-                            height={20}
+                            height={40}
                             showTooltip
                             showHighlight
                         />

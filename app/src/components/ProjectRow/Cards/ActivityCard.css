@@ -120,6 +120,7 @@
             height: 100%;
             background-color: #020202;
             transition: left 1s ease-in-out;
+            pointer-events: none;
         }
 
         &.loaded::after {
