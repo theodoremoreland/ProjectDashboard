@@ -60,6 +60,9 @@ const CustomToolTip = (): ReactElement | null => {
                                     {formattedValue}
                                 </span>
                             </p>
+                            <p className="note">
+                                Click to view on SonarQube Cloud
+                            </p>
                         </div>
                     )
                 )}

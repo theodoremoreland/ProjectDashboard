@@ -144,6 +144,10 @@
                 letter-spacing: 2px;
             }
 
+            .note {
+                font-size: 0.8em;
+            }
+
             hr {
                 border: 1px dashed
                     color-mix(

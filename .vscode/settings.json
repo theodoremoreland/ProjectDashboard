@@ -14,6 +14,7 @@
     "numpy",
     "octocat",
     "plpgsql",
+    "Qube",
     "REDB",
     "scroller",
     "sparkline",
