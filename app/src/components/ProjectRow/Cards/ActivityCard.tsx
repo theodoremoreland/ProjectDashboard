@@ -162,25 +162,27 @@ const ActivityCard = ({
                             {isRecentCommitsFetching && (
                                 <p>Loading commits...</p>
                             )}
-                            {commits?.map((commit, index) => (
-                                <li key={index} className="commit">
-                                    <h4>{commit.message}</h4>
-                                    <p>
-                                        {commit.committedDate
-                                            ? new Date(
-                                                  commit.committedDate
-                                              ).toLocaleString()
-                                            : 'Unknown date'}
-                                    </p>
-                                    <a
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        href={commit.commitUrl}
-                                    >
-                                        View code diff on GitHub
-                                    </a>
-                                </li>
-                            ))}
+                            {commits?.map((commit, index) => {
+                                const l = new Date(commit.committedDate);
+
+                                return (
+                                    <li key={index} className="commit">
+                                        <h4>{commit.message}</h4>
+                                        <p>
+                                            {commit.committedDate
+                                                ? l.toLocaleString()
+                                                : 'Unknown date'}
+                                        </p>
+                                        <a
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={commit.commitUrl}
+                                        >
+                                            View code diff on GitHub
+                                        </a>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                 </div>

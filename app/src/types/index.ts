@@ -59,6 +59,11 @@ export interface Commit {
     committedDate: string;
     additions: number;
     deletions: number;
+    author: {
+        user: {
+            login: string;
+        } | null;
+    };
 }
 
 export type RecentCommitsResponse =

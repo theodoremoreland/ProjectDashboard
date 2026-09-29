@@ -29,6 +29,11 @@ const RECENT_COMMITS_QUERY: string = `
                 committedDate
                 additions
                 deletions
+                author {
+                  user {
+                    login
+                  }
+                }
               }
             }
           }
@@ -49,12 +54,15 @@ export const getRecentCommits = async (repo: string): Promise<Commit[]> => {
 
     const nodes = response.repository.defaultBranchRef.target.history.nodes;
 
-    return nodes.map((commit: Commit) => ({
-        id: commit.id,
-        committedDate: commit.committedDate,
-        commitUrl: commit.commitUrl,
-        message: commit.message,
-        additions: commit.additions,
-        deletions: commit.deletions,
-    }));
+    return nodes
+        .map((commit: Commit) => ({
+            id: commit.id,
+            committedDate: commit.committedDate,
+            commitUrl: commit.commitUrl,
+            message: commit.message,
+            additions: commit.additions,
+            deletions: commit.deletions,
+            author: commit.author,
+        }))
+        .filter((commit) => commit.author?.user?.login === REPO_OWNER); // Filter is done to remove history authored by bots or other contributors
 };
