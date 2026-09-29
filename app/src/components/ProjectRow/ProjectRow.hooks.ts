@@ -159,17 +159,16 @@ export const useCommitActivity = (projectName: string, enabled: boolean) => {
     });
 
     useEffect(() => {
-        if (commitActivityData) {
+        if (commitActivityData && !commitActivity) {
             setCommitActivity(commitActivityData);
         }
-    }, [commitActivityData]);
+    }, [commitActivityData, commitActivity]);
 
     useEffect(() => {
         if (isCommitActivityError) {
             console.error(
                 `Failed to fetch commit activity: ${commitActivityError}`
             );
-            setCommitActivity([]);
         }
     }, [isCommitActivityError, commitActivityError]);
 

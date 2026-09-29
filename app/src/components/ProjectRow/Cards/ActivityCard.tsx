@@ -10,7 +10,11 @@ import {
 } from '@mui/x-charts';
 
 // Custom
-import { getCommitsPerDay, getRecentDelta } from './ActivityCard.utils';
+import {
+    DayCommits,
+    getCommitsPerDay,
+    getRecentDelta,
+} from './ActivityCard.utils';
 
 // Components
 import Corner from '../../Corner/Corner';
@@ -87,7 +91,7 @@ const ActivityCard = ({
     isRecentCommitsFetching,
     isCommitActivityFetching,
 }: Props): ReactElement => {
-    const commitsPerWeek: number[] = useMemo(
+    const commitsByDay: DayCommits[] = useMemo(
         () => getCommitsPerDay(commitActivity),
         [commitActivity]
     );
@@ -105,6 +109,16 @@ const ActivityCard = ({
         ],
         [recentDelta]
     );
+    const sparklineX = useMemo(() => {
+        return {
+            type: 'time' as const,
+            data: commitsByDay.map((dayCommits) => dayCommits.date),
+            valueFormatter: (value: Date) => value.toLocaleDateString(),
+        };
+    }, [commitsByDay]);
+    const sparklineData = useMemo(() => {
+        return commitsByDay.map((dayCommits) => dayCommits.commitCount);
+    }, [commitsByDay]);
 
     return (
         <li className="project-card-container">
@@ -130,10 +144,10 @@ const ActivityCard = ({
                         className={`sparkline-container ${isCommitActivityFetching ? '' : 'loaded'}`}
                     >
                         <SparkLineChart
-                            data={commitsPerWeek}
-                            color="#c0fe04"
+                            data={sparklineData}
+                            xAxis={sparklineX}
+                            color="var(--secondary-color)"
                             height={20}
-                            slots={slots}
                             showTooltip
                             showHighlight
                         />

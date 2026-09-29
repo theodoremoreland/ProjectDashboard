@@ -2,6 +2,12 @@ import { octokit } from '../constants/octokit';
 import { REPO_OWNER } from '../constants/RepoOwner';
 import { CommitActivityResponse, CommitActivityData } from '../types';
 
+/**
+ * In theory, this returns data for 364 days, including today as that can be divided by 52 weeks.
+ * It's approximately a year, but naturally doesn't include exactly a year's worth (365 or 366).
+ * @param {string} repo - Name of repository
+ * @returns {Promise<CommitActivityData>}
+ */
 export const getCommitActivity = async (
     repo: string
 ): Promise<CommitActivityData> => {
