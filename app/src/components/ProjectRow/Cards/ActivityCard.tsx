@@ -46,6 +46,7 @@ const CustomToolTip = (): ReactElement | null => {
                     <p className="note">*Includes dependencies and assets</p>
                     <hr />
                     <p className="value" data-index={identifier.dataIndex}>
+                        {identifier.dataIndex === 0 ? `+` : null}
                         {formattedValue}
                     </p>
                 </div>

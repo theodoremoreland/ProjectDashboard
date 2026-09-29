@@ -156,6 +156,7 @@
 
             .grade {
                 font-size: 1.2em;
+                text-shadow: 2px 2px 2px #000000;
 
                 &[data-grade='A'] {
                     color: lime;
@@ -174,7 +175,7 @@
                 }
 
                 &[data-grade='E'] {
-                    color: red;
+                    color: rgb(255, 55, 55);
                 }
             }
         }

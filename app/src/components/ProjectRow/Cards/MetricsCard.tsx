@@ -147,10 +147,10 @@ const MetricsCard = ({
     }, [sonarMeasures]);
     const topData = useMemo(() => {
         return {
-            label: 'Lines of Code',
+            label: 'Lines of Code*',
             value: sonarMeasures?.metrics.ncloc || 0,
             format: 'int' as const,
-            title: 'Lines of application code (does not include dependencies and assets)',
+            title: '*Lines of application code (does not include dependencies and assets)',
         };
     }, [sonarMeasures]);
     const bottomData = useMemo(() => {

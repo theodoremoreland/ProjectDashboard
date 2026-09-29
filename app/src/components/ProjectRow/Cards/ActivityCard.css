@@ -217,8 +217,9 @@
     }
 
     .value {
-        /* font-family: bit-bold; */
+        font-size: 1.2em;
         letter-spacing: 2px;
+        text-shadow: 2px 2px 2px #000000;
     }
 
     .value[data-index='0'] {
@@ -226,6 +227,6 @@
     }
 
     .value[data-index='1'] {
-        color: red;
+        color: rgb(255, 55, 55);
     }
 }

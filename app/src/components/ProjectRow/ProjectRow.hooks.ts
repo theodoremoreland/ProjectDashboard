@@ -13,7 +13,7 @@ import { getCommitActivity } from '../../http/getCommitActivity';
 import { getProjectReadme } from '../../modules/readme/';
 
 // Types
-import { Commit, CommitActivityData } from '../../types';
+import { Commit } from '../../types';
 
 export const useTopLanguagesData = (projectName: string, enabled: boolean) => {
     const {
@@ -140,10 +140,6 @@ export const useRecentCommits = (projectName: string, enabled: boolean) => {
 };
 
 export const useCommitActivity = (projectName: string, enabled: boolean) => {
-    const [commitActivity, setCommitActivity] = useState<
-        CommitActivityData | undefined
-    >(undefined);
-
     const {
         data: commitActivityData,
         isError: isCommitActivityError,
@@ -159,12 +155,6 @@ export const useCommitActivity = (projectName: string, enabled: boolean) => {
     });
 
     useEffect(() => {
-        if (commitActivityData && !commitActivity) {
-            setCommitActivity(commitActivityData);
-        }
-    }, [commitActivityData, commitActivity]);
-
-    useEffect(() => {
         if (isCommitActivityError) {
             console.error(
                 `Failed to fetch commit activity: ${commitActivityError}`
@@ -173,7 +163,7 @@ export const useCommitActivity = (projectName: string, enabled: boolean) => {
     }, [isCommitActivityError, commitActivityError]);
 
     return {
-        commitActivity,
+        commitActivity: commitActivityData,
         isCommitActivityError,
         isCommitActivityFetching,
         commitActivityError,
