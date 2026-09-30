@@ -18,14 +18,19 @@ import './DigitalRain.css';
 interface Props {
     topics: string[];
     shouldAnimate: boolean;
+    garganta: boolean;
 }
 
-const FONT_SIZE: number = 16;
 const KATAKANA: string[] =
     'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890'.split('');
 
-const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
+const DigitalRain = ({
+    topics,
+    shouldAnimate,
+    garganta,
+}: Props): ReactElement => {
     const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
+    const fontSize: number = useMemo(() => (garganta ? 16 : 24), [garganta]);
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameIdRef = useRef<number | undefined>(undefined);
@@ -57,16 +62,16 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
     useEffect(() => {
         const canvas = canvasRef.current;
 
-        if (canvas && shouldAnimate) {
+        if (canvas && shouldAnimate && !garganta) {
             const ctx: CanvasRenderingContext2D | null =
                 canvas.getContext('2d');
-            const columns: number = canvas.width / FONT_SIZE;
+            const columns: number = canvas.width / fontSize;
             const columnPositions: number[] = Array.from({
                 length: columns,
             }).fill(1) as number[]; // Track the vertical 'y' position of each column
             const topicsThatFitCanvas: string[] = casedTopics.filter(
                 (topic: string) => {
-                    return topic.length * FONT_SIZE < canvas.height;
+                    return topic.length * fontSize < canvas.height;
                 }
             );
 
@@ -75,7 +80,7 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
 
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Draw a translucent background to create the trailing/fade effect
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ctx.font = FONT_SIZE + 'px custom-regular';
+                ctx.font = fontSize + 'px custom-regular';
 
                 for (let i = 0; i < columnPositions.length; i++) {
                     const numberOfCharactersLeftToRender: number =
@@ -103,8 +108,8 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                             if (char.hasRendered === false) {
                                 ctx.fillText(
                                     char.char,
-                                    i * FONT_SIZE,
-                                    columnPositions[i] * FONT_SIZE
+                                    i * fontSize,
+                                    columnPositions[i] * fontSize
                                 );
 
                                 char.hasRendered = true;
@@ -121,13 +126,13 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
                         ctx.fillStyle = '#e2e2e2c0';
                         ctx.fillText(
                             randomKatakanaCharacter,
-                            i * FONT_SIZE,
-                            columnPositions[i] * FONT_SIZE
+                            i * fontSize,
+                            columnPositions[i] * fontSize
                         );
                     }
 
                     if (
-                        columnPositions[i] * FONT_SIZE > canvas.height &&
+                        columnPositions[i] * fontSize > canvas.height &&
                         Math.random() > 0.975
                     ) {
                         columnPositions[i] = 0;
@@ -183,7 +188,10 @@ const DigitalRain = ({ topics, shouldAnimate }: Props): ReactElement => {
     }, [shouldAnimate, casedTopics]);
 
     return (
-        <canvas ref={canvasRef} className="DigitalRain">
+        <canvas
+            ref={canvasRef}
+            className={`DigitalRain ${garganta ? 'garganta' : ''}`}
+        >
             A The Matrix-style wall of falling text that occasionally reads
             GitHub topics related to this project.
         </canvas>

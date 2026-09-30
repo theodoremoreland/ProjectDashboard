@@ -242,6 +242,7 @@ const ProjectRow = ({
                             shouldAnimate={
                                 hasSettled && showDigitalRainAnimation
                             }
+                            garganta
                         />
                     </div>
                 </div>
