@@ -194,7 +194,9 @@ const ProjectRow = ({
                             </>
                         )}
                     </div>
-                    <div className="topics-container">
+                    <div
+                        className={`topics-container ${!showDigitalRainAnimation ? 'show' : 'hide'}`}
+                    >
                         <div className="topics-dialog">
                             <button
                                 title="View project topics"

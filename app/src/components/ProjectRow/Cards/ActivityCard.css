@@ -128,7 +128,6 @@
             font-family: custom-thin;
             width: auto;
             padding: 0.5em 10px;
-            transition: opacity 1s ease-in;
         }
 
         &::after {
@@ -140,7 +139,7 @@
             width: 100%;
             height: 100%;
             background-color: #020202;
-            transition: left 1s ease-in-out;
+            transition: left 1s ease;
             pointer-events: none;
         }
 

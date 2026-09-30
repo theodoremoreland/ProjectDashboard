@@ -44,13 +44,13 @@ const CustomDeltaBarToolTip = (): ReactElement | null => {
             <div className="CustomTooltip">
                 <div key={identifier.seriesId} className="content">
                     <h4>{label}</h4>
-                    <p className="note">*Includes dependencies and assets</p>
+                    <p className="note">In the last 10 commits</p>
                     <hr />
                     <p className="value" data-index={identifier.dataIndex}>
                         {identifier.dataIndex === 0 ? `+` : null}
                         {formattedValue}
                     </p>
-                    <p className="note">In the last 10 commits</p>
+                    <p className="note">*Includes dependencies and assets</p>
                 </div>
             </div>
         </ChartsTooltipContainer>
@@ -168,10 +168,10 @@ const ActivityCard = ({
                         slots={barSlots}
                     />
                 </div>
-                <div className={`middle`}>
+                <div className="middle">
                     <GlyphLane />
                     <div
-                        className={`sparkline-container ${isCommitActivityFetching ? '' : 'loaded'}`}
+                        className={`sparkline-container ${isCommitActivityFetching || sparklineData.length === 0 ? '' : 'loaded'}`}
                     >
                         <h4 className="label">Commit activity</h4>
                         <SparkLineChart
@@ -179,7 +179,7 @@ const ActivityCard = ({
                             xAxis={sparklineX}
                             slots={sparklineSlots}
                             color="var(--secondary-color)"
-                            height={40}
+                            height={35}
                             showTooltip
                             showHighlight
                         />
