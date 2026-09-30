@@ -5,7 +5,8 @@
     justify-content: flex-start;
     align-items: center;
     gap: 5px;
-    font-size: 12px;
+    font-family: custom-thin;
+    font-size: 0.75rem;
     width: 25%;
     height: 75%;
 

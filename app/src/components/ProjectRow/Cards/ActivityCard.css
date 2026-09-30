@@ -8,6 +8,8 @@
     height: 100%;
     overflow-y: hidden;
 
+    --tick-color: #e6e6e669;
+
     h3,
     h4 {
         width: 100%;
@@ -59,6 +61,10 @@
         width: 100%;
         transition: opacity 1s ease-in-out;
 
+        text {
+            font-family: custom-thin !important;
+        }
+
         &.hide {
             visibility: hidden;
             opacity: 0;
@@ -70,27 +76,29 @@
         }
 
         .MuiChartsAxis-root .MuiChartsAxis-line {
-            stroke: #f4f1f18e;
+            stroke: var(--tick-color);
             stroke-width: 2;
         }
         .MuiChartsAxis-tick {
-            stroke: #f4f1f18e;
+            stroke: var(--tick-color);
         }
 
         .MuiChartsAxis-tickLabel {
-            fill: #e6e6e669;
+            fill: var(--tick-color);
             font-size: 1rem;
         }
 
         .MuiChartsGrid-line {
-            stroke: #838383;
+            stroke: var(--tick-color);
         }
 
         .MuiChartsAxis-label {
-            fill: #e6e6e669;
+            fill: var(--primary-font-color);
         }
 
         .MuiBarChart-label {
+            font-family: custom-bold !important;
+
             &:nth-last-of-type(1) {
                 fill: #c8c8c8;
             }
@@ -110,8 +118,21 @@
         width: 100%;
         height: 100%;
 
-        &::after {
+        .label {
             z-index: 2;
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: var(--temp-silver);
+            font-size: 0.75rem;
+            font-family: custom-thin;
+            width: auto;
+            padding: 0.5em 10px;
+            transition: opacity 1s ease-in;
+        }
+
+        &::after {
+            z-index: 3;
             content: '';
             position: absolute;
             top: 0;

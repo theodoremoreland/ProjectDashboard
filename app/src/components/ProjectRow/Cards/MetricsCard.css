@@ -101,6 +101,7 @@
 
         text {
             fill: var(--primary-font-color);
+            font-family: custom-thin !important;
         }
 
         .MuiRadarChart-gridRadial,

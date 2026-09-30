@@ -50,6 +50,7 @@ const CustomDeltaBarToolTip = (): ReactElement | null => {
                         {identifier.dataIndex === 0 ? `+` : null}
                         {formattedValue}
                     </p>
+                    <p className="note">In the last 10 commits</p>
                 </div>
             </div>
         </ChartsTooltipContainer>
@@ -75,6 +76,7 @@ const CustomSparklineToolTip = (): ReactElement | null => {
                     <p className="value">
                         {seriesItems[0]?.formattedValue} commits
                     </p>
+                    <p className="note">Click to view history</p>
                 </div>
             </div>
         </ChartsTooltipContainer>
@@ -100,7 +102,6 @@ const barX = [
 const barY = [
     {
         id: 'y-axis-1',
-        label: 'Lines (Last 10 commits)',
         colorMap: {
             type: 'piecewise' as const,
             thresholds: [0],
@@ -172,6 +173,7 @@ const ActivityCard = ({
                     <div
                         className={`sparkline-container ${isCommitActivityFetching ? '' : 'loaded'}`}
                     >
+                        <h4 className="label">Commit activity</h4>
                         <SparkLineChart
                             data={sparklineData}
                             xAxis={sparklineX}

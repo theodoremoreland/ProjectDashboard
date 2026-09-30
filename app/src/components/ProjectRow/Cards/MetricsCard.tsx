@@ -116,7 +116,11 @@ const MetricsCard = ({
         projectData.name !== 'ProjectDashboard' && projectData.demo_link !== '';
 
     const onAxisClick = useCallback(
-        (_: MouseEvent, d: ChartsAxisData | null): void => {
+        (event: MouseEvent, d: ChartsAxisData | null): void => {
+            if (event.button === 2) {
+                return;
+            }
+
             const SoftwareQualityLink: Record<string, string> = {
                 security: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=SECURITY&s=IMPACT_RANK`,
                 maintainability: `${SonarCloudBaseUrl}${projectData.name}&impactSoftwareQualities=MAINTAINABILITY&s=IMPACT_RANK`,
@@ -179,7 +183,7 @@ const MetricsCard = ({
                         className="RadarChart"
                         desc="A radar chart illustrating code quality grades for project."
                         colors={radarColors}
-                        height={270}
+                        height={220}
                         hideLegend
                         loading={isSonarMeasuresFetching}
                         series={radarData}
