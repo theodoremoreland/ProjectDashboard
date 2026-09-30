@@ -13,11 +13,7 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                 <article>
                     <h3>Abstract</h3>
                     <p>
-                        This project was originally designed around a pitch to
-                        management about moving laterally within the company
-                        from Data Engineer to Software Engineer. To supplement
-                        my argument, this web application dynamically renders a
-                        list of my{' '}
+                        This web application dynamically renders a list of my{' '}
                         <a
                             target="_blank"
                             rel="noreferrer"
@@ -33,34 +29,60 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         >
                             GitHub API
                         </a>
-                        . This project features search, filtering, and analytics to support my
-                        case.
+                        . Each project is configured in a such a way that
+                        software quality measures, DORA metrics, commit
+                        activity, and views can be viewed from this dashboard.
                     </p>
                     <p>
-                        My argument succeeded after a series of discussions and
-                        a detailed walkthrough of this project. I've since
-                        iterated on this project and have occasionally
-                        positioned it as an interim portfolio (i.e. a substitute
-                        for my "real" portfolio while I work on completing it).
-                        Given its original purpose, it lacks the resources and
-                        workflow of an actual portfolio. There is no resume,
-                        head-shot, contact information, nor professional
-                        summary, and it makes little effort to highlight
-                        specific projects or skills.
+                        Additionally, metadata concerning project content is
+                        accessible directly from this dashboard such as
+                        screenshots, video previews, and deployment links.
                     </p>
                 </article>
                 <article>
-                    <h3>So what now?</h3>
-                    <p>
-                        This application features many active web apps that can
-                        be visited by hovering over its corresponding thumbnail
-                        and clicking the "Live Demo" button. Each active
-                        deployment is responsive and deployed via CI/CD pipeline
-                        or scripted deployment. Every project features a GitHub
-                        link and screenshots pulled dynamically from their
-                        corresponding GitHub README.md, which can be explored
-                        via the "Explore" button.
-                    </p>
+                    <h3>SonarQube Quality measures</h3>
+                    <ul>
+                        <li>
+                            <strong>Maintainability:</strong> How easy the code
+                            is to understand, change, and keep healthy over
+                            time.
+                        </li>
+                        <li>
+                            <strong>Security:</strong> How well the code is
+                            protected against vulnerabilities and security
+                            weaknesses.
+                        </li>
+                        <li>
+                            <strong>Reliability:</strong> How likely the code is
+                            to behave correctly and avoid bugs or failures in
+                            production.
+                        </li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>DORA Metrics</h3>
+                    <ul>
+                        <li>
+                            <strong>Lead Time for Changes:</strong> Measures
+                            elapsed time from the initial commit timestamp to
+                            when the PR is merged or deployed.
+                        </li>
+                        <li>
+                            <strong>Deployment Frequency:</strong> Counts total
+                            successful production deployments over a specific
+                            timeframe.
+                        </li>
+                        <li>
+                            <strong>Time to Restore Service:</strong> Measures
+                            the time required to recover from a failed
+                            deployment.
+                        </li>
+                        <li>
+                            <strong>Change Failure Rate:</strong> Measures the
+                            percentage of total deployments that resulted in a
+                            hotfix PR or incident issue.
+                        </li>
+                    </ul>
                 </article>
                 <article>
                     <h3>Source Code</h3>
