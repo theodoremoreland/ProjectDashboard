@@ -1,0 +1,114 @@
+.TopicsFullscreen {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    contain-intrinsic-size: auto 100vh;
+    transition:
+        opacity 0.3s ease-in-out,
+        visibility 0.3s ease-in-out,
+        content-visibility 0.3s ease-in-out;
+    transition-behavior: allow-discrete;
+
+    &.hide {
+        pointer-events: none;
+        content-visibility: hidden;
+        visibility: hidden;
+        opacity: 0;
+
+        .banner {
+            top: -100vh;
+            overflow: hidden;
+        }
+    }
+
+    &.show {
+        pointer-events: auto;
+        content-visibility: visible;
+        visibility: visible;
+        opacity: 1;
+
+        .banner {
+            top: 0;
+            overflow: auto;
+        }
+    }
+
+    .layer {
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: var(--content-width);
+        max-width: var(--content-max-width);
+        height: 100%;
+
+        .title {
+            font-family: custom-bold;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            font-family: custom-semibold;
+            font-size: 1.5rem;
+        }
+
+        .banner {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 1rem;
+            color: var(--primary-font-color);
+            padding: 20px;
+            width: 33%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.98);
+            transition:
+                top 3s ease-in-out,
+                overflow 3s ease-in-out;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 0.5rem;
+            width: 100%;
+            height: 100%;
+
+            li {
+                font-size: 1.25rem;
+                width: 100%;
+            }
+        }
+    }
+
+    .close-button {
+        z-index: 101;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}

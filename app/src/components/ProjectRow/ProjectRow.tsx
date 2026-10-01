@@ -20,6 +20,7 @@ import MetricsCard from './Cards/MetricsCard';
 import ActivityCard from './Cards/ActivityCard';
 import Corner from '../Corner/Corner';
 import DigitalRain from '../DigitalRain/DigitalRain';
+import TopicsFullscreen from '../TopicsFullscreen/TopicsFullscreen';
 
 // Types
 import { TaggedRepoData } from '../../types';
@@ -49,6 +50,9 @@ const ProjectRow = ({
     setShowDigitalRainAnimation,
 }: Props) => {
     const [hasSettled, setHasSettled] = useState<boolean>(false);
+    const [showTopicsFullscreen, setShowTopicsFullscreen] =
+        useState<boolean>(false);
+    const showBaseContent = hasSettled && !showTopicsFullscreen;
 
     // Third party hooks
     const { ref, inView } = useInView({
@@ -161,19 +165,19 @@ const ProjectRow = ({
                     />
                     <ul className="project-cards">
                         <ThumbnailCard
-                            hasSettled={hasSettled}
+                            hasSettled={showBaseContent}
                             projectData={projectData}
                             readme={readmeData}
                             isReadmeFetching={isReadmeFetching}
                         />
                         <MetricsCard
-                            hasSettled={hasSettled}
+                            hasSettled={showBaseContent}
                             projectData={projectData}
                             sonarMeasures={sonarMeasuresData}
                             isSonarMeasuresFetching={isSonarMeasuresFetching}
                         />
                         <ActivityCard
-                            hasSettled={hasSettled}
+                            hasSettled={showBaseContent}
                             isRecentCommitsFetching={isRecentCommitsFetching}
                             isCommitActivityFetching={isCommitActivityFetching}
                             projectData={projectData}
@@ -184,7 +188,7 @@ const ProjectRow = ({
                 </div>
                 <div className="project-row-footer">
                     <div className="project-video-preview">
-                        {hasSettled && (
+                        {showBaseContent && (
                             <>
                                 <h3>Video Preview</h3>
                                 <div className="content">
@@ -202,6 +206,7 @@ const ProjectRow = ({
                                 title="View project topics"
                                 className="view-topics"
                                 type="button"
+                                onClick={() => setShowTopicsFullscreen(true)}
                             >
                                 <EyeTrackingIcon className="icon" />
                                 <span>View</span>
@@ -240,13 +245,21 @@ const ProjectRow = ({
                         <DigitalRain
                             topics={projectData.topics}
                             shouldAnimate={
-                                hasSettled && showDigitalRainAnimation
+                                showBaseContent && showDigitalRainAnimation
                             }
                             garganta
                         />
                     </div>
                 </div>
             </div>
+            {hasSettled && (
+                <TopicsFullscreen
+                    show={showTopicsFullscreen}
+                    setShow={setShowTopicsFullscreen}
+                    topics={projectData.topics}
+                    projectName={projectData.name}
+                />
+            )}
         </article>
     );
 };

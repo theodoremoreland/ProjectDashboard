@@ -30,7 +30,7 @@ const DigitalRain = ({
     garganta,
 }: Props): ReactElement => {
     const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
-    const fontSize: number = useMemo(() => (garganta ? 16 : 24), [garganta]);
+    const fontSize: number = garganta ? 16 : 24;
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationFrameIdRef = useRef<number | undefined>(undefined);
@@ -62,7 +62,7 @@ const DigitalRain = ({
     useEffect(() => {
         const canvas = canvasRef.current;
 
-        if (canvas && shouldAnimate && !garganta) {
+        if (canvas && shouldAnimate) {
             const ctx: CanvasRenderingContext2D | null =
                 canvas.getContext('2d');
             const columns: number = canvas.width / fontSize;
@@ -185,7 +185,7 @@ const DigitalRain = ({
                 cancelAnimationFrame(animationFrameIdRef.current);
             }
         };
-    }, [shouldAnimate, casedTopics]);
+    }, [shouldAnimate, casedTopics, fontSize]);
 
     return (
         <canvas

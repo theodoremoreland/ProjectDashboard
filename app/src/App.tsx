@@ -20,7 +20,6 @@ import Overview from './components/Modal/Overview/Overview';
 import Error from './components/Modal/Error/Error';
 import NotAScrollbar from './components/NotAScrollbar/NotAScrollbar';
 import Cursor from './components/Cursor/Cursor';
-import Topics from './components/Topics/Topics';
 
 // Custom Styles
 import './index.css';
@@ -97,12 +96,6 @@ const App = (): ReactElement => {
         <>
             <Cursor userId="0001" replaceCursor={false} />
             {showErrorModal && <Error handleClose={handleCloseErrorModal} />}
-            {/* {selectedProject && (
-                <Topics
-                    topics={selectedProject.topics}
-                    projectName={selectedProject.name}
-                />
-            )} */}
             <header
                 ref={titleCardRef}
                 className={`title-card ${repos ? 'transition' : ''}`}
