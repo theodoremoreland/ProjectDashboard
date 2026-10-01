@@ -45,7 +45,14 @@ const TopicsFullscreen = ({
                                         { '--i': index } as React.CSSProperties
                                     }
                                 >
-                                    {topic}
+                                    <a
+                                        id={`topic-link-${index}`}
+                                        href={`https://github.com/topics/${topic}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {topic}
+                                    </a>
                                 </li>
                             ))}
                         </ul>
