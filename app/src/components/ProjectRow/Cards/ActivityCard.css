@@ -93,7 +93,7 @@
         }
 
         .MuiChartsAxis-label {
-            fill: var(--primary-font-color);
+            fill: var(--tick-color);
         }
 
         .MuiBarChart-label {

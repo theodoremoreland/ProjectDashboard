@@ -102,6 +102,7 @@ const barX = [
 const barY = [
     {
         id: 'y-axis-1',
+        label: 'Lines of code*',
         colorMap: {
             type: 'piecewise' as const,
             thresholds: [0],

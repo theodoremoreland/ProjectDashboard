@@ -38,8 +38,15 @@ const TopicsFullscreen = ({
                             {topics.length} GitHub topics
                         </p>
                         <ul>
-                            {topics.map((topic) => (
-                                <li key={topic}>{topic}</li>
+                            {topics.map((topic, index) => (
+                                <li
+                                    key={topic}
+                                    style={
+                                        { '--i': index } as React.CSSProperties
+                                    }
+                                >
+                                    {topic}
+                                </li>
                             ))}
                         </ul>
                     </div>
