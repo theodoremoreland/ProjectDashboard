@@ -188,7 +188,9 @@ const ActivityCard = ({
                     <GlyphLane />
                 </div>
                 <div className="bottom">
-                    <div className=" commits-container">
+                    <div
+                        className={`commits-container ${hasSettled ? 'show' : 'hide'}`}
+                    >
                         <h3>Last 10 commits</h3>
                         <ul className="commits">
                             {isRecentCommitsFetching && (
