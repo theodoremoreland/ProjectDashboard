@@ -248,9 +248,34 @@ a:hover {
     }
 }
 
-@keyframes fadeInSlideUp {
+@keyframes blinkInSlideUp {
     0% {
         opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 0.75;
+        transform: translateY(5px);
     }
     100% {
         transform: translateY(0);
