@@ -188,13 +188,15 @@ const DigitalRain = ({
     }, [shouldAnimate, casedTopics, fontSize]);
 
     return (
-        <canvas
-            ref={canvasRef}
-            className={`DigitalRain ${garganta ? 'garganta' : ''}`}
-        >
-            A The Matrix-style wall of falling text that occasionally reads
-            GitHub topics related to this project.
-        </canvas>
+        <div className={`DigitalRainContainer `}>
+            <canvas
+                ref={canvasRef}
+                className={`DigitalRain ${garganta ? 'garganta' : ''}`}
+            >
+                A The Matrix-style wall of falling text that occasionally reads
+                GitHub topics related to this project.
+            </canvas>
+        </div>
     );
 };
 

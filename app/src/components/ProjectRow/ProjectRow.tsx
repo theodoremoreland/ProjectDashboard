@@ -242,13 +242,15 @@ const ProjectRow = ({
                             <span>C</span>
                             <span>S</span>
                         </h3>
-                        <DigitalRain
-                            topics={projectData.topics}
-                            shouldAnimate={
-                                showBaseContent && showDigitalRainAnimation
-                            }
-                            garganta
-                        />
+                        {showBaseContent && (
+                            <DigitalRain
+                                topics={projectData.topics}
+                                shouldAnimate={
+                                    showBaseContent && showDigitalRainAnimation
+                                }
+                                garganta
+                            />
+                        )}
                     </div>
                 </div>
             </div>
