@@ -5,10 +5,10 @@ import { ReactElement, useCallback, useEffect, useRef, useMemo } from 'react';
 import debounce from 'lodash.debounce';
 
 // Custom
+import { properCase } from '../../utils/properCase';
 import {
     formatRenderTopic,
     generateValidRandomNumber,
-    properCase,
     RenderTopic,
 } from './DigitalRain.utils';
 
@@ -19,6 +19,7 @@ interface Props {
     topics: string[];
     shouldAnimate: boolean;
     garganta: boolean;
+    shouldProperCase?: boolean;
 }
 
 const KATAKANA: string[] =
@@ -28,8 +29,12 @@ const DigitalRain = ({
     topics,
     shouldAnimate,
     garganta,
+    shouldProperCase = true,
 }: Props): ReactElement => {
-    const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
+    const casedTopics: string[] = useMemo(
+        () => (shouldProperCase ? properCase(topics) : topics),
+        [topics, shouldProperCase]
+    );
     const fontSize: number = garganta ? 16 : 24;
 
     const canvasRef = useRef<HTMLCanvasElement>(null);

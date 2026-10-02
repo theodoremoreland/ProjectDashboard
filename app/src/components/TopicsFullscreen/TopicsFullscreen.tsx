@@ -1,5 +1,8 @@
 // React
-import { ReactElement } from 'react';
+import { ReactElement, useMemo } from 'react';
+
+// Custom
+import { properCase } from '../../utils/properCase';
 
 // Components
 import DigitalRain from '../DigitalRain/DigitalRain';
@@ -20,6 +23,8 @@ const TopicsFullscreen = ({
     projectName,
     topics,
 }: Props): ReactElement => {
+    const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
+
     return (
         <div className={`TopicsFullscreen ${show ? 'show' : 'hide'}`}>
             <div className="layer">
@@ -35,10 +40,10 @@ const TopicsFullscreen = ({
                     <div className="banner">
                         <h2 className="title">{projectName}</h2>
                         <p className="subtitle">
-                            {topics.length} GitHub topics
+                            {casedTopics.length} GitHub topics
                         </p>
                         <ul>
-                            {topics.map((topic, index) => (
+                            {casedTopics.map((topic, index) => (
                                 <li
                                     key={topic}
                                     style={
@@ -47,7 +52,7 @@ const TopicsFullscreen = ({
                                 >
                                     <a
                                         id={`topic-link-${index}`}
-                                        href={`https://github.com/topics/${topic}`}
+                                        href={`https://github.com/topics/${topics[index]}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -62,7 +67,8 @@ const TopicsFullscreen = ({
             <DigitalRain
                 shouldAnimate={show}
                 garganta={false}
-                topics={topics}
+                topics={casedTopics}
+                shouldProperCase={false}
             />
         </div>
     );
