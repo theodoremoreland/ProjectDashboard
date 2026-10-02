@@ -122,6 +122,7 @@ const ProperCase: Record<string, string> = {
     vba: 'VBA',
     vlookup: 'VLOOKUP',
     vscode: 'VS Code',
+    'daugherty-university': 'Daugherty University',
     'data-engineering': 'data engineering',
     'data-analytics': 'data analytics',
     'web-development': 'web development',
