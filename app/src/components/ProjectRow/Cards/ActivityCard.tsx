@@ -174,7 +174,7 @@ const ActivityCard = ({
                     <div
                         className={`sparkline-container ${isCommitActivityFetching || sparklineData.length === 0 ? '' : 'loaded'}`}
                     >
-                        <h4 className="label">Commit activity</h4>
+                        <h4 className="label">Year of commit activity</h4>
                         <SparkLineChart
                             data={sparklineData}
                             xAxis={sparklineX}
