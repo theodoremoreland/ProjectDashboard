@@ -45,13 +45,13 @@ const TopicsFullscreen = ({
                         <ul>
                             {casedTopics.map((topic, index) => (
                                 <li
-                                    key={topic}
+                                    key={topics[index]}
                                     style={
                                         { '--i': index } as React.CSSProperties
                                     }
                                 >
                                     <a
-                                        id={`topic-link-${index}`}
+                                        id={`topic-link-${topics[index]}`}
                                         href={`https://github.com/topics/${topics[index]}`}
                                         target="_blank"
                                         rel="noopener noreferrer"

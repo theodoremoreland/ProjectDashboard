@@ -11,7 +11,7 @@
     scroll-snap-align: start;
 
     .not-featured-overlay {
-        z-index: 3;
+        z-index: 4;
         position: absolute;
         top: 0;
         left: 0;
