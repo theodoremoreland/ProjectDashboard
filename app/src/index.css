@@ -78,6 +78,8 @@
     --temp-gray-3: #1e1f24;
     --temp-silver: #a1a5b5;
     --temp-white: #d6d6d8;
+
+    --card-fade-speed: 1s;
 }
 
 @media screen and (min-width: 481px) {

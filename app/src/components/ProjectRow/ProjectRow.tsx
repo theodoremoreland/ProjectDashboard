@@ -88,7 +88,7 @@ const ProjectRow = ({
             timeoutId = setTimeout(() => {
                 setSelectedProject(projectData);
                 setHasSettled(projectData.isFeatured);
-            }, 100);
+            }, 250);
         } else {
             setHasSettled(false);
         }

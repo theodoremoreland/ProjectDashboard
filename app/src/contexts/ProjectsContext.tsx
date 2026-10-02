@@ -35,6 +35,7 @@ export const ProjectsContext = createContext({
         SetStateAction<TaggedRepoData | null>
     >,
     featuredTopics: new Set<string>(),
+    allUniqueTopics: new Set<string>(),
     isError: false,
 });
 
@@ -44,6 +45,9 @@ const ProjectsContextProvider = ({
     const [repos, setRepos] = useState<RepoData[] | undefined>(undefined);
     const [selectedProject, setSelectedProject] =
         useState<TaggedRepoData | null>(null);
+    const [allUniqueTopics, setAllUniqueTopics] = useState<Set<string>>(
+        new Set()
+    );
     const [featuredTopics, setFeaturedTopics] = useState<Set<string>>(
         new Set()
     );
@@ -102,6 +106,9 @@ const ProjectsContextProvider = ({
             const orderedProjects: RepoData[] = defaultOrder(data);
 
             setRepos(orderedProjects);
+            setAllUniqueTopics(
+                new Set(orderedProjects.flatMap((repo) => repo.topics))
+            );
         }
     }, [data]);
 
@@ -121,6 +128,7 @@ const ProjectsContextProvider = ({
                 selectedProject,
                 setSelectedProject,
                 featuredTopics,
+                allUniqueTopics,
                 isError,
             }}
         >

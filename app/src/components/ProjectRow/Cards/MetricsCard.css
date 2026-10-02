@@ -82,7 +82,7 @@
         justify-content: center;
         align-items: flex-start;
         contain-intrinsic-size: auto 0px;
-        transition: opacity 1s;
+        transition: opacity var(--card-fade-speed) ease-in-out;
     }
 
     .software-quality-container.show {
@@ -192,8 +192,8 @@
         align-items: flex-start;
         padding-bottom: 0;
         transition:
-            opacity 1s ease-in-out,
-            visibility 1s;
+            opacity var(--card-fade-speed) ease-in-out,
+            visibility var(--card-fade-speed) ease-in-out;
         transition-behavior: allow-discrete;
 
         &.show {

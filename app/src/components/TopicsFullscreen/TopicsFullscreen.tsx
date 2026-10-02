@@ -1,8 +1,12 @@
 // React
-import { ReactElement, useMemo } from 'react';
+import { ReactElement, useContext, useMemo } from 'react';
 
 // Custom
 import { properCase } from '../../utils/properCase';
+import getPairwiseJaccard from '../../utils/getPairwiseJaccard';
+
+// Context
+import { ProjectsContext } from '../../contexts/ProjectsContext';
 
 // Components
 import DigitalRain from '../DigitalRain/DigitalRain';
@@ -23,7 +27,13 @@ const TopicsFullscreen = ({
     projectName,
     topics,
 }: Props): ReactElement => {
+    const { allUniqueTopics } = useContext(ProjectsContext);
+
     const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
+    const jaccardSimilarity: string = useMemo(
+        () => getPairwiseJaccard(allUniqueTopics, topics),
+        [allUniqueTopics, topics]
+    );
 
     return (
         <div className={`TopicsFullscreen ${show ? 'show' : 'hide'}`}>
@@ -41,6 +51,9 @@ const TopicsFullscreen = ({
                         <h2 className="title">{projectName}</h2>
                         <p className="subtitle">
                             {casedTopics.length} GitHub topics
+                        </p>
+                        <p className="subtitle">
+                            {`Jaccard similarity: ${jaccardSimilarity}`}
                         </p>
                         <ul>
                             {casedTopics.map((topic, index) => (

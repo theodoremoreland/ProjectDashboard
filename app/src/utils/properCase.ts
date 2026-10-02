@@ -77,7 +77,7 @@ const ProperCase: Record<string, string> = {
     fastapi: 'FastAPI',
     figlet: 'Figlet',
     flask: 'Flask',
-    'flask-sqlalchemy': 'SQLAlchemy',
+    'flask-sqlalchemy': 'Flask-SQLAlchemy',
     'github-api': 'GitHub API',
     'github-pages': 'GitHub Pages',
     gradle: 'Gradle',
