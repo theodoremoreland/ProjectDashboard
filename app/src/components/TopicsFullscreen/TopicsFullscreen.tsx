@@ -27,12 +27,15 @@ const TopicsFullscreen = ({
     projectName,
     topics,
 }: Props): ReactElement => {
-    const { allUniqueTopics } = useContext(ProjectsContext);
+    const { repos } = useContext(ProjectsContext);
 
     const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
-    const jaccardSimilarity: string = useMemo(
-        () => getPairwiseJaccard(allUniqueTopics, topics),
-        [allUniqueTopics, topics]
+    const jaccardSimilarity: {
+        high: number;
+        average: number;
+    } = useMemo(
+        () => getPairwiseJaccard(repos || [], projectName, topics),
+        [repos, topics, projectName]
     );
 
     return (
@@ -52,10 +55,22 @@ const TopicsFullscreen = ({
                         <p className="subtitle">
                             {casedTopics.length} GitHub topics
                         </p>
-                        <p className="subtitle">
-                            {`Jaccard similarity: ${jaccardSimilarity}`}
-                        </p>
-                        <ul>
+                        <ul className="jaccard-similarity">
+                            {jaccardSimilarity &&
+                                Object.entries(jaccardSimilarity).map(
+                                    ([key, value]) => (
+                                        <li key={key}>
+                                            <span className="label">
+                                                {key}:
+                                            </span>
+                                            <span className="value">
+                                                {(value * 100).toFixed(2)}%
+                                            </span>
+                                        </li>
+                                    )
+                                )}
+                        </ul>
+                        <ul className="topics-list">
                             {casedTopics.map((topic, index) => (
                                 <li
                                     key={topics[index]}

@@ -28,7 +28,7 @@ const ProperCase: Record<string, string> = {
     tailwind: 'Tailwind',
     tailwindcss: 'Tailwind CSS',
     mui: 'MUI',
-    'mui-x': 'MUI',
+    'mui-x': 'MUI X',
     docker: 'Docker',
     dockerfile: 'Dockerfile',
     kubernetes: 'Kubernetes',
