@@ -60,26 +60,36 @@ const ThumbnailCard = ({
                 <Corner position="top-right" />
                 <Corner position="bottom-left" />
                 <div className="top">
-                    <span className="project-context">
-                        {getProjectContext(projectData)}
-                    </span>
+                    <div className="pills-and-links">
+                        <span className="project-context">
+                            {getProjectContext(projectData)}
+                        </span>
+                    </div>
                     <div
                         className={`project-image-container ${hasSettled ? 'loaded' : 'loading'}`}
                     >
-                        {hasSettled && (
-                            <img
-                                className="project-image"
-                                onLoad={(e) => {
-                                    const target: EventTarget = e.target;
+                        <a
+                            href={projectData.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {hasSettled && (
+                                <img
+                                    className="project-image"
+                                    onLoad={(e) => {
+                                        const target: EventTarget = e.target;
 
-                                    if (target instanceof HTMLImageElement) {
-                                        target.classList.add('loaded');
-                                    }
-                                }}
-                                src={projectData.image}
-                                alt={projectData.name}
-                            />
-                        )}
+                                        if (
+                                            target instanceof HTMLImageElement
+                                        ) {
+                                            target.classList.add('loaded');
+                                        }
+                                    }}
+                                    src={projectData.image}
+                                    alt={projectData.name}
+                                />
+                            )}
+                        </a>
                     </div>
                 </div>
                 <div className="middle">

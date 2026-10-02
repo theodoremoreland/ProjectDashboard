@@ -49,12 +49,20 @@
         padding-top: 20px;
     }
 
+    .pills-and-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+
     .project-context {
         position: relative;
         color: black;
         font-size: 0.8em;
         padding: 0.2em 0.35em;
-        margin-left: 20px;
         background-color: var(--secondary-color);
         border-radius: 4px;
     }
@@ -80,7 +88,7 @@
 
         &.loaded::after {
             content: '';
-            z-index: 3;
+            z-index: 4;
             position: absolute;
             top: 0;
             left: 0;
@@ -92,6 +100,31 @@
             background-repeat: no-repeat;
             background-position: center;
             animation: fadeInLowOpacity 0.33s ease-in-out forwards;
+            pointer-events: none;
+        }
+
+        &.loaded:hover .project-image {
+            opacity: 0.3;
+        }
+
+        &.loaded:hover::before {
+            content: 'Click to view on GitHub';
+            z-index: 3;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: bit-regular;
+            font-size: 1.5rem;
+            color: var(--tertiary-color);
+            background-color: rgba(0, 0, 0, 0.75);
+            width: 100%;
+            height: 100%;
+            animation: fadeIn 0.33s ease-in-out forwards;
+            pointer-events: none;
         }
     }
 
