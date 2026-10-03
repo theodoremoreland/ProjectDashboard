@@ -180,7 +180,7 @@ const ProjectRow = ({
                             hasSettled={showBaseContent}
                             isRecentCommitsFetching={isRecentCommitsFetching}
                             isCommitActivityFetching={isCommitActivityFetching}
-                            projectData={projectData}
+                            projectName={projectData.name}
                             commits={commits}
                             commitActivity={commitActivity}
                         />

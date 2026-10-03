@@ -1,5 +1,5 @@
 // React
-import { ReactElement, useMemo } from 'react';
+import { ReactElement, useCallback, useMemo } from 'react';
 
 // Third party
 import {
@@ -16,13 +16,14 @@ import {
     getCommitsPerDay,
     getRecentDelta,
 } from './ActivityCard.utils';
+import { REPO_OWNER } from '../../../../constants/RepoOwner';
 
 // Components
 import Corner from '../../../common/primitives/Corner/Corner';
 import GlyphLane from '../../../common/primitives/GlyphLane/GlyphLane';
 
 // Types
-import { CommitActivityData, TaggedRepoData, Commit } from '../../../../types';
+import { CommitActivityData, Commit } from '../../../../types';
 
 // Styles
 import './ActivityCard.css';
@@ -83,15 +84,6 @@ const CustomSparklineToolTip = (): ReactElement | null => {
     );
 };
 
-interface Props {
-    hasSettled: boolean;
-    projectData: TaggedRepoData;
-    commits: Commit[] | undefined;
-    commitActivity: CommitActivityData | undefined;
-    isRecentCommitsFetching?: boolean;
-    isCommitActivityFetching?: boolean;
-}
-
 const barX = [
     {
         id: 'x-axis-1',
@@ -114,10 +106,20 @@ const barGrid = { horizontal: true, vertical: true };
 const barSlots = { tooltip: CustomDeltaBarToolTip };
 const sparklineSlots = { tooltip: CustomSparklineToolTip };
 
+interface Props {
+    hasSettled: boolean;
+    projectName: string;
+    commits: Commit[] | undefined;
+    commitActivity: CommitActivityData | undefined;
+    isRecentCommitsFetching?: boolean;
+    isCommitActivityFetching?: boolean;
+}
+
 const ActivityCard = ({
     hasSettled,
     commits,
     commitActivity,
+    projectName,
     isRecentCommitsFetching,
     isCommitActivityFetching,
 }: Props): ReactElement => {
@@ -150,6 +152,12 @@ const ActivityCard = ({
     const sparklineData = useMemo(() => {
         return commitsByDay.map((dayCommits) => dayCommits.commitCount);
     }, [commitsByDay]);
+    const onSparklineClick = useCallback((): void => {
+        window.open(
+            `https://github.com/${REPO_OWNER}/${projectName}/activity?ref=main&actor=${REPO_OWNER}&time_period=year`,
+            '_blank'
+        );
+    }, [projectName]);
 
     return (
         <li className="project-card-container">
@@ -181,6 +189,7 @@ const ActivityCard = ({
                             slots={sparklineSlots}
                             color="var(--secondary-color)"
                             height={35}
+                            onClick={onSparklineClick}
                             showTooltip
                             showHighlight
                         />
