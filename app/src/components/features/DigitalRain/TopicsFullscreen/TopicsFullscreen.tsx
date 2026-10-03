@@ -54,15 +54,17 @@ const TopicsFullscreen = ({
                                     {' '}
                                     <li>
                                         <p>
-                                            Topics for this project are{' '}
+                                            This project's set of topics are in
+                                            the{' '}
                                             <span>
                                                 {(
                                                     jaccardSimilarity.jaccardSimilarityNormalized *
                                                     100
-                                                ).toFixed(2)}
-                                                %
+                                                ).toFixed(0)}
+                                                th
                                             </span>{' '}
-                                            more typical than others.
+                                            percentile for typicality across all
+                                            projects.
                                         </p>
                                     </li>
                                     <li>
