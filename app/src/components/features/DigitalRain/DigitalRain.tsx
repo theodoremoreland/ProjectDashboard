@@ -1,0 +1,208 @@
+// React
+import { ReactElement, useCallback, useEffect, useRef, useMemo } from 'react';
+
+// Third party
+import debounce from 'lodash.debounce';
+
+// Custom
+import { properCase } from '../../../utils/properCase';
+import {
+    formatRenderTopic,
+    generateValidRandomNumber,
+    RenderTopic,
+} from './DigitalRain.utils';
+
+// Styles
+import './DigitalRain.css';
+
+interface Props {
+    topics: string[];
+    shouldAnimate: boolean;
+    garganta: boolean;
+    shouldProperCase?: boolean;
+}
+
+const KATAKANA: string[] =
+    'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890'.split('');
+
+const DigitalRain = ({
+    topics,
+    shouldAnimate,
+    garganta,
+    shouldProperCase = true,
+}: Props): ReactElement => {
+    const casedTopics: string[] = useMemo(
+        () => (shouldProperCase ? properCase(topics) : topics),
+        [topics, shouldProperCase]
+    );
+    const fontSize: number = garganta ? 16 : 24;
+
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const animationFrameIdRef = useRef<number | undefined>(undefined);
+    const timestampOfLastAnimateRef = useRef<number>(0);
+    const activeColumnIndexRef = useRef<number>(15);
+    const currentTopicIndexRef = useRef<number>(0);
+    const renderingTopicRef = useRef<RenderTopic>(
+        formatRenderTopic(casedTopics[0])
+    );
+
+    const size = useCallback(() => {
+        if (!canvasRef.current) return;
+
+        const dpr: number = window.devicePixelRatio || 1;
+        canvasRef.current.width = canvasRef.current.clientWidth * dpr;
+        canvasRef.current.height = canvasRef.current.clientHeight * dpr;
+    }, []);
+
+    const resize = useCallback(() => debounce(size, 300), [size]);
+
+    useEffect(() => {
+        size();
+
+        window.addEventListener('resize', resize);
+
+        return () => window.removeEventListener('resize', resize);
+    }, [resize, size]);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+
+        if (canvas && shouldAnimate) {
+            const ctx: CanvasRenderingContext2D | null =
+                canvas.getContext('2d');
+            const columns: number = canvas.width / fontSize;
+            const columnPositions: number[] = Array.from({
+                length: columns,
+            }).fill(1) as number[]; // Track the vertical 'y' position of each column
+            const topicsThatFitCanvas: string[] = casedTopics.filter(
+                (topic: string) => {
+                    return topic.length * fontSize < canvas.height;
+                }
+            );
+
+            const draw = (): void => {
+                if (!ctx) return;
+
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Draw a translucent background to create the trailing/fade effect
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.font = fontSize + 'px custom-regular';
+
+                for (let i = 0; i < columnPositions.length; i++) {
+                    const numberOfCharactersLeftToRender: number =
+                        renderingTopicRef.current.reduce((prev, curr) => {
+                            if (!curr.hasRendered) {
+                                return prev + 1;
+                            } else {
+                                return prev;
+                            }
+                        }, 0);
+
+                    if (
+                        activeColumnIndexRef.current === i &&
+                        numberOfCharactersLeftToRender > 0
+                    ) {
+                        ctx.fillStyle = '#e2ff04';
+
+                        for (
+                            let j = 0;
+                            j < renderingTopicRef.current.length;
+                            j++
+                        ) {
+                            const char = renderingTopicRef.current[j];
+
+                            if (char.hasRendered === false) {
+                                ctx.fillText(
+                                    char.char,
+                                    i * fontSize,
+                                    columnPositions[i] * fontSize
+                                );
+
+                                char.hasRendered = true;
+
+                                break;
+                            }
+                        }
+                    } else {
+                        const randomKatakanaCharacter: string =
+                            KATAKANA[
+                                Math.floor(Math.random() * KATAKANA.length)
+                            ];
+
+                        ctx.fillStyle = '#e2e2e2c0';
+                        ctx.fillText(
+                            randomKatakanaCharacter,
+                            i * fontSize,
+                            columnPositions[i] * fontSize
+                        );
+                    }
+
+                    if (
+                        columnPositions[i] * fontSize > canvas.height &&
+                        Math.random() > 0.975
+                    ) {
+                        columnPositions[i] = 0;
+                    }
+
+                    if (
+                        renderingTopicRef.current[
+                            renderingTopicRef.current.length - 1
+                        ].hasRendered
+                    ) {
+                        activeColumnIndexRef.current =
+                            generateValidRandomNumber(
+                                columnPositions.length,
+                                activeColumnIndexRef.current
+                            );
+                        renderingTopicRef.current = formatRenderTopic(
+                            topicsThatFitCanvas[currentTopicIndexRef.current]
+                        );
+                        currentTopicIndexRef.current =
+                            currentTopicIndexRef.current ===
+                            topicsThatFitCanvas.length - 1
+                                ? 0
+                                : currentTopicIndexRef.current + 1;
+                    }
+
+                    columnPositions[i]++;
+                }
+            };
+
+            const animate = (time: number) => {
+                const delta = time - timestampOfLastAnimateRef.current;
+
+                if (delta >= 80) {
+                    draw();
+                    timestampOfLastAnimateRef.current = time;
+                }
+
+                animationFrameIdRef.current = requestAnimationFrame(animate);
+            };
+
+            animationFrameIdRef.current = requestAnimationFrame(animate);
+        } else if (!shouldAnimate) {
+            if (animationFrameIdRef.current) {
+                cancelAnimationFrame(animationFrameIdRef.current);
+            }
+        }
+
+        return () => {
+            if (animationFrameIdRef.current) {
+                cancelAnimationFrame(animationFrameIdRef.current);
+            }
+        };
+    }, [shouldAnimate, casedTopics, fontSize]);
+
+    return (
+        <div className={`DigitalRainContainer `}>
+            <canvas
+                ref={canvasRef}
+                className={`DigitalRain ${garganta ? 'garganta' : ''}`}
+            >
+                A The Matrix-style wall of falling text that occasionally reads
+                GitHub topics related to this project.
+            </canvas>
+        </div>
+    );
+};
+
+export default DigitalRain;

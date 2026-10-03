@@ -12,14 +12,14 @@ import {
 import { ProjectsContext } from './contexts/ProjectsContext';
 
 // Custom Components
-import Analytics from './components/Analytics/Analytics';
-import NavBar from './components/NavBar/NavBar';
-import ProjectRow from './components/ProjectRow/ProjectRow';
-import ToolBar from './components/ToolBar/ToolBar';
-import Overview from './components/Modal/Overview/Overview';
-import Error from './components/Modal/Error/Error';
-import NotAScrollbar from './components/NotAScrollbar/NotAScrollbar';
-import Cursor from './components/Cursor/Cursor';
+import Analytics from './components/features/Analytics/Analytics';
+import NavBar from './components/layout/NavBar/NavBar';
+import ProjectRow from './components/features/ProjectRow/ProjectRow';
+import ToolBar from './components/layout/ToolBar/ToolBar';
+import Overview from './components/common/Modal/Overview/Overview';
+import Error from './components/common/Modal/Error/Error';
+import NotAScrollbar from './components/features/NotAScrollbar/NotAScrollbar';
+import Cursor from './components/features/Cursor/Cursor';
 
 // Custom Styles
 import './index.css';
