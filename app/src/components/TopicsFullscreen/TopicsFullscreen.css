@@ -97,6 +97,25 @@
                 overflow 3s ease-in-out;
         }
 
+        .jaccard-similarity-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 0.5rem;
+            width: 100%;
+            height: auto;
+
+            li p {
+                line-height: 1.4;
+                max-width: 75ch;
+            }
+
+            li span {
+                color: var(--secondary-color);
+            }
+        }
+
         .topics-list {
             display: flex;
             flex-direction: column;

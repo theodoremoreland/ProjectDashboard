@@ -44,7 +44,8 @@ export const calculatePairwiseJaccardSimilarity = (
     for (const baseRepo of repos) {
         const baseTopics: Set<string> = new Set(baseRepo.topics);
         let totalJaccardScore: number = 0;
-        let closestMatch: number = 0;
+        let closestMatchLikeness: number = 0;
+        let closestMatchName: string = '';
 
         for (const referenceRepo of repos) {
             if (referenceRepo.name === baseRepo.name) {
@@ -68,7 +69,11 @@ export const calculatePairwiseJaccardSimilarity = (
                 unionCount === 0 ? 0 : intersectionCount / unionCount;
 
             totalJaccardScore += jaccardScore;
-            closestMatch = Math.max(closestMatch, jaccardScore);
+
+            if (jaccardScore >= closestMatchLikeness) {
+                closestMatchLikeness = jaccardScore;
+                closestMatchName = referenceRepo.name;
+            }
         }
 
         const averageJaccardScore: number =
@@ -77,7 +82,10 @@ export const calculatePairwiseJaccardSimilarity = (
         minJaccardScore = Math.min(minJaccardScore, averageJaccardScore);
 
         jaccardScores[baseRepo.name] = {
-            closestMatch,
+            closestMatch: {
+                projectName: closestMatchName,
+                likeness: closestMatchLikeness,
+            },
             jaccardSimilarityStandard: averageJaccardScore,
             jaccardSimilarityNormalized: 0, // Placeholder for normalized score calculation
         };

@@ -26,7 +26,10 @@ export interface PairwiseJaccardSimilarity {
          * How similar is the most similar repo to the selected project.
          * When paired against its closest sibling, there is an N probability that a topic in their combined pool belongs to both repos
          */
-        closestMatch: number;
+        closestMatch: {
+            projectName: string;
+            likeness: number;
+        };
         /**
          * How similar is every repos to the selected project.
          * The exact probability that a topic picked from that combined list belongs to both projects

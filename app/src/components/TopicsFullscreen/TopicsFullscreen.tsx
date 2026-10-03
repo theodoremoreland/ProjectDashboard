@@ -48,20 +48,61 @@ const TopicsFullscreen = ({
                         <p className="subtitle">
                             {casedTopics.length} GitHub topics
                         </p>
-                        <ul className="jaccard-similarity">
-                            {jaccardSimilarity &&
-                                Object.entries(jaccardSimilarity).map(
-                                    ([key, value]) => (
-                                        <li key={key}>
-                                            <span className="label">
-                                                {key}:
+                        <ul className="jaccard-similarity-list">
+                            {jaccardSimilarity && (
+                                <>
+                                    {' '}
+                                    <li>
+                                        <p>
+                                            Topics for this project are{' '}
+                                            <span>
+                                                {(
+                                                    jaccardSimilarity.jaccardSimilarityNormalized *
+                                                    100
+                                                ).toFixed(2)}
+                                                %
+                                            </span>{' '}
+                                            more typical than others.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Topics for this project overlap with
+                                            others{' '}
+                                            <span>
+                                                {(
+                                                    jaccardSimilarity.jaccardSimilarityStandard *
+                                                    100
+                                                ).toFixed(2)}
+                                                %
+                                            </span>{' '}
+                                            of the time.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            The project with the most similar
+                                            set of topics is{' '}
+                                            <span>
+                                                {
+                                                    jaccardSimilarity
+                                                        .closestMatch
+                                                        .projectName
+                                                }
+                                            </span>{' '}
+                                            with an overlap of{' '}
+                                            <span>
+                                                {(
+                                                    jaccardSimilarity
+                                                        .closestMatch.likeness *
+                                                    100
+                                                ).toFixed(2)}
+                                                %.
                                             </span>
-                                            <span className="value">
-                                                {(value * 100).toFixed(2)}%
-                                            </span>
-                                        </li>
-                                    )
-                                )}
+                                        </p>
+                                    </li>
+                                </>
+                            )}
                         </ul>
                         <ul className="topics-list">
                             {casedTopics.map((topic, index) => (
