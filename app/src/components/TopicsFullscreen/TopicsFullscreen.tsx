@@ -29,7 +29,7 @@ const TopicsFullscreen = ({
     const { pairwiseJaccardSimilarity } = useContext(ProjectsContext);
 
     const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
-    const jaccardSimilarity = pairwiseJaccardSimilarity[projectName];
+    const jaccardSimilarity = pairwiseJaccardSimilarity?.[projectName];
 
     return (
         <div className={`TopicsFullscreen ${show ? 'show' : 'hide'}`}>

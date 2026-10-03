@@ -39,7 +39,7 @@ export const ProjectsContext = createContext({
     >,
     featuredTopics: new Set<string>(),
     allUniqueTopics: new Set<string>(),
-    pairwiseJaccardSimilarity: {} as PairwiseJaccardSimilarity,
+    pairwiseJaccardSimilarity: {} as PairwiseJaccardSimilarity | undefined,
     isError: false,
 });
 
@@ -49,8 +49,9 @@ const ProjectsContextProvider = ({
     const [repos, setRepos] = useState<RepoData[] | undefined>(undefined);
     const [selectedProject, setSelectedProject] =
         useState<TaggedRepoData | null>(null);
-    const [pairwiseJaccardSimilarity, setPairwiseJaccardSimilarity] =
-        useState<PairwiseJaccardSimilarity>({});
+    const [pairwiseJaccardSimilarity, setPairwiseJaccardSimilarity] = useState<
+        PairwiseJaccardSimilarity | undefined
+    >();
     const [allUniqueTopics, setAllUniqueTopics] = useState<Set<string>>(
         new Set()
     );
@@ -110,8 +111,15 @@ const ProjectsContextProvider = ({
     useEffect(() => {
         if (data) {
             const orderedProjects: RepoData[] = defaultOrder(data);
-            const _pairwise =
-                calculatePairwiseJaccardSimilarity(orderedProjects);
+            let _pairwise: PairwiseJaccardSimilarity | undefined;
+
+            try {
+                _pairwise = calculatePairwiseJaccardSimilarity(orderedProjects);
+            } catch (e) {
+                const errorMessage: string = extractErrorMessage(e);
+
+                console.log(errorMessage);
+            }
 
             setRepos(orderedProjects);
             setPairwiseJaccardSimilarity(_pairwise);
