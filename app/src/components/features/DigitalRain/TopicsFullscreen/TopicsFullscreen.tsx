@@ -82,8 +82,11 @@ const TopicsFullscreen = ({
                                     <li>
                                         <p>
                                             The project with the most similar
-                                            set of topics is{' '}
+                                            set of topics is project{' '}
                                             <span>
+                                                #
+                                                {jaccardSimilarity.closestMatch
+                                                    .index + 1}{' '}
                                                 {
                                                     jaccardSimilarity
                                                         .closestMatch

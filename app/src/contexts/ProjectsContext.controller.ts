@@ -46,8 +46,9 @@ export const calculatePairwiseJaccardSimilarity = (
         let totalJaccardScore: number = 0;
         let closestMatchLikeness: number = 0;
         let closestMatchName: string = '';
+        let closestMatchIndex: number = Infinity;
 
-        for (const referenceRepo of repos) {
+        for (const [index, referenceRepo] of repos.entries()) {
             if (referenceRepo.name === baseRepo.name) {
                 continue; // Skip the selected project itself
             }
@@ -73,6 +74,7 @@ export const calculatePairwiseJaccardSimilarity = (
             if (jaccardScore >= closestMatchLikeness) {
                 closestMatchLikeness = jaccardScore;
                 closestMatchName = referenceRepo.name;
+                closestMatchIndex = index;
             }
         }
 
@@ -83,6 +85,7 @@ export const calculatePairwiseJaccardSimilarity = (
 
         jaccardScores[baseRepo.name] = {
             closestMatch: {
+                index: closestMatchIndex,
                 projectName: closestMatchName,
                 likeness: closestMatchLikeness,
             },
