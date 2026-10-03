@@ -3,7 +3,6 @@ import { ReactElement, useContext, useMemo } from 'react';
 
 // Custom
 import { properCase } from '../../utils/properCase';
-import getPairwiseJaccard from '../../utils/getPairwiseJaccard';
 
 // Context
 import { ProjectsContext } from '../../contexts/ProjectsContext';
@@ -27,16 +26,10 @@ const TopicsFullscreen = ({
     projectName,
     topics,
 }: Props): ReactElement => {
-    const { repos } = useContext(ProjectsContext);
+    const { pairwiseJaccardSimilarity } = useContext(ProjectsContext);
 
     const casedTopics: string[] = useMemo(() => properCase(topics), [topics]);
-    const jaccardSimilarity: {
-        high: number;
-        average: number;
-    } = useMemo(
-        () => getPairwiseJaccard(repos || [], projectName, topics),
-        [repos, topics, projectName]
-    );
+    const jaccardSimilarity = pairwiseJaccardSimilarity[projectName];
 
     return (
         <div className={`TopicsFullscreen ${show ? 'show' : 'hide'}`}>

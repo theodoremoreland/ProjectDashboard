@@ -13,7 +13,10 @@ import {
 import { useQuery } from '@tanstack/react-query';
 
 // Controller
-import { defaultOrder } from './ProjectsContext.controller';
+import {
+    defaultOrder,
+    calculatePairwiseJaccardSimilarity,
+} from './ProjectsContext.controller';
 
 // Custom
 import { getRepoData } from '../http/getRepoData';
@@ -21,7 +24,7 @@ import extractErrorMessage from '../utils/extractErrorMessage';
 import backupData from '../assets/data/backup-data.json';
 
 // Types
-import { RepoData, TaggedRepoData } from '../types';
+import { RepoData, TaggedRepoData, PairwiseJaccardSimilarity } from '../types';
 
 interface ProjectsProviderProps {
     children: ReactElement;
@@ -36,6 +39,7 @@ export const ProjectsContext = createContext({
     >,
     featuredTopics: new Set<string>(),
     allUniqueTopics: new Set<string>(),
+    pairwiseJaccardSimilarity: {} as PairwiseJaccardSimilarity,
     isError: false,
 });
 
@@ -45,6 +49,8 @@ const ProjectsContextProvider = ({
     const [repos, setRepos] = useState<RepoData[] | undefined>(undefined);
     const [selectedProject, setSelectedProject] =
         useState<TaggedRepoData | null>(null);
+    const [pairwiseJaccardSimilarity, setPairwiseJaccardSimilarity] =
+        useState<PairwiseJaccardSimilarity>({});
     const [allUniqueTopics, setAllUniqueTopics] = useState<Set<string>>(
         new Set()
     );
@@ -104,8 +110,11 @@ const ProjectsContextProvider = ({
     useEffect(() => {
         if (data) {
             const orderedProjects: RepoData[] = defaultOrder(data);
+            const _pairwise =
+                calculatePairwiseJaccardSimilarity(orderedProjects);
 
             setRepos(orderedProjects);
+            setPairwiseJaccardSimilarity(_pairwise);
             setAllUniqueTopics(
                 new Set(orderedProjects.flatMap((repo) => repo.topics))
             );
@@ -128,6 +137,7 @@ const ProjectsContextProvider = ({
                 selectedProject,
                 setSelectedProject,
                 featuredTopics,
+                pairwiseJaccardSimilarity,
                 allUniqueTopics,
                 isError,
             }}

@@ -20,6 +20,25 @@ export interface TaggedRepoData extends RepoData {
     isFeatured: boolean;
 }
 
+export interface PairwiseJaccardSimilarity {
+    [projectName: string]: {
+        /**
+         * How similar is the most similar repo to the selected project.
+         * When paired against its closest sibling, there is an N probability that a topic in their combined pool belongs to both repos
+         */
+        closestMatch: number;
+        /**
+         * How similar is every repos to the selected project.
+         * The exact probability that a topic picked from that combined list belongs to both projects
+         */
+        jaccardSimilarityStandard: number;
+        /**
+         * How typical is the selected project compared to all other repos (i.e. typicality percentile)
+         */
+        jaccardSimilarityNormalized: number;
+    };
+}
+
 export interface TopicCounts {
     frameworks: { [key: string]: number };
     competencies: { [key: string]: number };
