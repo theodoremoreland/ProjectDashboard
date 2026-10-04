@@ -10,6 +10,8 @@ import {
     formatRenderTopic,
     generateValidRandomNumber,
     RenderTopic,
+    KATAKANA,
+    BUFFER_AMOUNT,
 } from './DigitalRain.utils';
 
 // Styles
@@ -21,9 +23,6 @@ interface Props {
     garganta: boolean;
     shouldProperCase?: boolean;
 }
-
-const KATAKANA: string[] =
-    'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890'.split('');
 
 const DigitalRain = ({
     topics,
@@ -71,9 +70,10 @@ const DigitalRain = ({
             const ctx: CanvasRenderingContext2D | null =
                 canvas.getContext('2d');
             const columns: number = canvas.width / fontSize;
+            /** Track the vertical 'y' position of each column */
             const columnPositions: number[] = Array.from({
                 length: columns,
-            }).fill(1) as number[]; // Track the vertical 'y' position of each column
+            }).fill(1) as number[];
             const topicsThatFitCanvas: string[] = casedTopics.filter(
                 (topic: string) => {
                     return topic.length * fontSize < canvas.height;
@@ -83,38 +83,41 @@ const DigitalRain = ({
             const draw = (): void => {
                 if (!ctx) return;
 
+                const renderingTopic: RenderTopic = renderingTopicRef.current;
+
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // Draw a translucent background to create the trailing/fade effect
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.font = fontSize + 'px custom-regular';
 
                 for (let i = 0; i < columnPositions.length; i++) {
+                    const currentRow: number = columnPositions[i];
+                    const currentColumn: number = i;
                     const numberOfCharactersLeftToRender: number =
-                        renderingTopicRef.current.reduce((prev, curr) => {
+                        renderingTopic.reduce((prev, curr) => {
                             if (!curr.hasRendered) {
                                 return prev + 1;
                             } else {
                                 return prev;
                             }
                         }, 0);
+                    const isBuffering: boolean =
+                        numberOfCharactersLeftToRender >
+                        renderingTopic.length - BUFFER_AMOUNT;
 
                     if (
-                        activeColumnIndexRef.current === i &&
+                        activeColumnIndexRef.current === currentColumn &&
                         numberOfCharactersLeftToRender > 0
                     ) {
-                        ctx.fillStyle = '#e2ff04';
+                        ctx.fillStyle = isBuffering ? '#e2e2e2c0' : '#e2ff04';
 
-                        for (
-                            let j = 0;
-                            j < renderingTopicRef.current.length;
-                            j++
-                        ) {
-                            const char = renderingTopicRef.current[j];
+                        for (let j = 0; j < renderingTopic.length; j++) {
+                            const char = renderingTopic[j];
 
                             if (char.hasRendered === false) {
                                 ctx.fillText(
                                     char.char,
-                                    i * fontSize,
-                                    columnPositions[i] * fontSize
+                                    currentColumn * fontSize,
+                                    currentRow * fontSize
                                 );
 
                                 char.hasRendered = true;
@@ -131,23 +134,20 @@ const DigitalRain = ({
                         ctx.fillStyle = '#e2e2e2c0';
                         ctx.fillText(
                             randomKatakanaCharacter,
-                            i * fontSize,
-                            columnPositions[i] * fontSize
+                            currentColumn * fontSize,
+                            currentRow * fontSize
                         );
                     }
 
                     if (
-                        columnPositions[i] * fontSize > canvas.height &&
+                        currentRow * fontSize > canvas.height &&
                         Math.random() > 0.975
                     ) {
+                        // Reset row for current column
                         columnPositions[i] = 0;
                     }
 
-                    if (
-                        renderingTopicRef.current[
-                            renderingTopicRef.current.length - 1
-                        ].hasRendered
-                    ) {
+                    if (renderingTopic[renderingTopic.length - 1].hasRendered) {
                         activeColumnIndexRef.current =
                             generateValidRandomNumber(
                                 columnPositions.length,
