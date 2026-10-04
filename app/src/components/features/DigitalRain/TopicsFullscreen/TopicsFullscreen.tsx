@@ -3,6 +3,7 @@ import { ReactElement, useContext, useMemo } from 'react';
 
 // Custom
 import { properCase } from '../../../../utils/properCase';
+import formatPercentile from '../../../../utils/formatPercentile';
 
 // Context
 import { ProjectsContext } from '../../../../contexts/ProjectsContext';
@@ -57,11 +58,10 @@ const TopicsFullscreen = ({
                                             This project's set of topics are in
                                             the{' '}
                                             <span>
-                                                {(
+                                                {formatPercentile(
                                                     jaccardSimilarity.jaccardSimilarityNormalized *
-                                                    100
-                                                ).toFixed(0)}
-                                                th
+                                                        100
+                                                )}
                                             </span>{' '}
                                             percentile for typicality across all
                                             projects.
