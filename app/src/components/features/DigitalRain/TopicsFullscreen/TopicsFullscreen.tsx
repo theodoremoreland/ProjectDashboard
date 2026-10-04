@@ -70,7 +70,7 @@ const TopicsFullscreen = ({
                                     <li>
                                         <p>
                                             Topics for this project overlap with
-                                            others{' '}
+                                            topics in other projects{' '}
                                             <span>
                                                 {(
                                                     jaccardSimilarity.jaccardSimilarityStandard *

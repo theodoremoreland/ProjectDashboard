@@ -82,6 +82,16 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                             percentage of total deployments that resulted in a
                             hotfix PR or incident issue.
                         </li>
+                        <li>
+                            <strong>Deployment Rework Rate:</strong>While CFR
+                            shows the immediate failure rate of changes,
+                            Deployment Rework Rate shows how much total
+                            engineering capacity is swallowed by chasing and
+                            deploying fixes after the fact. In other words, 1
+                            failure can cause 6 reworks, and you can have 6
+                            reworks without necessarily causing 1+ deployment
+                            failures.
+                        </li>
                     </ul>
                 </article>
                 <article>
