@@ -85,12 +85,12 @@ const Overview = ({ handleClose }: Props): ReactElement => {
                         <li>
                             <strong>Deployment Rework Rate:</strong>While CFR
                             shows the immediate failure rate of changes,
-                            Deployment Rework Rate shows how much total
-                            engineering capacity is swallowed by chasing and
-                            deploying fixes after the fact. In other words, 1
-                            failure can cause 6 reworks, and you can have 6
-                            reworks without necessarily causing 1+ deployment
-                            failures.
+                            Deployment Rework Rate shows how much work must be
+                            done to fix a production issue regardless of whether
+                            or not said issue was a deployment failure
+                            in-and-of-itself. In other words, 1 failure can
+                            cause 6 reworks, and you can have 6 reworks without
+                            necessarily causing 1+ deployment failures.
                         </li>
                     </ul>
                 </article>
