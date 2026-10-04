@@ -1,5 +1,11 @@
 import { Endpoints } from '@octokit/types';
 
+export enum ProjectType {
+    Modernization = 'Modernization',
+    Experiment = 'Experiment',
+    Practical = 'Practical',
+}
+
 export interface RepoData {
     id: number;
     name: string;

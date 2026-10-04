@@ -20,6 +20,28 @@ _NOTE: The terms "project" and "repository" are used interchangeably throughout 
 
 https://dora.dev/guides/dora-metrics/
 
+#### Throughput and instability
+
+DORA’s software delivery performance metrics focus on a team’s ability to deliver software safely, quickly, and efficiently. They can be divided into metrics that show the throughput of software changes, and metrics that show instability of software changes.
+Throughput
+
+Throughput is a measure of how many changes can move through the system over a period of time. Higher throughput means that the system can move more changes through to the production environment. DORA uses three factors to measure software delivery throughput:
+
+- Change lead time: The amount of time it takes for a change to go from committed to version control to deployed in production.
+
+- Deployment frequency: The number of deployments over a given period or the time between deployments.
+  Failed deployment recovery time: The time it takes to recover from a deployment that fails and requires immediate intervention.
+
+#### Instability
+
+Instability is a measure of how well the software deployments go. When deployments go well, teams can confidently push more changes into production and users are less likely to experience issues with the application immediately following a deployment. DORA uses two factors to measure software delivery instability:
+
+- Change fail rate: The ratio of deployments that require immediate intervention following a deployment. Likely resulting in a rollback of the changes or a “hotfix” to quickly remediate any issues.
+
+- Deployment rework rate: The ratio of deployments that are unplanned but happen as a result of an incident in production.
+
+Taken together, these two factors for software delivery performance (throughput and instability) give teams a high-level understanding of their software delivery performance. Measuring these over time provides insight into how software delivery performance is changing. These factors can be used to measure any application or service, regardless of the technology stack, the complexity of the deployment processes, or its end users.
+
 #### Relationship between CFR and DRR
 
 - **1 failure can cause multiple deployment reworks**
