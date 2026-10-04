@@ -17,6 +17,8 @@ interface Props {
     setShowOverviewModal: (show: boolean) => void;
 }
 
+const isDevEnv: boolean = import.meta.env.DEV;
+
 const NavBar = ({
     setShowAnalytics,
     setShowOverviewModal,
@@ -41,15 +43,17 @@ const NavBar = ({
             <div id="nav-content">
                 <h1>THEO_DORA</h1>
                 <ul id="desktop-menu">
-                    <li
-                        id="analytics-nav"
-                        title="Analytics"
-                        role="presentation"
-                        onClick={() => setShowAnalytics(true)}
-                    >
-                        <QueryStatsIcon className="query_stats icon" />
-                        <span>Analytics</span>
-                    </li>
+                    {isDevEnv && (
+                        <li
+                            id="analytics-nav"
+                            title="Analytics"
+                            role="presentation"
+                            onClick={() => setShowAnalytics(true)}
+                        >
+                            <QueryStatsIcon className="query_stats icon" />
+                            <span>Analytics</span>
+                        </li>
+                    )}
                     <a
                         href="https://github.com/theodoremoreland"
                         target="_blank"
@@ -84,18 +88,20 @@ const NavBar = ({
                     open={isMobileMenuOpen}
                     onClose={handleMobileMenuClose}
                 >
-                    <MenuItem
-                        id="analytics-nav"
-                        className="mobile-menu-item"
-                        title="Analytics"
-                        onClick={() => {
-                            setShowAnalytics(true);
-                            handleMobileMenuClose();
-                        }}
-                    >
-                        <QueryStatsIcon className="query_stats icon" />
-                        <span>Analytics</span>
-                    </MenuItem>
+                    {isDevEnv && (
+                        <MenuItem
+                            id="analytics-nav"
+                            className="mobile-menu-item"
+                            title="Analytics"
+                            onClick={() => {
+                                setShowAnalytics(true);
+                                handleMobileMenuClose();
+                            }}
+                        >
+                            <QueryStatsIcon className="query_stats icon" />
+                            <span>Analytics</span>
+                        </MenuItem>
+                    )}
                     <MenuItem
                         id="github-nav"
                         className="mobile-menu-item"

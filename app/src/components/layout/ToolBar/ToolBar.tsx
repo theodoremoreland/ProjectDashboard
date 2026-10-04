@@ -13,6 +13,8 @@ import FilterListIcon from '../../../assets/images/icons/filter_list.svg?react';
 // Styles
 import './ToolBar.css';
 
+const isDevEnv: boolean = import.meta.env.DEV;
+
 interface Props {
     scrollToProject: (id: string) => void;
     setShowOverviewModal: (show: boolean) => void;
@@ -31,15 +33,17 @@ const ToolBar = ({
                     <SearchBar scrollToProject={scrollToProject} />
                 </div>
                 <ul id="toolbar-right">
-                    <li className="toolbar-item">
-                        <button
-                            id="active-users-button"
-                            className="toolbar-button"
-                            type="button"
-                        >
-                            <PersonIcon className="person icon" />
-                        </button>
-                    </li>
+                    {isDevEnv && (
+                        <li className="toolbar-item">
+                            <button
+                                id="active-users-button"
+                                className="toolbar-button"
+                                type="button"
+                            >
+                                <PersonIcon className="person icon" />
+                            </button>
+                        </li>
+                    )}
                     <li className="toolbar-item">
                         {showTechList && (
                             <TechList setShowTechList={setShowTechList} />
