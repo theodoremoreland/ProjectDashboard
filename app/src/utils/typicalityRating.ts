@@ -1,10 +1,10 @@
 export enum TypicalityRating {
-    Emblematic = 'Emblematic',
-    Typical = 'Typical',
-    Common = 'Common',
-    Uncommon = 'Uncommon',
-    Atypical = 'Atypical',
-    Outlier = 'Outlier',
+    Emblematic = 'emblematic',
+    Typical = 'typical',
+    Common = 'common',
+    Uncommon = 'uncommon',
+    Atypical = 'atypical',
+    Outlier = 'an outlier',
 }
 
 const rateTypicality = (percentage: number): string => {

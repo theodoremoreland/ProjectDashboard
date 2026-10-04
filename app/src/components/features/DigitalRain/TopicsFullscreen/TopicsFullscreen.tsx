@@ -4,6 +4,7 @@ import { ReactElement, useContext, useMemo } from 'react';
 // Custom
 import { properCase } from '../../../../utils/properCase';
 import formatPercentile from '../../../../utils/formatPercentile';
+import rateTypicality from '../../../../utils/typicalityRating';
 
 // Context
 import { ProjectsContext } from '../../../../contexts/ProjectsContext';
@@ -49,66 +50,65 @@ const TopicsFullscreen = ({
                         <p className="subtitle">
                             {casedTopics.length} GitHub topics
                         </p>
-                        <ul className="jaccard-similarity-list">
-                            {jaccardSimilarity && (
-                                <>
-                                    {' '}
-                                    <li>
-                                        <p>
-                                            This project's set of topics are in
-                                            the{' '}
-                                            <span>
-                                                {formatPercentile(
-                                                    jaccardSimilarity.jaccardSimilarityNormalized *
-                                                        100
-                                                )}
-                                            </span>{' '}
-                                            percentile for typicality across all
-                                            projects.
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Topics for this project overlap with
-                                            topics in other projects{' '}
-                                            <span>
-                                                {(
-                                                    jaccardSimilarity.jaccardSimilarityStandard *
+                        {jaccardSimilarity && (
+                            <ul className="jaccard-similarity-list">
+                                <li>
+                                    <p>
+                                        This project's set of topics are in the{' '}
+                                        <span>
+                                            {formatPercentile(
+                                                jaccardSimilarity.jaccardSimilarityNormalized *
                                                     100
-                                                ).toFixed(2)}
-                                                %
-                                            </span>{' '}
-                                            of the time.
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            The project with the most similar
-                                            set of topics is project{' '}
-                                            <span>
-                                                #
-                                                {jaccardSimilarity.closestMatch
-                                                    .index + 1}{' '}
-                                                {
-                                                    jaccardSimilarity
-                                                        .closestMatch
-                                                        .projectName
-                                                }
-                                            </span>{' '}
-                                            with an overlap of{' '}
-                                            <span>
-                                                {(
-                                                    jaccardSimilarity
-                                                        .closestMatch.likeness *
-                                                    100
-                                                ).toFixed(2)}
-                                                %.
-                                            </span>
-                                        </p>
-                                    </li>
-                                </>
-                            )}
-                        </ul>
+                                            )}
+                                        </span>{' '}
+                                        percentile for typicality across all
+                                        projects. This set is{' '}
+                                        {rateTypicality(
+                                            jaccardSimilarity.jaccardSimilarityNormalized *
+                                                100
+                                        )}
+                                        .
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Topics for this project overlap with
+                                        topics in other projects{' '}
+                                        <span>
+                                            {(
+                                                jaccardSimilarity.jaccardSimilarityStandard *
+                                                100
+                                            ).toFixed(2)}
+                                            %
+                                        </span>{' '}
+                                        of the time.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        The project with the most similar set of
+                                        topics is project{' '}
+                                        <span>
+                                            #
+                                            {jaccardSimilarity.closestMatch
+                                                .index + 1}{' '}
+                                            {
+                                                jaccardSimilarity.closestMatch
+                                                    .projectName
+                                            }
+                                        </span>{' '}
+                                        with an overlap of{' '}
+                                        <span>
+                                            {(
+                                                jaccardSimilarity.closestMatch
+                                                    .likeness * 100
+                                            ).toFixed(2)}
+                                            %.
+                                        </span>
+                                    </p>
+                                </li>
+                            </ul>
+                        )}
                         <ul className="topics-list">
                             {casedTopics.map((topic, index) => (
                                 <li
