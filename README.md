@@ -30,7 +30,8 @@ Throughput is a measure of how many changes can move through the system over a p
 - Change lead time: The amount of time it takes for a change to go from committed to version control to deployed in production.
 
 - Deployment frequency: The number of deployments over a given period or the time between deployments.
-  Failed deployment recovery time: The time it takes to recover from a deployment that fails and requires immediate intervention.
+
+- Failed deployment recovery time: The time it takes to recover from a deployment that fails and requires immediate intervention.
 
 #### Instability
 
@@ -73,6 +74,27 @@ Rework can occur without a corresponding deployment failure in several scenarios
 - **Environmental / Infrastructure Issues:** A third-party API changes, an SSL certificate unexpectedly expires, or cloud database load spikes. The original code deployment was perfectly fine, but you must trigger an **unplanned deployment** (e.g., config update or hotfix) to handle the outage.
 - **Discovered Production Bugs (Not tied to a recent release):** A subtle edge-case bug that was deployed 6 months ago suddenly gets triggered by a surge in traffic today. Because it wasn't caused by a recent deployment, it doesn't flag a new Change Failure—yet fixing it requires an **unplanned hotfix deployment** (Rework).
 - **User-Reported Data / UI Issues:** A bad data migration or broken UI element is discovered by users on live software. Even if it didn't crash the server or trigger a failed deployment alert, the emergency patch pushed to fix it counts as **Deployment Rework**.
+
+### Calculating
+
+Assumptions:
+
+- All new merges to main always triggers "deploy" GitHub action
+- All code commits directly in main (i.e. no merge & ignores changes outside of source code) are prod hotfixes
+- All production incidents are formally acknowledged once an issue labeled "incident" is created
+- Only incidents closed with a valid resolution label are formally acknowledged as resolved
+- All enhancements will start on their own branch and be merged via PR labeled "enhancement"
+- All "incidents" are production service failures or degradations whereas "bugs" are errors and unintended behavior that doesn't interfere and/or slow service
+- All bug fixes not considered a hotfix will start on their own branch and end in a PR labeled "bug"
+- Hotfixes can also start on their own branch and end in a PR merge, but they are labeled "hotfix"
+
+Formula:
+
+- Lead Time for Changes: average (Deploy action timestamp - First commit of PR timestamp)
+- Average successful "deploy" action runs per week
+- Change failure rate: Number of deployments causing at least one incident / total successful "deploy" runs
+- Deployment rework rate: (Number of incidents closed + number of hotfixes + number of bugs) / number of successful or unsuccessful deployments
+- Recovery time: successful deployment time - incident issue created time
 
 ## Technologies Used
 
