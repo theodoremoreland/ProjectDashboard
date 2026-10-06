@@ -22,7 +22,7 @@ https://dora.dev/guides/dora-metrics/
 
 #### Throughput and instability
 
-DORA’s software delivery performance metrics focus on a team’s ability to deliver software safely, quickly, and efficiently. They can be divided into metrics that show the throughput of software changes, and metrics that show instability of software changes.
+DORA's software delivery performance metrics focus on a team's ability to deliver software safely, quickly, and efficiently. They can be divided into metrics that show the throughput of software changes, and metrics that show instability of software changes.
 Throughput
 
 Throughput is a measure of how many changes can move through the system over a period of time. Higher throughput means that the system can move more changes through to the production environment. DORA uses three factors to measure software delivery throughput:
@@ -95,6 +95,12 @@ Formula:
 - Change failure rate: Number of deployments causing at least one incident / total successful "deploy" runs
 - Deployment rework rate: (Number of incidents closed + number of hotfixes + number of bugs) / number of successful or unsuccessful deployments
 - Recovery time: successful deployment time - incident issue created time
+
+Data points:
+
+- PRs (creation date, merged date, first commit date, and label)
+- "deploy" GitHub action status history (count, failures, successes, and timestamp and trigger)
+- Incidents (creation timestamp, closed timestamp, closed status / reason)
 
 ## Technologies Used
 
