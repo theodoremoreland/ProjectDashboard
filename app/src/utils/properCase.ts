@@ -98,7 +98,6 @@ const ProperCase: Record<string, string> = {
     'mui-x-charts': 'MUI X Charts',
     mvc: 'MVC',
     'open-api': 'OpenAPI',
-    pg: 'PostgreSQL',
     pg8000: 'pg8000',
     plotly: 'Plotly',
     plpgsql: 'PL/pgSQL',

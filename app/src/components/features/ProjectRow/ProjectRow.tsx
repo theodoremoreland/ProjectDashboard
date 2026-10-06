@@ -195,6 +195,11 @@ const ProjectRow = ({
                                     <p>No</p>
                                     <p>Data</p>
                                 </div>
+                                {/* <img
+                                    className="content"
+                                    src="https://mir-s3-cdn-cf.behance.net/project_modules/source/d20511205038723.66b3a6fe1a294.gif"
+                                    alt="Project preview"
+                                /> */}
                             </>
                         )}
                     </div>
