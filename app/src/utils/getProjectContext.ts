@@ -1,20 +1,30 @@
 import { TaggedRepoData } from '../types';
 
-// TODO: Change options to "For profit", "Experimental", "Practical", "Modernization", and "Refactor". But ensure reverse compat with old version of this project.
-const getProjectContext = (
-    projectData: TaggedRepoData
-): 'Coursework / Exercise' | 'Professional' | 'Personal' => {
-    if (
-        projectData.topics?.some(
-            (topic) => topic === 'coursework' || topic === 'exercise'
-        )
-    ) {
-        return 'Coursework / Exercise';
-    } else if (projectData.topics?.some((topic) => topic === 'professional')) {
-        return 'Professional';
-    } else {
-        return 'Personal';
+export enum ProjectContext {
+    Practical = 'Practical',
+    Experiment = 'Experiment',
+    Modernization = 'Modernization',
+}
+
+const hasTopic = (
+    projectData: TaggedRepoData,
+    searchTopic: string
+): boolean => {
+    return projectData.topics?.some((topic) => topic === searchTopic);
+};
+
+const getProjectContext = (projectData: TaggedRepoData): ProjectContext[] => {
+    const projectContexts: ProjectContext[] = [];
+
+    if (hasTopic(projectData, 'practical')) {
+        projectContexts.push(ProjectContext.Practical);
+    } else if (hasTopic(projectData, 'experiment')) {
+        projectContexts.push(ProjectContext.Experiment);
+    } else if (hasTopic(projectData, 'modernization')) {
+        projectContexts.push(ProjectContext.Modernization);
     }
+
+    return projectContexts;
 };
 
 export default getProjectContext;

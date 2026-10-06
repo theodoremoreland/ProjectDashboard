@@ -1,5 +1,5 @@
 // React
-import { ReactElement, useCallback, useState } from 'react';
+import { ReactElement, useCallback, useMemo, useState } from 'react';
 
 // Components
 import Corner from '../../../common/primitives/Corner/Corner';
@@ -8,7 +8,9 @@ import ImageCarousel from '../../../common/ImageCarousel/ImageCarousel';
 
 // Custom
 import { TaggedRepoData } from '../../../../types';
-import getProjectContext from '../../../../utils/getProjectContext';
+import getProjectContext, {
+    ProjectContext,
+} from '../../../../utils/getProjectContext';
 import { getImagesFromReadme } from '../../../../modules/readme';
 
 // Styles
@@ -30,6 +32,10 @@ const ThumbnailCard = ({
     const readmeImages: string[] = getImagesFromReadme(
         readme,
         projectData.name
+    );
+    const projectContext: ProjectContext[] = useMemo(
+        () => getProjectContext(projectData),
+        [projectData]
     );
 
     const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
@@ -61,9 +67,14 @@ const ThumbnailCard = ({
                 <Corner position="bottom-left" />
                 <div className="top">
                     <div className="pills-and-links">
-                        <span className="project-context">
-                            {getProjectContext(projectData)}
-                        </span>
+                        {projectContext.length > 0 && (
+                            <span
+                                title="Project type"
+                                className="project-context"
+                            >
+                                {projectContext}
+                            </span>
+                        )}
                     </div>
                     <div
                         className={`project-image-container ${hasSettled ? 'loaded' : 'loading'}`}
