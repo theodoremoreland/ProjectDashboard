@@ -10,6 +10,9 @@
   - [DORA Metrics](#dora-metrics)
 - [Technologies Used](#technologies-used)
 
+Change failure rate = How often a deployment causes an incident or deployment failure
+Deployment rework rate = How often are hotfixes deployed
+
 ## Overview
 
 DORA metrics, code quality, and metadata for my GitHub projects.
@@ -78,27 +81,33 @@ Rework can occur without a corresponding deployment failure in several scenarios
 Assumptions:
 
 - All new merges to main always triggers "deploy" GitHub action or GitHub Pages deployment
-- All code commits directly in main (i.e. no merge & ignores changes outside of source code) are prod hotfixes
+- Hotfixes are always submitted as a PR labeled "hotfix"
 - All production incidents are formally acknowledged once an issue labeled "incident" is created
 - Only incidents closed with a valid resolution label are formally acknowledged as resolved
 - All enhancements will start on their own branch and be merged via PR labeled "enhancement"
-- All "incidents" are production service failures or degradations whereas "bugs" are errors and unintended behavior that doesn't interfere and/or slow service
-- All bug fixes not considered a hotfix will start on their own branch and end in a PR labeled "bug"
-- Hotfixes can also start on their own branch and end in a PR merge, but they are labeled "hotfix"
+- All "incidents" are production service failures or degradations whereas all PRs and issues labeled "bug" or "bugfix" are non urgent and assume normal workflow
+
+Granted, these assumptions are done for version 1.0 of calculating DORA metrics, which is designed to be a simple as possible without compromising on the core value of DORA.
 
 Formula:
 
-- Lead Time for Changes: average (Deploy action timestamp - First commit of PR timestamp)
+- Lead Time for Changes: average (Deploy action timestamp - First commit of PR timestamp not labeled "hotfix")
+  **PRs** and **Deploy action metadata**
 - Average successful "deploy" action runs per week
-- Change failure rate: Number of deployments causing at least one incident / total successful "deploy" runs
-- Deployment rework rate: (Number of incidents closed + number of hotfixes + number of bugs) / number of deployments
-- Recovery time: incident closed - incident issue created time
+  **Deploy action metadata**
+- Change failure rate: Number of deployments with AT LEAST ONE issue labeled "incident" or AT LEAST ONE PR labeled "hotfix" or a failed deployment
+  **Deploy action metadata** and **PRs** and **Issues**
+- Deployment rework rate: (Number of issues labeled "incidents" closed and PRs labeled "hotfix" submitted) / number of deployments
+  **Issues** and **PRs**
+- Recovery time: average (issue labeled "incident" closed - issue labeled "incident" created time)
+  **Issues**
 
 Data points:
 
-- PRs (merged date, first commit date, and label)
-- "deploy" GitHub action status history (count, failures, successes, and timestamp)
-- Incidents (creation timestamp, closed timestamp, closed status / reason)
+- PRs (merged timestamp, first commit timestamp, label, submitted timestamp, merge target branch)
+- "deploy" GitHub action (count, status, and timestamp)
+- "deploy" GitHub Pages action (count, status, and timestamp)
+- Issues (created timestamp, closed timestamp, closed status / reason, label)
 
 ## Technologies Used
 
