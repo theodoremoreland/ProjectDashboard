@@ -48,8 +48,6 @@ Taken together, these two factors for software delivery performance (throughput 
 - **1 failure can cause multiple deployment reworks**
 - **Multiple deployment reworks can happen without a single deployment failure**
 
-**Option 2 ("all reworks require at least one failure") is false.**
-
 ---
 
 ### Why 1 Failure Can Cause Multiple Reworks
@@ -79,7 +77,7 @@ Rework can occur without a corresponding deployment failure in several scenarios
 
 Assumptions:
 
-- All new merges to main always triggers "deploy" GitHub action
+- All new merges to main always triggers "deploy" GitHub action or GitHub Pages deployment
 - All code commits directly in main (i.e. no merge & ignores changes outside of source code) are prod hotfixes
 - All production incidents are formally acknowledged once an issue labeled "incident" is created
 - Only incidents closed with a valid resolution label are formally acknowledged as resolved
@@ -93,13 +91,13 @@ Formula:
 - Lead Time for Changes: average (Deploy action timestamp - First commit of PR timestamp)
 - Average successful "deploy" action runs per week
 - Change failure rate: Number of deployments causing at least one incident / total successful "deploy" runs
-- Deployment rework rate: (Number of incidents closed + number of hotfixes + number of bugs) / number of successful or unsuccessful deployments
-- Recovery time: successful deployment time - incident issue created time
+- Deployment rework rate: (Number of incidents closed + number of hotfixes + number of bugs) / number of deployments
+- Recovery time: incident closed - incident issue created time
 
 Data points:
 
-- PRs (creation date, merged date, first commit date, and label)
-- "deploy" GitHub action status history (count, failures, successes, and timestamp and trigger)
+- PRs (merged date, first commit date, and label)
+- "deploy" GitHub action status history (count, failures, successes, and timestamp)
 - Incidents (creation timestamp, closed timestamp, closed status / reason)
 
 ## Technologies Used
